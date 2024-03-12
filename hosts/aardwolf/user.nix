@@ -9,6 +9,7 @@
     # gui
     alacritty.enable = true;
     firefox.enable = true;
+    nextcloud-client.enable = true;
 
     # cli
     bat.enable = true;

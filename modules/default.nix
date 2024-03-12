@@ -9,6 +9,7 @@
     # gui
     ./alacritty
     ./firefox
+    ./nextcloud-client
 
     # cli
     ./bat
