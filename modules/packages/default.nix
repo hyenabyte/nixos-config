@@ -30,6 +30,10 @@ in {
       # Applications
       vesktop
       steam
+      krita
+      blender
+      inkscape
+      spotify
     ];
   };
 }
