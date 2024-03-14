@@ -36,11 +36,8 @@
         modules = [
           {networking.hostName = hostname;}
           # General configuration (users, networking, sound, etc)
-          # ./modules/system/configuration.nix
           (./. + "/hosts/${hostname}/system.nix")
-          # Hardware config (bootloader, kernel modules, filesystems, etc)
-          # DO NOT USE MY HARDWARE CONFIG!! USE YOUR OWN!!
-          # (./. + "/hosts/${hostname}/hardware-configuration.nix")
+
           home-manager.nixosModules.home-manager
           {
             home-manager = {
@@ -63,8 +60,6 @@
     nixosConfigurations = {
       # Now, defining a new system is can be done in one line
       #                                Architecture   Hostname
-      # laptop = mkSystem inputs.nixpkgs "x86_64-linux" "laptop";
-      # desktop = mkSystem inputs.nixpkgs "x86_64-linux" "desktop";
       aardwolf = mkSystem inputs.nixpkgs "x86_64-linux" "aardwolf";
       possum = mkSystem inputs.nixpkgs "x86_64-linux" "possum";
     };

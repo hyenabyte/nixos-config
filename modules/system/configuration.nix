@@ -12,10 +12,8 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-
   # Enable flakes
   nix.settings.experimental-features = ["nix-command" "flakes"];
-
 
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -25,8 +23,6 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
-
-
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -39,8 +35,6 @@
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
-
-
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
@@ -74,16 +68,4 @@
   #   enable = true;
   #   enableSSHSupport = true;
   # };
-
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
-
 }

@@ -9,26 +9,24 @@ with lib; let
 in {
   options.samba = {enable = mkEnableOption "samba";};
   config = mkIf cfg.enable {
-  
-    services.samba-wsdd.enable = true; # make shares visible for windows 10 clients
-  
-    networking.firewall.allowedTCPPorts = [
-      5357 # wsdd
-    ];
-  
-    networking.firewall.allowedUDPPorts = [
-      3702 # wsdd
-    ];
-  
+    # networking.firewall.allowedTCPPorts = [
+    #   5357 # wsdd
+    # ];
+
+    # networking.firewall.allowedUDPPorts = [
+    #   3702 # wsdd
+    # ];
+
     services.samba = {
       enable = true;
       securityType = "user";
-      
+      openFirewall = true;
+
       extraConfig = ''
         workgroup = WORKGROUP
         server string = smbnix
         netbios name = smbnix
-        security = user 
+        security = user
         #use sendfile = yes
         #max protocol = smb2
         # note: localhost is the ipv6 localhost ::1
@@ -37,7 +35,7 @@ in {
         guest account = nobody
         map to guest = bad user
       '';
-      
+
       shares = {
         public = {
           path = "/mnt/disk/Shares/Public";
@@ -49,7 +47,7 @@ in {
           "force user" = "hyena";
           "force group" = "users";
         };
-        
+
         private = {
           path = "/mnt/disk/Shares/Private";
           browseable = "yes";
@@ -62,5 +60,8 @@ in {
         };
       };
     };
+
+    services.samba-wsdd.enable = true; # make shares visible for windows 10 clients
+    services.samba-wsdd.openFirewall = true;
   };
 }

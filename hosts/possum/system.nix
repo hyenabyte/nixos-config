@@ -14,14 +14,15 @@
     ../../modules/system/tailscale.nix
     ../../modules/system/ssh.nix
     ../../modules/system/samba.nix
+    ../../modules/system/firewall.nix
   ];
 
   locale-dk.enable = true;
   tailscale.enable = true;
   ssh.enable = true;
   samba.enable = true;
+  firewall.enable = true;
 
-  
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave
