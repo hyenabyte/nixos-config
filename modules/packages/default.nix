@@ -34,6 +34,10 @@ in {
       blender
       inkscape
       spotify
+      vlc
+
+      # Development
+      # beekeeper-studio
     ];
   };
 }
