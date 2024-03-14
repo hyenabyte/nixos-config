@@ -15,6 +15,7 @@
     ../../modules/system/ssh.nix
     ../../modules/system/samba.nix
     ../../modules/system/firewall.nix
+    ../../modules/system/podman.nix
   ];
 
   locale-dk.enable = true;
@@ -22,6 +23,7 @@
   ssh.enable = true;
   samba.enable = true;
   firewall.enable = true;
+  podman.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
