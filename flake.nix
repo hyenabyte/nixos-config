@@ -66,6 +66,7 @@
       # laptop = mkSystem inputs.nixpkgs "x86_64-linux" "laptop";
       # desktop = mkSystem inputs.nixpkgs "x86_64-linux" "desktop";
       aardwolf = mkSystem inputs.nixpkgs "x86_64-linux" "aardwolf";
+      possum = mkSystem inputs.nixpkgs "x86_64-linux" "possum";
     };
   };
 }
