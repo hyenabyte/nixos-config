@@ -6,16 +6,12 @@
   pkgs,
   ...
 }: {
-  imports = [
-    # Include the results of the hardware scan.
-    # ./hardware-configuration.nix
-  ];
+  imports = [];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -24,24 +20,6 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
-
-  # Set your time zone.
-  # time.timeZone = "Europe/Copenhagen";
-
-  # Select internationalisation properties.
-  # i18n.defaultLocale = "en_DK.UTF-8";
-
-  # i18n.extraLocaleSettings = {
-  #   LC_ADDRESS = "da_DK.UTF-8";
-  #   LC_IDENTIFICATION = "da_DK.UTF-8";
-  #   LC_MEASUREMENT = "da_DK.UTF-8";
-  #   LC_MONETARY = "da_DK.UTF-8";
-  #   LC_NAME = "da_DK.UTF-8";
-  #   LC_NUMERIC = "da_DK.UTF-8";
-  #   LC_PAPER = "da_DK.UTF-8";
-  #   LC_TELEPHONE = "da_DK.UTF-8";
-  #   LC_TIME = "da_DK.UTF-8";
-  # };
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
@@ -85,23 +63,6 @@
 
   hardware.bluetooth.enable = true; # enables support for Bluetooth
   hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
-
-  # Fonts
-
-  fonts = {
-    packages = with pkgs; [
-      roboto
-      openmoji-color
-      (nerdfonts.override {fonts = ["Agave" "Iosevka"];})
-    ];
-
-    fontconfig = {
-      hinting.autohint = true;
-      defaultFonts = {
-        emoji = ["OpenMoji Color"];
-      };
-    };
-  };
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
