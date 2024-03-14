@@ -7,8 +7,6 @@
 with lib; let
   cfg =
     config.modules.packages;
-  screen = pkgs.writeShellScriptBin "screen" ''${builtins.readFile ./screen}'';
-  bandw = pkgs.writeShellScriptBin "bandw" ''${builtins.readFile ./bandw}'';
   maintenance = pkgs.writeShellScriptBin "maintenance" ''${builtins.readFile ./maintenance}'';
 in {
   options.modules.packages = {enable = mkEnableOption "packages";};
@@ -28,13 +26,13 @@ in {
       alejandra
 
       # Applications
-      vesktop
-      steam
-      krita
-      blender
-      inkscape
-      spotify
-      vlc
+      # vesktop
+      # steam
+      # krita
+      # blender
+      # inkscape
+      # spotify
+      # vlc
 
       # Development
       # beekeeper-studio
