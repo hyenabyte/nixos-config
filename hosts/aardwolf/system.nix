@@ -15,7 +15,7 @@
     ../../modules/system/fonts.nix
     ../../modules/system/plasma.nix
     ../../modules/system/bluetooth.nix
-    ../../modules/system/sound.nix
+    ../../modules/system/pipewire.nix
     ../../modules/system/tailscale.nix
   ];
 
@@ -25,7 +25,7 @@
   plasma.enable = true;
   tailscale.enable = true;
   bluetooth.enable = true;
-  sound.enable = true;
+  pipewire.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
