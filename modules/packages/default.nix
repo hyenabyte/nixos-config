@@ -37,6 +37,8 @@ in {
 
       # Development
       # beekeeper-studio
+
+      # Customization
     ];
   };
 }

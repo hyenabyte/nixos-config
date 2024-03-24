@@ -4,7 +4,6 @@
   config,
   ...
 }: {
-  home.stateVersion = "23.11";
   imports = [
     # gui
     ./alacritty
@@ -23,8 +22,5 @@
     ./zellij
     ./zoxide
     ./zsh
-
-    # system
-    ./packages
   ];
 }

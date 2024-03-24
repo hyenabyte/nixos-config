@@ -12,14 +12,17 @@ in {
     fonts = {
       packages = with pkgs; [
         roboto
-        openmoji-color
+        noto-fonts
+        noto-fonts-cjk
+        noto-fonts-emoji
         (nerdfonts.override {fonts = ["Agave" "Iosevka"];})
       ];
 
       fontconfig = {
         hinting.autohint = true;
         defaultFonts = {
-          emoji = ["OpenMoji Color"];
+          # emoji = [""];
+          monospace = ["Agave Nerd Font Mono"];
         };
       };
     };
