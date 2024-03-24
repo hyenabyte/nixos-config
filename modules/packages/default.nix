@@ -26,16 +26,19 @@ in {
       alejandra
 
       # Applications
-      # vesktop
-      # steam
-      # krita
-      # blender
-      # inkscape
-      # spotify
-      # vlc
+      blender
+      inkscape
+      krita
+      lutris
+      spotify
+      steam
+      vesktop
+      vlc
 
       # Development
       # beekeeper-studio
+
+      # Customization
     ];
   };
 }

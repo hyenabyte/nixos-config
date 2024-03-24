@@ -14,18 +14,20 @@
     ../../modules/system/locale-dk.nix
     ../../modules/system/fonts.nix
     ../../modules/system/plasma.nix
+    ../../modules/system/gnome.nix
     ../../modules/system/bluetooth.nix
-    ../../modules/system/sound.nix
+    ../../modules/system/pipewire.nix
     ../../modules/system/tailscale.nix
   ];
 
   nvidia.enable = true;
   locale-dk.enable = true;
   fonts.enable = true;
-  plasma.enable = true;
+  # plasma.enable = true;
+  gnome.enable = true;
   tailscale.enable = true;
   bluetooth.enable = true;
-  sound.enable = true;
+  pipewire.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
