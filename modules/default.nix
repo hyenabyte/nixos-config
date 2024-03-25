@@ -9,6 +9,7 @@
     ./alacritty
     ./firefox
     ./nextcloud-client
+    ./obs-studio
 
     # cli
     ./bat

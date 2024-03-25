@@ -9,6 +9,7 @@
       alacritty.enable = true;
       firefox.enable = true;
       nextcloud-client.enable = true;
+      obs-studio.enable = true;
 
       # cli
       bat.enable = true;
@@ -54,6 +55,7 @@
       # beekeeper-studio
 
       # Customization
+      gradience
       bibata-cursors
       orchis-theme
       tela-circle-icon-theme
