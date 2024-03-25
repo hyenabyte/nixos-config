@@ -9,6 +9,6 @@ with lib; let
 in {
   options.nix-ld = {enable = mkEnableOption "nix-ld";};
   config = mkIf cfg.enable {
-    services.nix-ld.enable = true;
+    programs.nix-ld.enable = true;
   };
 }
