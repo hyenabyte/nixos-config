@@ -9,14 +9,15 @@
     ./hardware-configuration.nix
 
     # System modules
-    ../../modules/system/configuration.nix
-    ../../modules/system/nvidia.nix
-    ../../modules/system/locale-dk.nix
-    ../../modules/system/fonts.nix
-    ../../modules/system/plasma.nix
-    ../../modules/system/gnome.nix
     ../../modules/system/bluetooth.nix
+    ../../modules/system/configuration.nix
+    ../../modules/system/fonts.nix
+    ../../modules/system/gnome.nix
+    ../../modules/system/locale-dk.nix
+    ../../modules/system/nix-ld.nix
+    ../../modules/system/nvidia.nix
     ../../modules/system/pipewire.nix
+    ../../modules/system/plasma.nix
     ../../modules/system/tailscale.nix
   ];
 
@@ -28,6 +29,7 @@
   tailscale.enable = true;
   bluetooth.enable = true;
   pipewire.enable = true;
+  nix-ld.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
