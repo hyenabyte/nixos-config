@@ -27,7 +27,7 @@
 
     # Packages
     home.packages = with pkgs; [
-      # Terminal
+      ### Terminal       ###
       antidote
       croc
       lazygit
@@ -36,30 +36,46 @@
       xsel
       yazi
 
-      # Nix
+      ### Nix            ###
       nil
       alejandra
 
-      # Applications
+      ### Applications   ###
       bitwarden
+      # gparted
+      vesktop
+      vivaldi
+
+      ### Multimedia     ###
+      spotify
+      vlc
+
+      ### Gaming         ###
+      # itch
+      lutris
+      prismlauncher
+      r2modman
+      steam
+
+      ### Graphical work ###
       blender
       inkscape
       krita
-      lutris
-      spotify
-      steam
-      vesktop
-      vlc
 
-      # Development
+      ### Development    ###
       # beekeeper-studio
+      # gitkraken
+      godot_4
+      # insomnia
+      # lapce
+      ldtk
 
-      # Customization
-      gradience
-      bibata-cursors
-      orchis-theme
-      tela-circle-icon-theme
-      zafiro-icons
+      ### Customization  ###
+      # gradience
+      # bibata-cursors
+      # orchis-theme
+      # tela-circle-icon-theme
+      # zafiro-icons
     ];
   };
 }

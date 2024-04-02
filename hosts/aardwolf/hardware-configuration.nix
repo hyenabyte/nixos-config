@@ -33,6 +33,12 @@
     options = ["nofail"];
   };
 
+  fileSystems."/run/media/hyena/Store2" = {
+    device = "/dev/disk/by-uuid/7a6dc472-78ca-4b74-b5e8-32ae9803f83a";
+    fsType = "ext4";
+    options = ["nofail"];
+  };
+
   swapDevices = [];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
