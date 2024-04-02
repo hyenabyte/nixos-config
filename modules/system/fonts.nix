@@ -12,9 +12,11 @@ in {
     fonts = {
       packages = with pkgs; [
         roboto
+        corefonts
         noto-fonts
         noto-fonts-cjk
         noto-fonts-emoji
+        noto-fonts-extra
         (nerdfonts.override {fonts = ["Agave" "Iosevka"];})
       ];
 
@@ -22,6 +24,8 @@ in {
         hinting.autohint = true;
         defaultFonts = {
           # emoji = [""];
+          sansSerif = ["Roboto" "Noto Sans"];
+          serif = ["Noto Serif"];
           monospace = ["Agave Nerd Font Mono"];
         };
       };
