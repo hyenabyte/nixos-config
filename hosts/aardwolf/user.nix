@@ -41,7 +41,8 @@
       alejandra
 
       ### Applications   ###
-      bitwarden
+      beeper
+      # bitwarden
       # gparted
       vesktop
       vivaldi
@@ -61,14 +62,16 @@
       blender
       inkscape
       krita
+      gimp
 
       ### Development    ###
-      # beekeeper-studio
+      beekeeper-studio
       # gitkraken
       godot_4
       # insomnia
       # lapce
       ldtk
+      vscode
 
       ### Customization  ###
       # gradience
