@@ -11,7 +11,7 @@ in {
   config = mkIf cfg.enable {
     programs.zellij = {
       enable = true;
-      enableZshIntegration = true;
+      # enableZshIntegration = true;
 
       settings = {
         theme = "everforest-dark";
