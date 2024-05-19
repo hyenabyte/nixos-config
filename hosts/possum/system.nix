@@ -9,21 +9,25 @@
     ./hardware-configuration.nix
 
     # System modules
+    ../../modules/system/caddy.nix
     ../../modules/system/configuration.nix
-    ../../modules/system/locale-dk.nix
-    ../../modules/system/tailscale.nix
-    ../../modules/system/ssh.nix
-    ../../modules/system/samba.nix
     ../../modules/system/firewall.nix
+    ../../modules/system/jellyfin.nix
+    ../../modules/system/locale-dk.nix
     ../../modules/system/podman.nix
+    ../../modules/system/samba.nix
+    ../../modules/system/ssh.nix
+    ../../modules/system/tailscale.nix
   ];
 
-  locale-dk.enable = true;
-  tailscale.enable = true;
-  ssh.enable = true;
-  samba.enable = true;
+  caddy.enable = true;
   firewall.enable = true;
+  jellyfin.enable = true;
+  locale-dk.enable = true;
   podman.enable = true;
+  samba.enable = true;
+  ssh.enable = true;
+  tailscale.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
