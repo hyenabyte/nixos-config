@@ -10,58 +10,67 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # nur = {
-    #     url = "github:nix-community/NUR";
-    #     inputs.nixpkgs.follows = "nixpkgs";
-    # };
+    nix-darwin = {
+      url = "github:LnL7/nix-darwin/master";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nur.url = "github:nix-community/nur";
   };
 
   # All outputs for the system (configs)
   outputs = {
     home-manager,
     nixpkgs,
+    nix-darwin,
     nur,
     ...
   } @ inputs: let
-    system = "x86_64-linux"; #current system
-    pkgs = inputs.nixpkgs.legacyPackages.x86_64-linux;
-    lib = nixpkgs.lib;
+    # system = "x86_64-linux"; #current system
+    # pkgs = inputs.nixpkgs.legacyPackages.x86_64-linux;
+    # lib = nixpkgs.lib;
 
-    # This lets us reuse the code to "create" a system
-    # Credits go to sioodmy on this one!
-    # https://github.com/sioodmy/dotfiles/blob/main/flake.nix
     mkSystem = pkgs: system: hostname:
-      pkgs.lib.nixosSystem {
-        system = system;
-        modules = [
-          {networking.hostName = hostname;}
-          # General configuration (users, networking, sound, etc)
-          (./. + "/hosts/${hostname}/system.nix")
+      if system == "aarch64-darwin"
+        then nix-darwin.lib.darwinSystem {
+          system = system;
+          specialArgs = {inherit inputs;};
 
-          home-manager.nixosModules.home-manager
-          {
-            home-manager = {
-              useUserPackages = true;
-              useGlobalPkgs = true;
-              extraSpecialArgs = {inherit inputs;};
-              # Home manager config (configures programs like firefox, zsh, eww, etc)
-              users.hyena = ./. + "/hosts/${hostname}/user.nix";
-            };
-            # nixpkgs.overlays = [
-            #     # Add nur overlay for Firefox addons
-            #     nur.overlay
-            #     (import ./overlays)
-            # ];
-          }
-        ];
-        specialArgs = {inherit inputs;};
-      };
+          modules = [
+            {networking.hostName = hostname;}
+            # ./hosts/darwin
+            (./. + "hosts/darwin/${hostname}")
+          ];
+        }
+
+        else pkgs.lib.nixosSystem {
+          system = system;
+          specialArgs = {inherit inputs;};
+
+          modules = [
+            {networking.hostName = hostname;}
+            (./. + "/hosts/nixos/${hostname}")
+            home-manager.nixosModules.home-manager
+            {
+              home-manager = {
+                useUserPackages = true;
+                useGlobalPkgs = true;
+                extraSpecialArgs = {inherit inputs;};
+                # Home manager config (configures programs like firefox, zsh, eww, etc)
+                users.hyena = ./. + "/hosts/nixos/${hostname}/user.nix";
+              };
+            }
+          ];
+        };
   in {
     nixosConfigurations = {
       # Now, defining a new system is can be done in one line
-      #                                Architecture   Hostname
-      aardwolf = mkSystem inputs.nixpkgs "x86_64-linux" "aardwolf";
-      possum = mkSystem inputs.nixpkgs "x86_64-linux" "possum";
+      #                                       Architecture      Hostname
+      aardwolf =    mkSystem inputs.nixpkgs   "x86_64-linux"    "aardwolf";
+      possum =      mkSystem inputs.nixpkgs   "x86_64-linux"    "possum";
+    };
+    darwinConfigurations = {
+      sabertooth =  mkSystem inputs.nixpkgs   "aarch64-darwin"  "sabertooth";
     };
   };
 }
