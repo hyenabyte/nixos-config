@@ -9,27 +9,25 @@
     ./hardware-configuration.nix
 
     # System modules
-    ../../modules/system/bluetooth.nix
-    ../../modules/system/configuration.nix
-    ../../modules/system/fonts.nix
-    ../../modules/system/gnome.nix
-    ../../modules/system/locale-dk.nix
-    ../../modules/system/nix-ld.nix
-    ../../modules/system/nvidia.nix
-    ../../modules/system/pipewire.nix
-    ../../modules/system/plasma.nix
-    ../../modules/system/tailscale.nix
+    ../../modules/system/caddy
+    ../../modules/system/configuration
+    ../../modules/system/firewall
+    ../../modules/system/jellyfin
+    ../../modules/system/locale/dk
+    ../../modules/system/podman
+    ../../modules/system/samba
+    ../../modules/system/ssh
+    ../../modules/system/tailscale
   ];
 
-  nvidia.enable = true;
+  caddy.enable = true;
+  firewall.enable = true;
+  jellyfin.enable = true;
   locale-dk.enable = true;
-  fonts.enable = true;
-  # plasma.enable = true;
-  gnome.enable = true;
+  podman.enable = true;
+  samba.enable = true;
+  ssh.enable = true;
   tailscale.enable = true;
-  bluetooth.enable = true;
-  pipewire.enable = true;
-  nix-ld.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
@@ -37,5 +35,5 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "23.11"; # Did you read the comment?
+  system.stateVersion = "22.11"; # Did you read the comment?
 }
