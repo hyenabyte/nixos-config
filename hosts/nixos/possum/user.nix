@@ -5,7 +5,7 @@
   pkgs,
   ...
 }: {
-  imports = [../../modules/default.nix];
+  imports = [../../../modules/packages];
 
   config = {
     home.stateVersion = "23.11";

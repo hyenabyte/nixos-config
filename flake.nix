@@ -26,29 +26,37 @@
     nur,
     ...
   } @ inputs: let
-    # system = "x86_64-linux"; #current system
-    # pkgs = inputs.nixpkgs.legacyPackages.x86_64-linux;
-    # lib = nixpkgs.lib;
-
     mkSystem = pkgs: system: hostname:
       if system == "aarch64-darwin"
-        then nix-darwin.lib.darwinSystem {
+      then
+        nix-darwin.lib.darwinSystem {
           system = system;
           specialArgs = {inherit inputs;};
 
           modules = [
             {networking.hostName = hostname;}
-            # ./hosts/darwin
+            ./hosts/darwin
             (./. + "hosts/darwin/${hostname}")
+            home-manager.darwinModules.home-manager
+            {
+              home-manager = {
+                useUserPackages = true;
+                useGlobalPkgs = true;
+                extraSpecialArgs = {inherit inputs;};
+                backupFileExtension = "bak";
+                users.hyena = ./. + "/hosts/darwin/${hostname}/user.nix";
+              };
+            }
           ];
         }
-
-        else pkgs.lib.nixosSystem {
+      else
+        pkgs.lib.nixosSystem {
           system = system;
           specialArgs = {inherit inputs;};
 
           modules = [
             {networking.hostName = hostname;}
+            ./hosts/nixos
             (./. + "/hosts/nixos/${hostname}")
             home-manager.nixosModules.home-manager
             {
@@ -56,7 +64,7 @@
                 useUserPackages = true;
                 useGlobalPkgs = true;
                 extraSpecialArgs = {inherit inputs;};
-                # Home manager config (configures programs like firefox, zsh, eww, etc)
+                backupFileExtension = "bak";
                 users.hyena = ./. + "/hosts/nixos/${hostname}/user.nix";
               };
             }
@@ -65,12 +73,12 @@
   in {
     nixosConfigurations = {
       # Now, defining a new system is can be done in one line
-      #                                       Architecture      Hostname
-      aardwolf =    mkSystem inputs.nixpkgs   "x86_64-linux"    "aardwolf";
-      possum =      mkSystem inputs.nixpkgs   "x86_64-linux"    "possum";
+      #                                  Architecture   Hostname
+      aardwolf = mkSystem inputs.nixpkgs "x86_64-linux" "aardwolf";
+      possum = mkSystem inputs.nixpkgs "x86_64-linux" "possum";
     };
     darwinConfigurations = {
-      sabertooth =  mkSystem inputs.nixpkgs   "aarch64-darwin"  "sabertooth";
+      sabertooth = mkSystem inputs.nixpkgs "aarch64-darwin" "sabertooth";
     };
   };
 }

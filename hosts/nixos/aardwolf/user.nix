@@ -1,5 +1,5 @@
 {pkgs, ...}: {
-  imports = [../../modules/default.nix];
+  imports = [../../../modules/packages];
   config = {
     home.stateVersion = "23.11";
 
@@ -42,10 +42,14 @@
 
       ### Applications   ###
       beeper
-      # bitwarden
-      # gparted
+      bitwarden
+      deluge
+      # gnome.gnome-boxes
+      protonvpn-gui
+      veracrypt
       vesktop
       vivaldi
+      rpi-imager
 
       ### Multimedia     ###
       spotify
@@ -57,6 +61,8 @@
       prismlauncher
       r2modman
       steam
+      winetricks
+      wineWowPackages.stable
 
       ### Graphical work ###
       blender

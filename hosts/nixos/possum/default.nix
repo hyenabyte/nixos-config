@@ -9,15 +9,8 @@
     ./hardware-configuration.nix
 
     # System modules
-    ../../modules/system/caddy
-    ../../modules/system/configuration
-    ../../modules/system/firewall
-    ../../modules/system/jellyfin
-    ../../modules/system/locale/dk
-    ../../modules/system/podman
-    ../../modules/system/samba
-    ../../modules/system/ssh
-    ../../modules/system/tailscale
+    ../../../modules/system
+    ../../../modules/system/configuration.nix
   ];
 
   caddy.enable = true;

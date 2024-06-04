@@ -1,5 +1,9 @@
-{ inputs, pkgs, lib, ... }:
 {
+  inputs,
+  pkgs,
+  lib,
+  ...
+}: {
   # environment.shellInit = ''
   #   ulimit -n 2048
   #   '';

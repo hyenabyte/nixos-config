@@ -13,7 +13,6 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Enable flakes
-  nix.settings.experimental-features = ["nix-command" "flakes"];
 
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
