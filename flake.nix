@@ -37,6 +37,7 @@
             {networking.hostName = hostname;}
             ./hosts/darwin
             (./. + "/hosts/darwin/${hostname}")
+            ./users/hyena
             home-manager.darwinModules.home-manager
             {
               home-manager = {
@@ -58,6 +59,7 @@
             {networking.hostName = hostname;}
             ./hosts/nixos
             (./. + "/hosts/nixos/${hostname}")
+            ./users/hyena
             home-manager.nixosModules.home-manager
             {
               home-manager = {

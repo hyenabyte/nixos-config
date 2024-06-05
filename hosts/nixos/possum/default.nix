@@ -10,7 +10,6 @@
 
     # System modules
     ../../../modules/system
-    ../../../modules/system/configuration.nix
   ];
 
   caddy.enable = true;

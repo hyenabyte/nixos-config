@@ -9,6 +9,7 @@
     ./budgie
     ./caddy
     ./cinnamon
+    ./cups
     ./firewall
     ./fonts
     ./gnome
@@ -23,6 +24,8 @@
     ./samba
     ./ssh
     ./tailscale
+    ./touchpad
     ./virtual-box
+    ./wireless
   ];
 }

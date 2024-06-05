@@ -10,7 +10,6 @@
 
     # System modules
     ../../../modules/system
-    ../../../modules/system/configuration.nix
   ];
 
   nvidia.enable = true;
