@@ -37,7 +37,7 @@
             {networking.hostName = hostname;}
             ./hosts/darwin
             (./. + "/hosts/darwin/${hostname}")
-            ./users/hyena
+            #./users/hyena
             home-manager.darwinModules.home-manager
             {
               home-manager = {

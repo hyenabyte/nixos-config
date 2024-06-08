@@ -26,6 +26,9 @@ in {
 
       # .zshrc
       initExtra = ''
+        if [ $(uname) = "Darwin" ]; then
+          path=("$HOME/.nix-profile/bin" "/run/wrappers/bin" "/etc/profiles/per-user/$USER/bin" "/nix/var/nix/profiles/default/bin" "/run/current-system/sw/bin" "/opt/homebrew/bin" $path)
+        fi
       '';
 
       # Tweak settings for history
