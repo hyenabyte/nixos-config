@@ -36,8 +36,6 @@ in {
       "editor.guides.bracketPairs" = "active";
       "workbench.list.smoothScrolling" = true;
       "workbench.editor.decorations.colors" = true;
-      "workbench.iconTheme" = "file-icons";
-      "workbench.productIconTheme" = "icons-carbon";
 
       # Cursor
       "editor.cursorBlinking" = "phase";
@@ -80,6 +78,7 @@ in {
       "window.commandCenter" = true;
       "explorer.incrementalNaming" = "smart";
       "keyboard.dispatch" = "keyCode";
+      "git.autofetch" = true;
     };
   };
 }

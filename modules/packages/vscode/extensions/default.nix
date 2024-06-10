@@ -7,36 +7,39 @@
   imports = [
     ./astro
     ./better-comments
+    ./catppuccin
     ./color-highlight
     # ./everforest
+    ./file-icons
     ./gleam
     # ./gruvbox-material
+    ./icons-carbon
     ./markdown
     ./nix-lang
     ./prettier
     ./prisma
     ./project-manager
     ./rust
-    # ./sql-tools
     ./trailing-spaces
   ];
 
   astro.enable = true;
   better-comments.enable = true;
+  catppuccin.enable = true;
   color-highlight.enable = true;
   #! Not found in nixpkgs
   # everforest.enable = true;
+  file-icons.enable = true;
   gleam.enable = true;
   #! Not found in nixpkgs
   # gruvbox-material.enable = true;
+  icons-carbon.enable = true;
   markdown.enable = true;
   nix-lang.enable = true;
   prettier.enable = true;
   prisma.enable = true;
   project-manager.enable = true;
   rust.enable = true;
-  #! Not found in nixpkgs
-  # sql-tools.enable = true;
   trailing-spaces.enable = true;
 
   programs.vscode.extensions = with pkgs.vscode-extensions; [
@@ -126,10 +129,6 @@
     vscodevim.vim
 
     # Visual customization
-    antfu.icons-carbon
-    catppuccin.catppuccin-vsc
-    emmanuelbeziat.vscode-great-icons
-    file-icons.file-icons
     jdinhlife.gruvbox
     #! Not found in nixpkgs
     # monokai.theme-monokai-pro-vscode
