@@ -7,7 +7,7 @@
 with lib; let
   cfg = config.catppuccin;
 in {
-  options.catpuccin = {enable = mkEnableOption "catppuccin";};
+  options.catppuccin = {enable = mkEnableOption "catppuccin";};
   config = mkIf cfg.enable {
     programs.vscode = {
       extensions = with pkgs.vscode-extensions; [

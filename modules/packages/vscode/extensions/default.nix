@@ -9,10 +9,10 @@
     ./better-comments
     ./catppuccin
     ./color-highlight
-    # ./everforest
+    ./everforest
     ./file-icons
     ./gleam
-    # ./gruvbox-material
+    ./gruvbox-material
     ./icons-carbon
     ./markdown
     ./nix-lang
@@ -47,12 +47,12 @@
     #! Not found in nixpkgs
     # antfu.vite
     dbaeumer.vscode-eslint
-    denoland.vscode-deno
+    # denoland.vscode-deno
 
     # Styling
     #! Not found in nixpkgs
     # antfu.unocss
-    bradlc.vscode-tailwindcss
+    # bradlc.vscode-tailwindcss
 
     # Testing
     #! Not found in nixpkgs
@@ -98,23 +98,17 @@
     ms-vscode.makefile-tools
 
     # Github
-    github.codespaces
-    github.vscode-github-actions
+    # github.codespaces
+    # github.vscode-github-actions
 
     # Docker
-    ms-azuretools.vscode-docker
+    # ms-azuretools.vscode-docker
 
     # Remotes
     ms-vscode-remote.remote-containers
     ms-vscode-remote.remote-ssh
-    #! Not found in nixpkgs
-    # ms-vscode-remote.remote-ssh-edit
-    #! Not found in nixpkgs
-    # ms-vscode.remote-explorer
 
     # Quality of life extensions
-    #! Not found in nixpkgs
-    # chouzz.vscode-better-align
     christian-kohler.path-intellisense
     formulahendry.auto-close-tag
     formulahendry.auto-rename-tag
@@ -129,7 +123,7 @@
     vscodevim.vim
 
     # Visual customization
-    jdinhlife.gruvbox
+    # jdinhlife.gruvbox
     #! Not found in nixpkgs
     # monokai.theme-monokai-pro-vscode
     #! Not found in nixpkgs
