@@ -4,6 +4,16 @@
   lib,
   ...
 }: {
+  # fonts.fonts = with pkgs; [
+  #   roboto
+  #   corefonts
+  #   noto-fonts
+  #   noto-fonts-cjk
+  #   noto-fonts-emoji
+  #   noto-fonts-extra
+  #   (nerdfonts.override {fonts = ["Agave" "Iosevka"];})
+  # ];
+
   # environment.shellInit = ''
   #   ulimit -n 2048
   #   '';
@@ -35,12 +45,12 @@
       # "deluge"
       # "discord"
       "firefox"
-      # "font-agave-nerd-font"
+      "font-agave-nerd-font"
       # "font-comic-shanns-mono-nerd-font"
       # "font-hurmit-nerd-font"
       # "font-iosevka"
       # "font-iosevka-nerd-font"
-      # "font-iosevka-ss01"
+      "font-iosevka-ss01"
       # "font-monofur-nerd-font"
       # "font-monoid-nerd-font"
       # "font-tinos-nerd-font"
@@ -53,6 +63,7 @@
   };
 
   environment.systemPackages = with pkgs; [
+    # bottom
   ];
 
   services.nix-daemon.enable = lib.mkForce true;
