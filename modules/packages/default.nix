@@ -10,6 +10,7 @@
     ./firefox
     ./nextcloud-client
     ./obs-studio
+    ./vscode
 
     # cli
     ./bat

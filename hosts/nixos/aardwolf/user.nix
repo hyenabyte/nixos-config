@@ -10,6 +10,7 @@
       firefox.enable = true;
       nextcloud-client.enable = true;
       obs-studio.enable = true;
+      vscode.enable = true;
 
       # cli
       bat.enable = true;
@@ -31,7 +32,8 @@
       antidote
       croc
       lazygit
-      neofetch
+      # neofetch
+      hyfetch
       xh
       xsel
       yazi
@@ -44,12 +46,13 @@
       beeper
       bitwarden
       deluge
-      # gnome.gnome-boxes
+      gnome.gnome-boxes
       protonvpn-gui
       veracrypt
       vesktop
       vivaldi
       rpi-imager
+      livecaptions
 
       ### Multimedia     ###
       spotify
@@ -77,7 +80,7 @@
       # insomnia
       # lapce
       ldtk
-      vscode
+      # vscode
 
       ### Customization  ###
       # gradience
