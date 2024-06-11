@@ -43,7 +43,7 @@
       # "caffeine"
       # "chromium"
       # "deluge"
-      # "discord"
+      "discord"
       "firefox"
       "font-agave-nerd-font"
       # "font-comic-shanns-mono-nerd-font"
@@ -59,12 +59,17 @@
       "protonvpn"
       "rectangle"
       "vlc"
+      #"deluge"
+      "spotify"
+      #prismlauncher
+      #blender
+      #inkscape
+      #gimp
+      "tabby"
     ];
   };
 
-  environment.systemPackages = with pkgs; [
-    # bottom
-  ];
+  environment.systemPackages = with pkgs; [];
 
   services.nix-daemon.enable = lib.mkForce true;
 

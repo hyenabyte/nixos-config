@@ -16,7 +16,7 @@
     programs.home-manager.enable = true;
 
     modules = {
-      alacritty.enable = true;
+      # alacritty.enable = true;
       bat.enable = true;
       bottom.enable = true;
       direnv.enable = true;
@@ -28,26 +28,19 @@
       zellij.enable = true;
       zoxide.enable = true;
       zsh.enable = true;
+      vscode.enable = true;
     };
 
     home.packages = with pkgs; [
-      discord
       antidote
       croc
       lazygit
-      neofetch
+      hyfetch
       xh
       xsel
       yazi
       nil
       alejandra
-      deluge
-      spotify
-      #prismlauncher
-      #blender
-      inkscape
-      gimp
-      vscode
     ];
   };
 }
