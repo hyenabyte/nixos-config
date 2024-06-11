@@ -79,6 +79,7 @@ in {
       "explorer.incrementalNaming" = "smart";
       "keyboard.dispatch" = "keyCode";
       "git.autofetch" = true;
+      "scm.defaultViewMode" = "tree";
     };
   };
 }
