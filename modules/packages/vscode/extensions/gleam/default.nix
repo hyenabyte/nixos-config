@@ -5,12 +5,12 @@
   ...
 }:
 with lib; let
-  cfg = config.gleam;
+  cfg = config.modules.gleam;
 in {
-  options.gleam = {enable = mkEnableOption "gleam";};
+  options.modules.gleam = {enable = mkEnableOption "gleam";};
   config = mkIf cfg.enable {
     programs.vscode = {
-      extensions = with pkgs.vscode-extensions; [
+      extensions = with pkgs.vscode-marketplace; [
         gleam.gleam
       ];
       userSettings."[gleam]" = {

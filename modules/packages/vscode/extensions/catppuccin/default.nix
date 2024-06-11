@@ -5,12 +5,12 @@
   ...
 }:
 with lib; let
-  cfg = config.catppuccin;
+  cfg = config.modules.catppuccin;
 in {
-  options.catppuccin = {enable = mkEnableOption "catppuccin";};
+  options.modules.catppuccin = {enable = mkEnableOption "catppuccin";};
   config = mkIf cfg.enable {
     programs.vscode = {
-      extensions = with pkgs.vscode-extensions; [
+      extensions = with pkgs.vscode-marketplace; [
         catppuccin.catppuccin-vsc
       ];
       userSettings = {

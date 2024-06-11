@@ -5,12 +5,12 @@
   ...
 }:
 with lib; let
-  cfg = config.icons-carbon;
+  cfg = config.modules.icons-carbon;
 in {
-  options.icons-carbon = {enable = mkEnableOption "icons-carbon";};
+  options.modules.icons-carbon = {enable = mkEnableOption "icons-carbon";};
   config = mkIf cfg.enable {
     programs.vscode = {
-      extensions = with pkgs.vscode-extensions; [
+      extensions = with pkgs.vscode-marketplace; [
         antfu.icons-carbon
       ];
       userSettings = {

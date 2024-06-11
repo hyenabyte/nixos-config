@@ -5,17 +5,21 @@
   ...
 }:
 with lib; let
-  cfg = config.nix-lang;
+  cfg = config.modules.nix-lang;
 in {
-  options.nix-lang = {enable = mkEnableOption "nix-lang";};
+  options.modules.nix-lang = {enable = mkEnableOption "nix-lang";};
   config = mkIf cfg.enable {
     programs.vscode = {
-      extensions = with pkgs.vscode-extensions; [
+      extensions = with pkgs.vscode-marketplace; [
         bbenoist.nix
         jnoortheen.nix-ide
         kamadorueda.alejandra
       ];
       userSettings = {
+        "nix.enableLanguageServer" = true;
+        "nix.formatterPath" = "${pkgs.alejandra}/bin/alejandra";
+        "nix.serverPath" = "${pkgs.nil}/bin/nil";
+        "nix.serverSettings"."nil"."formatting"."command" = ["${pkgs.alejandra}/bin/alejandra"];
         "[nix]" = {
           "editor.insertSpaces" = true;
           "editor.tabSize" = 2;

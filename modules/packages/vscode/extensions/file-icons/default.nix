@@ -5,12 +5,12 @@
   ...
 }:
 with lib; let
-  cfg = config.file-icons;
+  cfg = config.modules.file-icons;
 in {
-  options.file-icons = {enable = mkEnableOption "file-icons";};
+  options.modules.file-icons = {enable = mkEnableOption "file-icons";};
   config = mkIf cfg.enable {
     programs.vscode = {
-      extensions = with pkgs.vscode-extensions; [
+      extensions = with pkgs.vscode-marketplace; [
         file-icons.file-icons
       ];
       userSettings = {

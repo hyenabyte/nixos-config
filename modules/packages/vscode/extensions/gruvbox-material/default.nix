@@ -5,12 +5,12 @@
   ...
 }:
 with lib; let
-  cfg = config.gruvbox-material;
+  cfg = config.modules.gruvbox-material;
 in {
-  options.gruvbox-material = {enable = mkEnableOption "gruvbox-material";};
+  options.modules.gruvbox-material = {enable = mkEnableOption "gruvbox-material";};
   config = mkIf cfg.enable {
     programs.vscode = {
-      extensions = with pkgs.vscode-extensions; [
+      extensions = with pkgs.vscode-marketplace; [
         sainnhe.gruvbox-material
       ];
       userSettings = {

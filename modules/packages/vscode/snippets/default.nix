@@ -7,8 +7,12 @@
   imports = [
     ./typescript.nix
     ./astro.nix
+    ./nix.nix
   ];
 
-  astro-snippets.enable = true;
-  typescript-snippets.enable = true;
+  modules = {
+    astro-snippets.enable = true;
+    typescript-snippets.enable = true;
+    nix-snippets.enable = true;
+  };
 }

@@ -5,12 +5,12 @@
   ...
 }:
 with lib; let
-  cfg = config.trailing-spaces;
+  cfg = config.modules.trailing-spaces;
 in {
-  options.trailing-spaces = {enable = mkEnableOption "trailing-spaces";};
+  options.modules.trailing-spaces = {enable = mkEnableOption "trailing-spaces";};
   config = mkIf cfg.enable {
     programs.vscode = {
-      extensions = with pkgs.vscode-extensions; [
+      extensions = with pkgs.vscode-marketplace; [
         shardulm94.trailing-spaces
       ];
       userSettings = {

@@ -5,12 +5,12 @@
   ...
 }:
 with lib; let
-  cfg = config.color-highlight;
+  cfg = config.modules.color-highlight;
 in {
-  options.color-highlight = {enable = mkEnableOption "color-highlight";};
+  options.modules.color-highlight = {enable = mkEnableOption "color-highlight";};
   config = mkIf cfg.enable {
     programs.vscode = {
-      extensions = with pkgs.vscode-extensions; [
+      extensions = with pkgs.vscode-marketplace; [
         naumovs.color-highlight
       ];
       userSettings = {

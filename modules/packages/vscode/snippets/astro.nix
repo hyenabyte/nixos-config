@@ -5,9 +5,9 @@
   ...
 }:
 with lib; let
-  cfg = config.astro-snippets;
+  cfg = config.modules.astro-snippets;
 in {
-  options.astro-snippets = {enable = mkEnableOption "astro-snippets";};
+  options.modules.astro-snippets = {enable = mkEnableOption "astro-snippets";};
   config = mkIf cfg.enable {
     programs.vscode.languageSnippets.astro = {
       "Astro Component" = {

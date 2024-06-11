@@ -5,12 +5,12 @@
   ...
 }:
 with lib; let
-  cfg = config.project-manager;
+  cfg = config.modules.project-manager;
 in {
-  options.project-manager = {enable = mkEnableOption "project-manager";};
+  options.modules.project-manager = {enable = mkEnableOption "project-manager";};
   config = mkIf cfg.enable {
     programs.vscode = {
-      extensions = with pkgs.vscode-extensions; [
+      extensions = with pkgs.vscode-marketplace; [
         alefragnani.project-manager
       ];
       userSettings = {

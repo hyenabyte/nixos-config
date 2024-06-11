@@ -5,9 +5,9 @@
   ...
 }:
 with lib; let
-  cfg = config.typescript-snippets;
+  cfg = config.modules.typescript-snippets;
 in {
-  options.typescript-snippets = {enable = mkEnableOption "typescript-snippets";};
+  options.modules.typescript-snippets = {enable = mkEnableOption "typescript-snippets";};
   config = mkIf cfg.enable {
     programs.vscode.languageSnippets.typescript = {
       "API Handler" = {

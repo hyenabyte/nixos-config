@@ -5,12 +5,12 @@
   ...
 }:
 with lib; let
-  cfg = config.astro;
+  cfg = config.modules.astro;
 in {
-  options.astro = {enable = mkEnableOption "astro";};
+  options.modules.astro = {enable = mkEnableOption "astro";};
   config = mkIf cfg.enable {
     programs.vscode = {
-      extensions = with pkgs.vscode-extensions; [
+      extensions = with pkgs.vscode-marketplace; [
         astro-build.astro-vscode
       ];
       userSettings."[astro]" = {

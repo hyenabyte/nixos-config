@@ -5,12 +5,12 @@
   ...
 }:
 with lib; let
-  cfg = config.everforest;
+  cfg = config.modules.everforest;
 in {
-  options.everforest = {enable = mkEnableOption "everforest";};
+  options.modules.everforest = {enable = mkEnableOption "everforest";};
   config = mkIf cfg.enable {
     programs.vscode = {
-      extensions = with pkgs.vscode-extensions; [
+      extensions = with pkgs.vscode-marketplace; [
         sainnhe.everforest
       ];
       userSettings = {

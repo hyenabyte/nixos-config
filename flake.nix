@@ -16,6 +16,12 @@
     };
 
     nur.url = "github:nix-community/nur";
+
+    nix-vscode-extensions = {
+      url = "github:nix-community/nix-vscode-extensions";
+      inputs.nixpkgs.follows = "nixpkgs";
+      #inputs.flake-utils.follows = "flake-utils";
+    };
   };
 
   # All outputs for the system (configs)

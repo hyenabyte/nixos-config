@@ -9,6 +9,11 @@
       allowUnfree = true;
       allowUnfreePredicate = _: true;
     };
+
+    overlays = [
+      inputs.nix-vscode-extensions.overlays.default
+      inputs.nur.overlay
+    ];
   };
 
   # Enable networking

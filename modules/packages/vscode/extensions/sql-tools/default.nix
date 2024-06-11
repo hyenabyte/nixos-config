@@ -5,13 +5,12 @@
   ...
 }:
 with lib; let
-  cfg = config.sql-tools;
+  cfg = config.modules.sql-tools;
 in {
-  options.sql-tools = {enable = mkEnableOption "sql-tools";};
+  options.modules.sql-tools = {enable = mkEnableOption "sql-tools";};
   config = mkIf cfg.enable {
     programs.vscode = {
-      # FIXME sqltools not in nixpkgs
-      extensions = with pkgs.vscode-extensions; [
+      extensions = with pkgs.vscode-marketplace; [
         mtxr.sqltools
         mtxr.sqltools-driver-mysql
         mtxr.sqltools-driver-pg

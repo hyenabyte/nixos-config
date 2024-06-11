@@ -5,12 +5,12 @@
   ...
 }:
 with lib; let
-  cfg = config.prisma;
+  cfg = config.modules.prisma;
 in {
-  options.prisma = {enable = mkEnableOption "prisma";};
+  options.modules.prisma = {enable = mkEnableOption "prisma";};
   config = mkIf cfg.enable {
     programs.vscode = {
-      extensions = with pkgs.vscode-extensions; [
+      extensions = with pkgs.vscode-marketplace; [
         prisma.prisma
       ];
       userSettings."[prisma]" = {

@@ -5,12 +5,12 @@
   ...
 }:
 with lib; let
-  cfg = config.markdown;
+  cfg = config.modules.markdown;
 in {
-  options.markdown = {enable = mkEnableOption "markdown";};
+  options.modules.markdown = {enable = mkEnableOption "markdown";};
   config = mkIf cfg.enable {
     programs.vscode = {
-      extensions = with pkgs.vscode-extensions; [
+      extensions = with pkgs.vscode-marketplace; [
         davidanson.vscode-markdownlint
       ];
       userSettings."[markdown]" = {

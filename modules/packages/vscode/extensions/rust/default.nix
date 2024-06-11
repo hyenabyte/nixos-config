@@ -5,14 +5,14 @@
   ...
 }:
 with lib; let
-  cfg = config.rust;
+  cfg = config.modules.rust;
 in {
-  options.rust = {enable = mkEnableOption "rust";};
+  options.modules.rust = {enable = mkEnableOption "rust";};
   config = mkIf cfg.enable {
     programs.vscode = {
-      extensions = with pkgs.vscode-extensions; [
+      extensions = with pkgs.vscode-marketplace; [
         rust-lang.rust-analyzer
-        # statiolake.vscode-rustfmt
+        statiolake.vscode-rustfmt
         vadimcn.vscode-lldb
       ];
       userSettings = {

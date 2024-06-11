@@ -5,12 +5,12 @@
   ...
 }:
 with lib; let
-  cfg = config.prettier;
+  cfg = config.modules.prettier;
 in {
-  options.prettier = {enable = mkEnableOption "prettier";};
+  options.modules.prettier = {enable = mkEnableOption "prettier";};
   config = mkIf cfg.enable {
     programs.vscode = {
-      extensions = with pkgs.vscode-extensions; [
+      extensions = with pkgs.vscode-marketplace; [
         esbenp.prettier-vscode
       ];
       userSettings = {
