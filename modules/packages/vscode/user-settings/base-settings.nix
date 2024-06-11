@@ -1,9 +1,4 @@
-{
-  pkgs,
-  lib,
-  config,
-  ...
-}: {
+{...}: {
   programs.vscode.userSettings = {
     # Font settings
     "editor.fontSize" = 16;

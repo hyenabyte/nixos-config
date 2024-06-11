@@ -1,13 +1,12 @@
 {
-  pkgs,
   lib,
   config,
   ...
 }:
 with lib; let
-  cfg = config.proxy;
+  cfg = config.modules.proxy;
 in {
-  options.proxy = {enable = mkEnableOption "proxy";};
+  options.modules.proxy = {enable = mkEnableOption "proxy";};
   config = mkIf cfg.enable {
     # Configure network proxy if necessary
     # networking.proxy.default = "http://user:password@proxy:port/";

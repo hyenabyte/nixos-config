@@ -5,9 +5,9 @@
   ...
 }:
 with lib; let
-  cfg = config.fonts;
+  cfg = config.modules.fonts;
 in {
-  options.fonts = {enable = mkEnableOption "fonts";};
+  options.modules.fonts = {enable = mkEnableOption "fonts";};
   config = mkIf cfg.enable {
     fonts = {
       packages = with pkgs; [
@@ -23,8 +23,8 @@ in {
       fontconfig = {
         hinting.autohint = true;
         defaultFonts = {
-          # emoji = [""];
-          sansSerif = ["Roboto" "Noto Sans"];
+          emoji = ["Noto Color Emoji"];
+          sansSerif = ["Noto Sans"];
           serif = ["Noto Serif"];
           monospace = ["Agave Nerd Font Mono"];
         };

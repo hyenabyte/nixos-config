@@ -1,13 +1,12 @@
 {
-  pkgs,
   lib,
   config,
   ...
 }:
 with lib; let
-  cfg = config.nvidia;
+  cfg = config.modules.nvidia;
 in {
-  options.nvidia = {enable = mkEnableOption "nvidia";};
+  options.modules.nvidia = {enable = mkEnableOption "nvidia";};
   config = mkIf cfg.enable {
     # Allow unfree
     nixpkgs.config.allowUnfree = true;

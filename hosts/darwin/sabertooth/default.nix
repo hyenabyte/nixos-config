@@ -1,9 +1,4 @@
-{
-  inputs,
-  pkgs,
-  lib,
-  ...
-}: {
+{lib, ...}: {
   # fonts.fonts = with pkgs; [
   #   roboto
   #   corefonts
@@ -69,7 +64,7 @@
     ];
   };
 
-  environment.systemPackages = with pkgs; [];
+  # environment.systemPackages = with pkgs; [];
 
   services.nix-daemon.enable = lib.mkForce true;
 

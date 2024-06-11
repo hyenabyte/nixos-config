@@ -1,5 +1,4 @@
 {
-  pkgs,
   lib,
   config,
   ...
@@ -13,11 +12,11 @@ in {
       enable = true;
 
       settings = {
-        # window = {
-        # padding.x = 20;
-        # padding.y = 20;
-        # dynamic_padding = true;
-        # };
+        window = {
+          padding.x = 20;
+          padding.y = 20;
+          dynamic_padding = true;
+        };
 
         font = {
           normal.family = "Agave Nerd Font Mono";

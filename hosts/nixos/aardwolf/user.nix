@@ -11,6 +11,7 @@
       nextcloud-client.enable = true;
       obs-studio.enable = true;
       vscode.enable = true;
+      thunderbird.enable = true;
 
       # cli
       bat.enable = true;
@@ -19,6 +20,7 @@
       git.enable = true;
       gpg.enable = true;
       helix.enable = true;
+      hyfetch.enable = true;
       lsd.enable = true;
       starship.enable = true;
       zellij.enable = true;
@@ -32,8 +34,6 @@
       antidote
       croc
       lazygit
-      # neofetch
-      hyfetch
       xh
       xsel
       yazi

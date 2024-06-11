@@ -1,9 +1,4 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}: {
+{...}: {
   imports = [
     # System hardware configuration
     ./hardware-configuration.nix
@@ -12,16 +7,18 @@
     ../../../modules/system
   ];
 
-  nvidia.enable = true;
-  locale-dk.enable = true;
-  fonts.enable = true;
-  # plasma.enable = true;
-  gnome.enable = true;
-  tailscale.enable = true;
-  bluetooth.enable = true;
-  pipewire.enable = true;
-  nix-ld.enable = true;
-  virtual-box.enable = true;
+  modules = {
+    nvidia.enable = true;
+    locale-dk.enable = true;
+    fonts.enable = true;
+    plasma.enable = true;
+    # gnome.enable = true;
+    tailscale.enable = true;
+    bluetooth.enable = true;
+    pipewire.enable = true;
+    nix-ld.enable = true;
+    virtual-box.enable = true;
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

@@ -1,9 +1,4 @@
-{
-  pkgs,
-  lib,
-  config,
-  ...
-}: {
+{...}: {
   programs.vscode.userSettings = {
     "terminal.integrated.cursorStyle" = "underline";
     "terminal.integrated.cursorBlinking" = true;

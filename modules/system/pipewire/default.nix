@@ -1,13 +1,12 @@
 {
-  pkgs,
   lib,
   config,
   ...
 }:
 with lib; let
-  cfg = config.pipewire;
+  cfg = config.modules.pipewire;
 in {
-  options.pipewire = {enable = mkEnableOption "pipewire";};
+  options.modules.pipewire = {enable = mkEnableOption "pipewire";};
   config = mkIf cfg.enable {
     # Enable sound with pipewire.
     sound.enable = true;

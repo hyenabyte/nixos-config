@@ -40,8 +40,6 @@ in {
 
       # Set some aliases
       shellAliases = {
-        cat = "bat";
-
         zj = "zellij";
         zjl = "zellij list-sessions";
         zja = "zellij attach";

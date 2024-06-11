@@ -1,13 +1,12 @@
 {
-  pkgs,
   lib,
   config,
   ...
 }:
 with lib; let
-  cfg = config.plasma;
+  cfg = config.modules.plasma;
 in {
-  options.plasma = {enable = mkEnableOption "plasma";};
+  options.modules.plasma = {enable = mkEnableOption "plasma";};
   config = mkIf cfg.enable {
     services.xserver.enable = true;
 

@@ -1,13 +1,12 @@
 {
-  pkgs,
   lib,
   config,
   ...
 }:
 with lib; let
-  cfg = config.touchpad;
+  cfg = config.modules.touchpad;
 in {
-  options.touchpad = {enable = mkEnableOption "touchpad";};
+  options.modules.touchpad = {enable = mkEnableOption "touchpad";};
   config = mkIf cfg.enable {
     services.xserver.libinput.enable = true;
   };

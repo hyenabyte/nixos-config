@@ -1,13 +1,12 @@
 {
-  pkgs,
   lib,
   config,
   ...
 }:
 with lib; let
-  cfg = config.caddy;
+  cfg = config.modules.caddy;
 in {
-  options.caddy = {enable = mkEnableOption "caddy";};
+  options.modules.caddy = {enable = mkEnableOption "caddy";};
   config = mkIf cfg.enable {
     services.caddy = {
       enable = true;

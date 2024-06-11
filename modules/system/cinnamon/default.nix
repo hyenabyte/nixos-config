@@ -1,13 +1,12 @@
 {
-  pkgs,
   lib,
   config,
   ...
 }:
 with lib; let
-  cfg = config.cinnamon;
+  cfg = config.modules.cinnamon;
 in {
-  options.cinnamon = {enable = mkEnableOption "cinnamon";};
+  options.modules.cinnamon = {enable = mkEnableOption "cinnamon";};
   config = mkIf cfg.enable {
     services.xserver.enable = true;
 

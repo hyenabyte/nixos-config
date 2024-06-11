@@ -5,9 +5,9 @@
   ...
 }:
 with lib; let
-  cfg = config.gnome;
+  cfg = config.modules.gnome;
 in {
-  options.gnome = {enable = mkEnableOption "gnome";};
+  options.modules.gnome = {enable = mkEnableOption "gnome";};
   config = mkIf cfg.enable {
     services.xserver.enable = true;
 

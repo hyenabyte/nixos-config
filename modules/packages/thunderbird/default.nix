@@ -1,5 +1,4 @@
 {
-  pkgs,
   lib,
   config,
   ...
@@ -12,8 +11,7 @@ in {
     programs.thunderbird = {
       enable = true;
       profiles.hyena = {
-        name = "hyena";
-        isDeafult = true;
+        isDefault = true;
         settings = {};
 
         extraConfig = "";

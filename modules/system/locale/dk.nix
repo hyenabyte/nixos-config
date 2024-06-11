@@ -1,13 +1,12 @@
 {
-  pkgs,
   lib,
   config,
   ...
 }:
 with lib; let
-  cfg = config.locale-dk;
+  cfg = config.modules.locale-dk;
 in {
-  options.locale-dk = {enable = mkEnableOption "locale-dk";};
+  options.modules.locale-dk = {enable = mkEnableOption "locale-dk";};
   config = mkIf cfg.enable {
     # Set your time zone.
     time.timeZone = "Europe/Copenhagen";

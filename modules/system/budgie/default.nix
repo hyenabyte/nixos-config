@@ -1,13 +1,12 @@
 {
-  pkgs,
   lib,
   config,
   ...
 }:
 with lib; let
-  cfg = config.budgie;
+  cfg = config.modules.budgie;
 in {
-  options.budgie = {enable = mkEnableOption "budgie";};
+  options.modules.budgie = {enable = mkEnableOption "budgie";};
   config = mkIf cfg.enable {
     services.xserver.enable = true;
 

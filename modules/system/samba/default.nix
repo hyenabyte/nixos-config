@@ -1,13 +1,12 @@
 {
-  pkgs,
   lib,
   config,
   ...
 }:
 with lib; let
-  cfg = config.samba;
+  cfg = config.modules.samba;
 in {
-  options.samba = {enable = mkEnableOption "samba";};
+  options.modules.samba = {enable = mkEnableOption "samba";};
   config = mkIf cfg.enable {
     # networking.firewall.allowedTCPPorts = [
     #   5357 # wsdd

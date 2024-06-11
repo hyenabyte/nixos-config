@@ -1,9 +1,4 @@
-{
-  inputs,
-  pkgs,
-  config,
-  ...
-}: {
+{...}: {
   imports = [
     # gui
     ./alacritty
@@ -11,6 +6,7 @@
     ./nextcloud-client
     ./obs-studio
     ./vscode
+    ./thunderbird
 
     # cli
     ./bat
@@ -19,6 +15,7 @@
     ./git
     ./gpg
     ./helix
+    ./hyfetch
     ./lsd
     ./starship
     ./zellij

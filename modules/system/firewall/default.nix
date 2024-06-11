@@ -1,13 +1,12 @@
 {
-  pkgs,
   lib,
   config,
   ...
 }:
 with lib; let
-  cfg = config.firewall;
+  cfg = config.modules.firewall;
 in {
-  options.firewall = {enable = mkEnableOption "firewall";};
+  options.modules.firewall = {enable = mkEnableOption "firewall";};
   config = mkIf cfg.enable {
     networking.firewall.enable = true;
     networking.firewall.allowPing = true;

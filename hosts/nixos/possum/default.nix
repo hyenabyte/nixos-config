@@ -1,9 +1,4 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}: {
+{...}: {
   imports = [
     # System hardware configuration
     ./hardware-configuration.nix
@@ -12,14 +7,16 @@
     ../../../modules/system
   ];
 
-  caddy.enable = true;
-  firewall.enable = true;
-  jellyfin.enable = true;
-  locale-dk.enable = true;
-  podman.enable = true;
-  samba.enable = true;
-  ssh.enable = true;
-  tailscale.enable = true;
+  modules = {
+    caddy.enable = true;
+    firewall.enable = true;
+    jellyfin.enable = true;
+    locale-dk.enable = true;
+    podman.enable = true;
+    samba.enable = true;
+    ssh.enable = true;
+    tailscale.enable = true;
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

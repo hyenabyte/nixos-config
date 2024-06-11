@@ -1,13 +1,12 @@
 {
-  pkgs,
   lib,
   config,
   ...
 }:
 with lib; let
-  cfg = config.pantheon;
+  cfg = config.modules.pantheon;
 in {
-  options.pantheon = {enable = mkEnableOption "pantheon";};
+  options.modules.pantheon = {enable = mkEnableOption "pantheon";};
   config = mkIf cfg.enable {
     services.xserver.enable = true;
 
