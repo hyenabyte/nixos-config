@@ -20,7 +20,7 @@ in {
             "cursorStyle" = "underline-thin";
           };
           "insert" = {
-            "cursorStyle" = "bar";
+            "cursorStyle" = "line";
           };
           "visual" = {
             "cursorStyle" = "block";
