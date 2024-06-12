@@ -11,44 +11,30 @@ in {
     programs.alacritty = {
       enable = true;
 
-      settings = {
-        window = {
-          padding.x = 20;
-          padding.y = 20;
-          dynamic_padding = true;
-        };
-
-        font = {
-          normal.family = "Agave Nerd Font Mono";
-          size = 12;
-        };
-
-        colors = {
-          primary.background = "0x2d353b";
-          primary.foreground = "0xd3c6aa";
-
-          normal = {
-            black = "0x475258";
-            red = "0xe67e80";
-            green = "0xa7c080";
-            yellow = "0xdbbc7f";
-            blue = "0x7fbbb3";
-            magenta = "0xd699b6";
-            cyan = "0x83c092";
-            white = "0xd3c6aa";
+      settings =
+        {
+          window = {
+            padding.x = 20;
+            padding.y = 20;
+            dynamic_padding = true;
           };
-          bright = {
-            black = "0x475258";
-            red = "0xe67e80";
-            green = "0xa7c080";
-            yellow = "0xdbbc7f";
-            blue = "0x7fbbb3";
-            magenta = "0xd699b6";
-            cyan = "0x83c092";
-            white = "0xd3c6aa";
+
+          font = {
+            normal.family = "Agave Nerd Font Mono";
+            size = 12;
           };
-        };
-      };
+
+          cursor.style = {
+            # "Block" | "Underline" | "Beam"
+            # Default: "Block"
+            shape = "underline";
+
+            # "Never" | "Off" | "On" | "Always"
+            # Default: "Off"
+            blinking = "Off";
+          };
+        }
+        // builtins.fromTOML (builtins.readFile ./themes/catppuccin-mocha.toml);
     };
   };
 }
