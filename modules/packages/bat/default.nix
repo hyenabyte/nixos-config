@@ -21,6 +21,10 @@ in {
 
     programs.zsh.shellAliases = {
       cat = "bat";
+      diff = "batdiff";
+      man = "batman";
+      grep = "batgrep";
+      watch = "batwatch";
     };
   };
 }

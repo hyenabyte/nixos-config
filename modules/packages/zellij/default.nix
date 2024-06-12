@@ -31,5 +31,11 @@ in {
         };
       };
     };
+
+    programs.zsh.shellAliases = {
+      zj = "zellij";
+      zjl = "zellij list-sessions";
+      zja = "zellij attach";
+    };
   };
 }

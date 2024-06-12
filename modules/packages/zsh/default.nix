@@ -40,10 +40,6 @@ in {
 
       # Set some aliases
       shellAliases = {
-        zj = "zellij";
-        zjl = "zellij list-sessions";
-        zja = "zellij attach";
-
         c = "xsel -i";
         v = "xsel -o";
       };
