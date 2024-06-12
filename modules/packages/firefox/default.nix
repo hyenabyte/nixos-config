@@ -1,4 +1,5 @@
 {
+  pkgs,
   lib,
   config,
   ...
@@ -12,23 +13,80 @@ in {
     programs.firefox = {
       enable = true;
 
-      profiles.hyena = {
-        extensions = [
-          # ublock-origin
-        ];
-        settings = {};
-      };
+      profiles.default = {
+        id = 0;
+        name = "default";
+        isDefault = true;
 
-      # Install extensions from NUR
-      # extensions = with pkgs.nur.repos.rycee.firefox-addons; [
-      # decentraleyes
-      # ublock-origin
-      # clearurls
-      # sponsorblock
-      # darkreader
-      # h264ify
-      # df-youtube
-      # ];
+        extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+          adnauseam
+          bitwarden
+          cookie-autodelete
+          facebook-container
+          multi-acount-containers
+          flagfox
+          offline-qr-code-generator
+          return-youtube-dislikes
+          simplelogin
+          sponsorblock
+          streetpass-for-mastodon
+          tree-style-tab
+
+          # ublock-origin
+          # decentraleyes
+          # firefox-color
+          # localcdn
+          # privacy-badger
+          # vimium
+        ];
+
+        settings = {
+          # Homepage
+          # "browser.startup.homepage" = "https://duckduckgo.com";
+
+          # Search Engine
+          "browser.search.defaultenginename" = "DuckDuckGo";
+          "browser.search.order.1" = "DuckDuckGo";
+
+          # Don't close window when closing last tab
+          "browser.tabs.closeWindowWithLastTab" = false;
+        };
+
+        search = {
+          force = true;
+          default = "DuckDuckGo";
+          order = ["DuckDuckGo" "Google"];
+          engines = {
+            "Nix Packages" = {
+              urls = [
+                {
+                  template = "https://search.nixos.org/packages";
+                  params = [
+                    {
+                      name = "type";
+                      value = "packages";
+                    }
+                    {
+                      name = "query";
+                      value = "{searchTerms}";
+                    }
+                  ];
+                }
+              ];
+              icon = "''${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+              definedAliases = ["@np"];
+            };
+            "NixOS Wiki" = {
+              urls = [{template = "https://nixos.wiki/index.php?search={searchTerms}";}];
+              iconUpdateURL = "https://nixos.wiki/favicon.png";
+              updateInterval = 24 * 60 * 60 * 1000; # every day
+              definedAliases = ["@nw"];
+            };
+            "Bing".metaData.hidden = true;
+            "Google".metaData.alias = "@g"; # builtin engines only support specifying one additional alias
+          };
+        };
+      };
 
       # Privacy about:config settings
       # profiles.notus = {
@@ -94,66 +152,6 @@ in {
       #         "privacy.firstparty.isolate" = true;
       #         "network.http.sendRefererHeader" = 0;
       #     };
-
-      # userChome.css to make it look better
-      # userChrome = "
-      #     * {
-      #         box-shadow: none !important;
-      #         border: 0px solid !important;
-      #     }
-
-      #     #tabbrowser-tabs {
-      #         --user-tab-rounding: 8px;
-      #     }
-
-      #     .tab-background {
-      #         border-radius: var(--user-tab-rounding) var(--user-tab-rounding) 0px 0px !important; /* Connected */
-      #         margin-block: 1px 0 !important; /* Connected */
-      #     }
-      #     #scrollbutton-up, #scrollbutton-down { /* 6/10/2021 */
-      #         border-top-width: 1px !important;
-      #         border-bottom-width: 0 !important;
-      #     }
-
-      #     .tab-background:is([selected], [multiselected]):-moz-lwtheme {
-      #         --lwt-tabs-border-color: rgba(0, 0, 0, 0.5) !important;
-      #         border-bottom-color: transparent !important;
-      #     }
-      #     [brighttext='true'] .tab-background:is([selected], [multiselected]):-moz-lwtheme {
-      #         --lwt-tabs-border-color: rgba(255, 255, 255, 0.5) !important;
-      #         border-bottom-color: transparent !important;
-      #     }
-
-      #     /* Container color bar visibility */
-      #     .tabbrowser-tab[usercontextid] > .tab-stack > .tab-background > .tab-context-line {
-      #         margin: 0px max(calc(var(--user-tab-rounding) - 3px), 0px) !important;
-      #     }
-
-      #     #TabsToolbar, #tabbrowser-tabs {
-      #         --tab-min-height: 29px !important;
-      #     }
-      #     #main-window[sizemode='true'] #toolbar-menubar[autohide='true'] + #TabsToolbar,
-      #     #main-window[sizemode='true'] #toolbar-menubar[autohide='true'] + #TabsToolbar #tabbrowser-tabs {
-      #         --tab-min-height: 30px !important;
-      #     }
-      #     #scrollbutton-up,
-      #     #scrollbutton-down {
-      #         border-top-width: 0 !important;
-      #         border-bottom-width: 0 !important;
-      #     }
-
-      #     #TabsToolbar, #TabsToolbar > hbox, #TabsToolbar-customization-target, #tabbrowser-arrowscrollbox  {
-      #         max-height: calc(var(--tab-min-height) + 1px) !important;
-      #     }
-      #     #TabsToolbar-customization-target toolbarbutton > .toolbarbutton-icon,
-      #     #TabsToolbar-customization-target .toolbarbutton-text,
-      #     #TabsToolbar-customization-target .toolbarbutton-badge-stack,
-      #     #scrollbutton-up,#scrollbutton-down {
-      #         padding-top: 7px !important;
-      #         padding-bottom: 6px !important;
-      #     }
-      # ";
-      # };
     };
   };
 }
