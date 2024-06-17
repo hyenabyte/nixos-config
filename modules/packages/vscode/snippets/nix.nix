@@ -28,6 +28,30 @@ in {
           "}"
         ];
       };
+      "Container Module" = {
+        prefix = "_container";
+        body = [
+          "{"
+          "  pkgs,"
+          "  lib,"
+          "  config,"
+          "  ..."
+          "}:"
+          "with lib; let"
+          "  cfg = config.modules.$1;"
+          "in {"
+          "  options.modules.$1 = {enable = mkEnableOption \"$1\";};"
+          "  config = mkIf cfg.enable {"
+          "    virtualisation.oci-containers.containers = {"
+          "      $1 = {"
+          "        image = \"$2\";"
+          "        $0"
+          "      };"
+          "    };"
+          "  };"
+          "}"
+        ];
+      };
       "Blank File" = {
         prefix = "_blank";
         body = [
