@@ -23,7 +23,7 @@ in {
           bitwarden
           cookie-autodelete
           facebook-container
-          multi-acount-containers
+          multi-account-containers
           flagfox
           offline-qr-code-generator
           return-youtube-dislikes
@@ -81,6 +81,12 @@ in {
               iconUpdateURL = "https://nixos.wiki/favicon.png";
               updateInterval = 24 * 60 * 60 * 1000; # every day
               definedAliases = ["@nw"];
+            };
+            "MyNixOS" = {
+              urls = [{template = "https://mynixos.com/search?q={searchTerms}";}];
+              iconUpdateURL = "https://mynixos.com/favicon.png";
+              updateInterval = 24 * 60 * 60 * 1000; # every day
+              definedAliases = ["@mno"];
             };
             "Bing".metaData.hidden = true;
             "Google".metaData.alias = "@g"; # builtin engines only support specifying one additional alias
