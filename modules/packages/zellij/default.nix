@@ -10,10 +10,10 @@ in {
   config = mkIf cfg.enable {
     programs.zellij = {
       enable = true;
-      # enableZshIntegration = true;
+      enableZshIntegration = true;
 
       settings = {
-        theme = "everforest-dark";
+        theme = "catppuccin-mocha";
 
         themes.everforest-dark = {
           bg = "#2d353b";
