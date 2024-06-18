@@ -24,7 +24,7 @@
       helix.enable = true;
       lsd.enable = true;
       starship.enable = true;
-      zellij.enable = true;
+      # zellij.enable = true;
       zoxide.enable = true;
       zsh.enable = true;
       vscode.enable = true;
