@@ -11,7 +11,7 @@ in {
     programs.helix = {
       enable = true;
       settings = {
-        theme = "everforest_dark";
+        theme = "catppuccin_mocha";
 
         editor = {
           shell = ["zsh" "-c"];
