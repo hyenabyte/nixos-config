@@ -10,6 +10,7 @@
     ./gnome
     ./jellyfin
     ./locale
+    ./nextcloud
     ./nix-ld
     ./nvidia
     ./pantheon
