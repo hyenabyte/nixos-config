@@ -28,6 +28,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
       #inputs.flake-utils.follows = "flake-utils";
     };
+
+    agenix = {
+      url = "github:ryantm/agenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   # All outputs for the system (configs)
@@ -36,6 +41,7 @@
     nixpkgs,
     nix-darwin,
     nur,
+    agenix,
     ...
   } @ inputs: let
     mkSystem = pkgs: system: hostname:
@@ -50,6 +56,7 @@
             ./hosts/darwin
             (./. + "/hosts/darwin/${hostname}")
             #./users/hyena
+            agenix.darwinModules.default
             home-manager.darwinModules.home-manager
             {
               home-manager = {
@@ -72,6 +79,7 @@
             ./hosts/nixos
             (./. + "/hosts/nixos/${hostname}")
             ./users/hyena
+            agenix.nixosModules.default
             home-manager.nixosModules.home-manager
             {
               home-manager = {
