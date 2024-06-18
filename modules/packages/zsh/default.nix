@@ -24,6 +24,14 @@ in {
       autosuggestion.enable = true;
       syntaxHighlighting.enable = true;
 
+      # Antidote
+      antidote = {
+        enable = true;
+        plugins = [
+          "zsh-users/zsh-completions"
+        ];
+      };
+
       # .zshrc
       initExtra = ''
         if [ $(uname) = "Darwin" ]; then
@@ -43,10 +51,6 @@ in {
         c = "xsel -i";
         v = "xsel -o";
       };
-
-      # Source all plugins, nix-style
-      plugins = [
-      ];
     };
   };
 }
