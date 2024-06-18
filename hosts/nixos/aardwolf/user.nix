@@ -1,10 +1,22 @@
-{pkgs, ...}: {
-  imports = [../../../modules/packages];
+{
+  pkgs,
+  inputs,
+  ...
+}: {
+  imports = [
+    inputs.agenix.homeManagerModules.default
+    ../../../modules/packages
+    ../../../users/hyena/home.nix
+  ];
+
   config = {
     home.stateVersion = "23.11";
 
     # Modules
     modules = {
+      # cli
+      zellij.enable = true;
+
       # gui
       alacritty.enable = true;
       firefox.enable = true;
@@ -12,47 +24,27 @@
       obs-studio.enable = true;
       vscode.enable = true;
       thunderbird.enable = true;
-
-      # cli
-      bat.enable = true;
-      bottom.enable = true;
-      direnv.enable = true;
-      git.enable = true;
-      gpg.enable = true;
-      helix.enable = true;
-      hyfetch.enable = true;
-      lsd.enable = true;
-      starship.enable = true;
-      zellij.enable = true;
-      zoxide.enable = true;
-      zsh.enable = true;
+      # logseq.enable = true;
     };
 
     # Packages
     home.packages = with pkgs; [
-      ### Terminal       ###
-      antidote
-      croc
-      lazygit
-      xh
-      xsel
-      yazi
-
-      ### Nix            ###
-      nil
-      alejandra
-
       ### Applications   ###
-      beeper
       bitwarden
       deluge
-      gnome.gnome-boxes
+      # floorp
+      # gnome.gnome-boxes
       protonvpn-gui
-      veracrypt
-      vesktop
-      vivaldi
-      rpi-imager
+      # veracrypt
+      # vivaldi
+      # rpi-imager
       livecaptions
+      # logseq
+
+      ### Social         ###
+      vesktop
+      beeper
+      signal-desktop
 
       ### Multimedia     ###
       spotify
@@ -62,10 +54,11 @@
       # itch
       lutris
       prismlauncher
-      r2modman
+      # r2modman
       steam
-      winetricks
-      wineWowPackages.stable
+      # winetricks
+      # wineWowPackages.stable
+      openrct2
 
       ### Graphical work ###
       blender
@@ -74,13 +67,15 @@
       gimp
 
       ### Development    ###
-      beekeeper-studio
+      # beekeeper-studio
       # gitkraken
-      godot_4
+      # godot_4
       # insomnia
       # lapce
-      ldtk
+      # ldtk
       # vscode
+      # pulsar
+      zed-editor
 
       ### Customization  ###
       # gradience

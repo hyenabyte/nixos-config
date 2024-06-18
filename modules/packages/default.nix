@@ -7,11 +7,13 @@
     ./obs-studio
     ./vscode
     ./thunderbird
+    ./logseq
 
     # cli
     ./bat
     ./bottom
     ./direnv
+    ./fzf
     ./git
     ./gpg
     ./helix
