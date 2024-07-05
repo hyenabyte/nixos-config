@@ -24,7 +24,7 @@
       obs-studio.enable = true;
       vscode.enable = true;
       thunderbird.enable = true;
-      # logseq.enable = true;
+      logseq.enable = true;
     };
 
     # Packages
@@ -35,11 +35,10 @@
       # floorp
       # gnome.gnome-boxes
       protonvpn-gui
-      # veracrypt
+      veracrypt
       # vivaldi
       # rpi-imager
       livecaptions
-      # logseq
 
       ### Social         ###
       vesktop
@@ -49,6 +48,7 @@
       ### Multimedia     ###
       spotify
       vlc
+      youtube-music
 
       ### Gaming         ###
       # itch

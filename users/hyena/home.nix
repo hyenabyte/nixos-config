@@ -24,16 +24,17 @@
     # Packages
     home.packages = with pkgs; [
       ### Terminal       ###
+      age
       croc
       lazygit
+      ncdu
       xh
       xsel
       yazi
-      ncdu
 
       ### Nix            ###
-      nil
       alejandra
+      nil
     ];
   };
 }
