@@ -4,6 +4,11 @@
       allowUnfree = true;
       allowUnfreePredicate = _: true;
     };
+
+    overlays = [
+      inputs.nix-vscode-extensions.overlays.default
+      inputs.nur.overlay
+    ];
   };
 
   nix.settings.experimental-features = ["nix-command" "flakes"];

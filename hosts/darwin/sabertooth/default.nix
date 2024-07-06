@@ -61,6 +61,9 @@
       #inkscape
       #gimp
       "tabby"
+      "logseq"
+      "signal"
+      "steam"
     ];
   };
 
