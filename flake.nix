@@ -34,6 +34,11 @@
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs-stable";
     };
+
+    secrets = {
+      url = "git+ssh://git@codeberg.org/hyenabyte/secrets.git?ref=main";
+      flake = false;
+    };
   };
 
   # All outputs for the system (configs)
@@ -80,6 +85,7 @@
             ./hosts/nixos
             (./. + "/hosts/nixos/${hostname}")
             ./users/hyena
+            inputs.secrets.outPath
             agenix.nixosModules.default
             home-manager.nixosModules.home-manager
             {

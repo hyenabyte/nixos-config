@@ -1,14 +1,9 @@
-{pkgs, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   nix.settings.trusted-users = ["hyena"];
-
-  # age.identityPaths = [
-  #   "/home/notthebee/.ssh/notthebee"
-  #   "/home/notthebee/.ssh/id_ed25519"
-  # ];
-
-  # age.secrets.hashedUserPassword = {
-  #   file = ../../secrets/hashedUserPassword.age;
-  # };
 
   users = {
     users = {
@@ -17,7 +12,7 @@
         shell = pkgs.zsh;
         uid = 1000;
         isNormalUser = true;
-        # hashedPasswordFile = config.age.secrets.hashedUserPassword.path;
+        hashedPasswordFile = config.age.secrets.hashedUserPassword.path;
         extraGroups = [
           "wheel"
           "users"
