@@ -16,6 +16,7 @@
     samba.enable = true;
     ssh.enable = true;
     tailscale.enable = true;
+    systemd-boot.enable = true;
   };
 
   # This value determines the NixOS release from which the default

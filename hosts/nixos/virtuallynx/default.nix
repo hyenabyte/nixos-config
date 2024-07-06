@@ -17,11 +17,10 @@
     # pipewire.enable = true;
     # nix-ld.enable = true;
     ssh.enable = true;
+    grub.enable = true;
   };
 
-  boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/vda/";
-  boot.loader.grub.useOSProber = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
