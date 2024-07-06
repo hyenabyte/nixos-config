@@ -21,6 +21,7 @@
     ./qemu
     ./samba
     ./ssh
+    ./steam
     ./systemd-boot
     ./tailscale
     ./touchpad
