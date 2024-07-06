@@ -1,3 +1,0 @@
-[submodule "secrets"]
-	path = secrets
-	url = git@codeberg.org:hyenabyte/secrets.git
