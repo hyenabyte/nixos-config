@@ -14,6 +14,10 @@ My desktop pc
 
 My home server
 
+### VirtualLynx (NixOS)
+
+Virtual Machine for testing
+
 ### Sabertooth (Darwin)
 
 My MacBook
@@ -51,6 +55,4 @@ TODO
 ## TODO
 
 - Manage docker/podman containers with oci-containers
-- Manage secrets
-- Manage darwin hosts (sabertooth)
 - Validation and deployment pipelines

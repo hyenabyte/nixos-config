@@ -9,8 +9,8 @@
 
   # All inputs for the system
   inputs = {
-    # nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -19,7 +19,7 @@
 
     nix-darwin = {
       url = "github:LnL7/nix-darwin/master";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs-stable";
     };
 
     nur.url = "github:nix-community/nur";
@@ -32,7 +32,7 @@
 
     agenix = {
       url = "github:ryantm/agenix";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs-stable";
     };
   };
 
@@ -98,10 +98,11 @@
       # Now, defining a new system is can be done in one line
       #                                  Architecture   Hostname
       aardwolf = mkSystem inputs.nixpkgs "x86_64-linux" "aardwolf";
-      possum = mkSystem inputs.nixpkgs "x86_64-linux" "possum";
+      possum = mkSystem inputs.nixpkgs-stable "x86_64-linux" "possum";
+      virtuallynx = mkSystem inputs.nixpkgs "x86_64-linux" "virtuallynx";
     };
     darwinConfigurations = {
-      sabertooth = mkSystem inputs.nixpkgs "aarch64-darwin" "sabertooth";
+      sabertooth = mkSystem inputs.nixpkgs-stable "aarch64-darwin" "sabertooth";
     };
   };
 }
