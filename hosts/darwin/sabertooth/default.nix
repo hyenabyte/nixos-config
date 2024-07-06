@@ -1,18 +1,4 @@
 {lib, ...}: {
-  # fonts.fonts = with pkgs; [
-  #   roboto
-  #   corefonts
-  #   noto-fonts
-  #   noto-fonts-cjk
-  #   noto-fonts-emoji
-  #   noto-fonts-extra
-  #   (nerdfonts.override {fonts = ["Agave" "Iosevka"];})
-  # ];
-
-  # environment.shellInit = ''
-  #   ulimit -n 2048
-  #   '';
-
   homebrew = {
     enable = true;
 

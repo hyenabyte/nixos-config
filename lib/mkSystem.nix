@@ -5,19 +5,24 @@
     then inputs.nix-darwin.lib.darwinSystem
     else pkgs.lib.nixosSystem;
   systemPrefix =
-    if system == "aarch64-darwin"
+    if isDarwin
     then "darwin"
     else "nixos";
   systemModules =
     if isDarwin
     then [
+      # Darwin Specific modules
       inputs.agenix.darwinModules.default
       inputs.home-manager.darwinModules.home-manager
     ]
     else [
+      # Nixos Specific modules
       inputs.agenix.nixosModules.default
       inputs.home-manager.nixosModules.home-manager
 
+      # System packages
+      "${self}/modules/system"
+      # Default user setup
       "${self}/users/${user}"
     ];
 in
@@ -35,7 +40,6 @@ in
         "${self}/hosts/${systemPrefix}"
         # Host specific system config
         "${self}/hosts/${systemPrefix}/${hostname}"
-
         # Secrets
         inputs.secrets.outPath
         # Home manager config
