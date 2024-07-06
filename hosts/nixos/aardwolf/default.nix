@@ -15,13 +15,11 @@
     locale-dk.enable = true;
     fonts.enable = true;
     plasma.enable = true;
-    # gnome.enable = true;
     tailscale.enable = true;
     bluetooth.enable = true;
     pipewire.enable = true;
     nix-ld.enable = true;
     qemu.enable = true;
-    # virtual-box.enable = true;
     systemd-boot.enable = true;
 
     # pzomboid.enable = true;

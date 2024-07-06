@@ -81,7 +81,7 @@
       # shadowtime2000.eta-vscode
 
       # Caddyfile
-      zamerick.vscode-caddyfile-syntax
+      # zamerick.vscode-caddyfile-syntax
 
       # Debug
       firefox-devtools.vscode-firefox-debug

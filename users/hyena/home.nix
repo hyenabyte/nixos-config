@@ -1,8 +1,4 @@
 {pkgs, ...}: {
-  # imports = [
-  #   ../../modules/packages
-  # ];
-
   config = {
     # Modules
     modules = {

@@ -2,6 +2,7 @@
   pkgs,
   lib,
   config,
+  user,
   ...
 }:
 with lib; let
@@ -16,7 +17,7 @@ in {
     programs.dconf.enable = true;
 
     # Add user to libvirtd group
-    users.users.hyena.extraGroups = ["libvirtd"];
+    users.users.${user}.extraGroups = ["libvirtd"];
 
     # Install necessary packages
     environment.systemPackages = with pkgs; [

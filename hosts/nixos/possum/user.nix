@@ -1,14 +1,4 @@
-{
-  inputs,
-  pkgs,
-  ...
-}: {
-  imports = [
-    inputs.agenix.homeManagerModules.default
-    ../../../modules/packages
-    ../../../users/hyena/home.nix
-  ];
-
+{pkgs, ...}: {
   config = {
     home.stateVersion = "23.11";
 

@@ -17,6 +17,8 @@
     else [
       inputs.agenix.nixosModules.default
       inputs.home-manager.nixosModules.home-manager
+
+      "${self}/users/${user}"
     ];
 in
   systemMaker {
@@ -29,15 +31,11 @@ in
       ++ [
         # Hostname
         {networking.hostName = hostname;}
-        # Default host config
+        # Default system config
         "${self}/hosts/${systemPrefix}"
-        # Specific host config
+        # Host specific system config
         "${self}/hosts/${systemPrefix}/${hostname}"
-        # Default user config
-        (
-          # Don't include user definition if a Darwin system
-          pkgs.lib.strings.optionalString (!isDarwin) "${self}/users/${user}"
-        )
+
         # Secrets
         inputs.secrets.outPath
         # Home manager config
@@ -45,9 +43,21 @@ in
           home-manager = {
             useUserPackages = true;
             useGlobalPkgs = true;
-            extraSpecialArgs = {inherit inputs;};
+            extraSpecialArgs = {inherit inputs user;};
             backupFileExtension = "bak";
-            users.${user} = "${self}/hosts/${systemPrefix}/${hostname}/user.nix";
+
+            users.${user} = {
+              imports = [
+                # Agenix
+                inputs.agenix.homeManagerModules.default
+                # User Modules
+                "${self}/modules/packages"
+                # Default user config
+                "${self}/users/${user}/home.nix"
+                # Host specific user config
+                "${self}/hosts/${systemPrefix}/${hostname}/user.nix"
+              ];
+            };
           };
         }
       ];

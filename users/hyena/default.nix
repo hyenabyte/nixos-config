@@ -3,9 +3,10 @@
   pkgs,
   inputs,
   self,
+  user,
   ...
 }: let
-  username = "hyena";
+  username = user;
   ssh-keys = (import "${self}/lib/" inputs).formatSSHKeys inputs.ssh-keys.outPath;
 in {
   nix.settings.trusted-users = [username];

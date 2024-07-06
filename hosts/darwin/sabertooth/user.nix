@@ -1,21 +1,16 @@
 {
   pkgs,
   lib,
+  user,
   ...
 }: {
-  imports = [
-    ../../../modules/packages
-    #   inputs.nix-index-database.hmModules.nix-index
-    #   inputs.agenix.homeManagerModules.default
-  ];
   config = {
     home.stateVersion = "23.11";
-    home.homeDirectory = lib.mkForce "/Users/hyena";
+    home.homeDirectory = lib.mkForce "/Users/${user}";
 
     programs.home-manager.enable = true;
 
     modules = {
-      # alacritty.enable = true;
       bat.enable = true;
       bottom.enable = true;
       direnv.enable = true;
@@ -24,7 +19,6 @@
       helix.enable = true;
       lsd.enable = true;
       starship.enable = true;
-      # zellij.enable = true;
       zoxide.enable = true;
       zsh.enable = true;
       vscode.enable = true;
