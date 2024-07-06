@@ -8,6 +8,7 @@
     ./firewall
     ./fonts
     ./gnome
+    ./grub
     ./jellyfin
     ./locale
     ./nextcloud
@@ -20,6 +21,7 @@
     ./qemu
     ./samba
     ./ssh
+    ./systemd-boot
     ./tailscale
     ./touchpad
     ./virtual-box
