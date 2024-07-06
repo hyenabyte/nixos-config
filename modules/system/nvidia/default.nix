@@ -12,13 +12,12 @@ in {
     nixpkgs.config.allowUnfree = true;
 
     # Enable OpenGL
-    # ! Change this when 24.11 is stable
-    # hardware.graphics.enable = true;
-    hardware.opengl = {
-      enable = true;
-      driSupport = true;
-      driSupport32Bit = true;
-    };
+    hardware.graphics.enable = true;
+    # hardware.opengl = {
+    #   enable = true;
+    #   driSupport = true;
+    #   driSupport32Bit = true;
+    # };
 
     # Load nvidia driver for Xorg and Wayland
     services.xserver.videoDrivers = ["nvidia"]; # or "nvidiaLegacy470 etc.
