@@ -5,6 +5,9 @@
 
     # System modules
     ../../../modules/system
+
+    # Containers
+    ../../../modules/containers
   ];
 
   modules = {
@@ -17,7 +20,10 @@
     bluetooth.enable = true;
     pipewire.enable = true;
     nix-ld.enable = true;
-    virtual-box.enable = true;
+    qemu.enable = true;
+    # virtual-box.enable = true;
+
+    # pzomboid.enable = true;
   };
 
   # This value determines the NixOS release from which the default

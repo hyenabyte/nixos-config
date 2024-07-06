@@ -24,7 +24,7 @@
       obs-studio.enable = true;
       vscode.enable = true;
       thunderbird.enable = true;
-      logseq.enable = true;
+      # logseq.enable = true;
     };
 
     # Packages
