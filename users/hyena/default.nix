@@ -1,14 +1,19 @@
 {
   config,
   pkgs,
+  inputs,
+  self,
   ...
-}: {
-  nix.settings.trusted-users = ["hyena"];
+}: let
+  username = "hyena";
+  ssh-keys = (import "${self}/lib/" inputs).formatSSHKeys inputs.ssh-keys.outPath;
+in {
+  nix.settings.trusted-users = [username];
 
   users = {
     users = {
-      hyena = {
-        description = "hyena";
+      ${username} = {
+        description = "${username}'s user";
         shell = pkgs.zsh;
         uid = 1000;
         isNormalUser = true;
@@ -19,12 +24,12 @@
           "podman"
           "networkmanager"
         ];
-        group = "hyena";
-        # openssh.authorizedKeys.keys = ["ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKGUGMUo1dRl9xoDlMxQGb8dNSY+6xiEpbZWAu6FAbWw moe@notthebe.ee"];
+        group = username;
+        openssh.authorizedKeys.keys = ssh-keys.keys;
       };
     };
     groups = {
-      hyena = {
+      ${username} = {
         gid = 1000;
       };
     };

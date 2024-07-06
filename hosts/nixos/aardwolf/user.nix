@@ -6,6 +6,7 @@
   imports = [
     inputs.agenix.homeManagerModules.default
     ../../../modules/packages
+    # (./. + "/../../../users/${user}/home.nix")
     ../../../users/hyena/home.nix
   ];
 
@@ -55,7 +56,7 @@
       lutris
       prismlauncher
       # r2modman
-      steam
+      # steam
       # winetricks
       # wineWowPackages.stable
       openrct2

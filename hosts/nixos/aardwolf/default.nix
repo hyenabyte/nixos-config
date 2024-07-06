@@ -25,6 +25,7 @@
     systemd-boot.enable = true;
 
     # pzomboid.enable = true;
+    steam.enable = true;
   };
 
   # This value determines the NixOS release from which the default
