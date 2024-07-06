@@ -15,11 +15,11 @@
     # Modules
     modules = {
       # cli
-      zellij.enable = true;
+      # zellij.enable = true;
 
       # gui
       alacritty.enable = true;
-      firefox.enable = true;
+      # firefox.enable = true;
     };
 
     # Packages
