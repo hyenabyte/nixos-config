@@ -5,7 +5,7 @@
         "darwin": "darwin",
         "home-manager": "home-manager",
         "nixpkgs": [
-          "nixpkgs-stable"
+          "nixpkgs"
         ],
         "systems": "systems"
       },
@@ -107,11 +107,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1720188602,
-        "narHash": "sha256-lC3byBmhVZFzWl/dCic8+cKUEEAXAswWOYjq4paFmbo=",
+        "lastModified": 1720289319,
+        "narHash": "sha256-E3CjSsXNDWYqoNjrKQLPdEZDLR+mVI9HMa+jY//FjBY=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "e3582e5151498bc4d757e8361431ace8529e7bb7",
+        "rev": "10486e6b311b3c5ae1c3477fee058704cea7cb4a",
         "type": "github"
       },
       "original": {
@@ -123,7 +123,7 @@
     "nix-darwin": {
       "inputs": {
         "nixpkgs": [
-          "nixpkgs-stable"
+          "nixpkgs"
         ]
       },
       "locked": {
@@ -179,29 +179,13 @@
         "type": "github"
       }
     },
-    "nixpkgs-stable": {
-      "locked": {
-        "lastModified": 1720110830,
-        "narHash": "sha256-E5dN9GDV4LwMEduhBLSkyEz51zM17XkWZ3/9luvNOPs=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "c0d0be00d4ecc4b51d2d6948e37466194c1e6c51",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "ref": "nixos-24.05",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "nur": {
       "locked": {
-        "lastModified": 1720262786,
-        "narHash": "sha256-lOw+DePpT6JEzudxzq/yhDqWW9fOga9vrojV2E1DgAs=",
+        "lastModified": 1720276401,
+        "narHash": "sha256-tWBXMGxAnR/iroW0JEVA1esOp6Ln0C7GhQ0AshxPqP4=",
         "owner": "nix-community",
         "repo": "nur",
-        "rev": "7907d743f2a29c574db99f3297da264fe5fe7a6e",
+        "rev": "fe3c458e7673f38d69542a3b9f66df01ff81c73c",
         "type": "github"
       },
       "original": {
@@ -217,9 +201,9 @@
         "nix-darwin": "nix-darwin",
         "nix-vscode-extensions": "nix-vscode-extensions",
         "nixpkgs": "nixpkgs",
-        "nixpkgs-stable": "nixpkgs-stable",
         "nur": "nur",
-        "secrets": "secrets"
+        "secrets": "secrets",
+        "ssh-keys": "ssh-keys"
       }
     },
     "secrets": {
@@ -237,6 +221,18 @@
         "ref": "main",
         "type": "git",
         "url": "ssh://git@codeberg.org/hyenabyte/secrets.git"
+      }
+    },
+    "ssh-keys": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-juU+ID4WDcR1WG3eIobtM1Jg5RVIoeX0RzZE19Ngt4Y=",
+        "type": "file",
+        "url": "https://codeberg.org/hyenabyte.keys"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://codeberg.org/hyenabyte.keys"
       }
     },
     "systems": {
