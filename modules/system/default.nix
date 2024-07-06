@@ -17,6 +17,7 @@
     ./pipewire
     ./plasma
     ./podman
+    ./qemu
     ./samba
     ./ssh
     ./tailscale
