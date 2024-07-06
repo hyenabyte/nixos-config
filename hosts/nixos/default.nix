@@ -29,8 +29,10 @@
 
   programs.zsh.enable = true;
 
-  environment.systemPackages = with pkgs; [
-    vim
-    git
+  environment.systemPackages = [
+    pkgs.vim
+    pkgs.git
+
+    inputs.agenix.packages.x86_64-linux.default
   ];
 }
