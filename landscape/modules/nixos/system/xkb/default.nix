@@ -15,7 +15,7 @@ in {
     services.xserver.xkb = {
       layout = "dk";
       variant = "";
-      xkbOptions = "caps:escape";
+      options = "caps:escape";
     };
   };
 }

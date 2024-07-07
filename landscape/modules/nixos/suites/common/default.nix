@@ -22,7 +22,7 @@ in {
       cli = {
         bottom = enabled;
         helix = {
-          enabled = true;
+          enable = true;
           defaultEditor = true;
         };
         hyfetch = enabled;

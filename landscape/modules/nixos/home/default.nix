@@ -14,15 +14,16 @@ in {
 
   options.${namespace}.home = with types; {
     file =
-      mkOption attrs {}
+      mkOpt attrs {}
       "A set of files to be managed by home-manager's <option>home.file</option>.";
     configFile =
-      mkOption attrs {}
+      mkOpt attrs {}
       "A set of files to be managed by home-manager's <option>xdg.configFile</option>.";
-    programs = mkOption attrs {} "Programs to be managed by home-manager.";
-    extraOptions = mkOption attrs {} "Options to pass directly to home-manager.";
+    programs = mkOpt attrs {} "Programs to be managed by home-manager.";
+    services = mkOpt attrs {} "Services to be managed by home-manager.";
+    extraOptions = mkOpt attrs {} "Options to pass directly to home-manager.";
 
-    persist = mkOption attrs {} "Files and directories to persist in the home";
+    # persist = mkOpt attrs {} "Files and directories to persist in the home";
   };
 
   config = {
@@ -32,16 +33,17 @@ in {
       xdg.enable = true;
       xdg.configFile = mkAliasDefinitions options.${namespace}.home.configFile;
       programs = mkAliasDefinitions options.${namespace}.home.programs;
+      services = mkAliasDefinitions options.${namespace}.home.services;
     };
 
     home-manager = {
       useUserPackages = true;
-      useGlobalPackages = true;
+      useGlobalPkgs = true;
 
       users.${config.${namespace}.user.name} =
         mkAliasDefinitions options.${namespace}.home.extraOptions;
     };
 
-    environment.persistence."/persist".users.${config.user.name} = mkIf options.impermanence.enable.value (mkAliasDefinitions options.home.persist);
+    # environment.persistence."/persist".users.${config.${namespace}.user.name} = mkIf options.impermanence.enable.value (mkAliasDefinitions options.home.persist);
   };
 }

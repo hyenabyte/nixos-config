@@ -13,7 +13,7 @@ in {
     startInBackground = mkBoolOpt false "Start Nextcloud Client in the background when powering on the system.";
   };
   config = mkIf cfg.enable {
-    services.nextcloud-client = {
+    ${namespace}.home.services.nextcloud-client = {
       enable = true;
       startInBackground = cfg.startInBackground;
     };

@@ -12,7 +12,7 @@ in {
   options.${namespace}.apps.alacritty = {enable = mkEnableOption "Enable Alacritty";};
   config = mkIf cfg.enable {
     environment.systemPackages = [pkgs.alacritty];
-    home.programs.alacritty = {
+    ${namespace}.home.programs.alacritty = {
       enable = true;
 
       settings =

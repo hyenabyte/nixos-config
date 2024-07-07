@@ -13,9 +13,9 @@ in {
     defaultEditor = mkBoolOpt false "Set Helix as default editor ($EDITOR)";
   };
   config = mkIf cfg.enable {
-    home.programs.helix = {
+    ${namespace}.home.programs.helix = {
       enable = true;
-      defaultEditor = defaultEditor;
+      defaultEditor = cfg.defaultEditor;
 
       settings = {
         theme = "catppuccin_mocha";

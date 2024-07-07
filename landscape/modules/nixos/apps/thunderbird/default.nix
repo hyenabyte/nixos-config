@@ -10,9 +10,9 @@ with lib.${namespace}; let
 in {
   options.${namespace}.apps.thunderbird = {enable = mkEnableOption "Enable Thunderbird";};
   config = mkIf cfg.enable {
-    home.programs.thunderbird = {
+    ${namespace}.home.programs.thunderbird = {
       enable = true;
-      profiles.${config.user.name} = {
+      profiles.${config.${namespace}.user.name} = {
         isDefault = true;
         settings = {};
 

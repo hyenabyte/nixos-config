@@ -26,7 +26,7 @@ in {
       zsh
     ];
 
-    programs.zsh = enabled;
+    programs.zsh.enable = true;
 
     ${namespace}.home.programs = {
       zsh = {

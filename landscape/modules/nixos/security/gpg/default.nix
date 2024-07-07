@@ -12,9 +12,9 @@ in {
   config = mkIf cfg.enable {
     # TODO
 
-    programs.gpg = {
-      enable = true;
-    };
+    # programs.gnupg = {
+    #   enable = true;
+    # };
 
     # Fix pass
     # services.gpg-agent = {

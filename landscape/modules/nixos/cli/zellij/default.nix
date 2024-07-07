@@ -10,7 +10,7 @@ with lib.${namespace}; let
 in {
   options.${namespace}.cli.zellij = {enable = mkEnableOption "zellij";};
   config = mkIf cfg.enable {
-    home.programs.zellij = {
+    ${namespace}.home.programs.zellij = {
       enable = true;
       enableZshIntegration = true;
 

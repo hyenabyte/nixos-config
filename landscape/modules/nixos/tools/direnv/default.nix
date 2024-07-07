@@ -10,7 +10,7 @@ with lib.${namespace}; let
 in {
   options.${namespace}.tools.direnv = {enable = mkEnableOption "direnv";};
   config = mkIf cfg.enable {
-    programs.direnv = {
+    ${namespace}.home.programs.direnv = {
       enable = true;
       nix-direnv.enable = true;
       enableZshIntegration = true;

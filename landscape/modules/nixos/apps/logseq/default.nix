@@ -11,8 +11,8 @@ with lib.${namespace}; let
 in {
   options.${namespace}.apps.logseq = {enable = mkEnableOption "Enable Logseq";};
   config = mkIf cfg.enable {
-    home.packages = [
-      pkgs.logseq
+    environment.systemPackages = with pkgs; [
+      logseq
     ];
 
     # TODO: add logseq config

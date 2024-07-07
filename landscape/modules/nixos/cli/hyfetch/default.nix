@@ -10,7 +10,7 @@ with lib.${namespace}; let
 in {
   options.${namespace}.cli.hyfetch = {enable = mkEnableOption "hyfetch";};
   config = mkIf cfg.enable {
-    home.programs.hyfetch = {
+    ${namespace}.home.programs.hyfetch = {
       enable = true;
       settings = {
         preset = "agender";

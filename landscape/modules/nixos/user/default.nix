@@ -35,12 +35,12 @@ with lib.${namespace}; let
     '';
 in {
   options.${namespace}.user = with types; {
-    name = mkOption str "hyena" "The username for the account.";
-    fullName = mkOption str "hyena" "The full name for the account.";
-    email = mkOption str "hyena@hyenabyte.dev" "The email address for the account.";
-    icon = mkOption (nullOr package) defaultIcon "The profile picture for the account.";
-    extraGroups = mkOption (listOf str) [] "Groups the user is assigned to.";
-    extraOptions = mkOption attrs {} "Extra options for the user";
+    name = mkOpt str "hyena" "The username for the account.";
+    fullName = mkOpt str "hyena" "The full name for the account.";
+    email = mkOpt str "hyena@hyenabyte.dev" "The email address for the account.";
+    icon = mkOpt (nullOr package) defaultIcon "The profile picture for the account.";
+    extraGroups = mkOpt (listOf str) [] "Groups the user is assigned to.";
+    extraOptions = mkOpt attrs {} "Extra options for the user";
   };
   config = {
     environment.systemPackages = with pkgs; [

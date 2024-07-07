@@ -1,4 +1,5 @@
 {
+  options,
   pkgs,
   lib,
   config,
@@ -9,7 +10,7 @@ with lib;
 with lib.${namespace}; let
   cfg = config.${namespace}.system.fonts;
 in {
-  options.${namespace}.system.fonts = {
+  options.${namespace}.system.fonts = with types; {
     enable = mkEnableOption "fonts";
     fonts = mkOpt (listOf package) [] "Extra fonts to install.";
   };

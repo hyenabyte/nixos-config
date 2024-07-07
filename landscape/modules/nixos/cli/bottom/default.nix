@@ -12,7 +12,7 @@ in {
   options.${namespace}.cli.bottom = {enable = mkEnableOption "bottom";};
   config = mkIf cfg.enable {
     environment.systemPackages = [pkgs.bottom];
-    home.programs.bottom = {
+    ${namespace}.home.programs.bottom = {
       enable = true;
     };
   };

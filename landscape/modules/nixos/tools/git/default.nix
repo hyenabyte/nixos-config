@@ -12,13 +12,13 @@ with lib.${namespace}; let
 in {
   options.${namespace}.tools.git = with types; {
     enable = mkEnableOption "Enable git";
-    userName = mkOpt str user.FullName "User full name for git configuration.";
+    userName = mkOpt str user.fullName "User full name for git configuration.";
     userEmail = mkOpt str user.email "User email for git configuration";
     # signingKey =
     #   mkOpt str "" "The key ID to sign commits with.";
   };
   config = mkIf cfg.enable {
-    home.programs.git = {
+    ${namespace}.home.programs.git = {
       enable = true;
       inherit (cfg) userName userEmail;
 

@@ -12,7 +12,7 @@ in {
   options.${namespace}.apps.firefox = {enable = mkEnableOption "Enable Firefox";};
 
   config = mkIf cfg.enable {
-    home.programs.firefox = {
+    ${namespace}.home.programs.firefox = {
       enable = true;
 
       profiles.default = {
