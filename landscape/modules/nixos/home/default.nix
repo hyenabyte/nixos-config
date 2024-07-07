@@ -14,15 +14,15 @@ in {
 
   options.${namespace}.home = with types; {
     file =
-      mkOpt attrs {}
+      mkOption attrs {}
       "A set of files to be managed by home-manager's <option>home.file</option>.";
     configFile =
-      mkOpt attrs {}
+      mkOption attrs {}
       "A set of files to be managed by home-manager's <option>xdg.configFile</option>.";
-    programs = mkOpt attrs {} "Programs to be managed by home-manager.";
-    extraOptions = mkOpt attrs {} "Options to pass directly to home-manager.";
+    programs = mkOption attrs {} "Programs to be managed by home-manager.";
+    extraOptions = mkOption attrs {} "Options to pass directly to home-manager.";
 
-    persist = mkOpt attrs {} "Files and directories to persist in the home";
+    persist = mkOption attrs {} "Files and directories to persist in the home";
   };
 
   config = {

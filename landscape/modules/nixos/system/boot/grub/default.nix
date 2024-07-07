@@ -15,6 +15,6 @@ in {
   config = mkIf cfg.enable {
     boot.loader.grub.enable = true;
     boot.loader.grub.useOSProber = true;
-    boot.loader.grub.device = device;
+    boot.loader.grub.device = cfg.device;
   };
 }

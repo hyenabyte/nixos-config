@@ -11,9 +11,10 @@
   # All inputs for the system
   inputs = {
     # Nixpkgs
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    # nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
+    unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
+    # Snowfall
     snowfall-lib = {
       url = "github:snowfallorg/lib";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -21,7 +22,7 @@
 
     # Home Manager
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "github:nix-community/home-manager/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -48,10 +49,10 @@
     };
 
     # SSH Keys
-    ssh-keys = {
-      url = "https://codeberg.org/hyenabyte.keys";
-      flake = false;
-    };
+    # ssh-keys = {
+    #   url = "https://codeberg.org/hyenabyte.keys";
+    #   flake = false;
+    # };
 
     # Private secrets
     secrets = {
@@ -80,6 +81,16 @@
       overlays = with inputs; [
         nix-vscode-extensions.overlays.default
         nur.overlay
+      ];
+      systems.modules.nixos = with inputs; [
+        home-manager.nixosModules.home-manager
+        agenix.nixosModules.default
+        secrets.outPath
+      ];
+      systems.modules.darwin = with inputs; [
+        home-manager.darwinModules.home-manager
+        agenix.darwinModules.default
+        secrets.outPath
       ];
     };
 }
