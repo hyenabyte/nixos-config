@@ -16,7 +16,13 @@ with lib.${namespace}; {
   ${namespace} = {
     system.nix = enabled;
     suites.common = enabled;
-    services.ssh = enabled;
+    system.boot.efi.enable = mkForce false;
+    system.boot.grub = {
+      enable = true;
+      device = "/dev/vda";
+    };
+    services.openssh = enabled;
+    cli.lazygit = enabled;
   };
 
   # ! DO NOT CHANGE !
