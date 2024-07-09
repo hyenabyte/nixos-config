@@ -41,7 +41,12 @@ in {
       useGlobalPkgs = true;
 
       users.${config.${namespace}.user.name} =
-        mkAliasDefinitions options.${namespace}.home.extraOptions;
+        {
+          imports = [
+            inputs.agenix.homeManagerModules.default
+          ];
+        }
+        // mkAliasDefinitions options.${namespace}.home.extraOptions;
     };
 
     # environment.persistence."/persist".users.${config.${namespace}.user.name} = mkIf options.impermanence.enable.value (mkAliasDefinitions options.home.persist);
