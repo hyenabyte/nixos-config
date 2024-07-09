@@ -50,13 +50,13 @@
 
     # SSH Keys
     ssh-keys = {
-      url = "https://codeberg.org/hyenabyte.keys";
+      url = "https://github.com/hyenabyte.keys";
       flake = false;
     };
 
     # Private secrets
     secrets = {
-      url = "git+ssh://git@codeberg.org/hyenabyte/secrets.git?ref=main";
+      url = "git+ssh://git@github.com/hyenabyte/nixos-secrets.git?ref=main";
       flake = false;
     };
   };
