@@ -14,7 +14,6 @@ with lib.${namespace}; {
   ];
 
   ${namespace} = {
-    system.nix = enabled;
     suites.common = enabled;
     system.boot.efi.enable = mkForce false;
     system.boot.grub = {

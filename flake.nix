@@ -12,6 +12,7 @@
   inputs = {
     # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
+    # nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
     # Snowfall
@@ -82,7 +83,9 @@
       };
       channels-config = {
         allowUnfree = true;
-        permittedInsecurePackages = [];
+        permittedInsecurePackages = [
+          "electron-27.3.11"
+        ];
       };
       overlays = with inputs; [
         nix-vscode-extensions.overlays.default

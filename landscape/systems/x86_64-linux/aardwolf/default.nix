@@ -20,6 +20,7 @@ with lib.${namespace}; {
       productivity = enabled;
       multimedia = enabled;
       development = enabled;
+      social = enabled;
     };
 
     apps = {
@@ -37,6 +38,9 @@ with lib.${namespace}; {
       wireless = enabled;
     };
   };
+
+  # boot.loader.efi.canTouchEfiVariables = true;
+  # boot.loader.efi.efiSysMountPoint = "/boot/efi";
 
   # ! DO NOT CHANGE !
   system.stateVersion = "23.11";

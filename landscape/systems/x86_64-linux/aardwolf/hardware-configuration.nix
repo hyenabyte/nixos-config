@@ -18,13 +18,14 @@
   boot.extraModulePackages = [];
 
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/5a7067d6-637e-4034-87c7-3045185f9e12";
+    device = "/dev/disk/by-uuid/43655be0-578e-4231-9914-0c531da786bb";
     fsType = "ext4";
   };
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/7C5C-AE8A";
+    device = "/dev/disk/by-uuid/E6B4-1FBF";
     fsType = "vfat";
+    options = ["fmask=0022" "dmask=0022"];
   };
 
   fileSystems."/run/media/hyena/Store" = {
@@ -39,7 +40,9 @@
     options = ["nofail"];
   };
 
-  swapDevices = [];
+  swapDevices = [
+    {device = "/dev/disk/by-uuid/3226601d-5f5e-472f-88fa-e212ee7f4a57";}
+  ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
