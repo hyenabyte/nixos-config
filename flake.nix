@@ -96,7 +96,7 @@
       overlays = with inputs; [
         nix-vscode-extensions.overlays.default
         nur.overlay
-        snowfall-flake.overlay
+        snowfall-flake.overlays.default
       ];
       systems.modules.nixos = with inputs; [
         home-manager.nixosModules.home-manager
