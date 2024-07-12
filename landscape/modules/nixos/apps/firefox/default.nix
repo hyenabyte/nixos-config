@@ -96,6 +96,12 @@ in {
               updateInterval = 24 * 60 * 60 * 1000; # every day
               definedAliases = ["@gh"];
             };
+            "Github Users" = {
+              urls = [{template = "https://github.com/search?q={searchTerms}&type=users";}];
+              iconUpdateURL = "https://github.githubassets.com/favicons/favicon-dark.png";
+              updateInterval = 24 * 60 * 60 * 1000; # every day
+              definedAliases = ["@ghu"];
+            };
             "Bing".metaData.hidden = true;
             "Google".metaData.alias = "@g"; # builtin engines only support specifying one additional alias
           };
