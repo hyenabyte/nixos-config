@@ -1,4 +1,5 @@
 {
+  pkgs,
   lib,
   namespace,
   ...
@@ -12,6 +13,11 @@ with lib.${namespace}; {
     ./hardware-configuration.nix
   ];
 
+  environment.systemPackages = [
+    pkgs.chromium
+    pkgs.caffeine-ng
+  ];
+
   ${namespace} = {
     suites = {
       common = enabled;
@@ -21,6 +27,7 @@ with lib.${namespace}; {
       multimedia = enabled;
       development = enabled;
       social = enabled;
+      creative = enabled;
     };
 
     apps = {
