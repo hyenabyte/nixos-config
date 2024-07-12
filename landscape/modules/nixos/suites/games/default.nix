@@ -21,8 +21,9 @@ in {
       lutris
       prismlauncher
       # r2modman
-      # winetricks
-      # wineWowPackages.stable
+      winetricks
+      wineWowPackages.stable
+      wine
       # openrct2
     ];
 
