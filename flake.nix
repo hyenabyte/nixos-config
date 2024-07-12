@@ -21,6 +21,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Flake
+    snowfall-flake = {
+      url = "github:snowfallorg/flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Home Manager
     home-manager = {
       url = "github:nix-community/home-manager/release-24.05";
@@ -90,6 +96,7 @@
       overlays = with inputs; [
         nix-vscode-extensions.overlays.default
         nur.overlay
+        snowfall-flake.overlay
       ];
       systems.modules.nixos = with inputs; [
         home-manager.nixosModules.home-manager
