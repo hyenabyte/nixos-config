@@ -16,21 +16,12 @@ in {
 
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
+      git
       snowfallorg.flake
     ];
 
     ${namespace} = {
-      cli = {
-        bottom = enabled;
-        helix = {
-          enable = true;
-          defaultEditor = true;
-        };
-        hyfetch = enabled;
-      };
-
       tools = {
-        git = enabled;
         ssh = enabled;
         nix-ld = enabled;
       };
@@ -53,7 +44,6 @@ in {
       system = {
         nix = enabled;
         boot.efi = enabled;
-        shell.zsh = enabled;
         fonts = enabled;
         locale = enabled;
         xkb = enabled;

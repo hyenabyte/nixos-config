@@ -19,21 +19,14 @@ in {
       bitwarden
       # deluge
       # floorp
-      # gnome.gnome-boxes
       protonvpn-gui
       veracrypt
-      # vivaldi
       # rpi-imager
       # livecaptions
     ];
 
     ${namespace} = {
       desktop.plasma = enabled;
-      apps = {
-        alacritty = enabled;
-        firefox = enabled;
-        # nextcloud-client = enabled;
-      };
 
       hardware = {
         audio.pipewire = enabled;

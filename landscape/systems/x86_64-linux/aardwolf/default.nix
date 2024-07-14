@@ -23,20 +23,10 @@ with lib.${namespace}; {
       common = enabled;
       desktop = enabled;
       games = enabled;
-      productivity = enabled;
       multimedia = enabled;
       development = enabled;
       social = enabled;
       creative = enabled;
-    };
-
-    apps = {
-      # nextcloud-client = enabled;
-      obs-studio = enabled;
-    };
-
-    cli = {
-      zellij = enabled;
     };
 
     hardware = {
@@ -45,9 +35,6 @@ with lib.${namespace}; {
       wireless = enabled;
     };
   };
-
-  # boot.loader.efi.canTouchEfiVariables = true;
-  # boot.loader.efi.efiSysMountPoint = "/boot/efi";
 
   # ! DO NOT CHANGE !
   system.stateVersion = "23.11";

@@ -37,7 +37,7 @@ in {
       };
 
       tools = {
-        direnv = enabled;
+        #direnv = enabled;
       };
     };
   };

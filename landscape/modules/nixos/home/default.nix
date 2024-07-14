@@ -27,7 +27,7 @@ in {
   };
 
   config = {
-    ${namespace}.home.extraOptions = {
+    hyenabyte.home.extraOptions = {
       home.stateVersion = config.system.stateVersion;
       home.file = mkAliasDefinitions options.${namespace}.home.file;
       xdg.enable = true;
@@ -36,17 +36,20 @@ in {
       services = mkAliasDefinitions options.${namespace}.home.services;
     };
 
+    snowfallorg.users.${config.${namespace}.user.name}.home.config =
+      config.${namespace}.home.extraOptions;
+
     home-manager = {
       useUserPackages = true;
       useGlobalPkgs = true;
 
-      users.${config.${namespace}.user.name} =
-        {
-          imports = [
-            inputs.agenix.homeManagerModules.default
-          ];
-        }
-        // mkAliasDefinitions options.${namespace}.home.extraOptions;
+      # users.${config.${namespace}.user.name} =
+      #   {
+      #     imports = [
+      #       inputs.agenix.homeManagerModules.default
+      #     ];
+      #   }
+      #   // mkAliasDefinitions options.${namespace}.home.extraOptions;
     };
 
     # environment.persistence."/persist".users.${config.${namespace}.user.name} = mkIf options.impermanence.enable.value (mkAliasDefinitions options.home.persist);

@@ -21,8 +21,6 @@ in {
 
     ${namespace} = {
       apps = {
-        logseq = enabled;
-        thunderbird = enabled;
       };
     };
   };
