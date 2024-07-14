@@ -61,15 +61,21 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Deployments
+    deploy-rs = {
+      url = "github:serokell/deploy-rs";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # SSH Keys
-    # ssh-keys = {
-    #   url = "https://codeberg.org/hyenabyte.keys";
-    #   flake = false;
-    # };
+    ssh-keys = {
+      url = "https://github.com/hyenabyte.keys";
+      flake = false;
+    };
 
     # Private secrets
     secrets = {
-      url = "git+ssh://git@codeberg.org/hyenabyte/secrets.git?ref=main";
+      url = "git+ssh://git@github.com/hyenabyte/nixos-secrets.git?ref=main";
       flake = false;
     };
   };
@@ -108,5 +114,29 @@
         agenix.darwinModules.default
         secrets.outPath
       ];
+
+    # Deployment nodes
+    deploy.nodes = {
+      aardwolf = {
+        hostname = "aardwolf";
+        profiles.system = {
+          user = "root";
+          path = inputs.deploy-rs.lib.x86_64-linux.activate.nixos inputs.self.nixosConfigurations.aardwolf;
+        };
+      };
+      possum = {
+        hostname = "possum";
+        profiles.system = {
+          user = "root";
+          path = inputs.deploy-rs.lib.x86_64-linux.activate.nixos inputs.self.nixosConfigurations.possum;
+        };
+      };
+    };
+
+      checks =
+        builtins.mapAttrs
+        (_system: deploy-lib:
+          deploy-lib.deployChecks inputs.self.deploy)
+        inputs.deploy-rs.lib;
     };
 }
