@@ -7,9 +7,9 @@
 }:
 with lib;
 with lib.${namespace}; let
-  cfg = config.${namespace}.system.shell.zsh;
+  cfg = config.${namespace}.shell.zsh;
 in {
-  options.${namespace}.system.shell.zsh = {enable = mkEnableOption "shell.zsh";};
+  options.${namespace}.shell.zsh = {enable = mkEnableOption "shell.zsh";};
   config = mkIf cfg.enable {
     # ? Consider splitting some of these configs up into their own modules
 

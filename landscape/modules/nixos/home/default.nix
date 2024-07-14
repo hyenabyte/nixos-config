@@ -36,7 +36,7 @@ in {
       services = mkAliasDefinitions options.${namespace}.home.services;
     };
 
-    snowfallorg.users.${config.${namespace}.user.name}.home.config =
+    snowfallorg.user.${config.${namespace}.user.name}.home.config =
       config.${namespace}.home.extraOptions;
 
     home-manager = {
