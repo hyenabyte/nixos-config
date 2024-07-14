@@ -11,18 +11,37 @@
   # All inputs for the system
   inputs = {
     # Nixpkgs
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    # nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
+    # nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+
+    # Snowfall
+    snowfall-lib = {
+      url = "github:snowfallorg/lib";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # Flake
+    snowfall-flake = {
+      url = "github:snowfallorg/flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # Home Manager
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "github:nix-community/home-manager/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # Darwin support
-    nix-darwin = {
+    darwin = {
       url = "github:LnL7/nix-darwin/master";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # System Image Generators
+    nixos-generators = {
+      url = "github:nix-community/nixos-generators";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -62,29 +81,39 @@
   };
 
   # All outputs for the system (configs)
-  outputs = {
-    home-manager,
-    nixpkgs,
-    nix-darwin,
-    nur,
-    agenix,
-    ...
-  } @ inputs: let
-    mkSystem = (import ./lib inputs).mkSystem;
-  in {
-    # NixOS Configurations
-    nixosConfigurations = {
-      # Now, defining a new system is can be done in one line
-      #                                  Architecture   Hostname
-      aardwolf = mkSystem inputs.nixpkgs "x86_64-linux" "aardwolf" "hyena";
-      possum = mkSystem inputs.nixpkgs "x86_64-linux" "possum" "hyena";
-      virtuallynx = mkSystem inputs.nixpkgs "x86_64-linux" "virtuallynx" "hyena";
-    };
-
-    # Darwin Configurations
-    darwinConfigurations = {
-      sabertooth = mkSystem inputs.nixpkgs "aarch64-darwin" "sabertooth" "hyena";
-    };
+  outputs = inputs:
+    inputs.snowfall-lib.mkFlake {
+      inherit inputs;
+      src = ./.;
+      snowfall = {
+        meta = {
+          name = "hyenas-config";
+          title = "hyenas config";
+        };
+        namespace = "hyenabyte";
+        root = ./landscape;
+      };
+      channels-config = {
+        allowUnfree = true;
+        permittedInsecurePackages = [
+          "electron-27.3.11"
+        ];
+      };
+      overlays = with inputs; [
+        nix-vscode-extensions.overlays.default
+        nur.overlay
+        snowfall-flake.overlays.default
+      ];
+      systems.modules.nixos = with inputs; [
+        home-manager.nixosModules.home-manager
+        agenix.nixosModules.default
+        secrets.outPath
+      ];
+      systems.modules.darwin = with inputs; [
+        home-manager.darwinModules.home-manager
+        agenix.darwinModules.default
+        secrets.outPath
+      ];
 
     # Deployment nodes
     deploy.nodes = {
@@ -104,10 +133,10 @@
       };
     };
 
-    checks =
-      builtins.mapAttrs
-      (_system: deploy-lib:
-        deploy-lib.deployChecks inputs.self.deploy)
-      inputs.deploy-rs.lib;
-  };
+      checks =
+        builtins.mapAttrs
+        (_system: deploy-lib:
+          deploy-lib.deployChecks inputs.self.deploy)
+        inputs.deploy-rs.lib;
+    };
 }

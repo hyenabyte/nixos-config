@@ -57,3 +57,9 @@ TODO
 - Manage docker/podman containers with oci-containers
 - Validation and deployment pipelines
 - Support for multiple users
+
+## Credits
+
+- Notthebee - <https://github.com/notthebee/nix-config>
+- IogaMaster - <https://github.com/IogaMaster/dotfiles>
+- jakehamilton - <https://github.com/jakehamilton/config>
