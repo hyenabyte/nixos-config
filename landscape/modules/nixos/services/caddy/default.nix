@@ -1,12 +1,13 @@
 {
   lib,
   config,
+  namespace,
   ...
 }:
 with lib; let
-  cfg = config.modules.caddy;
+  cfg = config.${namespace}.services.caddy;
 in {
-  options.modules.caddy = {enable = mkEnableOption "caddy";};
+  options.${namespace}.services.caddy = {enable = mkEnableOption "caddy";};
   config = mkIf cfg.enable {
     networking.firewall.allowedTCPPorts = [8080 8443];
     networking.firewall.allowedUDPPorts = [8080 8443];
@@ -28,6 +29,10 @@ in {
 
       virtualHosts."jelly.hyenabyte.dev".extraConfig = ''
         reverse_proxy localhost:8096
+      '';
+
+      virtualHosts."documents.hyenabyte.dev".extraConfig = ''
+        reverse_proxy localhost:28981
       '';
     };
   };
