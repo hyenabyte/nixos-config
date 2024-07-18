@@ -11,9 +11,9 @@
   # All inputs for the system
   inputs = {
     # Nixpkgs
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
-    # nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    #nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    # unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
     # Snowfall
     snowfall-lib = {
@@ -29,7 +29,8 @@
 
     # Home Manager
     home-manager = {
-      url = "github:nix-community/home-manager/release-24.05";
+      url = "github:nix-community/home-manager";
+      # url = "github:nix-community/home-manager/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -81,62 +82,78 @@
   };
 
   # All outputs for the system (configs)
-  outputs = inputs:
-    inputs.snowfall-lib.mkFlake {
+  outputs = inputs: let
+    lib = inputs.snowfall-lib.mkLib {
       inherit inputs;
       src = ./.;
+
       snowfall = {
         meta = {
           name = "hyenas-config";
           title = "hyenas config";
         };
+
         namespace = "hyenabyte";
         root = ./landscape;
       };
+    };
+  in
+    lib.mkFlake {
       channels-config = {
         allowUnfree = true;
         permittedInsecurePackages = [
           "electron-27.3.11"
         ];
       };
+
       overlays = with inputs; [
         nix-vscode-extensions.overlays.default
         nur.overlay
         snowfall-flake.overlays.default
       ];
+
       systems.modules.nixos = with inputs; [
         home-manager.nixosModules.home-manager
         agenix.nixosModules.default
         secrets.outPath
       ];
+
       systems.modules.darwin = with inputs; [
         home-manager.darwinModules.home-manager
         agenix.darwinModules.default
         secrets.outPath
       ];
 
-    # Deployment nodes
-    deploy.nodes = {
-      aardwolf = {
-        hostname = "aardwolf";
-        profiles.system = {
-          user = "root";
-          path = inputs.deploy-rs.lib.x86_64-linux.activate.nixos inputs.self.nixosConfigurations.aardwolf;
+      # Deployment nodes
+      deploy.nodes = {
+        aardwolf = {
+          hostname = "aardwolf";
+          profiles.system = {
+            user = "root";
+            sshUser = "hyena";
+            sudo = "sudo -u";
+            path = inputs.deploy-rs.lib.x86_64-linux.activate.nixos inputs.self.nixosConfigurations.aardwolf;
+          };
+        };
+        possum = {
+          hostname = "possum";
+          profiles.system = {
+            user = "root";
+            sshUser = "hyena";
+            sudo = "sudo -u";
+            path = inputs.deploy-rs.lib.x86_64-linux.activate.nixos inputs.self.nixosConfigurations.possum;
+          };
         };
       };
-      possum = {
-        hostname = "possum";
-        profiles.system = {
-          user = "root";
-          path = inputs.deploy-rs.lib.x86_64-linux.activate.nixos inputs.self.nixosConfigurations.possum;
-        };
-      };
-    };
+      # deploy = lib.hyenabyte.mkDeploy {inherit (inputs) self;};
 
       checks =
         builtins.mapAttrs
         (_system: deploy-lib:
           deploy-lib.deployChecks inputs.self.deploy)
         inputs.deploy-rs.lib;
+    }
+    // {
+      self = inputs.self;
     };
 }
