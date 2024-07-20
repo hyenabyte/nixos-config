@@ -42,6 +42,7 @@ in {
     environment.systemPackages = with pkgs; [
       nil
       alejandra
+      deploy-rs
     ];
 
     nix = let

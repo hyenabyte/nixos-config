@@ -131,7 +131,7 @@
           profiles.system = {
             user = "root";
             sshUser = "hyena";
-            sudo = "sudo -u";
+            sudo = "doas -u";
             path = inputs.deploy-rs.lib.x86_64-linux.activate.nixos inputs.self.nixosConfigurations.aardwolf;
           };
         };
@@ -140,7 +140,7 @@
           profiles.system = {
             user = "root";
             sshUser = "hyena";
-            sudo = "sudo -u";
+            sudo = "doas -u";
             path = inputs.deploy-rs.lib.x86_64-linux.activate.nixos inputs.self.nixosConfigurations.possum;
           };
         };
