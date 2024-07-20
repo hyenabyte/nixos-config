@@ -26,7 +26,8 @@ in {
     ];
 
     ${namespace} = {
-      desktop.plasma = enabled;
+      # desktop.plasma = enabled;
+      desktop.gnome = enabled;
 
       hardware = {
         audio.pipewire = enabled;
