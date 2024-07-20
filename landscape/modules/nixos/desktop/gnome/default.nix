@@ -17,24 +17,25 @@ in {
     services.xserver.desktopManager.gnome.enable = true;
 
     environment.systemPackages = with pkgs; [
-      gnome.gnome-tweaks
+      gnome-tweaks
+      adwaita-icon-theme
     ];
 
     environment.gnome.excludePackages =
       (with pkgs; [
         # gnome-photos
         gnome-tour
-      ])
-      ++ (with pkgs.gnome; [
         cheese # webcam tool
-        gnome-music
         gnome-terminal
-        # gedit # text editor
         epiphany # web browser
         geary # email reader
         evince # document viewer
-        # gnome-characters
         totem # video player
+      ])
+      ++ (with pkgs.gnome; [
+        gnome-music
+        # gedit # text editor
+        # gnome-characters
         tali # poker game
         iagno # go game
         hitori # sudoku game
