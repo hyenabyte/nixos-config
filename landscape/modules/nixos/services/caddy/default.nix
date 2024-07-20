@@ -32,7 +32,7 @@ in {
       '';
 
       virtualHosts."documents.hyenabyte.dev".extraConfig = ''
-        reverse_proxy localhost:28981
+        reverse_proxy localhost:8000
       '';
     };
   };
