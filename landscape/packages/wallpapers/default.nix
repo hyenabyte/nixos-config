@@ -31,7 +31,7 @@
       acc: image: let
         name = lib.snowfall.path.get-file-name-without-extension image;
       in
-        acc // {"${name}" = mkWallpaper name (./wallpapers + "/${image}");}
+        acc // {"${name}" = mkWallpaper name (./assets + "/${image}");}
     ) {}
     images;
 
@@ -39,7 +39,7 @@
 in
   pkgs.stdenvNoCC.mkDerivation {
     name = "hyenas-wallpapers";
-    src = ./wallpapers;
+    src = ./assets;
 
     installPhase = ''
       mkdir -p ${installTarget}
