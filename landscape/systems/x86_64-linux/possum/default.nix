@@ -5,6 +5,7 @@
 }:
 with lib;
 with lib.${namespace}; {
+  # Possum
   # Thinkcentre Server
 
   imports = [
@@ -22,6 +23,7 @@ with lib.${namespace}; {
       caddy = enabled;
       jellyfin = enabled;
       samba = enabled;
+      paperless-ngx = enabled;
     };
   };
 
