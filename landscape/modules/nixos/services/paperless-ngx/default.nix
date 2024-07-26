@@ -28,7 +28,12 @@ in {
 
       # openMPThreadingWorkaround = true;
 
-      settings = {};
+      settings = {
+        PAPERLESS_OCR_USER_ARGS = {
+          # Allow upload of signed documents
+          invalidate_digital_signatures = true;
+        };
+      };
     };
   };
 }
