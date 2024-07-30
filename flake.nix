@@ -46,15 +46,21 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Nix-ld
+    nix-ld = {
+      url = "github:Mic92/nix-ld";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Nur for firefox extensions
     nur.url = "github:nix-community/nur";
 
     # VSCode extensions
-    nix-vscode-extensions = {
-      url = "github:nix-community/nix-vscode-extensions";
-      inputs.nixpkgs.follows = "nixpkgs";
-      #inputs.flake-utils.follows = "flake-utils";
-    };
+    # nix-vscode-extensions = {
+    #   url = "github:nix-community/nix-vscode-extensions";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    #   #inputs.flake-utils.follows = "flake-utils";
+    # };
 
     # Age encryption
     agenix = {
@@ -115,6 +121,7 @@
       systems.modules.nixos = with inputs; [
         home-manager.nixosModules.home-manager
         agenix.nixosModules.default
+        nix-ld.nixosModules.nix-ld
         secrets.outPath
       ];
 
