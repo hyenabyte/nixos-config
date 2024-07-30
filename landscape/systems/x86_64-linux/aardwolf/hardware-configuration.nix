@@ -28,13 +28,13 @@
     options = ["fmask=0022" "dmask=0022"];
   };
 
-  fileSystems."/run/media/hyena/Store" = {
-    device = "/dev/disk/by-uuid/25040462-e9cc-4d9e-a650-790d721f27a1";
-    fsType = "ext4";
-    options = ["nofail"];
-  };
+  # fileSystems."/run/media/hyena/Store" = {
+  #   device = "/dev/disk/by-uuid/25040462-e9cc-4d9e-a650-790d721f27a1";
+  #   fsType = "ext4";
+  #   options = ["nofail"];
+  # };
 
-  fileSystems."/run/media/hyena/Store2" = {
+  fileSystems."/run/media/hyena/Store" = {
     device = "/dev/disk/by-uuid/7a6dc472-78ca-4b74-b5e8-32ae9803f83a";
     fsType = "ext4";
     options = ["nofail"];
