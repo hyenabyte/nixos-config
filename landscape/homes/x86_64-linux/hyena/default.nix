@@ -15,6 +15,7 @@ with lib.${namespace}; {
       obs-studio = enabled;
       logseq = enabled;
       vesktop = enabled;
+      aseprite = enabled;
     };
 
     cli = {
