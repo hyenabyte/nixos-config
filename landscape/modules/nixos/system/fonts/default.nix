@@ -23,7 +23,9 @@ in {
       packages = with pkgs;
         [
           roboto
+          montserrat
           corefonts
+          atkinson-hyperlegible
           noto-fonts
           noto-fonts-cjk
           noto-fonts-emoji
