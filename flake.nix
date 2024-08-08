@@ -113,7 +113,7 @@
       };
 
       overlays = with inputs; [
-        nix-vscode-extensions.overlays.default
+        # nix-vscode-extensions.overlays.default
         nur.overlay
         snowfall-flake.overlays.default
       ];
