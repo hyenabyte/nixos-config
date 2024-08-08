@@ -15,6 +15,10 @@ in {
 
   config = mkIf cfg.enable {
     networking.networkmanager.enable = true;
+
+    # Fix for deploy failing to restart network manager
+    systemd.services.NetworkManager-wait-online.enable = mkForce false;
+
     # environment.persist.directories = [
     #   "/etc/NetworkManager"
     # ];
