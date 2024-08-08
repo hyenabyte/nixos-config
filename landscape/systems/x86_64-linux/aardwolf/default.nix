@@ -15,8 +15,12 @@ with lib.${namespace}; {
 
   environment.systemPackages = [
     pkgs.chromium
-    pkgs.caffeine-ng
+    pkgs.croc
+    # pkgs.caffeine-ng
   ];
+
+  # Fix firefox craashing in wayland
+  environment.variables.MOZ_ENABLE_WAYLAND = 0;
 
   ${namespace} = {
     suites = {
