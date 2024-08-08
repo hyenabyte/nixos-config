@@ -8,11 +8,14 @@ with lib;
 with lib.${namespace}; let
   cfg = config.${namespace}.cli.zellij;
 in {
-  options.${namespace}.cli.zellij = {enable = mkEnableOption "zellij";};
+  options.${namespace}.cli.zellij = with types; {
+    enable = mkEnableOption "zellij";
+    enableZshIntegration = mkOpt bool false "Enable ZSH integration";
+  };
   config = mkIf cfg.enable {
     programs.zellij = {
       enable = true;
-      enableZshIntegration = true;
+      enableZshIntegration = cfg.enableZshIntegration;
 
       settings = {
         theme = "everforest-dark";
