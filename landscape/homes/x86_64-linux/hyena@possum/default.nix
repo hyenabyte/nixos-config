@@ -10,12 +10,6 @@ with lib.${namespace}; {
     shell.zsh = enabled;
 
     apps = {
-      alacritty = enabled;
-      firefox = enabled;
-      obs-studio = enabled;
-      logseq = enabled;
-      vesktop = enabled;
-      aseprite = enabled;
     };
 
     cli = {
