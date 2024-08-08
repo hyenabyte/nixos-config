@@ -22,6 +22,11 @@ with lib.${namespace}; {
     services = {
       # caddy = enabled;
     };
+
+    system.boot = {
+      efi.enable = mkForce false;
+      grub = enabled;
+    };
   };
 
   # ! DO NOT CHANGE !
