@@ -151,6 +151,15 @@
             path = inputs.deploy-rs.lib.x86_64-linux.activate.nixos inputs.self.nixosConfigurations.possum;
           };
         };
+        badger = {
+          hostname = "badger";
+          profiles.system = {
+            user = "root";
+            sshUser = "hyena";
+            sudo = "doas -u";
+            path = inputs.deploy-rs.lib.x86_64-linux.activate.nixos inputs.self.nixosConfigurations.badger;
+          };
+        };
       };
       # deploy = lib.hyenabyte.mkDeploy {inherit (inputs) self;};
 
