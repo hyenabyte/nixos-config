@@ -23,6 +23,13 @@ with lib.${namespace}; {
       # caddy = enabled;
     };
 
+    containers = {
+      pzomboid = {
+        enable = true;
+        serverName = "Yena's PZ Server";
+      };
+    };
+
     system.boot = {
       efi.enable = mkForce false;
       grub = enabled;
