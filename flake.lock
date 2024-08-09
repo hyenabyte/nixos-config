@@ -375,11 +375,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1723110786,
-        "narHash": "sha256-RIMBU7PCTili2AgM432nL+fODzkHGTVI9CDAw/2oCjU=",
+        "lastModified": 1723191874,
+        "narHash": "sha256-6cRyx91vCsEd68dKrym0eQjMNRkmQ3T9+XGt3NspNdA=",
         "owner": "nix-community",
         "repo": "nur",
-        "rev": "24bd913ce8ecc66e9f75e2c5ac7af6068781fe73",
+        "rev": "f2e29fb2d48a0ca85cc5b5c33655fe614d859ea1",
         "type": "github"
       },
       "original": {
@@ -407,11 +407,11 @@
     "secrets": {
       "flake": false,
       "locked": {
-        "lastModified": 1722935025,
-        "narHash": "sha256-TUvtXXuUJDcdnt+NniM/gflRDNpMzrNmWdETlO9Oo9E=",
+        "lastModified": 1723126239,
+        "narHash": "sha256-MXy2kBZXhQVDeY1SZVc9+nizPqA/ArCNwh54YJUy0wU=",
         "ref": "main",
-        "rev": "9fa2fb4f1a4100a93cf04b2e22460c99ed477f17",
-        "revCount": 7,
+        "rev": "309998804595f9831e922ea529aa21d8dc906a3a",
+        "revCount": 9,
         "type": "git",
         "url": "ssh://git@github.com/hyenabyte/nixos-secrets.git"
       },
@@ -492,7 +492,7 @@
     "ssh-keys": {
       "flake": false,
       "locked": {
-        "narHash": "sha256-rQZHUgDFz8bdbIi3Qjr1mTTHRElgCnuFnG+pdnTdKDk=",
+        "narHash": "sha256-U5cJqKkN4DMbt0SWctD+w1Zk06IDoPI+z7VjTjtWS7I=",
         "type": "file",
         "url": "https://github.com/hyenabyte.keys"
       },
