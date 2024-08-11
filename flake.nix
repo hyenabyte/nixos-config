@@ -160,6 +160,15 @@
             path = inputs.deploy-rs.lib.x86_64-linux.activate.nixos inputs.self.nixosConfigurations.badger;
           };
         };
+        weasel = {
+          hostname = "weasel";
+          profiles.system = {
+            user = "root";
+            sshUser = "hyena";
+            sudo = "doas -u";
+            path = inputs.deploy-rs.lib.x86_64-linux.activate.nixos inputs.self.nixosConfigurations.weasel;
+          };
+        };
       };
       # deploy = lib.hyenabyte.mkDeploy {inherit (inputs) self;};
 
