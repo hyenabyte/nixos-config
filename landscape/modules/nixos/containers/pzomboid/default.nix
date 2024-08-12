@@ -44,7 +44,7 @@ in {
           PAUSE_ON_EMPTY = "true";
           PUBLIC_SERVER = "true";
           RCON_PORT = "27015";
-          STEAM_VAC = "false";
+          STEAM_VAC = "true";
           TZ = "UTC";
           UDP_PORT = "16262";
           USE_STEAM = "true";
