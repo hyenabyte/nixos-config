@@ -10,11 +10,11 @@
         "systems": "systems"
       },
       "locked": {
-        "lastModified": 1722339003,
-        "narHash": "sha256-ZeS51uJI30ehNkcZ4uKqT4ZDARPyqrHADSKAwv5vVCU=",
+        "lastModified": 1723293904,
+        "narHash": "sha256-b+uqzj+Wa6xgMS9aNbX4I+sXeb5biPDi39VgvSFqFvU=",
         "owner": "ryantm",
         "repo": "agenix",
-        "rev": "3f1dae074a12feb7327b4bf43cbac0d124488bb7",
+        "rev": "f6291c5935fdc4e0bef208cfc0dcab7e3f7a1c41",
         "type": "github"
       },
       "original": {
@@ -286,11 +286,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1723015306,
-        "narHash": "sha256-jQnFEtH20/OsDPpx71ntZzGdRlpXhUENSQCGTjn//NA=",
+        "lastModified": 1723399884,
+        "narHash": "sha256-97wn0ihhGqfMb8WcUgzzkM/TuAxce2Gd20A8oiruju4=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "b3d5ea65d88d67d4ec578ed11d4d2d51e3de525e",
+        "rev": "086f619dd991a4d355c07837448244029fc2d9ab",
         "type": "github"
       },
       "original": {
@@ -344,11 +344,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1723078345,
-        "narHash": "sha256-HSxOQEKNZXiJe9aWnckTTCThOhcRCabwHa32IduDKLk=",
+        "lastModified": 1723444610,
+        "narHash": "sha256-WzhuUR2ZwafNzBh0VAbk3+320xd2sNWdZdjZa0S9ydY=",
         "owner": "nix-community",
         "repo": "nixos-generators",
-        "rev": "d6c5d29f58acc10ea82afff1de2b28f038f572bd",
+        "rev": "a220fc3a6e144f12f0c3dc3e4d01d44c2e6b0b85",
         "type": "github"
       },
       "original": {
@@ -359,11 +359,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1722813957,
-        "narHash": "sha256-IAoYyYnED7P8zrBFMnmp7ydaJfwTnwcnqxUElC1I26Y=",
+        "lastModified": 1723175592,
+        "narHash": "sha256-M0xJ3FbDUc4fRZ84dPGx5VvgFsOzds77KiBMW/mMTnI=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "cb9a96f23c491c081b38eab96d22fa958043c9fa",
+        "rev": "5e0ca22929f3342b19569b21b2f3462f053e497b",
         "type": "github"
       },
       "original": {
@@ -375,11 +375,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1723199600,
-        "narHash": "sha256-GFEIUBtLkZ1a4Pk5RDdO2aFkoQASJ3I7rjry8ad9aF4=",
+        "lastModified": 1723461379,
+        "narHash": "sha256-ceA1i7qNb8Tnq9CitvU/8S9bteBZYG7EoN9GEdP9V44=",
         "owner": "nix-community",
         "repo": "nur",
-        "rev": "88c9450556e353bbf98fecab9ee90ea5cfc5edb0",
+        "rev": "59ce81dbfc754ce61933bb0677b531a95ada78dd",
         "type": "github"
       },
       "original": {
@@ -407,11 +407,11 @@
     "secrets": {
       "flake": false,
       "locked": {
-        "lastModified": 1723205825,
-        "narHash": "sha256-3i07gvrksZA0OZ4x2Xlkh5yK1FlH9xfv9ZbMownb9fU=",
+        "lastModified": 1723398012,
+        "narHash": "sha256-CXJl1mW6HllOPzFmgf5dVVm6MKrvbHGcwwgm5H6BczY=",
         "ref": "main",
-        "rev": "c64d9a33fd86b7f4bf2a454e7ae9910c2b9bd90a",
-        "revCount": 12,
+        "rev": "718d6398232f2e3455aac8ebe7d43e9cd2a32453",
+        "revCount": 13,
         "type": "git",
         "url": "ssh://git@github.com/hyenabyte/nixos-secrets.git"
       },
@@ -492,7 +492,7 @@
     "ssh-keys": {
       "flake": false,
       "locked": {
-        "narHash": "sha256-U5cJqKkN4DMbt0SWctD+w1Zk06IDoPI+z7VjTjtWS7I=",
+        "narHash": "sha256-gjI7EGGcaiB3Jif1jGdBkzTA60wL3XxTb8dSHuxgs2U=",
         "type": "file",
         "url": "https://github.com/hyenabyte.keys"
       },
