@@ -19,7 +19,7 @@ in {
     environment.systemPackages = with pkgs; [
       deploy-rs
       nil
-      alejandra
+      nixpkgs-fmt
     ];
 
     nix = let

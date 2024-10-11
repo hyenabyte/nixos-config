@@ -1,8 +1,7 @@
-{
-  lib,
-  pkgs,
-  namespace,
-  ...
+{ lib
+, pkgs
+, namespace
+, ...
 }:
 with lib;
 with lib.${namespace}; {
@@ -11,16 +10,41 @@ with lib.${namespace}; {
     services.nix-daemon = enabled;
     services.homebrew = {
       enable = true;
-      brews = [];
+      brews = [ ];
       casks = [
-        # "beekeeper-studio"
-        "beeper"
-        # "blender"
-        # "caffeine"
+        # Apps
         # "chromium"
-        # "deluge"
-        "discord"
         "firefox"
+
+        # Creative
+        # "blender"
+        #inkscape
+        #gimp
+
+
+        # Socials
+        "beeper"
+        "discord"
+        "signal"
+        "slack"
+
+        # Dev
+        "beekeeper-studio"
+        "bruno"
+        "visual-studio-code"
+        #"vscodium"
+
+        # Games
+        #"steam"
+        #prismlauncher
+        # "minecraft"
+
+        # Utilities
+        "karabiner-elements"
+        "logi-options+"
+
+
+        # Fonts
         "font-agave-nerd-font"
         # "font-comic-shanns-mono-nerd-font"
         # "font-hurmit-nerd-font"
@@ -30,28 +54,27 @@ with lib.${namespace}; {
         # "font-monofur-nerd-font"
         # "font-monoid-nerd-font"
         # "font-tinos-nerd-font"
-        "karabiner-elements"
-        # "minecraft"
+
+
+        # "caffeine"
+        # "deluge"
+
         "protonvpn"
         "rectangle"
         "vlc"
-        "vscodium"
-        #"deluge"
-        "spotify"
-        #prismlauncher
-        #blender
-        #inkscape
-        #gimp
+        # "deluge"
+        # "spotify"
+
         "tabby"
         "logseq"
-        "signal"
-        "steam"
+
+
       ];
     };
   };
 
   # environment.systemPackages = with pkgs; [];
-  environment.systemPath = ["/opt/homebrew/bin"];
+  environment.systemPath = [ "/opt/homebrew/bin" ];
 
   system.stateVersion = 4;
 }
