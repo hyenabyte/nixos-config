@@ -17,6 +17,8 @@ with lib.${namespace}; {
     pkgs.chromium
     pkgs.croc
     # pkgs.caffeine-ng
+    pkgs.tigervnc
+    pkgs.deluge
   ];
 
   # Fix firefox craashing in wayland
