@@ -26,7 +26,7 @@ with lib.${namespace}; {
     containers = {
       pzomboid = {
         enable = true;
-        serverName = "Yena's PZ Server";
+        serverName = "yenas_pz_server";
       };
     };
 
