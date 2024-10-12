@@ -339,11 +339,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1728751774,
-        "narHash": "sha256-fFHNsUwP6APOHkiW7Jn5Uk4lEm8mhWoWru7H+sPpiuk=",
+        "lastModified": 1728755206,
+        "narHash": "sha256-mz+QuexRAxu/Mj/Ny0Faonmefz1j5SuB+7hKTCcDInU=",
         "owner": "nix-community",
         "repo": "nur",
-        "rev": "457a1663803672cfbac64dcdab7f66717894f485",
+        "rev": "3d61bf1e80027aa8720b0976f60da66c475079d3",
         "type": "github"
       },
       "original": {
@@ -371,11 +371,11 @@
     "secrets": {
       "flake": false,
       "locked": {
-        "lastModified": 1723398012,
-        "narHash": "sha256-CXJl1mW6HllOPzFmgf5dVVm6MKrvbHGcwwgm5H6BczY=",
+        "lastModified": 1728756151,
+        "narHash": "sha256-N1qJDfxxEdINwhJWSXdXu3WOYNejpA4Yr/B5sC8GeFU=",
         "ref": "main",
-        "rev": "718d6398232f2e3455aac8ebe7d43e9cd2a32453",
-        "revCount": 13,
+        "rev": "580d1fe897a3bca22f441893827100aba43d99c4",
+        "revCount": 14,
         "type": "git",
         "url": "ssh://git@github.com/hyenabyte/nixos-secrets.git"
       },
