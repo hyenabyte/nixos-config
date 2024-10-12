@@ -31,6 +31,10 @@ in {
       services = {
         openssh = enabled;
       };
+
+      security = {
+        fail2ban = enabled;
+      };
     };
   };
 }
