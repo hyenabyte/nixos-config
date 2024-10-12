@@ -21,25 +21,16 @@ in {
       adwaita-icon-theme
     ];
 
-    environment.gnome.excludePackages =
-      (with pkgs; [
-        # gnome-photos
-        gnome-tour
-        cheese # webcam tool
-        gnome-terminal
-        epiphany # web browser
-        geary # email reader
-        evince # document viewer
-        totem # video player
-      ])
-      ++ (with pkgs.gnome; [
-        gnome-music
-        # gedit # text editor
-        # gnome-characters
-        tali # poker game
-        iagno # go game
-        hitori # sudoku game
-        atomix # puzzle game
-      ]);
+    environment.gnome.excludePackages = with pkgs; [
+      # gnome-photos
+      gnome-tour
+      cheese # webcam tool
+      gnome-terminal
+      epiphany # web browser
+      geary # email reader
+      evince # document viewer
+      totem # video player
+      gnome-music # music player
+    ];
   };
 }
