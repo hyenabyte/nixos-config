@@ -14,7 +14,7 @@ in {
     programs.kitty = {
       enable = true;
 
-      theme = "Everforest Dark Medium";
+      themeFile = "everforest_dark_medium";
       settings = {
         # Fonts
         font_family = "Agave Nerd Font Mono";
