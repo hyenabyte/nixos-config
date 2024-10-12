@@ -25,7 +25,7 @@ in {
       # --- Game dev ---
       godot_4
       # ldtk
-      trenchbroom
+      # trenchbroom
 
       # --- Common ---
       # zed-editor
