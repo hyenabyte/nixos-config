@@ -11,11 +11,12 @@ with lib.${namespace}; {
 
     apps = {
       alacritty = enabled;
+      kitty = enabled;
       firefox = enabled;
       obs-studio = enabled;
       logseq = enabled;
-      # vesktop = enabled;
-      discord = enabled;
+      vesktop = enabled;
+      # discord = enabled;
       aseprite = enabled;
     };
 
