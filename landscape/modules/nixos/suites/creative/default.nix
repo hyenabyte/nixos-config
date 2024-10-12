@@ -20,6 +20,7 @@ in {
       gimp
       inkscape
       blender
+      krita
     ];
 
     ${namespace} = {
