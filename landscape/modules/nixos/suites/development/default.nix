@@ -16,15 +16,23 @@ in {
 
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
+      # --- Webdev ---
       # beekeeper-studio
       # gitkraken
-      # godot_4
       # insomnia
-      # lapce
+      # bruno
+
+      # --- Game dev ---
+      godot_4
       # ldtk
-      # vscode
+      trenchbroom
+
+      # --- Common ---
+      # zed-editor
+      # lapce
+      vscode
       # pulsar
-      zed-editor
+      # vscodium
     ];
 
     ${namespace} = {
