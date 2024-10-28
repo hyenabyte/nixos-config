@@ -1,15 +1,15 @@
-{
-  options,
-  config,
-  lib,
-  pkgs,
-  namespace,
-  ...
+{ options
+, config
+, lib
+, pkgs
+, namespace
+, ...
 }:
 with lib;
 with lib.${namespace}; let
   cfg = config.${namespace}.suites.development;
-in {
+in
+{
   options.${namespace}.suites.development = with types; {
     enable = mkEnableOption "Enable Development Suite";
   };
@@ -17,10 +17,8 @@ in {
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
       # --- Webdev ---
-      # beekeeper-studio
-      # gitkraken
-      # insomnia
-      # bruno
+      beekeeper-studio
+      bruno
 
       # --- Game dev ---
       godot_4
@@ -33,6 +31,9 @@ in {
       vscode
       # pulsar
       # vscodium
+
+      # --- Socials ---
+      slack
     ];
 
     ${namespace} = {
