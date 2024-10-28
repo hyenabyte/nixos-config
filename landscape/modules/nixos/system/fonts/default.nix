@@ -27,7 +27,7 @@ in {
           corefonts
           atkinson-hyperlegible
           noto-fonts
-          noto-fonts-cjk
+          noto-fonts-cjk-sans
           noto-fonts-emoji
           noto-fonts-extra
           (nerdfonts.override {fonts = ["Agave" "Iosevka"];})
