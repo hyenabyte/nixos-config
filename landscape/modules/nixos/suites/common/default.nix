@@ -39,7 +39,7 @@ in {
         agenix = enabled;
         gpg = enabled;
         firewall = enabled;
-        doas = enabled;
+        # doas = enabled;
       };
 
       system = {
