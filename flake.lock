@@ -52,11 +52,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1731032247,
-        "narHash": "sha256-OjLft7fwkmiRLXQsGAudGFZxEYXOT0nHwrQ9GbsBqJ4=",
+        "lastModified": 1731153869,
+        "narHash": "sha256-3Ftf9oqOypcEyyrWJ0baVkRpvQqroK/SVBFLvU3nPuc=",
         "owner": "LnL7",
         "repo": "nix-darwin",
-        "rev": "2fbf4a8417c28cf45bae6e6e97248cbbd9b78632",
+        "rev": "5c74ab862c8070cbf6400128a1b56abb213656da",
         "type": "github"
       },
       "original": {
@@ -337,13 +337,29 @@
         "type": "github"
       }
     },
+    "nixpkgs_2": {
+      "locked": {
+        "lastModified": 1730200266,
+        "narHash": "sha256-l253w0XMT8nWHGXuXqyiIC/bMvh1VRszGXgdpQlfhvU=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "807e9154dcb16384b1b765ebe9cd2bba2ac287fd",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nur": {
       "locked": {
-        "lastModified": 1731055713,
-        "narHash": "sha256-m8rkTfOKUtfkOvR29euF/+6iYPo75O3doU5D3eoqhpk=",
+        "lastModified": 1731177199,
+        "narHash": "sha256-C99JI1nnLGEG6TWDlHTyxcuPTNNPakIcvUjlkFJA7rk=",
         "owner": "nix-community",
         "repo": "nur",
-        "rev": "9be12e84548ea618d8c5ad2ffb9d6f5659d3a6f1",
+        "rev": "3f335d1febbcea794cf5104725b4944d0d4b2066",
         "type": "github"
       },
       "original": {
@@ -365,7 +381,8 @@
         "secrets": "secrets",
         "snowfall-flake": "snowfall-flake",
         "snowfall-lib": "snowfall-lib_2",
-        "ssh-keys": "ssh-keys"
+        "ssh-keys": "ssh-keys",
+        "zen-browser": "zen-browser"
       }
     },
     "secrets": {
@@ -525,6 +542,24 @@
       "original": {
         "owner": "numtide",
         "repo": "flake-utils",
+        "type": "github"
+      }
+    },
+    "zen-browser": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_2"
+      },
+      "locked": {
+        "lastModified": 1730647781,
+        "narHash": "sha256-+UK/IVvDa1CkZTksIMkn4f2/K7+F35Joh55BHN00shg=",
+        "owner": "0xc000022070",
+        "repo": "zen-browser-flake",
+        "rev": "23f1d349d5f8c5f23818d1776c0266729d3948c4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "0xc000022070",
+        "repo": "zen-browser-flake",
         "type": "github"
       }
     }

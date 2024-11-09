@@ -18,6 +18,7 @@ with lib.${namespace}; {
       #vesktop = enabled;
       discord = enabled;
       aseprite = enabled;
+      zed = enabled;
     };
 
     cli = {

@@ -19,7 +19,7 @@ in {
     environment.systemPackages = with pkgs; [
       gimp
       inkscape
-      blender
+      # blender
       krita
     ];
 

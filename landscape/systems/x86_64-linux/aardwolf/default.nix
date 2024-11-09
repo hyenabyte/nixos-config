@@ -2,6 +2,8 @@
   pkgs,
   lib,
   namespace,
+  inputs,
+  system,
   ...
 }:
 with lib;
@@ -19,6 +21,7 @@ with lib.${namespace}; {
     # pkgs.caffeine-ng
     pkgs.tigervnc
     pkgs.deluge
+    inputs.zen-browser.packages."${system}".default
   ];
 
   # Fix firefox craashing in wayland

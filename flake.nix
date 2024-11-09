@@ -55,6 +55,9 @@
     # Nur for firefox extensions
     nur.url = "github:nix-community/nur";
 
+    # Zen Browser
+    zen-browser.url = "github:0xc000022070/zen-browser-flake";
+
     # VSCode extensions
     # nix-vscode-extensions = {
     #   url = "github:nix-community/nix-vscode-extensions";
