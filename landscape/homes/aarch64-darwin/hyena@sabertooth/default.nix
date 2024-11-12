@@ -10,6 +10,7 @@ with lib.${namespace}; {
     shell.zsh = enabled;
 
     apps = {
+      zed = enabled;
       # firefox = enabled;
       # logseq = enabled;
       # vesktop = enabled;

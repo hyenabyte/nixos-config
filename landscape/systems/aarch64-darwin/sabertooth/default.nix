@@ -15,6 +15,7 @@ with lib.${namespace}; {
         # Apps
         # "chromium"
         "firefox"
+        "zen-browser"
 
         # Creative
         # "blender"
@@ -33,6 +34,7 @@ with lib.${namespace}; {
         "bruno"
         "visual-studio-code"
         #"vscodium"
+        "zed"
 
         # Games
         #"steam"
@@ -41,7 +43,7 @@ with lib.${namespace}; {
 
         # Utilities
         "karabiner-elements"
-        "logi-options+"
+        #"logi-options+"
 
 
         # Fonts
