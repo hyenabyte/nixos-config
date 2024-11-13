@@ -15,8 +15,8 @@ with lib.${namespace}; let
     show_inline_completions = false;
     assistant = {
         default_model = {
-        provider = "zed.dev";
-        model = "claude-3-5-sonnet-latest";
+            provider = "zed.dev";
+            model = "claude-3-5-sonnet-latest";
         };
         dock = "left";
         version = "2";
@@ -46,7 +46,6 @@ with lib.${namespace}; let
 
     languages = {
         TypeScript = {
-            show_inline_completions = true;
             formatter = "prettier";
             code_actions_on_format = {
                 "source.fixAll.eslint" = true;
@@ -83,7 +82,7 @@ with lib.${namespace}; let
 
     formatter = {
         code_actions = {
-        "source.fixAll.eslint" = true;
+            "source.fixAll.eslint" = true;
         };
     };
   };
@@ -95,6 +94,12 @@ with lib.${namespace}; let
         "ctrl-'" = "editor::ToggleComments";
       };
     }
+    {
+        context = "Editor && !inline_completion";
+        bindings = {
+            "alt-<" = "editor::ShowInlineCompletion";
+        };
+    }
   ];
 
   extensions = [
@@ -103,6 +108,7 @@ with lib.${namespace}; let
     "html"
     "nix"
     "unocss"
+    "sql"
   ];
 in {
   options.${namespace}.apps.zed = {enable = mkEnableOption "Enable Zed";};
