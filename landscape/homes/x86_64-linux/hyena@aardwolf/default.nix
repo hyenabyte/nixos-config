@@ -15,7 +15,7 @@ with lib.${namespace}; {
       firefox = enabled;
       obs-studio = enabled;
       logseq = enabled;
-      #vesktop = enabled;
+      vesktop = enabled;
       discord = enabled;
       aseprite = enabled;
       zed = enabled;
