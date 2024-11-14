@@ -43,6 +43,7 @@ in {
       nil
       deploy-rs
       nixpkgs-fmt
+      nixd
     ];
 
     nix = let
