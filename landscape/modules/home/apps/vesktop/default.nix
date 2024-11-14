@@ -19,213 +19,104 @@ in {
 
     xdg.configFile = let
       plugins = {
-        ChatInputButtonAPI.enabled = false;
+        # Core
+        # Disable Discord's tracking (analytics/'science')
+        NoTrack = {
+          enabled = true;
+          disableAnalytics = true;
+        };
+        # Adds Settings UI and debug info
+        Settings = {
+          enabled = true;
+          settingsLocation = "aboveNitro";
+        };
+        # Helps us provide support to you
+        SupportHelper.enabled = true;
+
+        # API
+        # API to add badges to users.
+        BadgeAPI.enabled = false;
+        # API to add buttons to the chat input
+        ChatInputButtonAPI.enabled = true;
+        # Api required by anything that uses commands
         CommandsAPI.enabled = true;
+        # API for adding/removing items to/from context menus.
+        ContextMenuAPI.enabled = false;
+        # Allows you to omit either width or height when opening an image modal
+        DynamicImageModalAPI.enabled = false;
+        # API to add decorators to member list (both in servers and DMs)
         MemberListDecoratorsAPI.enabled = false;
+        # API to add message accessories.
         MessageAccessoriesAPI.enabled = true;
+        # API to add decorations to messages
         MessageDecorationsAPI.enabled = false;
-        MessageEventsAPI.enabled = false;
+        # Api required by anything using message events.
+        MessageEventsAPI.enabled = true;
+        # API to add buttons to message popovers.
         MessagePopoverAPI.enabled = false;
+        # API for updating and re-rendering messages.
         MessageUpdaterAPI.enabled = false;
+        # Fixes notices being automatically dismissed
+        NoticesAPI.enabled = false;
+        # Api required for plugins that modify the server list
         ServerListAPI.enabled = false;
+        # Patches Discord's UserSettings to expose their group and name.
         UserSettingsAPI.enabled = true;
-        AlwaysAnimate.enabled = false;
-        AlwaysTrust.enabled = false;
-        AnonymiseFileNames.enabled = false;
-        AppleMusicRichPresence.enabled = false;
-        "WebRichPresence (arRPC)".enabled = false;
-        AutomodContext.enabled = false;
-        BANger.enabled = false;
-        BetterFolders.enabled = false;
-        BetterGifAltText.enabled = false;
-        BetterGifPicker.enabled = false;
-        BetterNotesBox.enabled = false;
-        BetterRoleContext.enabled = false;
-        BetterRoleDot.enabled = false;
-        BetterSessions.enabled = false;
-        BetterSettings.enabled = false;
-        BetterUploadButton.enabled = false;
-        BiggerStreamPreview.enabled = false;
-        BlurNSFW.enabled = false;
-        CallTimer.enabled = false;
-        ClearURLs.enabled = false;
-        ClientTheme.enabled = false;
-        ColorSighted.enabled = false;
-        ConsoleJanitor.enabled = false;
-        ConsoleShortcuts.enabled = false;
-        CopyEmojiMarkdown.enabled = false;
-        CopyUserURLs.enabled = false;
+
+        # Plugins
+        ClearURLs.enabled = true;
         CrashHandler.enabled = true;
-        CtrlEnterSend.enabled = false;
-        CustomRPC.enabled = false;
-        CustomIdle.enabled = false;
-        Dearrow.enabled = false;
-        Decor.enabled = false;
-        DisableCallIdle.enabled = false;
-        DontRoundMyTimestamps.enabled = false;
-        EmoteCloner.enabled = false;
-        Experiments.enabled = false;
-        F8Break.enabled = false;
-        FakeNitro.enabled = false;
-        FakeProfileThemes.enabled = false;
-        FavoriteEmojiFirst.enabled = false;
-        FavoriteGifSearch.enabled = false;
-        FixCodeblockGap.enabled = false;
-        FixSpotifyEmbeds.enabled = false;
-        FixYoutubeEmbeds.enabled = false;
-        ForceOwnerCrown.enabled = false;
-        FriendInvites.enabled = false;
-        FriendsSince.enabled = false;
-        GameActivityToggle.enabled = false;
-        GifPaste.enabled = false;
-        GreetStickerPicker.enabled = false;
-        HideAttachments.enabled = false;
-        iLoveSpam.enabled = false;
-        IgnoreActivities.enabled = false;
-        ImageLink.enabled = false;
-        ImageZoom.enabled = false;
         ImplicitRelationships = {
           enabled = true;
           sortByAffinity = true;
         };
-        InvisibleChat.enabled = false;
-        KeepCurrentChannel.enabled = false;
-        LastFMRichPresence.enabled = false;
         LoadingQuotes = {
-          enabled = false;
+          enabled = true;
           replaceEvents = true;
           enablePluginPresetQuotes = true;
           enableDiscordPresetQuotes = false;
-          additionalQuotes = "";
+          additionalQuotes = ":3|What a time to be alive!|Not today|Quotes? What quotes?";
           additionalQuotesDelimiter = "|";
         };
-        MaskedLinkPaste.enabled = false;
         MemberCount = {
           enabled = true;
           memberList = true;
           toolTip = true;
         };
-        MessageClickActions.enabled = false;
-        MessageLatency.enabled = false;
-        MessageLinkEmbeds.enabled = false;
-        MessageLogger.enabled = false;
-        MessageTags.enabled = false;
-        MoreCommands.enabled = false;
+        MentionAvatars.enabled = true;
         MoreKaomoji.enabled = true;
-        MoreUserTags.enabled = false;
-        Moyai = {
-          enabled = false;
-          volume = 0.5;
-          quality = "Normal";
-          triggerWhenUnfocused = true;
-          ignoreBots = true;
-          ignoreBlocked = true;
-        };
-        MutualGroupDMs.enabled = false;
-        NewGuildSettings.enabled = false;
-        NoBlockedMessages.enabled = false;
-        NoDefaultHangStatus.enabled = false;
-        NoDevtoolsWarning.enabled = false;
-        NoF1.enabled = false;
-        NoMosaic.enabled = false;
-        NoOnboardingDelay.enabled = false;
-        NoPendingCount.enabled = false;
-        NoProfileThemes.enabled = false;
-        NoReplyMention.enabled = false;
-        NoScreensharePreview.enabled = false;
-        NoServerEmojis.enabled = false;
-        NoTypingAnimation.enabled = false;
-        NoUnblockToJump.enabled = false;
-        NormalizeMessageLinks.enabled = false;
-        NotificationVolume.enabled = false;
-        NSFWGateBypass.enabled = false;
-        OnePingPerDM.enabled = false;
         oneko.enabled = true;
-        OpenInApp.enabled = false;
-        OverrideForumDefaults.enabled = false;
-        PartyMode.enabled = false;
-        PauseInvitesForever.enabled = false;
-        PermissionFreeWill.enabled = false;
-        PermissionsViewer.enabled = false;
-        petpet.enabled = false;
-        PictureInPicture.enabled = false;
-        PinDMs.enabled = false;
-        PlainFolderIcon.enabled = false;
-        PlatformIndicators.enabled = false;
-        PreviewMessage.enabled = false;
-        PronounDB.enabled = false;
-        QuickMention.enabled = false;
-        QuickReply.enabled = false;
-        ReactErrorDecoder.enabled = false;
-        ReadAllNotificationsButton.enabled = false;
-        RelationshipNotifier.enabled = false;
-        ReplaceGoogleSearch.enabled = false;
-        ReplyTimestamp.enabled = false;
-        RevealAllSpoilers.enabled = false;
-        ReverseImageSearch.enabled = false;
-        ReviewDB.enabled = false;
-        RoleColorEverywhere.enabled = false;
-        SearchReply.enabled = false;
-        SecretRingToneEnabler.enabled = false;
-        Summaries.enabled = false;
-        SendTimestamps.enabled = false;
-        ServerInfo.enabled = false;
-        ServerListIndicators.enabled = false;
-        ShikiCodeblocks.enabled = false;
-        ShowAllMessageButtons.enabled = false;
-        ShowAllRoles.enabled = false;
-        ShowConnections.enabled = false;
-        ShowHiddenChannels.enabled = false;
-        ShowHiddenThings.enabled = false;
-        ShowMeYourName.enabled = false;
-        ShowTimeoutDuration.enabled = false;
-        SilentMessageToggle.enabled = false;
-        SilentTyping.enabled = false;
-        SortFriendRequests.enabled = false;
-        SpotifyControls.enabled = false;
-        SpotifyCrack.enabled = false;
-        SpotifyShareCommands.enabled = false;
-        StartupTimings.enabled = false;
-        StreamerModeOnStream.enabled = false;
-        SuperReactionTweaks.enabled = false;
-        TextReplace.enabled = false;
-        ThemeAttributes.enabled = false;
-        TimeBarAllActivities.enabled = false;
-        Translate.enabled = false;
-        TypingIndicator.enabled = false;
-        TypingTweaks.enabled = false;
-        Unindent.enabled = false;
-        UnlockedAvatarZoom.enabled = false;
-        UnsuppressEmbeds.enabled = false;
-        UserVoiceShow.enabled = false;
-        USRBG.enabled = false;
-        ValidReply.enabled = false;
-        ValidUser.enabled = false;
-        VoiceChatDoubleClick.enabled = false;
-        VcNarrator.enabled = false;
-        VencordToolbox.enabled = false;
-        ViewIcons.enabled = false;
-        ViewRaw.enabled = false;
-        VoiceDownload.enabled = false;
-        VoiceMessages.enabled = false;
-        WatchTogetherAdblock.enabled = false;
-        WebKeybinds.enabled = true;
-        WebScreenShareFixes.enabled = true;
-        WhoReacted.enabled = false;
-        XSOverlay.enabled = false;
-        NoTrack = {
-          enabled = true;
-          disableAnalytics = true;
+        PreviewMessage.enabled = true;
+        SendTimestamps.enabled = true;
+        ShowMeYourName = {
+            enabled = true;
+            mode = "nick-user";
+            displayNames = false;
+            inReplies = false;
+        };
+        SilentMessageToggle = {
+            enabled = true;
+            persistState = false;
+            autoDisable = true;
+        };
+        ThemeAttributes.enabled = true;
+        UserMessagesPronouns = {
+            enabled = true;
+            pronounsFormat = "LOWERCASE";
+            showSelf = true;
+        };
+        VoiceChatDoubleClick.enabled = true;
+        VolumeBooster = {
+            enabled = true;
+            multiplier = 2;
         };
         WebContextMenus = {
           enabled = true;
           addBack = true;
         };
-        Settings = {
-          enabled = true;
-          settingsLocation = "aboveNitro";
-        };
-        SupportHelper.enabled = true;
+        WebKeybinds.enabled = true;
+        "WebRichPresence (arRPC)".enabled = true;
+        WebScreenShareFixes.enabled = true;
       };
 
       settings = {
