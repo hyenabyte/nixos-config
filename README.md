@@ -6,21 +6,17 @@ Work in progress :)
 
 ## Host list
 
-### Aardwolf (NixOS)
+| Hostname      | OS     | System         | Description                      |
+| ------------- | ------ | -------------- | -------------------------------- |
+| aardwolf      | NixOS  | x86_64-linux   | My Desktop PC                    |
+| possum        | NixOS  | x86_64-linux   | My Home Server                   |
+| sabertooth    | MacOS  | aarch64-darwin | My Macbook Pro                   |
+| sabertoothnix | NixOS  | aarch64-linux  | Asahi Linux on my Macbook Pro    |
+| weasel        | NixOS  | x86_64-linux   | A Contabo VPS                    |
+| badger        | NixOS  | x86_64-linux   | Currently not in service         |
+| ferret        | NixOS  | x86_64-linux   | My aya neo, currently not in use |
+| lynx          | NixOS  | x86_64-vm      | A testing virtual machine        |
 
-My desktop pc
-
-### Possum (NixOS)
-
-My home server
-
-### VirtualLynx (NixOS)
-
-Virtual Machine for testing
-
-### Sabertooth (Darwin)
-
-My MacBook
 
 ## Managing hosts
 
@@ -40,17 +36,29 @@ To update a systems packages, navigate to the local configuration and run
 nix flake update
 ```
 
+or
+
+```sh
+flake update
+```
+
 to update the `flake.lock` and then run
 
 ```sh
 sudo nixos-rebuild switch --flake . --upgrade
 ```
 
+or
+
+```sh
+flake switch
+```
+
 to switch the system to the new configuration while also upgrading packages.
 
 ### Darwin Hosts
 
-TODO
+See <https://github.com/LnL7/nix-darwin>
 
 ## TODO
 
