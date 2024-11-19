@@ -19,7 +19,8 @@ with lib.${namespace}; {
   environment.systemPackages = [
     pkgs.chromium
     pkgs.croc
-    # pkgs.caffeine-ng
+    pkgs.beekeeper-studio
+    pkgs.bruno
   ];
 
   # Fix firefox craashing in wayland
@@ -31,9 +32,13 @@ with lib.${namespace}; {
       desktop = enabled;
       #games = enabled;
       #multimedia = enabled;
-      development = enabled;
+      #development = enabled;
       #social = enabled;
       #creative = enabled;
+    };
+
+    cli = {
+      lazygit = enabled;
     };
 
     hardware = {
