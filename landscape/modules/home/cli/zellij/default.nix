@@ -10,7 +10,7 @@ with lib.${namespace}; let
 in {
   options.${namespace}.cli.zellij = with types; {
     enable = mkEnableOption "zellij";
-    enableZshIntegration = mkOpt bool false "Enable ZSH integration";
+    enableZshIntegration = mkBoolOpt false "Enable ZSH Integration";
   };
   config = mkIf cfg.enable {
     programs.zellij = {
@@ -18,7 +18,7 @@ in {
       enableZshIntegration = cfg.enableZshIntegration;
 
       settings = {
-        theme = "everforest-dark";
+        theme = "muteoki-dark";
 
         themes.everforest-dark = {
           bg = "#2d353b";
@@ -33,6 +33,20 @@ in {
           cyan = "#83c092";
           white = "#d3c6aa";
           orange = "#e69875";
+        };
+        themes.muteoki-dark = {
+          bg = "#09090a";
+          fg = "#ebe0bc";
+
+          black = "#09090a";
+          red = "#97484f";
+          green = "#73794f";
+          yellow = "#a17a2c";
+          blue = "#4c7288";
+          magenta = "#a16a8d";
+          cyan = "#407467";
+          white = "#bdb193";
+          orange = "#966945";
         };
       };
     };
