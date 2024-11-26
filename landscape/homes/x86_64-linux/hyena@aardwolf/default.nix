@@ -1,6 +1,5 @@
 {
   lib,
-  pkgs,
   namespace,
   ...
 }:
@@ -19,6 +18,7 @@ with lib.${namespace}; {
       discord = enabled;
       aseprite = enabled;
       zed = enabled;
+      zen-browser = enabled;
     };
 
     cli = {
@@ -29,6 +29,7 @@ with lib.${namespace}; {
       };
       home-manager = enabled;
       hyfetch = enabled;
+      yazi = enabled;
       zellij = enabled;
     };
 
