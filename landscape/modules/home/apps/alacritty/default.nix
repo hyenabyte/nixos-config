@@ -1,15 +1,15 @@
-{
-  pkgs,
-  lib,
-  config,
-  namespace,
-  ...
+{ pkgs
+, lib
+, config
+, namespace
+, ...
 }:
 with lib;
 with lib.${namespace}; let
   cfg = config.${namespace}.apps.alacritty;
-in {
-  options.${namespace}.apps.alacritty = {enable = mkEnableOption "Enable Alacritty";};
+in
+{
+  options.${namespace}.apps.alacritty = { enable = mkEnableOption "Enable Alacritty"; };
   config = mkIf cfg.enable {
     programs.alacritty = {
       enable = true;
@@ -37,7 +37,7 @@ in {
             blinking = "Off";
           };
         }
-        // builtins.fromTOML (builtins.readFile ./themes/everforest-dark.toml);
+        // builtins.fromTOML (builtins.readFile ./themes/muteoki-dark.toml);
     };
   };
 }

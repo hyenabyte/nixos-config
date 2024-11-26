@@ -1,0 +1,47 @@
+[colors]
+# Default colors
+[colors.primary]
+background = "0x09090a"
+foreground = "0xebe0bc"
+dim_foreground = "0xebe0bc"
+bright_foreground = "0xebe0bc"
+# dim_background = "0x1C1B1A"
+# bright_background = "0x1C1B1A"
+
+# Cursor colors
+[colors.cursor]
+text = "0xebe0bc"
+cursor = "0xd16469"
+
+# Normal colors
+[colors.normal]
+black = "0x09090a"
+red = "0x97484f"
+green = "0x73794f"
+yellow = "0xa17a2c"
+blue = "0x4c7288"
+magenta = "0xa16a8d"
+cyan = "0x407467"
+white = "0xbdb193"
+
+# Bright colors
+[colors.bright]
+black = "0x1c1b1a"
+red = "0xd16469"
+green = "0xa6ae5a"
+yellow = "0xdbb560"
+blue = "0x77afca"
+magenta = "0xc193b0"
+cyan = "0x72afa0"
+white = "0xebe0bc"
+
+# Dim colors
+[colors.dim]
+black = "0x09090a"
+red = "0x97484f"
+green = "0x73794f"
+yellow = "0xa17a2c"
+blue = "0x4c7288"
+magenta = "0xa16a8d"
+cyan = "0x407467"
+white = "0xbdb193"
