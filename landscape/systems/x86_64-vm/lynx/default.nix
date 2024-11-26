@@ -1,15 +1,16 @@
-{
-  pkgs,
-  lib,
-  namespace,
-  ...
+{ lib
+, namespace
+, ...
 }:
 with lib;
 with lib.${namespace}; {
   ${namespace} = {
-    system.nix = enabled;
-    suites.common = enabled;
     services.openssh = enabled;
+
+    suites = {
+      common = enabled;
+      desktop = enabled;
+    };
   };
 
   # ! DO NOT CHANGE !
