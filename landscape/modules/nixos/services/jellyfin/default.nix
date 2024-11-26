@@ -1,15 +1,15 @@
-{
-  pkgs,
-  lib,
-  config,
-  namespace,
-  ...
+{ pkgs
+, lib
+, config
+, namespace
+, ...
 }:
 with lib;
 with lib.${namespace}; let
   cfg = config.${namespace}.services.jellyfin;
-in {
-  options.${namespace}.services.jellyfin = {enable = mkEnableOption "jellyfin";};
+in
+{
+  options.${namespace}.services.jellyfin = { enable = mkEnableOption "jellyfin"; };
   config = mkIf cfg.enable {
     services.jellyfin = {
       enable = true;

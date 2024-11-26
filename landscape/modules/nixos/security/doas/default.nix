@@ -1,15 +1,15 @@
-{
-  options,
-  config,
-  pkgs,
-  lib,
-  namespace,
-  ...
+{ options
+, config
+, pkgs
+, lib
+, namespace
+, ...
 }:
 with lib;
 with lib.${namespace}; let
   cfg = config.${namespace}.security.doas;
-in {
+in
+{
   options.${namespace}.security.doas = {
     enable = mkBoolOpt false "Whether or not to replace sudo with doas.";
   };
@@ -23,7 +23,7 @@ in {
       enable = true;
       extraRules = [
         {
-          users = [config.${namespace}.user.name];
+          users = [ config.${namespace}.user.name ];
           noPass = true;
           keepEnv = true;
         }

@@ -1,13 +1,13 @@
-{
-  config,
-  lib,
-  namespace,
-  ...
+{ config
+, lib
+, namespace
+, ...
 }:
 with lib;
 with lib.${namespace}; let
   cfg = config.${namespace}.system.locale;
-in {
+in
+{
   options.${namespace}.system.locale = with types; {
     enable = mkEnableOption "Whether or not to manage locale settings.";
   };
@@ -32,6 +32,6 @@ in {
     };
 
     # Configure console keymap
-    console = {keyMap = mkForce "dk-latin1";};
+    console = { keyMap = mkForce "dk-latin1"; };
   };
 }

@@ -1,15 +1,15 @@
-{
-  pkgs,
-  lib,
-  config,
-  namespace,
-  ...
+{ pkgs
+, lib
+, config
+, namespace
+, ...
 }:
 with lib;
 with lib.${namespace}; let
   cfg = config.${namespace}.apps.kitty;
-in {
-  options.${namespace}.apps.kitty = {enable = mkEnableOption "Enable Kitty";};
+in
+{
+  options.${namespace}.apps.kitty = { enable = mkEnableOption "Enable Kitty"; };
   config = mkIf cfg.enable {
     programs.kitty = {
       enable = true;

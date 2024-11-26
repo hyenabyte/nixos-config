@@ -1,4 +1,4 @@
-{lib, ...}:
+{ lib, ... }:
 with lib; rec {
   ## Create a NixOS module option.
   ##
@@ -8,7 +8,7 @@ with lib; rec {
   ##
   #@ Type -> Any -> String
   mkOpt = type: default: description:
-    mkOption {inherit type default description;};
+    mkOption { inherit type default description; };
 
   ## Create a NixOS module option without a description.
   ##
@@ -36,6 +36,11 @@ with lib; rec {
   ##
   #@ Type -> Any -> String
   mkBoolOpt' = mkOpt' types.bool;
+
+  mkPackageListOption = default: description: mkOption {
+    inherit default description;
+    type = with lib.types; listOf package;
+  };
 
   enabled = {
     ## Quickly enable an option.

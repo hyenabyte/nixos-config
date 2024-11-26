@@ -1,15 +1,15 @@
-{
-  pkgs,
-  lib,
-  config,
-  namespace,
-  ...
+{ pkgs
+, lib
+, config
+, namespace
+, ...
 }:
 with lib;
 with lib.${namespace}; let
   cfg = config.${namespace}.services.nextcloud;
-in {
-  options.${namespace}.services.nextcloud = {enable = mkEnableOption "nextcloud";};
+in
+{
+  options.${namespace}.services.nextcloud = { enable = mkEnableOption "nextcloud"; };
   config = mkIf cfg.enable {
     services.nextcloud = {
       enable = true;

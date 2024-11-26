@@ -1,15 +1,15 @@
-{
-  pkgs,
-  lib,
-  config,
-  namespace,
-  ...
+{ pkgs
+, lib
+, config
+, namespace
+, ...
 }:
 with lib;
 with lib.${namespace}; let
   cfg = config.${namespace}.virtualisation.podman;
-in {
-  options.${namespace}.virtualisation.podman = {enable = mkEnableOption "podman";};
+in
+{
+  options.${namespace}.virtualisation.podman = { enable = mkEnableOption "podman"; };
   config = mkIf cfg.enable {
     virtualisation.podman = {
       enable = true;

@@ -1,15 +1,15 @@
-{
-  options,
-  config,
-  lib,
-  pkgs,
-  namespace,
-  ...
+{ options
+, config
+, lib
+, pkgs
+, namespace
+, ...
 }:
 with lib;
 with lib.${namespace}; let
   cfg = config.${namespace}.suites.social;
-in {
+in
+{
   options.${namespace}.suites.social = with types; {
     enable =
       mkEnableOption "Enable Social Suite";
@@ -24,8 +24,7 @@ in {
     ];
 
     ${namespace} = {
-      apps = {
-      };
+      apps = { };
     };
   };
 }

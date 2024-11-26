@@ -1,12 +1,10 @@
 # Inspired by jakehamiltons fine work
 # https://github.com/jakehamilton/config/blob/main/modules/nixos/user/default.nix
-{
-  options,
-  pkgs,
-  lib,
-  config,
-  namespace,
-  ...
+{ pkgs
+, lib
+, config
+, namespace
+, ...
 }:
 with lib;
 with lib.${namespace}; let
@@ -22,28 +20,29 @@ with lib.${namespace}; let
       cp $src $out
     '';
 
-    passthru = {fileName = defaultIconFileName;};
+    passthru = { fileName = defaultIconFileName; };
   };
   propagatedIcon =
     pkgs.runCommandNoCC "propagated-icon"
-    {passthru = {fileName = cfg.icon.fileName;};}
-    ''
-      local target="$out/share/${namespace}-icons/user/${cfg.name}"
-      mkdir -p "$target"
+      { passthru = { fileName = cfg.icon.fileName; }; }
+      ''
+        local target="$out/share/${namespace}-icons/user/${cfg.name}"
+        mkdir -p "$target"
 
-      cp ${cfg.icon} "$target/${cfg.icon.fileName}"
-    '';
-in {
+        cp ${cfg.icon} "$target/${cfg.icon.fileName}"
+      '';
+in
+{
   options.${namespace}.user = with types; {
     name = mkOpt str "hyena" "The username for the account.";
     fullName = mkOpt str "hyena" "The full name for the account.";
     email = mkOpt str "hyena@hyenabyte.dev" "The email address for the account.";
     icon = mkOpt (nullOr package) defaultIcon "The profile picture for the account.";
-    extraGroups = mkOpt (listOf str) [] "Groups the user is assigned to.";
-    extraOptions = mkOpt attrs {} "Extra options for the user";
+    extraGroups = mkOpt (listOf str) [ ] "Groups the user is assigned to.";
+    extraOptions = mkOpt attrs { } "Extra options for the user";
   };
   config = {
-    environment.systemPackages = with pkgs; [
+    environment.systemPackages = [
       propagatedIcon
     ];
 

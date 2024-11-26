@@ -1,14 +1,14 @@
-{
-  lib,
-  config,
-  namespace,
-  ...
+{ lib
+, config
+, namespace
+, ...
 }:
 with lib;
 with lib.${namespace}; let
   cfg = config.${namespace}.services.paperless-ngx;
-in {
-  options.${namespace}.services.paperless-ngx = {enable = mkEnableOption "paperless-ngx";};
+in
+{
+  options.${namespace}.services.paperless-ngx = { enable = mkEnableOption "paperless-ngx"; };
   config = mkIf cfg.enable {
     services.paperless = {
       enable = true;

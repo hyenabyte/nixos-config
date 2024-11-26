@@ -1,13 +1,13 @@
-{
-  lib,
-  config,
-  namespace,
-  ...
+{ lib
+, config
+, namespace
+, ...
 }:
 with lib;
 with lib.${namespace}; let
   cfg = config.${namespace}.apps.nextcloud-client;
-in {
+in
+{
   options.${namespace}.apps.nextcloud-client = {
     enable = mkEnableOption "Enable nextcloud-client";
     startInBackground = mkBoolOpt false "Start Nextcloud Client in the background when powering on the system.";

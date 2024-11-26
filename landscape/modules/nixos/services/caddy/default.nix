@@ -1,16 +1,16 @@
-{
-  lib,
-  config,
-  namespace,
-  ...
+{ lib
+, config
+, namespace
+, ...
 }:
 with lib; let
   cfg = config.${namespace}.services.caddy;
-in {
-  options.${namespace}.services.caddy = {enable = mkEnableOption "caddy";};
+in
+{
+  options.${namespace}.services.caddy = { enable = mkEnableOption "caddy"; };
   config = mkIf cfg.enable {
-    networking.firewall.allowedTCPPorts = [8080 8443];
-    networking.firewall.allowedUDPPorts = [8080 8443];
+    networking.firewall.allowedTCPPorts = [ 8080 8443 ];
+    networking.firewall.allowedUDPPorts = [ 8080 8443 ];
     services.caddy = {
       enable = true;
 

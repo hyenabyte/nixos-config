@@ -1,17 +1,17 @@
-{
-  lib,
-  config,
-  namespace,
-  ...
+{ lib
+, config
+, namespace
+, ...
 }:
 with lib;
 with lib.${namespace}; let
   cfg = config.${namespace}.hardware.nvidia;
-in {
-  options.${namespace}.hardware.nvidia = {enable = mkEnableOption "nvidia";};
+in
+{
+  options.${namespace}.hardware.nvidia = { enable = mkEnableOption "nvidia"; };
   config = mkIf cfg.enable {
     # Load nvidia driver for Xorg and Wayland
-    services.xserver.videoDrivers = ["nvidia"]; # or "nvidiaLegacy470 etc.
+    services.xserver.videoDrivers = [ "nvidia" ]; # or "nvidiaLegacy470 etc.
 
     # Enable OpenGL
     # hardware.graphics.enable = true;

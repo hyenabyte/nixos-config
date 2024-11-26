@@ -1,10 +1,10 @@
-{
-  lib,
-  config,
-  pkgs,
-  namespace,
-  ...
-}: let
+{ lib
+, config
+, pkgs
+, namespace
+, ...
+}:
+let
   inherit (lib) types mkIf mkDefault;
   inherit (lib.${namespace}) mkOpt;
 
@@ -12,7 +12,8 @@
 
   is-linux = pkgs.stdenv.isLinux;
   is-darwin = pkgs.stdenv.isDarwin;
-in {
+in
+{
   options.${namespace}.user = {
     name = mkOpt types.str "hyena" "The user account.";
 

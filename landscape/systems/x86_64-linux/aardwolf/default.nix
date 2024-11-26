@@ -1,10 +1,9 @@
-{
-  pkgs,
-  lib,
-  namespace,
-  inputs,
-  system,
-  ...
+{ pkgs
+, lib
+, namespace
+, inputs
+, system
+, ...
 }:
 with lib;
 with lib.${namespace}; {
@@ -21,13 +20,19 @@ with lib.${namespace}; {
     # pkgs.caffeine-ng
     pkgs.tigervnc
     pkgs.deluge
-    inputs.zen-browser.packages."${system}".default
+    pkgs.slack
+    pkgs."${namespace}".wallpapers
+    # pkgs."${namespace}".phanpy
   ];
 
-  # Fix firefox craashing in wayland
+  # Fix firefox crashing in wayland
   environment.variables.MOZ_ENABLE_WAYLAND = 0;
 
   ${namespace} = {
+    desktop = {
+      hyprland = enabled;
+    };
+
     suites = {
       common = enabled;
       desktop = enabled;
@@ -42,6 +47,10 @@ with lib.${namespace}; {
       bluetooth = enabled;
       nvidia = enabled;
       wireless = enabled;
+    };
+
+    virtualisation = {
+      qemu = enabled;
     };
   };
 

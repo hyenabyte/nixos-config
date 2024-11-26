@@ -1,14 +1,14 @@
-{
-  options,
-  config,
-  lib,
-  namespace,
-  ...
+{ options
+, config
+, lib
+, namespace
+, ...
 }:
 with lib;
 with lib.${namespace}; let
   cfg = config.${namespace}.hardware.networking;
-in {
+in
+{
   options.${namespace}.hardware.networking = with types; {
     enable = mkEnableOption "Enable networkmanager";
   };

@@ -1,14 +1,14 @@
-{
-  options,
-  config,
-  lib,
-  namespace,
-  ...
+{ options
+, config
+, lib
+, namespace
+, ...
 }:
 with lib;
 with lib.${namespace}; let
   cfg = config.${namespace}.hardware.iwd;
-in {
+in
+{
   options.${namespace}.hardware.iwd = with types; {
     enable = mkEnableOption "Enable wireless (iwd)";
   };

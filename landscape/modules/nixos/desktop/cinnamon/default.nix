@@ -1,14 +1,14 @@
-{
-  lib,
-  config,
-  namespace,
-  ...
+{ lib
+, config
+, namespace
+, ...
 }:
 with lib;
 with lib.${namespace}; let
   cfg = config.${namespace}.desktop.cinnamon;
-in {
-  options.${namespace}.desktop.cinnamon = {enable = mkEnableOption "cinnamon";};
+in
+{
+  options.${namespace}.desktop.cinnamon = { enable = mkEnableOption "cinnamon"; };
   config = mkIf cfg.enable {
     services.xserver.enable = true;
 

@@ -1,14 +1,14 @@
-{
-  lib,
-  config,
-  namespace,
-  ...
+{ lib
+, config
+, namespace
+, ...
 }:
 with lib;
 with lib.${namespace}; let
   cfg = config.${namespace}.hardware.audio.pipewire;
-in {
-  options.${namespace}.hardware.audio.pipewire = {enable = mkEnableOption "pipewire";};
+in
+{
+  options.${namespace}.hardware.audio.pipewire = { enable = mkEnableOption "pipewire"; };
   config = mkIf cfg.enable {
     # Enable sound with pipewire.
     # sound.enable = true;

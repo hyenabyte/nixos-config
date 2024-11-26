@@ -1,14 +1,14 @@
-{
-  lib,
-  config,
-  namespace,
-  ...
+{ lib
+, config
+, namespace
+, ...
 }:
 with lib;
 with lib.${namespace}; let
   cfg = config.${namespace}.services.openssh;
-in {
-  options.${namespace}.services.openssh = {enable = mkEnableOption "Enable SSH server";};
+in
+{
+  options.${namespace}.services.openssh = { enable = mkEnableOption "Enable SSH server"; };
   config = mkIf cfg.enable {
     services.openssh = {
       enable = true;
@@ -18,7 +18,7 @@ in {
         # PasswordAuthentication = false;
       };
 
-      ports = [22];
+      ports = [ 22 ];
     };
 
     # TODO get keys

@@ -1,16 +1,14 @@
-{
-  lib,
-  pkgs,
-  namespace,
-  ...
+{ lib
+, pkgs
+, namespace
+, ...
 }:
 with lib.${namespace}; {
   hyenabyte = {
     user = enabled;
     shell.zsh = enabled;
 
-    apps = {
-    };
+    apps = { };
 
     cli = {
       bottom = enabled;

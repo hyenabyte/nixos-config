@@ -1,13 +1,13 @@
-{
-  lib,
-  config,
-  namespace,
-  ...
+{ lib
+, config
+, namespace
+, ...
 }:
 with lib;
 with lib.${namespace}; let
   cfg = config.${namespace}.tools.ssh;
-in {
+in
+{
   options.${namespace}.tools.ssh = {
     enable = mkEnableOption "Enable SSH Config";
   };

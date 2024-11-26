@@ -1,15 +1,15 @@
-{
-  pkgs,
-  lib,
-  config,
-  namespace,
-  ...
+{ pkgs
+, lib
+, config
+, namespace
+, ...
 }:
 with lib;
 with lib.${namespace}; let
   cfg = config.${namespace}.apps.firefox;
-in {
-  options.${namespace}.apps.firefox = {enable = mkEnableOption "Enable Firefox";};
+in
+{
+  options.${namespace}.apps.firefox = { enable = mkEnableOption "Enable Firefox"; };
 
   config = mkIf cfg.enable {
     programs.firefox = {
@@ -57,7 +57,7 @@ in {
         search = {
           force = true;
           default = "DuckDuckGo";
-          order = ["DuckDuckGo" "Google"];
+          order = [ "DuckDuckGo" "Google" ];
           engines = {
             "Nix Packages" = {
               urls = [
@@ -76,31 +76,31 @@ in {
                 }
               ];
               icon = "''${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-              definedAliases = ["@np"];
+              definedAliases = [ "@np" ];
             };
             "NixOS Wiki" = {
-              urls = [{template = "https://nixos.wiki/index.php?search={searchTerms}";}];
+              urls = [{ template = "https://nixos.wiki/index.php?search={searchTerms}"; }];
               iconUpdateURL = "https://nixos.wiki/favicon.png";
               updateInterval = 24 * 60 * 60 * 1000; # every day
-              definedAliases = ["@nw"];
+              definedAliases = [ "@nw" ];
             };
             "MyNixOS" = {
-              urls = [{template = "https://mynixos.com/search?q={searchTerms}";}];
+              urls = [{ template = "https://mynixos.com/search?q={searchTerms}"; }];
               iconUpdateURL = "https://mynixos.com/favicon.png";
               updateInterval = 24 * 60 * 60 * 1000; # every day
-              definedAliases = ["@mno"];
+              definedAliases = [ "@mno" ];
             };
             "Github" = {
-              urls = [{template = "https://github.com/search?q={searchTerms}&type=repositories";}];
+              urls = [{ template = "https://github.com/search?q={searchTerms}&type=repositories"; }];
               iconUpdateURL = "https://github.githubassets.com/favicons/favicon-dark.png";
               updateInterval = 24 * 60 * 60 * 1000; # every day
-              definedAliases = ["@gh"];
+              definedAliases = [ "@gh" ];
             };
             "Github Users" = {
-              urls = [{template = "https://github.com/search?q={searchTerms}&type=users";}];
+              urls = [{ template = "https://github.com/search?q={searchTerms}&type=users"; }];
               iconUpdateURL = "https://github.githubassets.com/favicons/favicon-dark.png";
               updateInterval = 24 * 60 * 60 * 1000; # every day
-              definedAliases = ["@ghu"];
+              definedAliases = [ "@ghu" ];
             };
             "Bing".metaData.hidden = true;
             "Google".metaData.alias = "@g"; # builtin engines only support specifying one additional alias

@@ -1,15 +1,15 @@
-{
-  pkgs,
-  lib,
-  config,
-  namespace,
-  ...
+{ pkgs
+, lib
+, config
+, namespace
+, ...
 }:
 with lib;
 with lib.${namespace}; let
   cfg = config.${namespace}.virtualisation.qemu;
-in {
-  options.${namespace}.virtualisation.qemu = {enable = mkEnableOption "qemu";};
+in
+{
+  options.${namespace}.virtualisation.qemu = { enable = mkEnableOption "qemu"; };
   config = mkIf cfg.enable {
     # Credit to TechSupportOnHold for this
     # https://github.com/TechsupportOnHold/Nixos-VM
@@ -18,7 +18,7 @@ in {
     programs.dconf.enable = true;
 
     # Add user to libvirtd group
-    users.users.${config.${namespace}.user.name}.extraGroups = ["libvirtd"];
+    users.users.${config.${namespace}.user.name}.extraGroups = [ "libvirtd" ];
 
     # Install necessary packages
     environment.systemPackages = with pkgs; [
@@ -39,7 +39,7 @@ in {
         qemu = {
           swtpm.enable = true;
           ovmf.enable = true;
-          ovmf.packages = [pkgs.OVMFFull.fd];
+          ovmf.packages = [ pkgs.OVMFFull.fd ];
         };
       };
       spiceUSBRedirection.enable = true;

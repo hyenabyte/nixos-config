@@ -1,7 +1,6 @@
-{
-  lib,
-  namespace,
-  ...
+{ lib
+, namespace
+, ...
 }:
 with lib;
 with lib.${namespace}; {

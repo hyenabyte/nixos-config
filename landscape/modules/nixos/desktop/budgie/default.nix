@@ -1,14 +1,14 @@
-{
-  lib,
-  config,
-  namespace,
-  ...
+{ lib
+, config
+, namespace
+, ...
 }:
 with lib;
 with lib.${namespace}; let
   cfg = config.${namespace}.desktop.budgie;
-in {
-  options.${namespace}.desktop.budgie = {enable = mkEnableOption "budgie";};
+in
+{
+  options.${namespace}.desktop.budgie = { enable = mkEnableOption "budgie"; };
   config = mkIf cfg.enable {
     services.xserver.enable = true;
 

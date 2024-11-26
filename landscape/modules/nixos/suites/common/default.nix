@@ -1,15 +1,15 @@
-{
-  options,
-  config,
-  lib,
-  pkgs,
-  namespace,
-  ...
+{ options
+, config
+, lib
+, pkgs
+, namespace
+, ...
 }:
 with lib;
 with lib.${namespace}; let
   cfg = config.${namespace}.suites.common;
-in {
+in
+{
   options.${namespace}.suites.common = with types; {
     enable = mkEnableOption "Enable Common Suite";
   };

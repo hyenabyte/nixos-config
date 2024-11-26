@@ -1,15 +1,15 @@
-{
-  options,
-  config,
-  lib,
-  pkgs,
-  namespace,
-  ...
+{ options
+, config
+, lib
+, pkgs
+, namespace
+, ...
 }:
 with lib;
 with lib.${namespace}; let
   cfg = config.${namespace}.suites.server;
-in {
+in
+{
   options.${namespace}.suites.server = with types; {
     enable = mkEnableOption "Enable Server Suite";
   };

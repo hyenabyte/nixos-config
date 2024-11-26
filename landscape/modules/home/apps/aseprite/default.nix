@@ -1,9 +1,8 @@
-{
-  pkgs,
-  lib,
-  config,
-  namespace,
-  ...
+{ pkgs
+, lib
+, config
+, namespace
+, ...
 }:
 with lib;
 with lib.${namespace}; let
@@ -12,17 +11,21 @@ with lib.${namespace}; let
   configDir = "aseprite";
 
   mkConfigFolder = folderName:
-    lib.foldl (
-      acc: file: let
-        fileName = builtins.baseNameOf file;
-      in
-        acc // {"${configDir}/${folderName}/${fileName}".source = ./. + "/${folderName}/${file}";}
-    ) {}
-    (builtins.attrNames (builtins.readDir (./. + "/${folderName}")));
+    lib.foldl
+      (
+        acc: file:
+          let
+            fileName = builtins.baseNameOf file;
+          in
+          acc // { "${configDir}/${folderName}/${fileName}".source = ./. + "/${folderName}/${file}"; }
+      )
+      { }
+      (builtins.attrNames (builtins.readDir (./. + "/${folderName}")));
 
   palettes = mkConfigFolder "palettes";
   scripts = mkConfigFolder "scripts";
-in {
+in
+{
   options.${namespace}.apps.aseprite = with types; {
     enable = mkEnableOption "Enable Aseprite";
     package = mkOpt package pkgs.aseprite "Which Aseprite package to use";

@@ -1,14 +1,14 @@
-{
-  lib,
-  config,
-  namespace,
-  ...
+{ lib
+, config
+, namespace
+, ...
 }:
 with lib;
 with lib.${namespace}; let
   cfg = config.${namespace}.cli.hyfetch;
-in {
-  options.${namespace}.cli.hyfetch = {enable = mkEnableOption "hyfetch";};
+in
+{
+  options.${namespace}.cli.hyfetch = { enable = mkEnableOption "hyfetch"; };
   config = mkIf cfg.enable {
     programs.hyfetch = {
       enable = true;

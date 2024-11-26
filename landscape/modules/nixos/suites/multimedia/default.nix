@@ -1,15 +1,15 @@
-{
-  options,
-  config,
-  lib,
-  pkgs,
-  namespace,
-  ...
+{ options
+, config
+, lib
+, pkgs
+, namespace
+, ...
 }:
 with lib;
 with lib.${namespace}; let
   cfg = config.${namespace}.suites.multimedia;
-in {
+in
+{
   options.${namespace}.suites.multimedia = with types; {
     enable =
       mkEnableOption "Enable Multimedia Suite";
@@ -23,8 +23,7 @@ in {
     ];
 
     ${namespace} = {
-      apps = {
-      };
+      apps = { };
     };
   };
 }

@@ -94,96 +94,98 @@
   };
 
   # All outputs for the system (configs)
-  outputs = inputs: let
-    lib = inputs.snowfall-lib.mkLib {
-      inherit inputs;
-      src = ./.;
+  outputs = inputs:
+    let
+      lib = inputs.snowfall-lib.mkLib {
+        inherit inputs;
+        src = ./.;
 
-      snowfall = {
-        meta = {
-          name = "hyenas-config";
-          title = "hyenas config";
+        snowfall = {
+          meta = {
+            name = "hyenas-config";
+            title = "hyenas config";
+          };
+
+          namespace = "hyenabyte";
+          root = ./landscape;
+        };
+      };
+    in
+    lib.mkFlake
+      {
+        channels-config = {
+          allowUnfree = true;
+          permittedInsecurePackages = [
+            "electron-27.3.11"
+          ];
         };
 
-        namespace = "hyenabyte";
-        root = ./landscape;
-      };
-    };
-  in
-    lib.mkFlake {
-      channels-config = {
-        allowUnfree = true;
-        permittedInsecurePackages = [
-          "electron-27.3.11"
+        overlays = with inputs; [
+          # nix-vscode-extensions.overlays.default
+          nur.overlay
+          snowfall-flake.overlays.default
         ];
-      };
 
-      overlays = with inputs; [
-        # nix-vscode-extensions.overlays.default
-        nur.overlay
-        snowfall-flake.overlays.default
-      ];
+        systems.modules.nixos = with inputs; [
+          home-manager.nixosModules.home-manager
+          agenix.nixosModules.default
+          nix-ld.nixosModules.nix-ld
+          secrets.outPath
+        ];
 
-      systems.modules.nixos = with inputs; [
-        home-manager.nixosModules.home-manager
-        agenix.nixosModules.default
-        nix-ld.nixosModules.nix-ld
-        secrets.outPath
-      ];
+        systems.modules.darwin = with inputs; [
+          home-manager.darwinModules.home-manager
+          agenix.darwinModules.default
+          secrets.outPath
+        ];
 
-      systems.modules.darwin = with inputs; [
-        home-manager.darwinModules.home-manager
-        agenix.darwinModules.default
-        secrets.outPath
-      ];
-
-      # Deployment nodes
-      deploy.nodes = {
-        aardwolf = {
-          hostname = "aardwolf";
-          profiles.system = {
-            user = "root";
-            sshUser = "hyena";
-            sudo = "doas -u";
-            path = inputs.deploy-rs.lib.x86_64-linux.activate.nixos inputs.self.nixosConfigurations.aardwolf;
+        # Deployment nodes
+        deploy.nodes = {
+          aardwolf = {
+            hostname = "aardwolf";
+            profiles.system = {
+              user = "root";
+              sshUser = "hyena";
+              sudo = "doas -u";
+              path = inputs.deploy-rs.lib.x86_64-linux.activate.nixos inputs.self.nixosConfigurations.aardwolf;
+            };
+          };
+          possum = {
+            hostname = "possum";
+            profiles.system = {
+              user = "root";
+              sshUser = "hyena";
+              sudo = "doas -u";
+              path = inputs.deploy-rs.lib.x86_64-linux.activate.nixos inputs.self.nixosConfigurations.possum;
+            };
+          };
+          badger = {
+            hostname = "badger";
+            profiles.system = {
+              user = "root";
+              sshUser = "hyena";
+              sudo = "doas -u";
+              path = inputs.deploy-rs.lib.x86_64-linux.activate.nixos inputs.self.nixosConfigurations.badger;
+            };
+          };
+          weasel = {
+            hostname = "weasel";
+            profiles.system = {
+              user = "root";
+              sshUser = "hyena";
+              sudo = "doas -u";
+              path = inputs.deploy-rs.lib.x86_64-linux.activate.nixos inputs.self.nixosConfigurations.weasel;
+            };
           };
         };
-        possum = {
-          hostname = "possum";
-          profiles.system = {
-            user = "root";
-            sshUser = "hyena";
-            sudo = "doas -u";
-            path = inputs.deploy-rs.lib.x86_64-linux.activate.nixos inputs.self.nixosConfigurations.possum;
-          };
-        };
-        badger = {
-          hostname = "badger";
-          profiles.system = {
-            user = "root";
-            sshUser = "hyena";
-            sudo = "doas -u";
-            path = inputs.deploy-rs.lib.x86_64-linux.activate.nixos inputs.self.nixosConfigurations.badger;
-          };
-        };
-        weasel = {
-          hostname = "weasel";
-          profiles.system = {
-            user = "root";
-            sshUser = "hyena";
-            sudo = "doas -u";
-            path = inputs.deploy-rs.lib.x86_64-linux.activate.nixos inputs.self.nixosConfigurations.weasel;
-          };
-        };
-      };
-      # deploy = lib.hyenabyte.mkDeploy {inherit (inputs) self;};
+        # deploy = lib.hyenabyte.mkDeploy {inherit (inputs) self;};
 
-      checks =
-        builtins.mapAttrs
-        (_system: deploy-lib:
-          deploy-lib.deployChecks inputs.self.deploy)
-        inputs.deploy-rs.lib;
-    }
+        checks =
+          builtins.mapAttrs
+            (_system: deploy-lib:
+              deploy-lib.deployChecks inputs.self.deploy)
+            inputs.deploy-rs.lib;
+      }
     // {
       self = inputs.self;
     };

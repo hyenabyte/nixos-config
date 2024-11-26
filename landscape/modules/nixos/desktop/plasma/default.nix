@@ -1,14 +1,14 @@
-{
-  lib,
-  config,
-  namespace,
-  ...
+{ lib
+, config
+, namespace
+, ...
 }:
 with lib;
 with lib.${namespace}; let
   cfg = config.${namespace}.desktop.plasma;
-in {
-  options.${namespace}.desktop.plasma = {enable = mkEnableOption "plasma";};
+in
+{
+  options.${namespace}.desktop.plasma = { enable = mkEnableOption "plasma"; };
   config = mkIf cfg.enable {
     services.xserver.enable = true;
 

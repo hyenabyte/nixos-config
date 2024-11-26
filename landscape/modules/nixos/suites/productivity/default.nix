@@ -1,15 +1,15 @@
-{
-  options,
-  config,
-  lib,
-  pkgs,
-  namespace,
-  ...
+{ options
+, config
+, lib
+, pkgs
+, namespace
+, ...
 }:
 with lib;
 with lib.${namespace}; let
   cfg = config.${namespace}.suites.productivity;
-in {
+in
+{
   options.${namespace}.suites.productivity = with types; {
     enable =
       mkEnableOption "Enable Productivity Suite";
@@ -20,8 +20,7 @@ in {
     ];
 
     ${namespace} = {
-      apps = {
-      };
+      apps = { };
     };
   };
 }

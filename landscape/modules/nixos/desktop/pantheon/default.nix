@@ -1,14 +1,14 @@
-{
-  lib,
-  config,
-  namespace,
-  ...
+{ lib
+, config
+, namespace
+, ...
 }:
 with lib;
 with lib.${namespace}; let
   cfg = config.${namespace}.desktop.pantheon;
-in {
-  options.${namespace}.desktop.pantheon = {enable = mkEnableOption "pantheon";};
+in
+{
+  options.${namespace}.desktop.pantheon = { enable = mkEnableOption "pantheon"; };
   config = mkIf cfg.enable {
     services.xserver.enable = true;
 

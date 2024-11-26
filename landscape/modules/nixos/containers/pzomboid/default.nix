@@ -1,13 +1,13 @@
-{
-  lib,
-  config,
-  namespace,
-  ...
+{ lib
+, config
+, namespace
+, ...
 }:
 with lib;
 with lib.${namespace}; let
   cfg = config.${namespace}.containers.pzomboid;
-in {
+in
+{
   options.${namespace}.containers.pzomboid = with types; {
     enable = mkEnableOption "pzomboid";
     configPath = mkOpt str "/home/hyena/pzomboid" "The config folder path";
@@ -15,8 +15,8 @@ in {
   };
   config = mkIf cfg.enable {
     # Open ports in the firewall.
-    networking.firewall.allowedTCPPorts = [27015];
-    networking.firewall.allowedUDPPorts = [16261 16262];
+    networking.firewall.allowedTCPPorts = [ 27015 ];
+    networking.firewall.allowedUDPPorts = [ 16261 16262 ];
 
     # Automatically restart container
     # TODO
@@ -35,7 +35,7 @@ in {
         Unit = "restart-pzomboid.service";
         OnCalendar = "*-*-* 2:00:00";
       };
-      wantedBy = ["timers.target"];
+      wantedBy = [ "timers.target" ];
     };
 
     # Fail2ban config for rcon bruteforce

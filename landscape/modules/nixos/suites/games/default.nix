@@ -1,15 +1,15 @@
-{
-  options,
-  config,
-  lib,
-  pkgs,
-  namespace,
-  ...
+{ options
+, config
+, lib
+, pkgs
+, namespace
+, ...
 }:
 with lib;
 with lib.${namespace}; let
   cfg = config.${namespace}.suites.games;
-in {
+in
+{
   options.${namespace}.suites.games = with types; {
     enable =
       mkEnableOption "Enable Games Suite";

@@ -1,8 +1,7 @@
-{
-  lib,
-  pkgs,
-  namespace,
-  ...
+{ lib
+, pkgs
+, namespace
+, ...
 }:
 with lib.${namespace}; {
   hyenabyte = {

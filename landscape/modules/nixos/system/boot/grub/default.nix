@@ -1,13 +1,13 @@
-{
-  lib,
-  config,
-  namespace,
-  ...
+{ lib
+, config
+, namespace
+, ...
 }:
 with lib;
 with lib.${namespace}; let
   cfg = config.${namespace}.system.boot.grub;
-in {
+in
+{
   options.${namespace}.system.boot.grub = with types; {
     enable = mkEnableOption "grub";
     device = mkOpt str "/dev/sda" "The disk grub is installed to.";

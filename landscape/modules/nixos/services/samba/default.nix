@@ -1,14 +1,14 @@
-{
-  lib,
-  config,
-  namespace,
-  ...
+{ lib
+, config
+, namespace
+, ...
 }:
 with lib;
 with lib.${namespace}; let
   cfg = config.${namespace}.services.samba;
-in {
-  options.${namespace}.services.samba = {enable = mkEnableOption "samba";};
+in
+{
+  options.${namespace}.services.samba = { enable = mkEnableOption "samba"; };
   config = mkIf cfg.enable {
     services.samba = {
       enable = true;

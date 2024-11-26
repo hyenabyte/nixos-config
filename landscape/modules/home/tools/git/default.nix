@@ -1,15 +1,15 @@
-{
-  lib,
-  config,
-  namespace,
-  ...
+{ lib
+, config
+, namespace
+, ...
 }:
 with lib;
 with lib.${namespace}; let
   cfg = config.${namespace}.tools.git;
   # gpg = config.${namespace}.security.gpg;
   user = config.${namespace}.user;
-in {
+in
+{
   options.${namespace}.tools.git = with types; {
     enable = mkEnableOption "Enable git";
     userName = mkOpt str user.fullName "User full name for git configuration.";
@@ -29,9 +29,9 @@ in {
       # };
 
       extraConfig = {
-        init = {defaultBranch = "main";};
-        pull = {rebase = true;};
-        push = {autoSetupRemote = true;};
+        init = { defaultBranch = "main"; };
+        pull = { rebase = true; };
+        push = { autoSetupRemote = true; };
         core = {
           excludesfile = "$NIXOS_CONFIG_DIR/scripts/gitignore";
         };

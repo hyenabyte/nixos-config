@@ -1,15 +1,15 @@
-{
-  pkgs,
-  lib,
-  config,
-  namespace,
-  ...
+{ pkgs
+, lib
+, config
+, namespace
+, ...
 }:
 with lib;
 with lib.${namespace}; let
   cfg = config.${namespace}.apps.obs-studio;
-in {
-  options.${namespace}.apps.obs-studio = {enable = mkEnableOption "Enable OBS Studio";};
+in
+{
+  options.${namespace}.apps.obs-studio = { enable = mkEnableOption "Enable OBS Studio"; };
   config = mkIf cfg.enable {
     programs.obs-studio = {
       enable = true;

@@ -1,14 +1,14 @@
-{
-  pkgs,
-  lib,
-  config,
-  namespace,
-  ...
+{ pkgs
+, lib
+, config
+, namespace
+, ...
 }:
 with lib;
 with lib.${namespace}; let
   cfg = config.${namespace}.services.tailscale;
-in {
+in
+{
   # Credit to jakehamilton on this one
   # https://github.com/jakehamilton/config/blob/main/modules/nixos/services/tailscale/default.nix
 
@@ -28,30 +28,30 @@ in {
       }
     ];
 
-    environment.systemPackages = [pkgs.tailscale];
+    environment.systemPackages = [ pkgs.tailscale ];
     services.tailscale = {
       enable = true;
     };
 
     networking = {
       firewall = {
-        trustedInterfaces = [config.services.tailscale.interfaceName];
-        allowedUDPPorts = [config.services.tailscale.port];
+        trustedInterfaces = [ config.services.tailscale.interfaceName ];
+        allowedUDPPorts = [ config.services.tailscale.port ];
 
         # Strict reverse path filtering breaks Tailscale exit node use and some subnet routing setups.
         checkReversePath = "loose";
       };
 
-      networkmanager.unmanaged = ["tailscale0"];
+      networkmanager.unmanaged = [ "tailscale0" ];
     };
 
     systemd.services.tailscale-autoconnect = mkIf cfg.autoconnect.enable {
       description = "Automatic connection to Tailscale";
 
       # Make sure tailscale is running before trying to connect to tailscale
-      after = ["network-pre.target" "tailscale.service"];
-      wants = ["network-pre.target" "tailscale.service"];
-      wantedBy = ["multi-user.target"];
+      after = [ "network-pre.target" "tailscale.service" ];
+      wants = [ "network-pre.target" "tailscale.service" ];
+      wantedBy = [ "multi-user.target" ];
 
       # Set this service as a oneshot job
       serviceConfig.Type = "oneshot";
