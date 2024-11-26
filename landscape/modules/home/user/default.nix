@@ -1,11 +1,11 @@
-{
-  lib,
-  config,
-  pkgs,
-  namespace,
-  osConfig ? {},
-  ...
-}: let
+{ lib
+, config
+, pkgs
+, namespace
+, osConfig ? { }
+, ...
+}:
+let
   inherit
     (lib)
     types
@@ -26,7 +26,8 @@
     else if is-darwin
     then "/Users/${cfg.name}"
     else "/home/${cfg.name}";
-in {
+in
+{
   options.${namespace}.user = {
     enable = mkOpt types.bool true "Whether to configure the user account.";
     name = mkOpt (types.nullOr types.str) (config.snowfallorg.user.name or "hyena") "The user account.";
@@ -42,11 +43,11 @@ in {
       assertions = [
         {
           assertion = cfg.name != null;
-          message = "plusultra.user.name must be set";
+          message = "hyenabyte.user.name must be set";
         }
         {
           assertion = cfg.home != null;
-          message = "plusultra.user.home must be set";
+          message = "hyenabyte.user.home must be set";
         }
       ];
 
