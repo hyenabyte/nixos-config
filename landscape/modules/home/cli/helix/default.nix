@@ -1,13 +1,13 @@
-{
-  lib,
-  config,
-  namespace,
-  ...
+{ lib
+, config
+, namespace
+, ...
 }:
 with lib;
 with lib.${namespace}; let
   cfg = config.${namespace}.cli.helix;
-in {
+in
+{
   options.${namespace}.cli.helix = {
     enable = mkEnableOption "Enable Helix";
     defaultEditor = mkBoolOpt false "Set Helix as default editor ($EDITOR)";
@@ -18,10 +18,10 @@ in {
       defaultEditor = cfg.defaultEditor;
 
       settings = {
-        theme = "everforest_dark_transparent";
+        theme = "base16_transparent";
 
         editor = {
-          shell = ["zsh" "-c"];
+          shell = [ "zsh" "-c" ];
           cursorline = true;
           color-modes = true;
           auto-format = true;
@@ -49,22 +49,36 @@ in {
             tabpad = "·";
           };
         };
+
+        # Disable movement keys in insert mode
+        keys.insert = {
+          up = "no_op";
+          down = "no_op";
+          left = "no_op";
+          right = "no_op";
+          pageup = "no_op";
+          pagedown = "no_op";
+          home = "no_op";
+          end = "no_op";
+        };
       };
+
       languages.language = [
         {
           name = "nix";
-          formatter.command = "alejandra";
+          formatter.command = "nixpkgs-fmt";
           auto-format = true;
         }
       ];
+
       themes = {
         gruvbox_transparent = {
           "inherits" = "gruvbox";
-          "ui.background" = {};
+          "ui.background" = { };
         };
         everforest_dark_transparent = {
           "inherits" = "everforest_dark";
-          "ui.background" = {};
+          "ui.background" = { };
         };
       };
     };
