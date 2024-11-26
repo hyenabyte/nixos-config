@@ -1,25 +1,67 @@
-{
-  pkgs,
-  lib,
-  config,
-  namespace,
-  ...
+{ pkgs
+, lib
+, config
+, namespace
+, ...
 }:
 with lib;
 with lib.${namespace}; let
   cfg = config.${namespace}.desktop.gnome;
-in {
-  options.${namespace}.desktop.gnome = {enable = mkEnableOption "gnome";};
+  gdmHome = config.users.users.gdm.home;
+  defaultExtensions = with pkgs.gnomeExtensions; [
+    appindicator
+    just-perfection
+    caffeine
+    tiling-shell
+  ];
+in
+{
+  options.${namespace}.desktop.gnome = with types; {
+    enable = mkEnableOption "Enable the Gnome Desktop Environment";
+    wayland = mkBoolOpt true "Whether or not to use Wayland.";
+    suspend = mkBoolOpt true "Whether or not to suspend the machine after inactivity.";
+    # color-scheme = mkOpt
+    #   (enum [
+    #     "light"
+    #     "dark"
+    #   ]) "dark" "The color scheme to use.";
+    monitors = mkOpt (nullOr path) null "The monitors.xml file to create.";
+    extensions = mkOpt (listOf package) [ ] "Extra Gnome extensions to install.";
+    # wallpaper = {
+    #   light = mkOpt (oneOf [
+    #     str
+    #     package
+    #   ]) pkgs.plusultra.wallpapers.nord-rainbow-light-nix "The light wallpaper to use.";
+    #   dark = mkOpt (oneOf [
+    #     str
+    #     package
+    #   ]) pkgs.plusultra.wallpapers.nord-rainbow-dark-nix "The dark wallpaper to use.";
+    # };
+  };
   config = mkIf cfg.enable {
-    services.xserver.enable = true;
+    hyenabyte.system.xkb.enable = true;
+    hyenabyte.desktop.addons = {
+      wallpapers = enabled;
+      gtk = enabled;
+    };
 
-    services.xserver.displayManager.gdm.enable = true;
-    services.xserver.desktopManager.gnome.enable = true;
+    services.xserver = {
+      enable = true;
+
+      displayManager.gdm = {
+        enable = true;
+        wayland = cfg.wayland;
+        autoSuspend = cfg.suspend;
+      };
+      desktopManager.gnome.enable = true;
+    };
 
     environment.systemPackages = with pkgs; [
       gnome-tweaks
       adwaita-icon-theme
-    ];
+    ]
+    ++ defaultExtensions
+    ++ cfg.extensions;
 
     environment.gnome.excludePackages = with pkgs; [
       # gnome-photos
@@ -32,5 +74,53 @@ in {
       totem # video player
       gnome-music # music player
     ];
+
+    # Required for app indicators
+    services.udev.packages = with pkgs; [ gnome-settings-daemon ];
+
+    systemd.tmpfiles.rules =
+      [ "d ${gdmHome}/.config 0711 gdm gdm" ]
+      ++ (
+        # "./monitors.xml" comes from ~/.config/monitors.xml when GNOME
+        # display information is updated.
+        lib.optional (cfg.monitors != null) "L+ ${gdmHome}/.config/monitors.xml - - - - ${cfg.monitors}"
+      );
+
+    systemd.services.plusultra-user-icon = {
+      before = [ "display-manager.service" ];
+      wantedBy = [ "display-manager.service" ];
+
+      serviceConfig = {
+        Type = "simple";
+        User = "root";
+        Group = "root";
+      };
+
+      script = ''
+        config_file=/var/lib/AccountsService/users/${config.${namespace}.user.name}
+        icon_file=/run/current-system/sw/share/plusultra-icons/user/${config.${namespace}.user.name}/${
+          config.${namespace}.user.icon.fileName
+        }
+
+        if ! [ -d "$(dirname "$config_file")"]; then
+          mkdir -p "$(dirname "$config_file")"
+        fi
+
+        if ! [ -f "$config_file" ]; then
+          echo "[User]
+          Session=gnome
+          SystemAccount=false
+          Icon=$icon_file" > "$config_file"
+        else
+          icon_config=$(sed -E -n -e "/Icon=.*/p" $config_file)
+
+          if [[ "$icon_config" == "" ]]; then
+            echo "Icon=$icon_file" >> $config_file
+          else
+            sed -E -i -e "s#^Icon=.*$#Icon=$icon_file#" $config_file
+          fi
+        fi
+      '';
+    };
   };
 }
