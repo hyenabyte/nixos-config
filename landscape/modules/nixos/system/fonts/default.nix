@@ -1,18 +1,18 @@
-{
-  options,
-  pkgs,
-  lib,
-  config,
-  namespace,
-  ...
+{ options
+, pkgs
+, lib
+, config
+, namespace
+, ...
 }:
 with lib;
 with lib.${namespace}; let
   cfg = config.${namespace}.system.fonts;
-in {
+in
+{
   options.${namespace}.system.fonts = with types; {
     enable = mkEnableOption "fonts";
-    fonts = mkOpt (listOf package) [] "Extra fonts to install.";
+    fonts = mkOpt (listOf package) [ ] "Extra fonts to install.";
   };
   config = mkIf cfg.enable {
     environment.variables = {
@@ -30,17 +30,19 @@ in {
           noto-fonts-cjk-sans
           noto-fonts-emoji
           noto-fonts-extra
-          (nerdfonts.override {fonts = ["Agave" "Iosevka"];})
+          iosevka
+          iosevka-comfy.comfy-wide
+          (nerdfonts.override { fonts = [ "Agave" "Iosevka" "FiraCode" "ZedMono" "GeistMono" ]; })
         ]
         ++ cfg.fonts;
 
       fontconfig = {
         hinting.autohint = true;
         defaultFonts = {
-          emoji = ["Noto Color Emoji"];
-          sansSerif = ["Noto Sans"];
-          serif = ["Noto Serif"];
-          monospace = ["Agave Nerd Font Mono"];
+          emoji = [ "Noto Color Emoji" ];
+          sansSerif = [ "Noto Sans" ];
+          serif = [ "Noto Serif" ];
+          monospace = [ "Agave Nerd Font Mono" ];
         };
       };
     };
