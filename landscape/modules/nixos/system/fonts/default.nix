@@ -26,6 +26,7 @@ in
           montserrat
           corefonts
           atkinson-hyperlegible
+          atkinson-monolegible
           noto-fonts
           noto-fonts-cjk-sans
           noto-fonts-emoji
