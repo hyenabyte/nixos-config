@@ -7,70 +7,29 @@ with lib;
 with lib.${namespace}; {
   # My Macbook Pro
   ${namespace} = {
+    environment.packages = with pkgs; [
+      firefox
+      discord
+      signal-desktop
+      slack
+      bruno
+      zed-editor
+      vlc-bin
+      logseq
+    ];
+
     services.nix-daemon = enabled;
     services.homebrew = {
       enable = true;
       brews = [ ];
       casks = [
-        # Apps
-        # "chromium"
-        "firefox"
         "zen-browser"
-
-        # Creative
-        # "blender"
-        #inkscape
-        #gimp
-
-
-        # Socials
-        "beeper"
-        "discord"
-        "signal"
-        "slack"
-
-        # Dev
         "beekeeper-studio"
-        "bruno"
-        "visual-studio-code"
-        #"vscodium"
-        "zed"
-
-        # Games
-        #"steam"
-        #prismlauncher
-        # "minecraft"
-
-        # Utilities
-        "karabiner-elements"
-        #"logi-options+"
-
-
-        # Fonts
-        "font-agave-nerd-font"
-        # "font-comic-shanns-mono-nerd-font"
-        # "font-hurmit-nerd-font"
-        # "font-iosevka"
-        # "font-iosevka-nerd-font"
-        "font-iosevka-ss01"
-        # "font-monofur-nerd-font"
-        # "font-monoid-nerd-font"
-        # "font-tinos-nerd-font"
-
-
-        # "caffeine"
-        # "deluge"
-
         "protonvpn"
-        "rectangle"
-        "vlc"
-        # "deluge"
-        # "spotify"
-
         "tabby"
-        "logseq"
-
-
+        # Fonts
+        # "font-agave-nerd-font"
+        # "font-iosevka-ss01"
       ];
     };
   };
