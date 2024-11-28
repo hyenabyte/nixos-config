@@ -39,7 +39,6 @@ with lib.${namespace}; {
       games = enabled;
       multimedia = enabled;
       development = enabled;
-      social = enabled;
       creative = enabled;
     };
 
