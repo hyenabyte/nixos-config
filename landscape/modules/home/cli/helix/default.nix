@@ -1,4 +1,5 @@
 { lib
+, pkgs
 , config
 , namespace
 , ...
@@ -22,7 +23,7 @@ in
       # Nix
       nixd
       nixpkgs-fmt
-    ] // cfg.extraPackages;
+    ] ++ cfg.extraPackages;
 
     programs.helix = {
       enable = true;
