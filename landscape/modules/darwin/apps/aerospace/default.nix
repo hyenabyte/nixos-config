@@ -11,7 +11,7 @@ in
 {
   options.${namespace}.apps.aerospace = { enable = mkEnableOption "Aerospace"; };
   config = mkIf cfg.enable {
-    enviroment.packages = with pkgs; [
+    environment.systemPackages = with pkgs; [
       aerospace
     ];
   };

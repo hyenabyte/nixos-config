@@ -14,7 +14,7 @@ in
     enable = mkBoolOpt false "Enable Homebrew";
     brews = mkOpt (listOf str) [ ] "Brews to install.";
     casks = mkOpt (listOf str) [ ] "Casks to install.";
-    masApps = mkOpt (attrset) { } "App Store Apps to install.";
+    masApps = mkOpt attrs { } "App Store Apps to install.";
   };
 
   config = mkIf cfg.enable {

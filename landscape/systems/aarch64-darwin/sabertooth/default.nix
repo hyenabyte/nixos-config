@@ -6,9 +6,9 @@
 with lib;
 with lib.${namespace}; {
   # My Macbook Pro
-  ${namespace} = {
-    environment.packages = with pkgs; [
-      firefox
+
+    environment.systemPackages = with pkgs; [
+      # firefox
       discord
       signal-desktop
       slack
@@ -17,6 +17,8 @@ with lib.${namespace}; {
       vlc-bin
       logseq
     ];
+
+  ${namespace} = {
 
     services.nix-daemon = enabled;
     services.homebrew = {
@@ -31,6 +33,14 @@ with lib.${namespace}; {
         # "font-agave-nerd-font"
         # "font-iosevka-ss01"
       ];
+      masApps = {
+        Tailscale = 1475387142;
+      };
+    };
+
+    apps = {
+      rectangle = enabled;
+      karabiner-elements = enabled;
     };
   };
 

@@ -11,7 +11,7 @@ in
 {
   options.${namespace}.apps.karabiner-elements = { enable = mkEnableOption "Karabiner Elements"; };
   config = mkIf cfg.enable {
-    environment.packages = with pkgs; [
+    environment.systemPackages = with pkgs; [
       karabiner-elements
     ];
   };
