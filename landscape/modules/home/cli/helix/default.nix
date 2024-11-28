@@ -11,8 +11,19 @@ in
   options.${namespace}.cli.helix = {
     enable = mkEnableOption "Enable Helix";
     defaultEditor = mkBoolOpt false "Set Helix as default editor ($EDITOR)";
+    extraPackages = mkPackageListOption [ ] "Extra packages to install with Helix";
   };
   config = mkIf cfg.enable {
+
+    # Install various language servers
+    home.packages = with pkgs; [
+      # CSS, eslint, HTML, JSON, markdown
+      vscode-langservers-extracted
+      # Nix
+      nixd
+      nixpkgs-fmt
+    ] // cfg.extraPackages;
+
     programs.helix = {
       enable = true;
       defaultEditor = cfg.defaultEditor;
@@ -63,13 +74,20 @@ in
         };
       };
 
-      languages.language = [
-        {
-          name = "nix";
-          formatter.command = "nixpkgs-fmt";
-          auto-format = true;
-        }
-      ];
+      languages = {
+        language = [
+          {
+            name = "nix";
+            formatter.command = "nixpkgs-fmt";
+            auto-format = true;
+            language-servers = [ "nix-lsp" ];
+          }
+        ];
+        language-server.nix-lsp = {
+          command = "nixd";
+        };
+      };
+
 
       themes = {
         gruvbox_transparent = {
