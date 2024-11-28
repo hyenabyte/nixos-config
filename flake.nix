@@ -56,6 +56,8 @@
     nur.url = "github:nix-community/nur";
 
     # Zen Browser
+    # https://github.com/0xc000022070/zen-browser-flake
+    # FIXME: remove this as soon as zen browser is availble in nixpkgs
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
