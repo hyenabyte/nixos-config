@@ -40,6 +40,10 @@ in
       useUserPackages = true;
       useGlobalPkgs = true;
 
+      sharedModules = [
+        inputs.mac-app-util.homeManagerModules.default
+      ];
+
       # users.${config.${namespace}.user.name} = args:
       #   mkAliasDefinitions options.${namespace}.home.extraOptions;
     };

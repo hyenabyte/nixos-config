@@ -40,6 +40,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Allow Nix installed apps to be launched
+    mac-app-util = {
+      url = "github:hraban/mac-app-util";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # System Image Generators
     nixos-generators = {
       url = "github:nix-community/nixos-generators";
@@ -136,6 +142,7 @@
         ];
 
         systems.modules.darwin = with inputs; [
+          mac-app-util.darwinModules.default
           home-manager.darwinModules.home-manager
           agenix.darwinModules.default
           secrets.outPath
