@@ -7,17 +7,6 @@ with lib;
 with lib.${namespace}; {
   # My Macbook Pro
 
-    environment.systemPackages = with pkgs; [
-      # firefox
-      discord
-      signal-desktop
-      slack
-      bruno
-      zed-editor
-      vlc-bin
-      logseq
-    ];
-
   ${namespace} = {
 
     services.nix-daemon = enabled;
@@ -25,10 +14,12 @@ with lib.${namespace}; {
       enable = true;
       brews = [ ];
       casks = [
+        "firefox"
         "zen-browser"
         "beekeeper-studio"
         "protonvpn"
         "tabby"
+        "karabiner-elements"
         # Fonts
         # "font-agave-nerd-font"
         # "font-iosevka-ss01"
@@ -40,7 +31,7 @@ with lib.${namespace}; {
 
     apps = {
       rectangle = enabled;
-      karabiner-elements = enabled;
+      # karabiner-elements = enabled;
     };
   };
 

@@ -1,8 +1,7 @@
-{
-  lib,
-  pkgs,
-  namespace,
-  ...
+{ lib
+, pkgs
+, namespace
+, ...
 }:
 with lib.${namespace}; {
   hyenabyte = {
@@ -12,8 +11,8 @@ with lib.${namespace}; {
     apps = {
       zed = enabled;
       # firefox = enabled;
-      # logseq = enabled;
-      # vesktop = enabled;
+      logseq = enabled;
+      vesktop = enabled;
     };
 
     cli = {
@@ -34,7 +33,14 @@ with lib.${namespace}; {
     };
   };
 
-  home.sessionPath = ["$HOME/bin"];
+  home.packages = with pkgs; [
+    signal-desktop
+    slack
+    bruno
+    vlc-bin
+  ];
+
+  home.sessionPath = [ "$HOME/bin" ];
 
   home.stateVersion = "23.11";
 }
