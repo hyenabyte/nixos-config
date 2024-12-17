@@ -1,5 +1,4 @@
-{ options
-, config
+{ config
 , lib
 , pkgs
 , namespace
@@ -11,7 +10,7 @@ with lib.${namespace}; let
 in
 {
   options.${namespace}.suites.common = with types; {
-    enable = mkEnableOption "Enable Common Suite";
+    enable = mkEnableOption "Common Suite";
   };
 
   config = mkIf cfg.enable {
