@@ -45,14 +45,11 @@ in
       gtk = enabled;
     };
 
+    # hyenabyte.desktop.dm.gdm = enabled;
+
     services.xserver = {
       enable = true;
 
-      displayManager.gdm = {
-        enable = true;
-        wayland = cfg.wayland;
-        autoSuspend = cfg.suspend;
-      };
       desktopManager.gnome.enable = true;
     };
 
@@ -86,7 +83,7 @@ in
         lib.optional (cfg.monitors != null) "L+ ${gdmHome}/.config/monitors.xml - - - - ${cfg.monitors}"
       );
 
-    systemd.services.plusultra-user-icon = {
+    systemd.services.hyenabyte-user-icon = {
       before = [ "display-manager.service" ];
       wantedBy = [ "display-manager.service" ];
 
