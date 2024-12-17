@@ -10,16 +10,9 @@ in
 {
   options.${namespace}.security.gpg = { enable = mkEnableOption "gpg"; };
   config = mkIf cfg.enable {
-    # TODO
 
-    # programs.gnupg = {
-    #   enable = true;
-    # };
-
-    # Fix pass
-    # services.gpg-agent = {
-    #     enable = true;
-    #     pinentryFlavor = "qt";
-    # };
+    programs.gnupg = {
+      agent.enable = true;
+    };
   };
 }
