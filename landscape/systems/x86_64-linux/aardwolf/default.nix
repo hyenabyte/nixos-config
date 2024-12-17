@@ -15,14 +15,9 @@ with lib.${namespace}; {
   ];
 
   environment.systemPackages = [
-    pkgs.chromium
-    pkgs.croc
-    # pkgs.caffeine-ng
-    pkgs.tigervnc
-    pkgs.deluge
-    pkgs.slack
     pkgs."${namespace}".wallpapers
     # pkgs."${namespace}".phanpy
+    pkgs."${namespace}".mixitup
   ];
 
   # Fix firefox crashing in wayland
@@ -30,7 +25,10 @@ with lib.${namespace}; {
 
   ${namespace} = {
     desktop = {
+      # dm.ly = enabled;
       hyprland = enabled;
+      dm.gdm = enabled;
+      gnome = enabled;
     };
 
     suites = {
@@ -50,6 +48,17 @@ with lib.${namespace}; {
 
     virtualisation = {
       qemu = enabled;
+    };
+
+    security = {
+      keyring = {
+        enable = true;
+        enableSeahorse = true;
+      };
+    };
+
+    tools = {
+      input-remapper = enabled;
     };
   };
 

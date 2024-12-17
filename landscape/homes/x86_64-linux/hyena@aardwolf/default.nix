@@ -1,9 +1,17 @@
-{
-  lib,
-  namespace,
-  ...
+{ pkgs
+, lib
+, namespace
+, ...
 }:
 with lib.${namespace}; {
+  home.packages = with pkgs; [
+    signal-desktop
+    chromium
+    deluge
+    slack
+    tigervnc
+  ];
+
   hyenabyte = {
     user = enabled;
     shell.zsh = enabled;
