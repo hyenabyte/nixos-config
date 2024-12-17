@@ -23,7 +23,9 @@ in
       packages = with pkgs;
         [
           atkinson-hyperlegible
-          (nerdfonts.override { fonts = [ "Agave" "Iosevka" "FiraCode" ]; })
+          nerd-fonts.agave
+          nerd-fonts.iosevka
+          nerd-fonts.fira-code
         ]
         ++ cfg.fonts;
     };

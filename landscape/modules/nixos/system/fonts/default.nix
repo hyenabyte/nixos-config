@@ -33,7 +33,9 @@ in
           noto-fonts-extra
           iosevka
           iosevka-comfy.comfy-wide
-          (nerdfonts.override { fonts = [ "Agave" "Iosevka" "FiraCode" "ZedMono" "GeistMono" ]; })
+          nerd-fonts.agave
+          nerd-fonts.iosevka
+          nerd-fonts.fira-code
         ]
         ++ cfg.fonts;
 
