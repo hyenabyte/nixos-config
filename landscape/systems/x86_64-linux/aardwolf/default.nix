@@ -17,7 +17,7 @@ with lib.${namespace}; {
   environment.systemPackages = [
     pkgs."${namespace}".wallpapers
     # pkgs."${namespace}".phanpy
-    pkgs."${namespace}".mixitup
+    # pkgs."${namespace}".mixitup
   ];
 
   # Fix firefox crashing in wayland
@@ -25,15 +25,13 @@ with lib.${namespace}; {
 
   ${namespace} = {
     desktop = {
-      # dm.ly = enabled;
+      dm.ly = enabled;
       hyprland = enabled;
-      dm.gdm = enabled;
-      gnome = enabled;
+      plasma = enabled;
     };
 
     suites = {
       common = enabled;
-      desktop = enabled;
       games = enabled;
       multimedia = enabled;
       development = enabled;
@@ -44,21 +42,16 @@ with lib.${namespace}; {
       bluetooth = enabled;
       nvidia = enabled;
       wireless = enabled;
+      audio.pipewire = enabled;
     };
 
     virtualisation = {
       qemu = enabled;
     };
 
-    security = {
-      keyring = {
-        enable = true;
-        enableSeahorse = true;
-      };
-    };
-
     tools = {
       input-remapper = enabled;
+      mullvad = enabled;
     };
   };
 
