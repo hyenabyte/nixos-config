@@ -22,20 +22,25 @@ in
     fonts = {
       packages = with pkgs;
         [
-          roboto
-          montserrat
-          corefonts
           atkinson-hyperlegible
           atkinson-monolegible
+          corefonts
+          iosevka
+          iosevka-comfy.comfy-wide
+          montserrat
           noto-fonts
           noto-fonts-cjk-sans
           noto-fonts-emoji
           noto-fonts-extra
-          iosevka
-          iosevka-comfy.comfy-wide
-          nerd-fonts.agave
-          nerd-fonts.iosevka
-          nerd-fonts.fira-code
+          roboto
+
+          # Deprecated in 25.05
+          (nerdfonts.override { fonts = [ "Agave" "Iosevka" "FiraCode" ]; })
+
+          # Ready in 25.05
+          # nerd-fonts.agave
+          # nerd-fonts.fira-code
+          # nerd-fonts.iosevka
         ]
         ++ cfg.fonts;
 

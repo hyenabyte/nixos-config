@@ -11,9 +11,9 @@
   # All inputs for the system
   inputs = {
     # Nixpkgs
-    #nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    # unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
+    # nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
     # Snowfall
     snowfall-lib = {
@@ -29,8 +29,8 @@
 
     # Home Manager
     home-manager = {
-      url = "github:nix-community/home-manager";
-      # url = "github:nix-community/home-manager/release-24.05";
+      # url = "github:nix-community/home-manager";
+      url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -49,12 +49,6 @@
     # System Image Generators
     nixos-generators = {
       url = "github:nix-community/nixos-generators";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    # Nix-ld
-    nix-ld = {
-      url = "github:Mic92/nix-ld";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -123,9 +117,9 @@
       {
         channels-config = {
           allowUnfree = true;
-          permittedInsecurePackages = [
-            "electron-27.3.11"
-          ];
+          # permittedInsecurePackages = [
+          #   "electron-27.3.11"
+          # ];
         };
 
         overlays = with inputs; [
@@ -137,7 +131,6 @@
         systems.modules.nixos = with inputs; [
           home-manager.nixosModules.home-manager
           agenix.nixosModules.default
-          nix-ld.nixosModules.nix-ld
           secrets.outPath
         ];
 
@@ -155,7 +148,7 @@
             profiles.system = {
               user = "root";
               sshUser = "hyena";
-              sudo = "doas -u";
+              # sudo = "doas -u";
               path = inputs.deploy-rs.lib.x86_64-linux.activate.nixos inputs.self.nixosConfigurations.aardwolf;
             };
           };
@@ -164,7 +157,7 @@
             profiles.system = {
               user = "root";
               sshUser = "hyena";
-              sudo = "doas -u";
+              # sudo = "doas -u";
               path = inputs.deploy-rs.lib.x86_64-linux.activate.nixos inputs.self.nixosConfigurations.possum;
             };
           };
@@ -173,7 +166,7 @@
             profiles.system = {
               user = "root";
               sshUser = "hyena";
-              sudo = "doas -u";
+              # sudo = "doas -u";
               path = inputs.deploy-rs.lib.x86_64-linux.activate.nixos inputs.self.nixosConfigurations.badger;
             };
           };
@@ -182,7 +175,7 @@
             profiles.system = {
               user = "root";
               sshUser = "hyena";
-              sudo = "doas -u";
+              # sudo = "doas -u";
               path = inputs.deploy-rs.lib.x86_64-linux.activate.nixos inputs.self.nixosConfigurations.weasel;
             };
           };
