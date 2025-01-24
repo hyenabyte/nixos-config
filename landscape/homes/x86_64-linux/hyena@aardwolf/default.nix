@@ -5,11 +5,28 @@
 }:
 with lib.${namespace}; {
   home.packages = with pkgs; [
+    # Browser
+    # chromium
+    vivaldi
+
+    # Social
     signal-desktop
-    chromium
+
+    # Security
+    bitwarden
+    protonvpn-gui
+    veracrypt
+
+    # Office
+    # tutanota-desktop
+    libreoffice-qt-fresh
+
+    # Utilities
     deluge
-    slack
-    tigervnc
+    # livecaptions
+    # rpi-imager
+    # testdisk
+    # tigervnc
   ];
 
   hyenabyte = {
@@ -18,13 +35,14 @@ with lib.${namespace}; {
 
     apps = {
       alacritty = enabled;
-      kitty = enabled;
-      firefox = enabled;
-      obs-studio = enabled;
-      logseq = enabled;
-      vesktop = enabled;
-      discord = enabled;
       aseprite = enabled;
+      # discord = enabled;
+      firefox = enabled;
+      kitty = enabled;
+      # logseq = enabled;
+      obs-studio = enabled;
+      vesktop = enabled;
+      # thunderbird = enabled;
       zed = enabled;
       zen-browser = enabled;
     };
