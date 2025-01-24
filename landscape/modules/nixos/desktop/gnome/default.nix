@@ -7,7 +7,7 @@
 with lib;
 with lib.${namespace}; let
   cfg = config.${namespace}.desktop.gnome;
-  gdmHome = config.users.users.gdm.home;
+  # gdmHome = config.users.users.gdm.home;
   defaultExtensions = with pkgs.gnomeExtensions; [
     appindicator
     just-perfection
@@ -43,6 +43,7 @@ in
     hyenabyte.desktop.addons = {
       wallpapers = enabled;
       gtk = enabled;
+
     };
 
     # hyenabyte.desktop.dm.gdm = enabled;
@@ -75,13 +76,13 @@ in
     # Required for app indicators
     services.udev.packages = with pkgs; [ gnome-settings-daemon ];
 
-    systemd.tmpfiles.rules =
-      [ "d ${gdmHome}/.config 0711 gdm gdm" ]
-      ++ (
-        # "./monitors.xml" comes from ~/.config/monitors.xml when GNOME
-        # display information is updated.
-        lib.optional (cfg.monitors != null) "L+ ${gdmHome}/.config/monitors.xml - - - - ${cfg.monitors}"
-      );
+    # systemd.tmpfiles.rules =
+    #   [ "d ${gdmHome}/.config 0711 gdm gdm" ]
+    #   ++ (
+    #     # "./monitors.xml" comes from ~/.config/monitors.xml when GNOME
+    #     # display information is updated.
+    #     lib.optional (cfg.monitors != null) "L+ ${gdmHome}/.config/monitors.xml - - - - ${cfg.monitors}"
+    #   );
 
     systemd.services.hyenabyte-user-icon = {
       before = [ "display-manager.service" ];
