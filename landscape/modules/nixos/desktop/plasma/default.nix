@@ -1,4 +1,5 @@
 { lib
+, pkgs
 , config
 , namespace
 , ...
@@ -12,9 +13,12 @@ in
   config = mkIf cfg.enable {
     services.xserver.enable = true;
 
-    services.displayManager.sddm.enable = true;
-    # Run sddm in wayland
-    services.displayManager.sddm.wayland.enable = true;
+    hyenabyte.desktop.addons = {
+      wallpapers = enabled;
+      gtk = enabled;
+    };
+
     services.desktopManager.plasma6.enable = true;
+    programs.ssh.askPassword = pkgs.lib.mkForce "${pkgs.ksshaskpass.out}/bin/ksshaskpass";
   };
 }
