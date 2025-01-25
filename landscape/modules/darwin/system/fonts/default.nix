@@ -23,6 +23,7 @@ in
       packages = with pkgs;
         [
           atkinson-hyperlegible
+          atkinson-monolegible
           nerd-fonts.agave
           nerd-fonts.iosevka
           nerd-fonts.fira-code
