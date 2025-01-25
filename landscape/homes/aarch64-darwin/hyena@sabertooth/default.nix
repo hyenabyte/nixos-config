@@ -11,7 +11,7 @@ with lib.${namespace}; {
     apps = {
       zed = enabled;
       # firefox = enabled;
-      logseq = enabled;
+      # logseq = enabled;
       vesktop = enabled;
     };
 
