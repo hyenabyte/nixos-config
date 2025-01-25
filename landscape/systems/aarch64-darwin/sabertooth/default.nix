@@ -9,6 +9,10 @@ with lib.${namespace}; {
 
   ${namespace} = {
 
+    # virtualisation = {
+    #   docker = enabled;
+    # };
+
     services.nix-daemon = enabled;
     services.homebrew = {
       enable = true;
@@ -20,19 +24,21 @@ with lib.${namespace}; {
         "protonvpn"
         "tabby"
         "karabiner-elements"
-        # Fonts
-        # "font-agave-nerd-font"
-        # "font-iosevka-ss01"
+        "libreoffice"
       ];
       masApps = {
         Tailscale = 1475387142;
       };
     };
 
+    system.fonts = enabled;
+
     apps = {
+      aerospace = enabled;
       rectangle = enabled;
       # karabiner-elements = enabled;
     };
+
   };
 
   # environment.systemPackages = with pkgs; [];
