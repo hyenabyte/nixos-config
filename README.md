@@ -9,7 +9,6 @@ Work in progress :)
 | Hostname      | OS     | System         | Description                      |
 | ------------- | ------ | -------------- | -------------------------------- |
 | sabertooth    | MacOS  | aarch64-darwin | My Macbook Pro                   |
-| sabertoothnix | NixOS  | aarch64-linux  | Asahi Linux on my Macbook Pro    |
 | aardwolf      | NixOS  | x86_64-linux   | My Desktop PC                    |
 | badger        | NixOS  | x86_64-linux   | Currently not in service         |
 | ferret        | NixOS  | x86_64-linux   | My aya neo, currently not in use |
