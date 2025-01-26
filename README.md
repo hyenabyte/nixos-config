@@ -10,10 +10,8 @@ Work in progress :)
 | ------------- | ------ | -------------- | -------------------------------- |
 | sabertooth    | MacOS  | aarch64-darwin | My Macbook Pro                   |
 | aardwolf      | NixOS  | x86_64-linux   | My Desktop PC                    |
-| badger        | NixOS  | x86_64-linux   | Currently not in service         |
 | ferret        | NixOS  | x86_64-linux   | My aya neo, currently not in use |
 | possum        | NixOS  | x86_64-linux   | My Home Server                   |
-| weasel        | NixOS  | x86_64-linux   | A Contabo VPS                    |
 | lynx          | NixOS  | x86_64-vm      | A testing virtual machine        |
 
 
