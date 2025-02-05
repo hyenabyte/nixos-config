@@ -25,6 +25,10 @@ with lib.${namespace}; {
       paperless-ngx = enabled;
       immich = enabled;
     };
+
+    security = {
+      endlessh = enabled;
+    };
   };
 
   # ! DO NOT CHANGE !
