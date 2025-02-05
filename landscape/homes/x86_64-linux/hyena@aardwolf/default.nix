@@ -11,11 +11,13 @@ with lib.${namespace}; {
 
     # Social
     signal-desktop
+    beeper
 
     # Security
     bitwarden
     protonvpn-gui
     veracrypt
+    picocrypt
 
     # Office
     # tutanota-desktop
@@ -27,6 +29,8 @@ with lib.${namespace}; {
     # rpi-imager
     # testdisk
     # tigervnc
+    koboldcpp
+    podman-desktop
   ];
 
   hyenabyte = {
@@ -39,7 +43,7 @@ with lib.${namespace}; {
       # discord = enabled;
       firefox = enabled;
       kitty = enabled;
-      # logseq = enabled;
+      logseq = enabled;
       obs-studio = enabled;
       vesktop = enabled;
       # thunderbird = enabled;
