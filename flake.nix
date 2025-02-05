@@ -118,9 +118,9 @@
       {
         channels-config = {
           allowUnfree = true;
-          # permittedInsecurePackages = [
-          #   "electron-27.3.11"
-          # ];
+          permittedInsecurePackages = [
+            "electron-27.3.11"
+          ];
         };
 
         overlays = with inputs; [
@@ -144,20 +144,12 @@
 
         # Deployment nodes
         deploy.nodes = {
-          aardwolf = {
-            hostname = "aardwolf";
-            profiles.system = {
-              user = "root";
-              sshUser = "hyena";
-              # sudo = "doas -u";
-              path = inputs.deploy-rs.lib.x86_64-linux.activate.nixos inputs.self.nixosConfigurations.aardwolf;
-            };
-          };
           possum = {
             hostname = "possum";
             profiles.system = {
               user = "root";
               sshUser = "hyena";
+              interactiveSudo = true;
               # sudo = "doas -u";
               path = inputs.deploy-rs.lib.x86_64-linux.activate.nixos inputs.self.nixosConfigurations.possum;
             };
