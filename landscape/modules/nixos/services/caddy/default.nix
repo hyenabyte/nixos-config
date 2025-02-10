@@ -34,6 +34,10 @@ in
       virtualHosts."documents.hyenabyte.dev".extraConfig = ''
         reverse_proxy localhost:8000
       '';
+
+      virtualHosts."img.hyenabyte.dev".extraConfig = ''
+        reverse_proxy localhost:2283
+      '';
     };
   };
 }

@@ -23,6 +23,7 @@ with lib.${namespace}; {
       jellyfin = enabled;
       samba = enabled;
       paperless-ngx = enabled;
+      immich = enabled;
     };
   };
 
