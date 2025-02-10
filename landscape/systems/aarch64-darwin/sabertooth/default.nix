@@ -34,7 +34,7 @@ with lib.${namespace}; {
     system.fonts = enabled;
 
     apps = {
-      aerospace = enabled;
+      # aerospace = enabled;
       rectangle = enabled;
       # karabiner-elements = enabled;
     };
