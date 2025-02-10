@@ -24,9 +24,14 @@ in
         [
           atkinson-hyperlegible
           atkinson-monolegible
-          nerd-fonts.agave
-          nerd-fonts.iosevka
-          nerd-fonts.fira-code
+
+          # Deprecated in 25.05
+          (nerdfonts.override { fonts = [ "Agave" "Iosevka" "FiraCode" ]; })
+
+          # Ready in 25.05
+          # nerd-fonts.agave
+          # nerd-fonts.fira-code
+          # nerd-fonts.iosevka
         ]
         ++ cfg.fonts;
     };
