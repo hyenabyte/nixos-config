@@ -13,6 +13,8 @@ in
   config = mkIf cfg.enable {
     services.immich = {
       enable = true;
+
+      mediaLocation = "/mnt/disk/Shares/Private/Immich";
     };
   };
 }
