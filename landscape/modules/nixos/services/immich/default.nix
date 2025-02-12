@@ -15,6 +15,8 @@ in
       enable = true;
 
       mediaLocation = "/mnt/disk/Shares/Private/Immich";
+
+      settings.server.externalDomain = "https://img.hyenabyte.dev";
     };
   };
 }
