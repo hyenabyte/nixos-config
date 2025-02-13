@@ -34,6 +34,10 @@ in
         printing = enabled;
       };
 
+      cli = {
+        isd = enabled;
+      };
+
       security = {
         agenix = enabled;
         gpg = enabled;
