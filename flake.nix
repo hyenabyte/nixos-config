@@ -64,6 +64,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # ISD
+    # https://github.com/isd-project/isd
+    isd = {
+      url = "github:isd-project/isd";
+      inputs.nixpkgs.follows = "unstable";
+    };
+
     # VSCode extensions
     # nix-vscode-extensions = {
     #   url = "github:nix-community/nix-vscode-extensions";
