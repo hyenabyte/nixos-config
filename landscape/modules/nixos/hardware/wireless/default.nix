@@ -14,6 +14,9 @@ in
   };
 
   config = mkIf cfg.enable {
-    networking.wireless.enable = true; # Enables wireless support via wpa_supplicant.
+    networking.wireless = {
+      enable = true; # Enables wireless support via wpa_supplicant.
+      userControlled.enable = true; # Fixes error on switch when trying to restart wpa_supplicant
+    };
   };
 }
