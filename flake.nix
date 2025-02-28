@@ -34,6 +34,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Lix
+    lix = {
+      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.92.0.tar.gz";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Darwin support
     darwin = {
       # url = "github:LnL7/nix-darwin/master";
@@ -134,12 +140,14 @@
           # nix-vscode-extensions.overlays.default
           nur.overlays.default
           snowfall-flake.overlays.default
+          # lix.overlays.default
         ];
 
         systems.modules.nixos = with inputs; [
           home-manager.nixosModules.home-manager
           agenix.nixosModules.default
           secrets.outPath
+          lix.nixosModules.default
         ];
 
         systems.modules.darwin = with inputs; [
@@ -147,6 +155,7 @@
           home-manager.darwinModules.home-manager
           agenix.darwinModules.default
           secrets.outPath
+          lix.darwinModules.default
         ];
 
         # Deployment nodes
