@@ -27,7 +27,7 @@ TODO
 
 ### Updating Packages
 
-To update a systems packages, navigate to the local configuration and run
+To update systems packages, navigate to the local configuration and run
 
 ```sh
 nix flake update
@@ -62,6 +62,7 @@ See <https://github.com/LnL7/nix-darwin>
 - Manage docker/podman containers with oci-containers
 - Validation and deployment pipelines
 - Support for multiple users
+- Separate configs for web server
 
 ## Credits
 
