@@ -88,8 +88,11 @@ in
           ++ cfg.extraGroups;
         group = cfg.name;
 
-        # TODO
-        # openssh.authorizedKeys.keys = ssh-keys.keys;
+        openssh.authorizedKeys.keys = [
+          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILB9h2AvSBpvHQEcHuXsQPmrHzdezyo6MvzYd1oKTI7n hyena@possum"
+          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPZV6QOMqWhyV/dXVliNRtZIZUmAr2gRTEqAnIisOw1t hyena@aardwolf"
+          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAID73x+vjeI5+mE+mqhs4qGVTSpmg9z0gEtHUPySKUhOq hyena@sabertooth"
+        ];
       }
       // cfg.extraOptions;
 
