@@ -12,7 +12,6 @@
   inputs = {
     # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
-    # nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
     # Snowfall
@@ -59,9 +58,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Nur for firefox extensions
-    nur.url = "github:nix-community/nur";
-
     # Zen Browser
     # https://github.com/0xc000022070/zen-browser-flake
     # FIXME: remove this as soon as zen browser is availble in nixpkgs
@@ -77,13 +73,6 @@
       inputs.nixpkgs.follows = "unstable";
     };
 
-    # VSCode extensions
-    # nix-vscode-extensions = {
-    #   url = "github:nix-community/nix-vscode-extensions";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    #   #inputs.flake-utils.follows = "flake-utils";
-    # };
-
     # Age encryption
     agenix = {
       url = "github:ryantm/agenix";
@@ -94,12 +83,6 @@
     deploy-rs = {
       url = "github:serokell/deploy-rs";
       inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    # SSH Keys
-    ssh-keys = {
-      url = "https://github.com/hyenabyte.keys";
-      flake = false;
     };
 
     # Private secrets
@@ -138,7 +121,7 @@
 
         overlays = with inputs; [
           # nix-vscode-extensions.overlays.default
-          nur.overlays.default
+          # nur.overlays.default
           snowfall-flake.overlays.default
           # lix.overlays.default
         ];

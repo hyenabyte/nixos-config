@@ -20,27 +20,27 @@ in
         name = "default";
         isDefault = true;
 
-        extensions = with pkgs.nur.repos.rycee.firefox-addons; [
-          adnauseam
-          bitwarden
-          cookie-autodelete
-          facebook-container
-          multi-account-containers
-          flagfox
-          offline-qr-code-generator
-          return-youtube-dislikes
-          simplelogin
-          sponsorblock
-          streetpass-for-mastodon
-          tree-style-tab
+        # extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+        #   adnauseam
+        #   bitwarden
+        #   cookie-autodelete
+        #   facebook-container
+        #   multi-account-containers
+        #   flagfox
+        #   offline-qr-code-generator
+        #   return-youtube-dislikes
+        #   simplelogin
+        #   sponsorblock
+        #   streetpass-for-mastodon
+        #   tree-style-tab
 
-          # ublock-origin
-          # decentraleyes
-          # firefox-color
-          # localcdn
-          # privacy-badger
-          # vimium
-        ];
+        #   # ublock-origin
+        #   # decentraleyes
+        #   # firefox-color
+        #   # localcdn
+        #   # privacy-badger
+        #   # vimium
+        # ];
 
         settings = {
           # Homepage
