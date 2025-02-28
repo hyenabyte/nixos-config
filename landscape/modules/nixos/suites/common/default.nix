@@ -39,7 +39,6 @@ in
       };
 
       security = {
-        agenix = enabled;
         gpg = enabled;
         firewall = enabled;
         # doas = enabled;

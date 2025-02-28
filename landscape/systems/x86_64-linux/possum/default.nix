@@ -1,5 +1,6 @@
 { lib
 , namespace
+, inputs
 , ...
 }:
 with lib;
@@ -28,6 +29,12 @@ with lib.${namespace}; {
 
     security = {
       endlessh = enabled;
+      agenix = {
+        enable = true;
+        secrets = {
+          paperless-pw.file = inputs.secrets.outPath + "/paperless-pw.age";
+        };
+      };
     };
   };
 

@@ -53,6 +53,12 @@ with lib.${namespace}; {
       input-remapper = enabled;
       mullvad = enabled;
     };
+
+    security = {
+      agenix = {
+        enable = true;
+      };
+    };
   };
 
   # ! DO NOT CHANGE !
