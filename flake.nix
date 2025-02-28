@@ -96,16 +96,12 @@
         };
 
         overlays = with inputs; [
-          # nix-vscode-extensions.overlays.default
-          # nur.overlays.default
           snowfall-flake.overlays.default
-          # lix.overlays.default
         ];
 
         systems.modules.nixos = with inputs; [
           home-manager.nixosModules.home-manager
           agenix.nixosModules.default
-          secrets.outPath
           lix.nixosModules.default
         ];
 
@@ -113,7 +109,6 @@
           mac-app-util.darwinModules.default
           home-manager.darwinModules.home-manager
           agenix.darwinModules.default
-          secrets.outPath
           lix.darwinModules.default
         ];
 
@@ -130,7 +125,7 @@
             };
           };
         };
-        # deploy = lib.hyenabyte.mkDeploy {inherit (inputs) self;};
+        #deploy = lib.mkDeploy { inherit (inputs) self; };
 
         checks =
           builtins.mapAttrs
