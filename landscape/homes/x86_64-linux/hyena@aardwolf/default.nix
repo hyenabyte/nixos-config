@@ -23,6 +23,9 @@ with lib.${namespace}; {
     # tutanota-desktop
     libreoffice-qt-fresh
 
+    # Creative
+    blender
+
     # Utilities
     deluge
     # livecaptions
