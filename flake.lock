@@ -201,27 +201,6 @@
         "type": "github"
       }
     },
-    "flake-parts": {
-      "inputs": {
-        "nixpkgs-lib": [
-          "nur",
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1733312601,
-        "narHash": "sha256-4pDvzqnegAfRkPwO3wmwBhVi/Sye1mzps0zHWYnP88c=",
-        "owner": "hercules-ci",
-        "repo": "flake-parts",
-        "rev": "205b12d8b7cd4802fbcb8e8ef6a0f1408781a4f9",
-        "type": "github"
-      },
-      "original": {
-        "owner": "hercules-ci",
-        "repo": "flake-parts",
-        "type": "github"
-      }
-    },
     "flake-utils": {
       "inputs": {
         "systems": "systems_3"
@@ -595,42 +574,6 @@
         "type": "github"
       }
     },
-    "nixpkgs_3": {
-      "locked": {
-        "lastModified": 1740560979,
-        "narHash": "sha256-Vr3Qi346M+8CjedtbyUevIGDZW8LcA1fTG0ugPY/Hic=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "5135c59491985879812717f4c9fea69604e7f26f",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "ref": "nixos-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nur": {
-      "inputs": {
-        "flake-parts": "flake-parts",
-        "nixpkgs": "nixpkgs_3",
-        "treefmt-nix": "treefmt-nix"
-      },
-      "locked": {
-        "lastModified": 1740738267,
-        "narHash": "sha256-k4jJh7pFQaky9j6Z1yM/dl6IwLYbGo0mal4Bv6RVuwQ=",
-        "owner": "nix-community",
-        "repo": "nur",
-        "rev": "39a9dea8c7e9f7efc8bd9b72e07b48b657cee1c5",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nix-community",
-        "repo": "nur",
-        "type": "github"
-      }
-    },
     "pyproject-build-systems": {
       "inputs": {
         "nixpkgs": [
@@ -692,11 +635,9 @@
         "mac-app-util": "mac-app-util",
         "nixos-generators": "nixos-generators",
         "nixpkgs": "nixpkgs_2",
-        "nur": "nur",
         "secrets": "secrets",
         "snowfall-flake": "snowfall-flake",
         "snowfall-lib": "snowfall-lib_2",
-        "ssh-keys": "ssh-keys",
         "unstable": "unstable",
         "zen-browser": "zen-browser"
       }
@@ -704,11 +645,11 @@
     "secrets": {
       "flake": false,
       "locked": {
-        "lastModified": 1739099419,
-        "narHash": "sha256-Lj/enhHu75PQAB3mYMCj6D+D2MuIMf8kMZ10TitRVgk=",
+        "lastModified": 1740746155,
+        "narHash": "sha256-+D4yNRvxYwEbginva/ORW8l20+o7TU5xsM0VoFvK4Vw=",
         "ref": "main",
-        "rev": "59c1cee817c3b0236d79cfd7c5b0fa7edf45c4a3",
-        "revCount": 15,
+        "rev": "9f67519ab0638c727e7a024735502d1b7a5dee39",
+        "revCount": 19,
         "type": "git",
         "url": "ssh://git@github.com/hyenabyte/nixos-secrets.git"
       },
@@ -784,18 +725,6 @@
         "owner": "snowfallorg",
         "repo": "lib",
         "type": "github"
-      }
-    },
-    "ssh-keys": {
-      "flake": false,
-      "locked": {
-        "narHash": "sha256-rQZHUgDFz8bdbIi3Qjr1mTTHRElgCnuFnG+pdnTdKDk=",
-        "type": "file",
-        "url": "https://github.com/hyenabyte.keys"
-      },
-      "original": {
-        "type": "file",
-        "url": "https://github.com/hyenabyte.keys"
       }
     },
     "systemd-nix": {
@@ -921,27 +850,6 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
-        "type": "github"
-      }
-    },
-    "treefmt-nix": {
-      "inputs": {
-        "nixpkgs": [
-          "nur",
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1733222881,
-        "narHash": "sha256-JIPcz1PrpXUCbaccEnrcUS8jjEb/1vJbZz5KkobyFdM=",
-        "owner": "numtide",
-        "repo": "treefmt-nix",
-        "rev": "49717b5af6f80172275d47a418c9719a31a78b53",
-        "type": "github"
-      },
-      "original": {
-        "owner": "numtide",
-        "repo": "treefmt-nix",
         "type": "github"
       }
     },
