@@ -109,7 +109,7 @@
           mac-app-util.darwinModules.default
           home-manager.darwinModules.home-manager
           agenix.darwinModules.default
-          lix.darwinModules.default
+          lix.nixosModules.default
         ];
 
         # Deployment nodes
