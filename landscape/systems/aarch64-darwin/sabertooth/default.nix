@@ -25,6 +25,7 @@ with lib.${namespace}; {
         "tabby"
         "karabiner-elements"
         "libreoffice"
+        "ghostty"
       ];
       masApps = {
         Tailscale = 1475387142;
