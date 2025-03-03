@@ -45,6 +45,7 @@ with lib.${namespace}; {
       aseprite = enabled;
       # discord = enabled;
       firefox = enabled;
+      ghostty = enabled;
       kitty = enabled;
       logseq = enabled;
       obs-studio = enabled;
