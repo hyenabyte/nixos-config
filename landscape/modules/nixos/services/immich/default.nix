@@ -18,5 +18,10 @@ in
 
       settings.server.externalDomain = "https://img.hyenabyte.dev";
     };
+    services.caddy = {
+      virtualHosts."img.hyenabyte.dev".extraConfig = ''
+        reverse_proxy localhost:2283
+      '';
+    };
   };
 }

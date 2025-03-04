@@ -20,5 +20,11 @@ in
       pkgs.jellyfin-web
       pkgs.jellyfin-ffmpeg
     ];
+
+    services.caddy = {
+      virtualHosts."jelly.hyenabyte.dev".extraConfig = ''
+        reverse_proxy localhost:8096
+      '';
+    };
   };
 }

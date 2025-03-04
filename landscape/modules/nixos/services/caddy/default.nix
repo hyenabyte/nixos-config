@@ -27,17 +27,6 @@ in
         respond "Hello, World!" 200
       '';
 
-      virtualHosts."jelly.hyenabyte.dev".extraConfig = ''
-        reverse_proxy localhost:8096
-      '';
-
-      virtualHosts."documents.hyenabyte.dev".extraConfig = ''
-        reverse_proxy localhost:8000
-      '';
-
-      virtualHosts."img.hyenabyte.dev".extraConfig = ''
-        reverse_proxy localhost:2283
-      '';
     };
   };
 }

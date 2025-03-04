@@ -35,5 +35,11 @@ in
         };
       };
     };
+
+    services.caddy = {
+      virtualHosts."documents.hyenabyte.dev".extraConfig = ''
+        reverse_proxy localhost:8000
+      '';
+    };
   };
 }
