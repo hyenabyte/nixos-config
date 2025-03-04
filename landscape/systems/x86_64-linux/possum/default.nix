@@ -25,6 +25,7 @@ with lib.${namespace}; {
       samba = enabled;
       paperless-ngx = enabled;
       immich = enabled;
+      uptime-kuma = enabled;
     };
 
     security = {
