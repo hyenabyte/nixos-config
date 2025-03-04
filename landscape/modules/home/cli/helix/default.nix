@@ -73,6 +73,16 @@ in
           home = "no_op";
           end = "no_op";
         };
+
+        # Yazelix setup WIP
+        keys.normal.space = {
+          # ret = "@:insert-output nu ~/.config/helix/yazi.nu start <C-r>%<ret>\"\"d:open <C-r>\"<ret>";
+        };
+
+        # Lazygit integration
+        keys.normal.space.space = {
+          g = ":sh zellij run -i -c -n lazygit -- lazygit";
+        };
       };
 
       languages = {
