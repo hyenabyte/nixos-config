@@ -18,7 +18,7 @@ in
 
       settings = {
 
-        inital-command = "zellij -l welcome";
+        initial-command = "zellij -l welcome";
 
         theme = "muteoki-dark";
 
