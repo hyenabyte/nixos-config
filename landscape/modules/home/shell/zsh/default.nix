@@ -31,6 +31,7 @@ in
       starship = enabled;
       zoxide = enabledWithZsh // {
         enableCdAlias = true;
+        enableZshIntegration = true;
       };
     };
 
