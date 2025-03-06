@@ -25,7 +25,7 @@ with lib.${namespace}; {
 
   ${namespace} = {
     desktop = {
-      dm.ly = enabled;
+      dm.gdm = enabled;
       hyprland = enabled;
       plasma = enabled;
     };
