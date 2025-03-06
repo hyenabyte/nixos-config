@@ -77,7 +77,7 @@ in
         uid = 1000;
 
         # Get hashed password file from secrets storage
-        hashedPasswordFile = config.age.secrets.hashedUserPassword.path;
+        hashedPasswordFile = lib.mkIf (builtins.hasAttr "hashedUserPassword" config.age.secrets) config.age.secrets.hashedUserPassword.path;
 
         extraGroups =
           [
@@ -102,7 +102,7 @@ in
       };
     };
 
-    users.users.root.hashedPasswordFile = config.age.secrets.hashedUserPassword.path;
+    users.users.root.hashedPasswordFile = lib.mkIf (builtins.hasAttr "hashedUserPassword" config.age.secrets) config.age.secrets.hashedUserPassword.path;
     users.mutableUsers = false;
   };
 }

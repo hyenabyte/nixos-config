@@ -8,17 +8,9 @@ with lib.${namespace}; {
     user = enabled;
     shell.zsh = enabled;
 
-    # apps = {
-    #   alacritty = enabled;
-    #   kitty = enabled;
-    #   firefox = enabled;
-    #   obs-studio = enabled;
-    #   logseq = enabled;
-    #   vesktop = enabled;
-    #   discord = enabled;
-    #   aseprite = enabled;
-    #   zed = enabled;
-    # };
+    apps = {
+      ghostty = enabled;
+    };
 
     cli = {
       bottom = enabled;
