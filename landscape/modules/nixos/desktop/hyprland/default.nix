@@ -19,30 +19,24 @@ in
         enable = true;
         package = pkgs.rofi-wayland;
       };
-      # waybar = enabled;
+      waybar = enabled;
       hypridle = enabled;
       hyprlock = enabled;
+      dunst = enabled;
     };
 
     environment.sessionVariables.NIXOS_OZONE_WL = "1";
-    environment.systemPackages = with pkgs; [
-      dunst
-      waybar
-    ];
+
+    programs.hyprland.enable = true;
 
     hyenabyte.home = {
-      # packages = with pkgs; [
-      #   dunst
-      #   waybar
-      # ];
-
       extraOptions = {
         wayland.windowManager.hyprland = {
           enable = true;
 
           settings =
             let
-              terminal = "alacritty";
+              terminal = "ghostty";
               fileManager = "nautilus";
               menu = "rofi -show drun";
               lock = "hyprlock";
@@ -50,9 +44,11 @@ in
               mainMod = "SUPER";
             in
             {
+              # Monitor setup
               monitor = [
-                "DP-2, preferred, 0x0, 1"
-                "HDMI-A-2, preferred, 2560x-700, 1, transform, 1"
+                "desc:LG Electronics LG ULTRAGEAR 209MAQQFWE16, preferred, 0x0, 1"
+                "desc:AOC Q27P1B GNXJCHA039883, preferred, 2560x-550, 1, transform, 1"
+                "WAYLAND-1, disable"
               ];
 
               env = [
@@ -160,13 +156,13 @@ in
                 touchpad = {
                   natural_scroll = true;
                 };
-
               };
 
 
               bind = [
                 # General bindings
                 "${mainMod}, T, exec, ${terminal}"
+                "${mainMod}, Return, exec, ${terminal}"
                 "${mainMod}, Q, killactive,"
                 "${mainMod}, Q, SHIFT, exec, ${lock}"
                 "${mainMod}, M, exit,"
@@ -187,14 +183,19 @@ in
                 "${mainMod}, J, movefocus, d"
 
                 # Move window
-                "${mainMod}, SHIFT, left, movewindow, l"
-                "${mainMod}, SHIFT, H, movewindow, l"
-                "${mainMod}, SHIFT, right, movewindow, r"
-                "${mainMod}, SHIFT, L, movewindow, r"
-                "${mainMod}, SHIFT, up, movewindow, u"
-                "${mainMod}, SHIFT, K, movewindow, u"
-                "${mainMod}, SHIFT, down, movewindow, d"
-                "${mainMod}, SHIFT, J, movewindow, d"
+                "${mainMod} SHIFT, left, movewindow, l"
+                "${mainMod} SHIFT, H, movewindow, l"
+                "${mainMod} SHIFT, right, movewindow, r"
+                "${mainMod} SHIFT, L, movewindow, r"
+                "${mainMod} SHIFT, up, movewindow, u"
+                "${mainMod} SHIFT, K, movewindow, u"
+                "${mainMod} SHIFT, down, movewindow, d"
+                "${mainMod} SHIFT, J, movewindow, d"
+
+                # Example special workspace (scratchpad)
+                "${mainMod}, S, togglespecialworkspace, magic"
+                "${mainMod} SHIFT, S, movetoworkspace, special:magic"
+
 
                 # Scroll through workspaces
                 "${mainMod}, mouse_down, workspace, e+1"
