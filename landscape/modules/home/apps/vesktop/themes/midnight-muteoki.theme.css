@@ -1,5 +1,5 @@
 /**
- * @name midnight (everforest)
+ * @name midnight (muteoki)
  * @description A dark, rounded discord theme. Based on Vencord's colour palette. (https://vencord.dev/)
  * @author refact0r, esme, anubis, hyenabyte
  * @version 1.6.2
@@ -25,37 +25,37 @@
 	--corner-text: 'Evercord';
 
 	/* color of status indicators and window controls */
-	--online-indicator: #a7c080;
+	--online-indicator: #a6ae5a;
 	/* change to #23a55a for default green */
-	--dnd-indicator: #e67e80;
+	--dnd-indicator: #d16469;
 	/* change to #f13f43 for default red */
-	--idle-indicator: #dbbc7f;
+	--idle-indicator: #dbb560;
 	/* change to #f0b232 for default yellow */
 
 	/* accent colors */
-	--accent-1: #7fbbb3;
+	--accent-1: #77afca;
 	/* links */
-	--accent-2: #e67E80;
+	--accent-2: #d16469;
 	/* general unread/mention elements */
-	--accent-3: #d699b6;
+	--accent-3: #c193b0;
 	/* accent buttons */
-	--accent-4: #d699b6bb;
+	--accent-4: #c193b0bb;
 	/* accent buttons when hovered */
-	--accent-5: #d699b699;
+	--accent-5: #c193b099;
 	/* accent buttons when clicked */
-	--mention: #d699b611;
+	--mention: #c193b011;
 	/* mentions & mention messages */
-	--mention-hover: #d699b60e;
+	--mention-hover: #c193b00e;
 	/* mentions & mention messages when hovered */
 
 	/* text colors */
 	--text-0: var(--bg-4);
 	/* text on colored elements */
-	--text-1: #d3c6aa;
+	--text-1: #ebe0bc;
 	/* other normally white text */
 	--text-2: #9da9a0;
 	/* headings and important text */
-	--text-3: #d3c6aa;
+	--text-3: #ebe0bc;
 	/* normal text */
 	--text-4: #859289;
 	/* icon buttons and channels */
@@ -63,13 +63,13 @@
 	/* muted channels/chats and timestamps */
 
 	/* background and dark colors */
-	--bg-1: #1e2326;
+	--bg-1: #09090a;
 	/* dark buttons when clicked */
-	--bg-2: #384b55;
+	--bg-2: #3a3a3b;
 	/* dark buttons */
-	--bg-3: #1e2326;
+	--bg-3: #09090a;
 	/* spacing, secondary elements */
-	--bg-4: #272e33;
+	--bg-4: #1d1d20;
 	/* main background color */
 	--hover: var(--bg-3);
 	/* channels and buttons when hovered */

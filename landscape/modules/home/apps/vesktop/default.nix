@@ -116,7 +116,7 @@ in
             addBack = true;
           };
           WebKeybinds.enabled = true;
-          "WebRichPresence (arRPC)".enabled = true;
+          "WebRichPresence (arRPC)".enabled = false;
           WebScreenShareFixes.enabled = true;
         };
 
@@ -126,7 +126,7 @@ in
           useQuickCss = true;
           themeLinks = [ ];
           enabledThemes = [
-            "midnight-everforest.theme.css"
+            "midnight-muteoki.theme.css"
           ];
           enableReactDevTools = false;
           frameless = false;
@@ -151,6 +151,7 @@ in
       in
       {
         "vesktop/themes/midnight-everforest.theme.css".source = ./themes/midnight-everforest.theme.css;
+        "vesktop/themes/midnight-muteoki.theme.css".source = ./themes/midnight-muteoki.theme.css;
         "vesktop/settings/quickCss.css".text = "";
         "vesktop/settings/settings.json".source = jsonFormat.generate "vesktop-settings" settings;
       };
