@@ -9,7 +9,12 @@ with lib.${namespace}; let
   cfg = config.${namespace}.services.jellyfin;
 in
 {
-  options.${namespace}.services.jellyfin = { enable = mkEnableOption "jellyfin"; };
+  options.${namespace}.services.jellyfin = with types; {
+    enable = mkEnableOption "jellyfin";
+
+    enableCaddyIntegration = mkOpt bool false "Caddy integration";
+    domain = mkOpt str "localhost" "The domain";
+  };
   config = mkIf cfg.enable {
     services.jellyfin = {
       enable = true;
@@ -21,8 +26,8 @@ in
       pkgs.jellyfin-ffmpeg
     ];
 
-    services.caddy = {
-      virtualHosts."jelly.hyenabyte.dev".extraConfig = ''
+    services.caddy = mkIf cfg.enableCaddyIntegration {
+      virtualHosts.${cfg.domain}.extraConfig = ''
         reverse_proxy localhost:8096
       '';
     };
