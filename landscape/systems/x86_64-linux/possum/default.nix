@@ -20,12 +20,41 @@ with lib.${namespace}; {
     };
 
     services = {
-      caddy = enabled;
-      jellyfin = enabled;
       samba = enabled;
-      paperless-ngx = enabled;
-      immich = enabled;
-      uptime-kuma = enabled;
+
+      # Services
+      caddy = enabled;
+
+      jellyfin = {
+        enable = true;
+        enableCaddyIntegration = true;
+        domain = "jelly.hyenabyte.dev";
+      };
+
+      immich = {
+        enable = true;
+        mediaLocation = "/mnt/disk/Shares/Private/Immich";
+
+        enableCaddyIntegration = true;
+        domain = "img.hyenabyte.dev";
+      };
+
+      uptime-kuma = {
+        enable = true;
+        enableCaddyIntegration = true;
+        domain = "uptime.hyenabyte.dev";
+      };
+
+      paperless-ngx = {
+        enable = true;
+        enableCaddyIntegration = true;
+        domain = "documents.hyenabyte.dev";
+        port = 8000;
+      };
+
+      # invidious = {
+      #   enable = true;
+      # };
     };
 
     security = {
