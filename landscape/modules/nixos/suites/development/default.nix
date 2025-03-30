@@ -21,7 +21,8 @@ in
       bruno
 
       # --- Game dev ---
-      godot_4
+      # godot_4
+      godot
       # ldtk
       # trenchbroom
 
