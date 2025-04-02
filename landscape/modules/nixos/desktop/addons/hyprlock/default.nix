@@ -28,26 +28,35 @@ in
           ignore_empty_input = true;
         };
 
+        background = {
+          color = "rgb(09090a)";
+        };
+
         input-field = {
           size = "250, 60";
           outline_thickness = 2;
+
           dots_size = 0.2;
           dots_spacing = 0.35;
           dots_center = true;
-          outer_color = "rgba(0, 0, 0, 0)";
-          inner_color = "rgba(0, 0, 0, 0.2)";
-          font_color = "rgb(205, 214, 244)";
+
+          outer_color = "rgba(ebe0bcff)";
+          inner_color = "rgba(09090aff)";
+
+          font_color = "rgb(ebe0bc)";
+          font_family = "Atkinson Hyperlegible";
+
           fade_on_empty = false;
           rounding = -1;
           placeholder_text = ''
-            <span foreground="##cdd6f4">Password</span>
+            <span foreground="##ebe0bc">Locked</span>
           '';
           hide_input = false;
           position = "0, -200";
           halign = "center";
           valign = "center";
-          check_color = "rgb(108, 112, 134)";
-          fail_color = "rgb(243, 139, 168)";
+          check_color = "rgb(407467)";
+          fail_color = "rgb(97484f)";
           fail_text = "<b>$ATTEMPTS</b>";
           fail_timeout = 2000;
           fail_transition = 300;
