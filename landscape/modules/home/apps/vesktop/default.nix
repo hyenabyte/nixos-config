@@ -150,10 +150,10 @@ in
         };
       in
       {
-        "vesktop/themes/midnight-everforest.theme.css".source = ./themes/midnight-everforest.theme.css;
-        "vesktop/themes/midnight-muteoki.theme.css".source = ./themes/midnight-muteoki.theme.css;
-        "vesktop/settings/quickCss.css".text = "";
-        "vesktop/settings/settings.json".source = jsonFormat.generate "vesktop-settings" settings;
+        # "vesktop/themes/midnight-everforest.theme.css".source = ./themes/midnight-everforest.theme.css;
+        # "vesktop/themes/midnight-muteoki.theme.css".source = ./themes/midnight-muteoki.theme.css;
+        # "vesktop/settings/quickCss.css".text = "";
+        # "vesktop/settings/settings.json".source = jsonFormat.generate "vesktop-settings" settings;
       };
   };
 }
