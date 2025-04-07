@@ -7,7 +7,7 @@ with lib.${namespace}; {
   home.packages = with pkgs; [
     # Browser
     # chromium
-    vivaldi
+    # vivaldi
 
     # Social
     signal-desktop
@@ -21,10 +21,37 @@ with lib.${namespace}; {
 
     # Office
     # tutanota-desktop
-    libreoffice-qt-fresh
+    # libreoffice-qt-fresh
 
     # Creative
     blender
+    gimp
+    inkscape
+    krita
+
+    # Media
+    # spotify
+    vlc
+    youtube-music
+
+    # Games
+    # itch
+    lutris
+    prismlauncher
+    # r2modman
+    # openrct2
+    pcsx2
+
+    # Development
+    beekeeper-studio
+    bruno
+    godot
+    # ldtk
+    # trenchbroom
+    # lapce
+    vscode
+    # pulsar
+    # vscodium
 
     # Utilities
     deluge
@@ -32,8 +59,9 @@ with lib.${namespace}; {
     # rpi-imager
     # testdisk
     # tigervnc
-    koboldcpp
-    podman-desktop
+    # koboldcpp
+    # podman-desktop
+    superfile
   ];
 
   hyenabyte = {
@@ -52,9 +80,9 @@ with lib.${namespace}; {
       alacritty = enabled;
       aseprite = enabled;
       # discord = enabled;
-      firefox = enabled;
+      firefox = disabled;
+      librewolf = enabled;
       ghostty = enabled;
-      kitty = enabled;
       logseq = enabled;
       obs-studio = enabled;
       vesktop = enabled;
@@ -71,8 +99,10 @@ with lib.${namespace}; {
       };
       home-manager = enabled;
       hyfetch = enabled;
+      fastfetch = enabled;
       yazi = enabled;
       zellij = enabled;
+      lazygit = enabled;
     };
 
     tools = {
