@@ -20,6 +20,8 @@ in
     home.packages = with pkgs; [
       # CSS, eslint, HTML, JSON, markdown
       vscode-langservers-extracted
+      # ts, tsx
+      typescript-language-server
       # Nix
       nixd
       nixpkgs-fmt
@@ -74,6 +76,14 @@ in
           end = "no_op";
         };
 
+        # Use Ctrl+h/j/k/l to move faster
+        keys.normal = {
+          "C-j" = "page_cursor_half_down";
+          "C-k" = "page_cursor_half_up";
+          "C-h" = "page_down";
+          "C-l" = "page_up";
+        };
+
         # Yazelix setup WIP
         keys.normal.space = {
           # ret = "@:insert-output nu ~/.config/helix/yazi.nu start <C-r>%<ret>\"\"d:open <C-r>\"<ret>";
@@ -82,6 +92,7 @@ in
         # Lazygit integration
         keys.normal.space.space = {
           g = ":sh zellij run -i -c -n lazygit -- lazygit";
+          f = ":sh zellij run -i -c -n yazi -- yazi";
         };
       };
 
@@ -92,6 +103,24 @@ in
             formatter.command = "nixpkgs-fmt";
             auto-format = true;
             language-servers = [ "nix-lsp" ];
+          }
+          {
+            name = "typescript";
+            formatter = {
+              command = "prettier";
+              args = [ "--parser" "typescript" ];
+            };
+            file-types = [ "ts" ];
+            auto-format = true;
+          }
+          {
+            name = "tsx";
+            formatter = {
+              command = "prettier";
+              args = [ "--stdin-filename" "file.tsx" ];
+            };
+            file-types = [ "tsx" ];
+            auto-format = true;
           }
         ];
         language-server.nix-lsp = {
