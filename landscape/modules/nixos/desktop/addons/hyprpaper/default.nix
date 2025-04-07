@@ -25,7 +25,7 @@ in
 
       settings =
         let
-          wallpaper = "${wallpapers}/share/wallpapers/${wallpaper}";
+          wallpaper = "${wallpapers}/share/wallpapers/${cfg.wallpaper}";
         in
         {
           ipc = true;
