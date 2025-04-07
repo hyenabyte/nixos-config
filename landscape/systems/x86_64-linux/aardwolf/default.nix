@@ -25,7 +25,10 @@ with lib.${namespace}; {
 
   ${namespace} = {
     desktop = {
-      dm.gdm = enabled;
+      dm.greetd = {
+        enable = true;
+        enableKwallet = true;
+      };
       hyprland = enabled;
       plasma = enabled;
     };
@@ -43,6 +46,7 @@ with lib.${namespace}; {
       nvidia = enabled;
       wireless = enabled;
       audio.pipewire = enabled;
+      xboxcontroller = enabled;
     };
 
     virtualisation = {
@@ -58,7 +62,10 @@ with lib.${namespace}; {
       agenix = {
         enable = true;
       };
+      keyring = enabled;
     };
+
+    system.tty = enabled;
   };
 
   # ! DO NOT CHANGE !
