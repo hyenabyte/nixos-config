@@ -15,3 +15,4 @@ This package is a slightly modified version of [this package by Jake Hamilton](h
 - mointain by Dave Hoefler [Unsplash](https://unsplash.com/photos/mountain-covered-with-snow-FLdNfW3fshc)
 - ocean by Iasi Ramos [Unsplash](https://unsplash.com/photos/landscape-photography-of-body-of-water-_3SFFsWqCVg)
 - tracks by Antoine Beauvillain [Unsplash](https://unsplash.com/photos/train-rail-surround-by-trees-0Kw44ElHN3A)
+- nix-logo-everforest by Me
