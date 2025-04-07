@@ -5,7 +5,13 @@
 }:
 with lib.${namespace}; {
   hyenabyte = {
-    user = enabled;
+    user = {
+      enable = true;
+
+      name = "hyena";
+      fullName = "hyena";
+      email = "hyena@hyenabyte.dev";
+    };
     shell.zsh = enabled;
 
     apps = {
