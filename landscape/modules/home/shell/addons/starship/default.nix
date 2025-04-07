@@ -23,7 +23,8 @@ in
       settings = {
         right_format = "$git_branch$git_state$git_status$shell$nix_shell";
 
-        format = "$username$hostname$directory$character$cmd_duration[](red)[](yellow)[](green) ";
+        # format = "$username$hostname$directory$character$cmd_duration[](red)[](yellow)[](green) ";
+        format = "$username$hostname$directory$character$cmd_duration[>](red)[>](yellow)[>](green) ";
 
         # $line_break\
 
