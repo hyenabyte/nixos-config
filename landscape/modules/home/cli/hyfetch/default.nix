@@ -8,7 +8,9 @@ with lib.${namespace}; let
   cfg = config.${namespace}.cli.hyfetch;
 in
 {
-  options.${namespace}.cli.hyfetch = { enable = mkEnableOption "hyfetch"; };
+  options.${namespace}.cli.hyfetch = {
+    enable = mkEnableOption "hyfetch";
+  };
   config = mkIf cfg.enable {
     programs.hyfetch = {
       enable = true;
@@ -20,6 +22,7 @@ in
         color_align = {
           mode = "horizontal";
         };
+        backend = "fastfetch";
       };
     };
   };
