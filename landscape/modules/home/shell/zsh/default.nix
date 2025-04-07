@@ -87,6 +87,8 @@ in
         ".." = "cd ..";
         "lg" = "lazygit";
         "zed" = "zeditor";
+        "c" = "wl-copy";
+        "v" = "wl-paste";
       };
 
       autosuggestion = {
