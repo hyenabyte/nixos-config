@@ -1,27 +1,27 @@
 { pkgs
 , lib
 , namespace
-, inputs
-, system
 , ...
 }:
 with lib;
 with lib.${namespace}; {
   # My Desktop PC
 
+  environment.variables.MOZ_ENABLE_WAYLAND = 0;
+
   imports = [
     # System hardware configuration
     ./hardware-configuration.nix
   ];
 
-  environment.systemPackages = [
+  environment.systemPackages = with pkgs; [
     pkgs."${namespace}".wallpapers
     # pkgs."${namespace}".phanpy
     # pkgs."${namespace}".mixitup
+    winetricks
+    wineWowPackages.stable
+    wine
   ];
-
-  # Fix firefox crashing in wayland
-  environment.variables.MOZ_ENABLE_WAYLAND = 0;
 
   ${namespace} = {
     desktop = {
@@ -33,13 +33,8 @@ with lib.${namespace}; {
       plasma = enabled;
     };
 
-    suites = {
-      common = enabled;
-      games = enabled;
-      multimedia = enabled;
-      development = enabled;
-      creative = enabled;
-    };
+    apps.steam = enabled;
+    suites.common = enabled;
 
     hardware = {
       bluetooth = enabled;
