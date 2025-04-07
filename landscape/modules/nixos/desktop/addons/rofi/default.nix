@@ -11,15 +11,20 @@ let
 in
 {
   options.${namespace}.desktop.addons.rofi = with types; {
-    enable = mkBoolOpt false "Whether to enable Rofi in the desktop environment.";
+    enable = mkBoolOpt false "Rofi";
     package = mkOpt package pkgs.rofi "The package to use for rofi";
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = [
-      cfg.package
-    ];
+    hyenabyte.home.programs.rofi = {
+      enable = true;
+      package = cfg.package;
 
-    hyenabyte.home.configFile."rofi/config.rasi".source = ./config.rasi;
+      font = "Atkinson Hyperlegible 14";
+      location = "center";
+
+      terminal = "${pkgs.ghostty}/bin/ghostty";
+      theme = "${cfg.package}/share/rofi/themes/gruvbox-dark-soft";
+    };
   };
 }
