@@ -37,13 +37,13 @@ in
 
             pulseaudio = {
               format = "{volume}% {format_source}";
-              format-muted = " {format_source}";
+              format-muted = " {format_source}";
 
-              format-bluetooth = "{volume}% {format_source}";
-              format-bluetooth-muted = " {format_source}";
+              format-bluetooth = "{volume}% {format_source}";
+              format-bluetooth-muted = " {format_source}";
 
-              format-source = "{volume}% ";
-              format-source-muted = "";
+              format-source = "{volume}% 󰍬";
+              format-source-muted = "󰍭";
 
               on-click = "pavucontrol";
             };
@@ -64,20 +64,30 @@ in
             "hyprland/workspaces" = {
               format = "{icon}";
               format-icons = {
-                active = "";
-                default = "";
+                active = "󱓼";
+                default = "󱓻";
+                urgent = "󱨇";
               };
               persistent-workspaces = {
-                DP-2 = [ 1 ];
-                HDMI-A-2 = [ 2 ];
+                "1" = [ ];
+                "2" = [ ];
+                "3" = [ ];
+                "4" = [ ];
+                "5" = [ ];
               };
             };
 
+            "hyprland/submap" = {
+              format = " {}";
+              "max-length" = 30;
+              tooltip = false;
+            };
+
             idle_inhibitor = {
-              format = "{icon}";
+              format = "{icon} ";
               format-icons = {
-                activated = "";
-                deacrtivated = "";
+                activated = "󰈈";
+                deactivated = "󰈉";
               };
             };
 
@@ -161,29 +171,31 @@ in
           mainBar = {
             output = mainMonitor;
 
-            layer = "top";
+            layer = "bottom";
             position = "top";
+
+            spacing = 0;
+            height = 0;
+            margin-top = 10;
+            margin-right = 10;
+            margin-left = 10;
+            margin-bottom = 0;
 
             modules-left = [
               "hyprland/workspaces"
-              "hyrpland/submap"
               "hyprland/window"
             ];
 
             modules-center = [
+              "hyprland/submap"
               "clock"
+              "privacy"
             ];
 
             modules-right = [
-              "idle_inhibitor"
-              "cpu"
-              "memory"
-              "network"
-              "privacy"
               "tray"
-              "bluetooth"
+              "idle_inhibitor"
               "pulseaudio"
-              "group/group-power"
             ];
           } // modules;
 
@@ -191,16 +203,23 @@ in
 
             output = secondMonitor;
 
-            layer = "top";
+            layer = "bottom";
             position = "top";
+
+            spacing = 0;
+            height = 0;
+            margin-top = 10;
+            margin-right = 10;
+            margin-left = 10;
+            margin-bottom = 0;
 
             modules-left = [
               "hyprland/workspaces"
-              "hyrpland/submap"
-              # "hyprland/window"
+              "hyprland/window"
             ];
 
             modules-center = [
+              "hyprland/submap"
             ];
 
             modules-right = [
