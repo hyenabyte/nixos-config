@@ -11,12 +11,26 @@ in
 {
   options.${namespace}.security.keyring = {
     enable = mkEnableOption "keyring";
-    enableSeahorse = mkEnableOption "Seahorse";
+    # enableSeahorse = mkEnableOption "Seahorse";
+
   };
   config = mkIf cfg.enable {
-    environment.systemPackages = mkIf cfg.enableSeahorse [ pkgs.seahorse ];
-    services.gnome.gnome-keyring = {
-      enable = true;
+    # environment.systemPackages = mkIf cfg.enableSeahorse [ pkgs.seahorse ];
+    # services.gnome.gnome-keyring = {
+    # enable = true;
+    # };
+
+    security.pam = {
+      services.kwallet = {
+        name = "kwallet";
+        enableKwallet = true;
+      };
+
+      services.greetd = {
+        enableKwallet = true;
+      };
     };
+
+
   };
 }
