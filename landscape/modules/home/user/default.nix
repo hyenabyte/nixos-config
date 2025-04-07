@@ -2,7 +2,6 @@
 , config
 , pkgs
 , namespace
-, osConfig ? { }
 , ...
 }:
 let
@@ -17,9 +16,7 @@ let
 
   cfg = config.${namespace}.user;
 
-  is-linux = pkgs.stdenv.isLinux;
   is-darwin = pkgs.stdenv.isDarwin;
-
   home-directory =
     if cfg.name == null
     then null
@@ -32,8 +29,8 @@ in
     enable = mkOpt types.bool true "Whether to configure the user account.";
     name = mkOpt (types.nullOr types.str) (config.snowfallorg.user.name or "hyena") "The user account.";
 
-    fullName = mkOpt types.str "hyena" "The full name of the user.";
-    email = mkOpt types.str "hyena@hyenabyte.dev" "The email of the user.";
+    fullName = mkOpt types.str "" "The full name of the user.";
+    email = mkOpt types.str "" "The email of the user.";
 
     home = mkOpt (types.nullOr types.str) home-directory "The user's home directory.";
   };
@@ -43,11 +40,11 @@ in
       assertions = [
         {
           assertion = cfg.name != null;
-          message = "hyenabyte.user.name must be set";
+          message = "${namespace}.user.name must be set";
         }
         {
           assertion = cfg.home != null;
-          message = "hyenabyte.user.home must be set";
+          message = "${namespace}.user.home must be set";
         }
       ];
 
