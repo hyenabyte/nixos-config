@@ -50,7 +50,7 @@ in
                 --width 60 --window-padding 1 --container-padding 2 --prompt-padding 0 \
                 --time --remember \
                 --greeting 'welcome' \
-                --cmd ${cfg.command}
+                --cmd '${cfg.command}'
             '';
 
           user = "greeter";
