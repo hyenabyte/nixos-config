@@ -20,8 +20,10 @@ in
       enable = true;
     };
 
-    services.greetd = mkIf cfg.enableGreetd {
-      enableGnomeKeyring = true;
+    security.pam = {
+      services.greetd = mkIf cfg.enableGreetd {
+        enableGnomeKeyring = true;
+      };
     };
   };
 }
