@@ -88,6 +88,8 @@ in
               ];
 
               exec-once = [
+                # Focus workspace 1 on startup
+                "hyprctl dispatch workspace 1"
                 # Polkit
                 "systemctl --user start hyprpolkitagent"
                 # Waybar
@@ -321,7 +323,7 @@ in
 
                 # Steam
                 "float, title:^(Friends List)$"
-                "size 750 500, class:(Friends List)"
+                "size 400 750, class:(Friends List)"
               ];
 
               workspace = [
