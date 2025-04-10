@@ -1,7 +1,5 @@
 { pkgs
 , lib
-, inputs
-, system
 , config
 , namespace
 , ...
@@ -14,8 +12,8 @@ in
   options.${namespace}.cli.isd = { enable = mkEnableOption "ISD"; };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = [
-      inputs.isd.packages."${system}".default
+    environment.systemPackages = with pkgs; [
+      isd
     ];
   };
 }

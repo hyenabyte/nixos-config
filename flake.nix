@@ -48,11 +48,6 @@
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
     zen-browser.inputs.nixpkgs.follows = "unstable";
 
-    # ISD
-    # https://github.com/isd-project/isd
-    isd.url = "github:isd-project/isd";
-    isd.inputs.nixpkgs.follows = "unstable";
-
     # Age encryption
     # https://github.com/ryantm/agenix
     agenix.url = "github:ryantm/agenix";
