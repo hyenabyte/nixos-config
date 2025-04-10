@@ -54,10 +54,11 @@ with lib.${namespace}; {
     };
 
     security = {
-      agenix = {
+      agenix.enable = true;
+      keyring.kwallet = {
         enable = true;
+        enableGreetd = true;
       };
-      keyring = enabled;
     };
 
     system.tty = enabled;
