@@ -39,11 +39,14 @@ in
       loupe
       pavucontrol
       feh
+      hyprshot
+      udiskie
     ];
 
     programs.hyprland.enable = true;
 
     hyenabyte.home = {
+      # Hyprland settings
       extraOptions = {
         wayland.windowManager.hyprland = {
           enable = true;
@@ -85,13 +88,17 @@ in
               ];
 
               exec-once = [
+                # Polkit
                 "systemctl --user start hyprpolkitagent"
+                # Waybar
                 "killall -q waybar;sleep .5 && waybar"
+                # Swaync - Notifications
                 "killall -q swaync;sleep .5 && swaync"
-                # "hypridle"
-                "hyprpaper"
-                # "hyprsunset"
-                # "dunst"
+                # Hyprsunset - red light filter
+                "hyprsunset"
+                # Udiskie - automount USB drives
+                "udiskie"
+                # Signal
                 # "${signal}" # Kwallet doesnt unlock with greetd for some reason :c
               ];
 

@@ -24,7 +24,7 @@ in
     assertions = [
       {
         assertion = cfg.autoconnect.enable -> cfg.autoconnect.key != "";
-        message = "plusultra.services.tailscale.autoconnect.key must be set";
+        message = "${namespace}.services.tailscale.autoconnect.key must be set";
       }
     ];
 

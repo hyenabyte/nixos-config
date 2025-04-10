@@ -16,6 +16,22 @@ in
   config = mkIf cfg.enable {
     programs.yazi = {
       enable = true;
+
+      settings = {
+        keymap = {
+          manager = {
+            prepend_keymap = [
+
+              {
+                on = "<C-g>";
+                run = ''
+                  shell --block 'lazygit'
+                '';
+              }
+            ];
+          };
+        };
+      };
     };
   };
 }
