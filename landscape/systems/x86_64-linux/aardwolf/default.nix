@@ -58,6 +58,7 @@ with lib.${namespace}; {
       keyring.kwallet = {
         enable = true;
         enableGreetd = true;
+        users = [ "hyena" ];
       };
     };
 
