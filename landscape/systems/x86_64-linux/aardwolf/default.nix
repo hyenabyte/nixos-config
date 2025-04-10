@@ -16,8 +16,6 @@ with lib.${namespace}; {
 
   environment.systemPackages = with pkgs; [
     pkgs."${namespace}".wallpapers
-    # pkgs."${namespace}".phanpy
-    # pkgs."${namespace}".mixitup
     winetricks
     wineWowPackages.stable
     wine
@@ -27,6 +25,8 @@ with lib.${namespace}; {
     desktop = {
       dm.greetd = {
         enable = true;
+        # Run Hyprland with dbus for nautilus to work properly with samba shares
+        command = "dbus-run-session Hyprland";
         enableKwallet = true;
       };
       hyprland = enabled;

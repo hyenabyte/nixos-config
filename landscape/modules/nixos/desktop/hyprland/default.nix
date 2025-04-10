@@ -23,11 +23,11 @@ in
       hypridle = enabled;
       hyprlock = enabled;
       hyprpaper = enabled;
+      nautilus = enabled;
     };
 
     environment.sessionVariables.NIXOS_OZONE_WL = "1";
     environment.defaultPackages = with pkgs; [
-      nautilus
       hyprpolkitagent
       hyprpicker
       hyprsunset
