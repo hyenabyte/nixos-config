@@ -28,6 +28,11 @@
 
     # Impermanence
     impermanence.url = "github:nix-community/impermanence";
+
+    # Disko
+    disko.url = "github:nix-community/disko";
+    disko.inputs.nixpkgs.follows = "nixpkgs";
+
     # Lix
     # lix.url = "https://git.lix.systems/lix-project/nixos-module/archive/2.92.0.tar.gz";
     # lix.inputs.nixpkgs.follows = "nixpkgs";
@@ -100,6 +105,7 @@
           home-manager.nixosModules.home-manager
           agenix.nixosModules.default
           # lix.nixosModules.default
+          disko.nixosModules.default
           impermanence.nixosModules.impermanence
         ];
 
