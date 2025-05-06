@@ -24,6 +24,7 @@ in
         let
           mainMonitor = "DP-2";
           secondMonitor = "HDMI-A-2";
+
           modules = {
             tray = {
               icons-size = 18;
@@ -220,9 +221,14 @@ in
 
             modules-center = [
               "hyprland/submap"
+              "clock"
+              "privacy"
             ];
 
             modules-right = [
+              "tray"
+              "idle_inhibitor"
+              "pulseaudio"
             ];
           } // modules;
         };
