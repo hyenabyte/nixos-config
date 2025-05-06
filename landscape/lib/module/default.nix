@@ -42,6 +42,8 @@ with lib; rec {
     type = with lib.types; listOf package;
   };
 
+  mkUnless = p: yes: mkIf (!p) yes;
+
   enabled = {
     ## Quickly enable an option.
     ##
