@@ -34,8 +34,9 @@
     disko.inputs.nixpkgs.follows = "nixpkgs";
 
     # Lix
-    # lix.url = "https://git.lix.systems/lix-project/nixos-module/archive/2.92.0.tar.gz";
-    # lix.inputs.nixpkgs.follows = "nixpkgs";
+    # https://lix.systems/ 
+    lix.url = "https://git.lix.systems/lix-project/nixos-module/archive/2.92.0-3.tar.gz";
+    lix.inputs.nixpkgs.follows = "nixpkgs";
 
     # Darwin support
     darwin.url = "github:LnL7/nix-darwin/nix-darwin-24.11";
@@ -99,12 +100,12 @@
 
         overlays = with inputs; [
           snowfall-flake.overlays.default
+          lix.overlays.default
         ];
 
         systems.modules.nixos = with inputs; [
           home-manager.nixosModules.home-manager
           agenix.nixosModules.default
-          # lix.nixosModules.default
           disko.nixosModules.default
           impermanence.nixosModules.impermanence
         ];
@@ -113,7 +114,6 @@
           mac-app-util.darwinModules.default
           home-manager.darwinModules.home-manager
           agenix.darwinModules.default
-          # lix.nixosModules.default
           impermanence.nixosModules.home-manager.impermanence
         ];
 
