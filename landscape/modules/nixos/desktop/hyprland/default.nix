@@ -41,6 +41,7 @@ in
       feh
       hyprshot
       udiskie
+      impala
     ];
 
     programs.hyprland.enable = true;
@@ -57,12 +58,12 @@ in
 
           settings =
             let
-              terminal = "ghostty";
-              zellij = "ghostty --class=com.${namespace}.zellij -e zellij -l welcome";
-              fileManager = "ghostty --class=com.${namespace}.yazi -e yazi";
+              terminal = "${pkgs.ghostty}/bin/ghostty";
+              zellij = "${terminal} --class=com.${namespace}.zellij -e zellij -l welcome";
+              fileManager = "${terminal} --class=com.${namespace}.yazi -e yazi";
               fileManager-gui = "nautilus";
-              browser = "zen";
-              clipse = "ghostty --class=com.${namespace}.clipse -e clipse";
+              browser = "zen-beta";
+              clipse = "${terminal} --class=com.${namespace}.clipse -e clipse";
               launcher = "rofi -show drun";
               lock = "hyprlock";
               colorPicker = "hyprpicker -a";
@@ -77,8 +78,9 @@ in
             {
               # Monitor setup
               monitor = [
-                "desc:LG Electronics LG ULTRAGEAR 209MAQQFWE16, preferred, 0x0, 1"
-                "desc:AOC Q27P1B GNXJCHA039883, preferred, 2560x-550, 1, transform, 1"
+                "desc:LG Electronics LG TV SSCR2 0x01010101, preferred, 0x0, 1"
+                # "desc:LG Electronics LG ULTRAGEAR 209MAQQFWE16, preferred, 0x0, 1"
+                # "desc:AOC Q27P1B GNXJCHA039883, preferred, 2560x-550, 1, transform, 1"
                 "WAYLAND-1, disable"
               ];
 
@@ -219,7 +221,7 @@ in
                 "${mainMod}, D, exec, ${launcher}"
                 "${mainMod}, E, exec, ${fileManager}"
                 "${mainMod} SHIFT, E, exec, ${fileManager-gui}"
-                "${mainMod}, I, exec, ${colorPicker},"
+                "${mainMod}, U, exec, '${colorPicker}',"
                 "${mainMod}, T, exec, ${terminal}"
                 "${mainMod}, Return, exec, ${zellij}"
                 "${mainMod} SHIFT, Return, exec, ${terminal}"
@@ -319,11 +321,20 @@ in
 
                 # Float Picture-in-Picture windows
                 "float, title:^(Picture-in-Picture)$"
-                "size 750 500, class:(Picture-in-Picture)"
+                "size 750 500, title:^(Picture-in-Picture)"
 
                 # Steam
                 "float, title:^(Friends List)$"
-                "size 400 750, class:(Friends List)"
+                "size 400 750, title:^(Friends List)"
+
+                # Veadotube
+                "float, title:^(veadotube-mini)$"
+                "size 600 500, title:^(veadotube-mini)"
+
+                # Zen Extension Windows
+                "float, title:^(Extension: ), class:^(zen-beta)$"
+                "size 400 750, title:^(Extension: ), class:^(zen-beta)$"
+
               ];
 
               workspace = [
