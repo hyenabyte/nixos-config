@@ -114,6 +114,10 @@
           mac-app-util.darwinModules.default
           home-manager.darwinModules.home-manager
           agenix.darwinModules.default
+        ];
+
+        homes.modules = with inputs; [
+          agenix.homeManagerModules.default
           impermanence.nixosModules.home-manager.impermanence
         ];
 
