@@ -26,6 +26,8 @@
     home-manager.url = "github:nix-community/home-manager/release-24.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
+    # Impermanence
+    impermanence.url = "github:nix-community/impermanence";
     # Lix
     # lix.url = "https://git.lix.systems/lix-project/nixos-module/archive/2.92.0.tar.gz";
     # lix.inputs.nixpkgs.follows = "nixpkgs";
@@ -98,6 +100,7 @@
           home-manager.nixosModules.home-manager
           agenix.nixosModules.default
           # lix.nixosModules.default
+          impermanence.nixosModules.impermanence
         ];
 
         systems.modules.darwin = with inputs; [
@@ -105,6 +108,7 @@
           home-manager.darwinModules.home-manager
           agenix.darwinModules.default
           # lix.nixosModules.default
+          impermanence.nixosModules.home-manager.impermanence
         ];
 
         # Deployment nodes
