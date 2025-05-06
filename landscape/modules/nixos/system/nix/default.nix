@@ -27,7 +27,8 @@ in
       key = mkOpt str "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY=" "The trusted public key for the substituter.";
     };
 
-    extra-substituters = mkOpt (attrsOf substituters-submodule) { } "Extra substituters to configure.";
+    extra-substituters = mkOpt (attrsOf substituters-submodule)
+      { } "Extra substituters to configure.";
   };
 
   config = mkIf cfg.enable {
@@ -71,6 +72,14 @@ in
             trusted-public-keys =
               [ cfg.default-substituter.key ]
               ++ (mapAttrsToList (name: value: value.key) cfg.extra-substituters);
+
+            extra-substituters = [
+              "https://nix-community.cachix.org"
+            ];
+
+            extra-trusted-public-keys = [
+              "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs=="
+            ];
           }
           // (lib.optionalAttrs config.${namespace}.tools.direnv.enable {
             keep-outputs = true;
