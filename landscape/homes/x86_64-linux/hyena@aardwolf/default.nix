@@ -10,29 +10,29 @@ with lib.${namespace}; {
     # vivaldi
 
     # Social
-    signal-desktop
-    beeper
+    # signal-desktop
+    # beeper
 
     # Security
-    bitwarden
-    protonvpn-gui
-    veracrypt
-    picocrypt
+    # bitwarden
+    # protonvpn-gui
+    # veracrypt
+    # picocrypt
 
     # Office
     # tutanota-desktop
     # libreoffice-qt-fresh
 
     # Creative
-    blender
-    gimp
-    inkscape
-    krita
+    # blender
+    # gimp
+    # inkscape
+    # krita
 
     # Media
     # spotify
-    vlc
-    youtube-music
+    # vlc
+    # youtube-music
 
     # Games
     # itch
@@ -40,28 +40,31 @@ with lib.${namespace}; {
     prismlauncher
     # r2modman
     # openrct2
-    pcsx2
+    # pcsx2
 
     # Development
-    beekeeper-studio
-    bruno
-    godot
+    # beekeeper-studio
+    # bruno
+    # godot
     # ldtk
     # trenchbroom
     # lapce
-    vscode
+    # vscode
     # pulsar
     # vscodium
+    # slumber
+    # openapi-tui
 
     # Utilities
-    deluge
+    # deluge
     # livecaptions
     # rpi-imager
     # testdisk
     # tigervnc
     # koboldcpp
     # podman-desktop
-    superfile
+    # superfile
+    # scope-tui
   ];
 
   hyenabyte = {
@@ -74,20 +77,25 @@ with lib.${namespace}; {
       email = "hyena@hyenabyte.dev";
     };
 
+    impermanence = {
+      enable = true;
+      user = "hyena";
+    };
+
     shell.zsh = enabled;
 
     apps = {
-      alacritty = enabled;
-      aseprite = enabled;
-      # discord = enabled;
-      firefox = disabled;
-      librewolf = enabled;
+      # alacritty = enabled;
+      # aseprite = enabled;
+      discord = enabled;
+      # firefox = disabled;
+      # librewolf = enabled;
       ghostty = enabled;
-      logseq = enabled;
-      obs-studio = enabled;
-      vesktop = enabled;
+      # logseq = enabled;
+      # obs-studio = enabled;
+      # vesktop = enabled;
       # thunderbird = enabled;
-      zed = enabled;
+      # zed = enabled;
       zen-browser = enabled;
     };
 

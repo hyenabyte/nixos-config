@@ -12,14 +12,14 @@ with lib.${namespace}; {
   imports = [
     # System hardware configuration
     ./hardware-configuration.nix
-    (import ./disko.nix {boot-device = "/dev/nvme0n1"; store-device = "/dev/sdb";})
+    (import ./disko.nix { boot-device = "/dev/nvme0n1"; store-device = "/dev/sdb"; })
   ];
 
   environment.systemPackages = with pkgs; [
     pkgs."${namespace}".wallpapers
-    winetricks
-    wineWowPackages.stable
-    wine
+    # winetricks
+    # wineWowPackages.stable
+    # wine
   ];
 
   ${namespace} = {
@@ -28,10 +28,10 @@ with lib.${namespace}; {
         enable = true;
         # Run Hyprland with dbus for nautilus to work properly with samba shares
         command = "dbus-run-session Hyprland";
-        enableKwallet = true;
+        # enableKwallet = true;
       };
       hyprland = enabled;
-      plasma = enabled;
+      # plasma = enabled;
     };
 
     apps.steam = enabled;
@@ -40,32 +40,37 @@ with lib.${namespace}; {
     hardware = {
       bluetooth = enabled;
       nvidia = enabled;
-      wireless = enabled;
+      wireless = {
+        enable = true;
+        # enableIwd = true;
+      };
       audio.pipewire = enabled;
-      xboxcontroller = enabled;
+      # xboxcontroller = enabled;
     };
 
-    virtualisation = {
-      qemu = enabled;
-    };
+    # virtualisation = {
+    #   qemu = enabled;
+    # };
 
-    tools = {
-      input-remapper = enabled;
-      mullvad = enabled;
-    };
+    # tools = {
+    #   input-remapper = enabled;
+    #   mullvad = enabled;
+    #   partitionmanager = enabled;
+    # };
 
     security = {
       agenix.enable = true;
-      keyring.kwallet = {
-        enable = true;
-        enableGreetd = true;
-        users = [ "hyena" ];
-      };
+      # keyring.kwallet = {
+      #   enable = true;
+      #   enableGreetd = true;
+      #   users = [ "hyena" ];
+      # };
     };
 
     system.tty = enabled;
+    system.boot.impermanence = enabled;
   };
 
   # ! DO NOT CHANGE !
-  system.stateVersion = "23.11";
+  system.stateVersion = "24.11";
 }
