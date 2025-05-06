@@ -56,6 +56,11 @@
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
     zen-browser.inputs.nixpkgs.follows = "unstable";
 
+    # Nix Minecraft
+    # https://github.com/Infinidoge/nix-minecraft
+    nix-minecraft.url = "github:Infinidoge/nix-minecraft";
+    nix-minecraft.inputs.nixpkgs.follows = "unstable";
+
     # Age encryption
     # https://github.com/ryantm/agenix
     agenix.url = "github:ryantm/agenix";
@@ -100,12 +105,14 @@
 
         overlays = with inputs; [
           snowfall-flake.overlays.default
+          nix-minecraft.overlay
           lix.overlays.default
         ];
 
         systems.modules.nixos = with inputs; [
           home-manager.nixosModules.home-manager
           agenix.nixosModules.default
+          nix-minecraft.nixosModules.minecraft-servers
           disko.nixosModules.default
           impermanence.nixosModules.impermanence
         ];
