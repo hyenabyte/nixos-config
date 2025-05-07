@@ -12,7 +12,8 @@ with lib.${namespace}; {
   imports = [
     # System hardware configuration
     ./hardware-configuration.nix
-    (import ./disko.nix { boot-device = "/dev/nvme0n1"; store-device = "/dev/sdb"; })
+    (import ./disks/boot.nix { device = "/dev/nvme0n1"; })
+    (import ./disks/store.nix { device = "/dev/sdb"; })
   ];
 
   environment.systemPackages = with pkgs; [

@@ -1,12 +1,10 @@
-{
-  boot-device ? throw "Set this to the boot drive device",
-  store-device ? throw "Set this to the store drive device",
-  ...
+{ device ? throw "Set this to the boot drive device"
+, ...
 }: {
   disko.devices = {
     disk = {
       main = {
-        device = boot-device;
+        inherit device;
         type = "disk";
         content = {
           type = "gpt";
@@ -54,41 +52,6 @@
         };
       };
 
-      store = {
-        device = store-device;
-        type = "disk";
-        content = {
-          type = "gpt";
-          partitions = {
-            store = {
-              name = "store";
-              size = "100%";
-              content = {
-                type = "luks";
-                name = "crypted_store";
-                settings = {
-                  allowDiscards = true;
-                };
-
-                content = {
-
-                  type = "btrfs";
-                  subvolumes = {
-                    "/mnt/Store" = {
-                      mountpoint = "/mnt/Store";
-                      mountOptions = [
-                        "compress=zstd"
-                        "subvol=store"
-                        "noatime"
-                      ];
-                    };
-                  };
-                };
-              };
-            };
-          };
-        };
-      };
     };
 
     lvm_vg = {
