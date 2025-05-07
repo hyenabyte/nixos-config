@@ -17,6 +17,7 @@ in
     environment.systemPackages = with pkgs; [
       git
       snowfallorg.flake
+      disko
     ];
 
     ${namespace} = {
