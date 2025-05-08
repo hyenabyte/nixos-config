@@ -8,7 +8,10 @@ with lib.${namespace}; let
   cfg = config.${namespace}.system.boot.impermanence;
 in
 {
-  options.${namespace}.system.boot.impermanence = { enable = mkEnableOption "impermanence"; };
+  options.${namespace}.system.boot.impermanence = with types; {
+    enable = mkEnableOption "impermanence";
+    users = mkOpt (listOf str) [ "hyena" ] "The users to enable persistance for";
+  };
   config = mkIf cfg.enable {
     boot.initrd.postDeviceCommands = lib.mkAfter ''
       mkdir /btrfs_tmp
@@ -51,6 +54,35 @@ in
         "/etc/machine-id"
         { file = "/var/keys/secret_file"; parentDirectory = { mode = "u=rwx,g=,o="; }; }
       ];
+
+      users = foldl
+        (acc: user: acc // {
+          "${user}" = {
+            directories = [
+              "Downloads"
+              "Music"
+              "Pictures"
+              "Documents"
+              "Videos"
+              "Workspace"
+              "VirtualBox VMs"
+              { directory = ".gnupg"; mode = "0700"; }
+              { directory = ".ssh"; mode = "0700"; }
+              { directory = ".nixops"; mode = "0700"; }
+              { directory = ".local/share/keyrings"; mode = "0700"; }
+              ".local/share/direnv"
+              # {
+              #   directory = ".local/share/Steam";
+              #   method = "symlink";
+              # }
+            ];
+            # files = [
+            #   ".screenrc"
+            # ];
+          };
+        })
+        { }
+        cfg.users;
     };
 
     # Allow home manager impermanance to mount its directories

@@ -23,14 +23,14 @@ in
         "Videos"
         "Workspace"
         ".gnupg"
-        ".ssh"
         ".nixops"
         ".local/share/keyrings"
         ".local/share/direnv"
-        {
-          directory = ".local/share/Steam";
-          method = "symlink";
-        }
+        ".ssh"
+        # {
+        #   directory = ".local/share/Steam";
+        #   method = "symlink";
+        # }
       ];
 
       files = [

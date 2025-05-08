@@ -77,10 +77,10 @@ with lib.${namespace}; {
       email = "hyena@hyenabyte.dev";
     };
 
-    impermanence = {
-      enable = true;
-      user = "hyena";
-    };
+    # impermanence = {
+    #   enable = true;
+    #   user = "hyena";
+    # };
 
     shell.zsh = enabled;
 
