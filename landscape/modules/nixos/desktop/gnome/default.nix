@@ -7,7 +7,6 @@
 with lib;
 with lib.${namespace}; let
   cfg = config.${namespace}.desktop.gnome;
-  # gdmHome = config.users.users.gdm.home;
   defaultExtensions = with pkgs.gnomeExtensions; [
     appindicator
     just-perfection
@@ -18,13 +17,6 @@ in
 {
   options.${namespace}.desktop.gnome = with types; {
     enable = mkEnableOption "Enable the Gnome Desktop Environment";
-    wayland = mkBoolOpt true "Whether or not to use Wayland.";
-    suspend = mkBoolOpt true "Whether or not to suspend the machine after inactivity.";
-    # color-scheme = mkOpt
-    #   (enum [
-    #     "light"
-    #     "dark"
-    #   ]) "dark" "The color scheme to use.";
     monitors = mkOpt (nullOr path) null "The monitors.xml file to create.";
     extensions = mkOpt (listOf package) [ ] "Extra Gnome extensions to install.";
     # wallpaper = {
@@ -43,14 +35,10 @@ in
     hyenabyte.desktop.addons = {
       wallpapers = enabled;
       gtk = enabled;
-
     };
-
-    # hyenabyte.desktop.dm.gdm = enabled;
 
     services.xserver = {
       enable = true;
-
       desktopManager.gnome.enable = true;
     };
 
@@ -68,7 +56,7 @@ in
       gnome-terminal
       epiphany # web browser
       geary # email reader
-      evince # document viewer
+      # evince # document viewer
       totem # video player
       gnome-music # music player
     ];
@@ -96,7 +84,7 @@ in
 
       script = ''
         config_file=/var/lib/AccountsService/users/${config.${namespace}.user.name}
-        icon_file=/run/current-system/sw/share/plusultra-icons/user/${config.${namespace}.user.name}/${
+        icon_file=/run/current-system/sw/share/${namespace}-icons/user/${config.${namespace}.user.name}/${
           config.${namespace}.user.icon.fileName
         }
 
