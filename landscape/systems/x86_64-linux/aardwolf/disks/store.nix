@@ -13,6 +13,7 @@
             content = {
               type = "luks";
               name = "crypted_store";
+
               settings = {
                 allowDiscards = true;
               };
@@ -40,6 +41,7 @@
                   "nofail"
                   "exec"
                 ];
+                extraArgs = [ "-n" "Store" ];
               };
 
             };
