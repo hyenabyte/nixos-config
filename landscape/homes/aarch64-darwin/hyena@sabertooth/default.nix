@@ -12,13 +12,11 @@ with lib.${namespace}; {
       fullName = "hyena";
       email = "hyena@hyenabyte.dev";
     };
+
     shell.zsh = enabled;
 
     apps = {
-      zed = enabled;
-      # firefox = enabled;
-      # logseq = enabled;
-      vesktop = enabled;
+      alacritty = enabled;
     };
 
     cli = {
@@ -31,6 +29,7 @@ with lib.${namespace}; {
       hyfetch = enabled;
       zellij = enabled;
       lazygit = enabled;
+      yazi = enabled;
     };
 
     tools = {
@@ -40,10 +39,11 @@ with lib.${namespace}; {
   };
 
   home.packages = with pkgs; [
-    signal-desktop
-    slack
-    bruno
-    vlc-bin
+    # signal-desktop
+    # slack
+    # bruno
+    # vlc-bin
+    imagemagick
   ];
 
   home.sessionPath = [ "$HOME/bin" ];

@@ -26,6 +26,15 @@ with lib.${namespace}; {
         "karabiner-elements"
         "libreoffice"
         "ghostty"
+        "deluge"
+        "discord"
+        "inkscape"
+        "thunderbird"
+        "zed"
+        "bruno"
+        "signal"
+        "vlc"
+        "prismlauncher"
       ];
       masApps = {
         Tailscale = 1475387142;
