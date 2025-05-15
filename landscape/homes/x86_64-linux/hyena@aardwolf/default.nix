@@ -10,11 +10,11 @@ with lib.${namespace}; {
     # vivaldi
 
     # Social
-    # signal-desktop
-    # beeper
+    signal-desktop
+    beeper
 
     # Security
-    # bitwarden
+    bitwarden
     # protonvpn-gui
     # veracrypt
     # picocrypt
@@ -24,14 +24,14 @@ with lib.${namespace}; {
     # libreoffice-qt-fresh
 
     # Creative
-    # blender
-    # gimp
-    # inkscape
-    # krita
+    blender
+    gimp
+    inkscape
+    krita
 
     # Media
     # spotify
-    # vlc
+    vlc
     # youtube-music
 
     # Games
@@ -56,6 +56,7 @@ with lib.${namespace}; {
     # openapi-tui
 
     # Utilities
+    bartib
     # deluge
     # livecaptions
     # rpi-imager
@@ -86,14 +87,14 @@ with lib.${namespace}; {
 
     apps = {
       # alacritty = enabled;
-      # aseprite = enabled;
+      aseprite = enabled;
       discord = enabled;
       # firefox = disabled;
       # librewolf = enabled;
       ghostty = enabled;
       # logseq = enabled;
       # obs-studio = enabled;
-      # vesktop = enabled;
+      vesktop = enabled;
       # thunderbird = enabled;
       # zed = enabled;
       zen-browser = enabled;
