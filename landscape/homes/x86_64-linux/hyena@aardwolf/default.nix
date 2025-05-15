@@ -78,6 +78,8 @@ with lib.${namespace}; {
       email = "hyena@hyenabyte.dev";
     };
 
+    style = enabled;
+
     # impermanence = {
     #   enable = true;
     #   user = "hyena";

@@ -51,7 +51,7 @@ in
         ui.pane_frames.rounded_corners = true;
 
 
-        theme = "muteoki-dark";
+        # theme = "muteoki-dark";
 
         themes.everforest-dark = everforest-dark;
         themes.muteoki-dark = muteoki-dark;

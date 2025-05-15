@@ -20,11 +20,11 @@ in
       enable = true;
       package = cfg.package;
 
-      font = "Atkinson Hyperlegible 14";
+      # font = "Atkinson Hyperlegible 14";
       location = "center";
 
       terminal = "${pkgs.ghostty}/bin/ghostty";
-      theme = "${cfg.package}/share/rofi/themes/gruvbox-dark-soft";
+      # theme = "${cfg.package}/share/rofi/themes/gruvbox-dark-soft";
     };
   };
 }

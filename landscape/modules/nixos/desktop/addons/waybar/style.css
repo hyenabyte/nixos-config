@@ -5,15 +5,15 @@
 	border-radius: 0;
 	min-height: 0;
 	/* font-family: "Atkinson Hyperlegible"; */
-	font-family: "Agave Nerd Font Mono";
+	/* font-family: "Agave Nerd Font Mono"; */
 	font-weight: 500;
-	font-size: 14px;
+	/* font-size: 14px; */
 	padding: 0;
 }
 
 window#waybar {
-	background-color: #09090a;
-	color: #ebe0bc;
+	/* background-color: @base00; */
+	/* color: @base05; */
 	transition-property: background-color;
 	transition-duration: 0.5s;
 	border-radius: 5px;
@@ -73,14 +73,11 @@ window#waybar.hidden {
 	box-shadow: inset 0 -3px transparent;
 	/* Use box-shadow instead of border so the text isn't offset */
 	margin: 10px 3px;
-	color: #ebe0bc;
+	color: @base05;
 	font-size: 18px;
+	border-bottom: 0px;
 }
 
-/* #workspaces button.active { */
-/* color: #1e1e2e; */
-/* background-color: #cdd6f4; */
-/* } */
 
 #workspaces button:hover {
 	box-shadow: inherit;
@@ -90,7 +87,7 @@ window#waybar.hidden {
 }
 
 #workspaces button.urgent {
-	color: #d16469;
+	color: @base08;
 }
 
 /* ============================== */
@@ -98,8 +95,8 @@ window#waybar.hidden {
 /* ======= Module: Submap ======= */
 
 #submap {
-	color: #a17a2c;
-	border: solid 1px #a17a2c;
+	color: @base0B;
+	border: solid 1px @base0B;
 }
 
 /* ============================== */
@@ -107,7 +104,7 @@ window#waybar.hidden {
 /* ======= Module: Clock ======== */
 
 #clock {
-	font-family: Atkinson Hyperlegible;
+	/* font-family: Atkinson Hyperlegible; */
 	/* background-color: #cba6f7; */
 }
 
@@ -163,6 +160,6 @@ window#waybar.hidden {
 	/* box-shadow: inset 0 -3px transparent; */
 	/* Use box-shadow instead of border so the text isn't offset */
 	margin: 10px 3px;
-	color: #ebe0bc;
+	color: @base05;
 	font-size: 18px;
 }

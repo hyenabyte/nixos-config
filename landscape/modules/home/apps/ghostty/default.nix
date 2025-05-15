@@ -20,7 +20,7 @@ in
 
         # initial-command = "zellij -l welcome";
 
-        theme = "muteoki-dark";
+        # theme = "muteoki-dark";
 
         window-padding-x = 20;
         window-padding-y = 20;

@@ -28,9 +28,9 @@ in
           ignore_empty_input = true;
         };
 
-        background = {
-          color = "rgb(09090a)";
-        };
+        # background = {
+        #   color = "rgb(09090a)";
+        # };
 
         input-field = {
           size = "250, 60";
@@ -40,10 +40,10 @@ in
           dots_spacing = 0.35;
           dots_center = true;
 
-          outer_color = "rgba(ebe0bcff)";
-          inner_color = "rgba(09090aff)";
+          # outer_color = "rgba(ebe0bcff)";
+          # inner_color = "rgba(09090aff)";
 
-          font_color = "rgb(ebe0bc)";
+          # font_color = "rgb(ebe0bc)";
           font_family = "Atkinson Hyperlegible";
 
           fade_on_empty = false;
@@ -55,8 +55,8 @@ in
           position = "0, -200";
           halign = "center";
           valign = "center";
-          check_color = "rgb(407467)";
-          fail_color = "rgb(97484f)";
+          # check_color = "rgb(407467)";
+          # fail_color = "rgb(97484f)";
           fail_text = "<b>$ATTEMPTS</b>";
           fail_timeout = 2000;
           fail_transition = 300;

@@ -14,7 +14,7 @@ in
     hyenabyte.system.xkb.enable = true;
     hyenabyte.desktop.addons = {
       wallpapers = enabled;
-      gtk = enabled;
+      # gtk = enabled;
       rofi = {
         enable = true;
         package = pkgs.rofi-wayland;
@@ -114,8 +114,8 @@ in
 
                 border_size = 2;
 
-                "col.active_border" = "rgb(ebe0bc)";
-                "col.inactive_border" = "rgba(595959aa)";
+                # "col.active_border" = "rgb(ebe0bc)";
+                # "col.inactive_border" = "rgba(595959aa)";
 
                 resize_on_border = false;
                 allow_tearing = false;
@@ -181,7 +181,7 @@ in
                 disable_hyprland_logo = true;
                 font_family = "Atkinson Hyperlegible";
                 animate_manual_resizes = true;
-                background_color = "rgb(09090a)";
+                # background_color = "rgb(09090a)";
 
                 # DPMS
                 mouse_move_enables_dpms = true;

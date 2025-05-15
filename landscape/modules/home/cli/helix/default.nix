@@ -32,8 +32,6 @@ in
       defaultEditor = cfg.defaultEditor;
 
       settings = {
-        theme = "muteoki";
-
         editor = {
           shell = [ "zsh" "-c" ];
           cursorline = true;
@@ -125,40 +123,6 @@ in
         ];
         language-server.nix-lsp = {
           command = "nixd";
-        };
-      };
-
-
-      themes = {
-        gruvbox_transparent = {
-          "inherits" = "gruvbox";
-          "ui.background" = { };
-        };
-        everforest_dark_transparent = {
-          "inherits" = "everforest_dark";
-          "ui.background" = { };
-        };
-        muteoki = {
-          "inherits" = "base16_transparent";
-          palette = {
-            # Normal colors
-            black = "0x09090a";
-            red = "0x97484f";
-            green = "0x73794f";
-            yellow = "0xa17a2c";
-            blue = "0x4c7288";
-            magenta = "0xa16a8d";
-            cyan = "0x407467";
-            # gray = "0xbdb193";
-            gray = "0x1c1b1a";
-            light-red = "0xd16469";
-            light-green = "0xa6ae5a";
-            light-yellow = "0xdbb560";
-            light-blue = "0x77afca";
-            light-magenta = "0xc193b0";
-            light-cyan = "0x72afa0";
-            white = "0xebe0bc";
-          };
         };
       };
     };

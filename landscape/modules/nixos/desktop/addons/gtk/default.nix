@@ -35,30 +35,30 @@ in
       cfg.cursor.pkg
     ];
 
-    environment.sessionVariables = mkIf cfg.cursor.enable {
-      XCURSOR_THEME = cfg.cursor.name;
-    };
+    # environment.sessionVariables = mkIf cfg.cursor.enable {
+    #   XCURSOR_THEME = cfg.cursor.name;
+    # };
 
-    hyenabyte.home.extraOptions = {
-      gtk = {
-        enable = true;
+    # hyenabyte.home.extraOptions = {
+    #   gtk = {
+    #     enable = true;
 
-        theme = mkIf cfg.theme.enable {
-          name = cfg.theme.name;
-          package = cfg.theme.pkg;
-        };
+    #     theme = mkIf cfg.theme.enable {
+    #       name = cfg.theme.name;
+    #       package = cfg.theme.pkg;
+    #     };
 
-        cursorTheme = mkIf cfg.cursor.enable {
-          name = cfg.cursor.name;
-          package = cfg.cursor.pkg;
-        };
+    #     cursorTheme = mkIf cfg.cursor.enable {
+    #       name = cfg.cursor.name;
+    #       package = cfg.cursor.pkg;
+    #     };
 
-        iconTheme = mkIf cfg.icon.enable {
-          name = cfg.icon.name;
-          package = cfg.icon.pkg;
-        };
-      };
-    };
+    #     iconTheme = mkIf cfg.icon.enable {
+    #       name = cfg.icon.name;
+    #       package = cfg.icon.pkg;
+    #     };
+    #   };
+    # };
 
     # NOTE: In order to set the cursor theme in GDM we have to specify it in the
     # dconf profile. However, the NixOS module doesn't provide an easy way to do this so the relevant
