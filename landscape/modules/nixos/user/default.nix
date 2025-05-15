@@ -9,6 +9,9 @@
 with lib;
 with lib.${namespace}; let
   cfg = config.${namespace}.user;
+
+  fallbackPasswordHash = "$y$j9T$WTT3f4PsCXRrl7qIbjNrq0$vj7SUfe1j88Q5PbnR802j83bCBMixdjUCsut/YJBcz0";
+
   defaultIconFileName = "profile.png";
   defaultIcon = pkgs.stdenvNoCC.mkDerivation {
     name = "default-icon";
@@ -78,6 +81,7 @@ in
 
         # Get hashed password file from secrets storage
         hashedPasswordFile = lib.mkIf (builtins.hasAttr "hashedUserPassword" config.age.secrets) config.age.secrets.hashedUserPassword.path;
+        hashedPassword = mkUnless (builtins.hasAttr "hashedUserPassword" config.age.secrets) fallbackPasswordHash;
 
         extraGroups =
           [
@@ -103,6 +107,8 @@ in
     };
 
     users.users.root.hashedPasswordFile = lib.mkIf (builtins.hasAttr "hashedUserPassword" config.age.secrets) config.age.secrets.hashedUserPassword.path;
+    users.users.root.hashedPassword = mkUnless (builtins.hasAttr "hashedUserPassword" config.age.secrets) fallbackPasswordHash;
+
     users.mutableUsers = false;
   };
 }
