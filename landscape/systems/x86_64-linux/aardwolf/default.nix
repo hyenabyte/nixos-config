@@ -18,40 +18,43 @@ with lib.${namespace}; {
 
   environment.systemPackages = with pkgs; [
     pkgs."${namespace}".wallpapers
-    # winetricks
-    # wineWowPackages.stable
-    # wine
+    winetricks
+    wineWowPackages.stable
+    wine
   ];
 
   ${namespace} = {
     desktop = {
-      dm.greetd = {
-        enable = true;
-        # Run Hyprland with dbus for nautilus to work properly with samba shares
-        command = "dbus-run-session Hyprland";
-        # enableKwallet = true;
-      };
-      hyprland = enabled;
+      # dm.greetd = {
+      #   enable = true;
+      #   # Run Hyprland with dbus for nautilus to work properly with samba shares
+      #   command = "dbus-run-session Hyprland";
+      #   # enableKwallet = true;
+      # };
       # plasma = enabled;
+      gnome = enabled;
+      dm.gdm = enabled;
+      hyprland = enabled;
     };
 
     apps.steam = enabled;
     suites.common = enabled;
+    suites.server = enabled;
 
     hardware = {
       bluetooth = enabled;
       nvidia = enabled;
       wireless = {
         enable = true;
-        # enableIwd = true;
       };
       audio.pipewire = enabled;
-      # xboxcontroller = enabled;
+      xboxcontroller = enabled;
     };
 
-    # virtualisation = {
-    #   qemu = enabled;
-    # };
+    virtualisation = {
+      # qemu = enabled;
+    };
+
 
     # tools = {
     #   input-remapper = enabled;
@@ -59,13 +62,27 @@ with lib.${namespace}; {
     #   partitionmanager = enabled;
     # };
 
+    services = {
+      tailscale = enabled;
+      # minecraft = enabled;
+    };
+
     security = {
-      agenix.enable = true;
+      agenix = {
+        enable = true;
+        # NOTE: since the ssh key doesn't exist in /home/{user}/.ssh on boot, age has to look for it in the persist folder instead
+        sshKey = "/persist/system/home/hyena/.ssh/id_ed25519";
+      };
       # keyring.kwallet = {
       #   enable = true;
       #   enableGreetd = true;
       #   users = [ "hyena" ];
       # };
+      keyring.gnome-keyring = {
+        enable = true;
+        enableSeahorse = true;
+        # enableGreetd = true;
+      };
     };
 
     system.tty = enabled;
