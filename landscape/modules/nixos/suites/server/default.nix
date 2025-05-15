@@ -6,7 +6,8 @@
 , ...
 }:
 with lib;
-with lib.${namespace}; let
+with lib.${namespace};
+let
   cfg = config.${namespace}.suites.server;
 in
 {
@@ -17,6 +18,7 @@ in
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
       kitty.terminfo
+      ghostty.terminfo
     ];
 
     ${namespace} = {
