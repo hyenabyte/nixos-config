@@ -31,7 +31,6 @@ in
       };
 
       services = {
-        tailscale = enabled;
         printing = enabled;
       };
 
