@@ -22,6 +22,16 @@ with lib.${namespace}; {
     services = {
       samba = enabled;
 
+      tailscale = {
+        enable = true;
+        useRoutingFeatures = "server";
+        isExitNode = true;
+        subnetRouter = {
+          enable = true;
+          advertiseRoutes = [ "192.168.1.0/24" ];
+        };
+      };
+
       # Services
       caddy = enabled;
 
@@ -55,6 +65,19 @@ with lib.${namespace}; {
       # invidious = {
       #   enable = true;
       # };
+    };
+
+    containers = {
+      infrared = enabled;
+      minecraft-servers.raspberry = {
+        enable = true;
+
+        port = "25567";
+        properties = {
+          initMemory = "1G";
+          maxMemory = "6G";
+        };
+      };
     };
 
     security = {
