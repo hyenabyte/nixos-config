@@ -115,7 +115,7 @@ in
             name = "tsx";
             formatter = {
               command = "prettier";
-              args = [ "--stdin-filename" "file.tsx" ];
+              args = [ "--parser" "typescript" ];
             };
             file-types = [ "tsx" ];
             auto-format = true;
