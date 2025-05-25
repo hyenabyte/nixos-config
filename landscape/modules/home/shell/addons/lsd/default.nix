@@ -18,7 +18,8 @@ in
     # lsd replaceses ls
     programs.lsd = {
       enable = true;
-      enableAliases = cfg.enableAliases;
+      # enableAliases = cfg.enableAliases;
+      enableZshIntegration = true;
     };
   };
 }

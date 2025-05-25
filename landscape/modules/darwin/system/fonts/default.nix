@@ -25,13 +25,9 @@ in
           atkinson-hyperlegible
           atkinson-monolegible
 
-          # Deprecated in 25.05
-          (nerdfonts.override { fonts = [ "Agave" "Iosevka" "FiraCode" ]; })
-
-          # Ready in 25.05
-          # nerd-fonts.agave
-          # nerd-fonts.fira-code
-          # nerd-fonts.iosevka
+          nerd-fonts.agave
+          nerd-fonts.fira-code
+          nerd-fonts.iosevka
         ]
         ++ cfg.fonts;
     };
