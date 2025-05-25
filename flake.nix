@@ -35,8 +35,9 @@
 
     # Stylix
     # https://github.com/danth/stylix
-    stylix.url = "github:danth/stylix/release-24.11";
+    stylix.url = "github:danth/stylix/release-25.05";
     stylix.inputs.nixpkgs.follows = "nixpkgs";
+
     # Lix
     # https://lix.systems/ 
     lix.url = "https://git.lix.systems/lix-project/nixos-module/archive/2.93.0.tar.gz";
@@ -129,7 +130,7 @@
         homes.modules = with inputs; [
           agenix.homeManagerModules.default
           impermanence.nixosModules.home-manager.impermanence
-          stylix.homeManagerModules.stylix
+          stylix.homeModules.stylix
         ];
 
         # Deployment nodes

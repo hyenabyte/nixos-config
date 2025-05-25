@@ -30,7 +30,7 @@ in
       serif = config.stylix.fonts.sansSerif;
 
       monospace = {
-        package = (pkgs.nerdfonts.override { fonts = [ "Agave" ]; });
+        package = pkgs.nerd-fonts.agave;
         name = "Agave Nerd Font Mono";
       };
 
