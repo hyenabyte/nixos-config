@@ -51,7 +51,10 @@ with lib.${namespace}; {
 
   };
 
-  # environment.systemPackages = with pkgs; [];
+  environment.systemPackages = with pkgs; [
+    snowfallorg.flake
+  ];
+
   environment.systemPath = [ "/opt/homebrew/bin" ];
 
   system.stateVersion = 4;
