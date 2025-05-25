@@ -1,6 +1,6 @@
 # TODO
 
- - [] Update to 25.05
+ - [x] Update to 25.05
  - [] Fix Doas
  - [] Finish Stylix setup
  - [] Fix deploy lib function
@@ -9,6 +9,7 @@
  - [] Set up possum using disko
  - [] Arr stack
  - [] Look into splitting web services into their own flake
+ - [] Consider refactoring to no longer use snowfall
 
  ## Related to Hyprland
 
