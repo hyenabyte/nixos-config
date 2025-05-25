@@ -7,6 +7,7 @@ with lib;
 with lib.${namespace}; {
   # My Desktop PC
 
+  # Make firefox behave in wayland
   environment.variables.MOZ_ENABLE_WAYLAND = 0;
 
   imports = [

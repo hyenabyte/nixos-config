@@ -8,18 +8,12 @@ with lib.${namespace}; {
   # My Macbook Pro
 
   ${namespace} = {
-
-    # virtualisation = {
-    #   docker = enabled;
-    # };
-
-    services.nix-daemon = enabled;
     services.homebrew = {
       enable = true;
       brews = [ ];
       casks = [
         "firefox"
-        "zen-browser"
+        "zen"
         "beekeeper-studio"
         "protonvpn"
         "tabby"
@@ -48,10 +42,14 @@ with lib.${namespace}; {
       rectangle = enabled;
       # karabiner-elements = enabled;
     };
-
   };
 
-  # environment.systemPackages = with pkgs; [];
+  system.primaryUser = "hyena";
+
+  environment.systemPackages = with pkgs; [
+    snowfallorg.flake
+  ];
+
   environment.systemPath = [ "/opt/homebrew/bin" ];
 
   system.stateVersion = 4;

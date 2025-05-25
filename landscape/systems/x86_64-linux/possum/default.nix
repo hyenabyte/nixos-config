@@ -65,6 +65,8 @@ with lib.${namespace}; {
       # invidious = {
       #   enable = true;
       # };
+
+      redlib = enabled;
     };
 
     containers = {
