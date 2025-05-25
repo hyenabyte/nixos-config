@@ -11,7 +11,7 @@
   # All inputs for the system
   inputs = {
     # Nixpkgs
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
     # Snowfall
@@ -23,7 +23,7 @@
     snowfall-flake.inputs.nixpkgs.follows = "nixpkgs";
 
     # Home Manager
-    home-manager.url = "github:nix-community/home-manager/release-24.11";
+    home-manager.url = "github:nix-community/home-manager/release-25.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     # Impermanence
@@ -35,11 +35,11 @@
 
     # Lix
     # https://lix.systems/ 
-    lix.url = "https://git.lix.systems/lix-project/nixos-module/archive/2.92.0-3.tar.gz";
+    lix.url = "https://git.lix.systems/lix-project/nixos-module/archive/2.93.0.tar.gz";
     lix.inputs.nixpkgs.follows = "nixpkgs";
 
     # Darwin support
-    darwin.url = "github:LnL7/nix-darwin/nix-darwin-24.11";
+    darwin.url = "github:LnL7/nix-darwin/nix-darwin-25.05";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
 
     # Allow Nix installed apps to be launched
@@ -98,9 +98,6 @@
       {
         channels-config = {
           allowUnfree = true;
-          permittedInsecurePackages = [
-            "electron-27.3.11"
-          ];
         };
 
         overlays = with inputs; [

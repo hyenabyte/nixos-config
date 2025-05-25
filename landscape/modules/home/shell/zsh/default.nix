@@ -65,7 +65,7 @@ in
       };
 
       # Extra commands that should be added to .zshrc
-      initExtra = ''
+      initContent = ''
         if [ $(uname) = "Darwin" ]; then
           path=("$HOME/.nix-profile/bin" "/run/wrappers/bin" "/etc/profiles/per-user/$USER/bin" "/nix/var/nix/profiles/default/bin" "/run/current-system/sw/bin" "/opt/homebrew/bin" $path)
           eval "''$(/opt/homebrew/bin/brew shellenv)"
