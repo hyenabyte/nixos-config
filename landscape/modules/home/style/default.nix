@@ -12,17 +12,24 @@ in
 {
   options.${namespace}.style = with types; {
     enable = mkEnableOption "Style";
+    polarity = mkOpt str "dark" "Dark or Light mode";
+    colorScheme = {
+      light = mkOpt str "rose-pine-dawn" "Light mode color scheme";
+      dark = mkOpt str "rose-pine" "Dark mode color scheme";
+    };
   };
 
   config = mkIf cfg.enable {
     stylix.enable = true;
 
-    stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine-dawn.yaml";
-    stylix.image = "${pkgs."${namespace}".wallpapers}/share/wallpapers/eclipse.jpg";
+    # https://tinted-theming.github.io/tinted-gallery/
+    stylix.polarity = cfg.polarity;
 
-    stylix.polarity = "light";
+    # TODO: change color scheme depending on polarity
+    stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/${cfg.colorScheme.dark}.yaml";
+    stylix.image = "${pkgs."${namespace}".wallpapers}/share/wallpapers/ocean.jpg";
+
     stylix.fonts = {
-
       sansSerif = {
         package = pkgs.atkinson-hyperlegible;
         name = "Atkinson Hyperlegible";
@@ -43,7 +50,7 @@ in
     stylix.cursor = {
       package = pkgs.${namespace}.colloid-cursor-theme;
       name = "Colloid-cursors";
-      size = 32;
+      size = 24;
     };
 
     stylix.iconTheme = {
