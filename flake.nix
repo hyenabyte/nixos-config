@@ -35,7 +35,7 @@
 
     # Lix
     # https://lix.systems/ 
-    lix.url = "https://git.lix.systems/lix-project/nixos-module/archive/2.92.0-3.tar.gz";
+    lix.url = "https://git.lix.systems/lix-project/nixos-module/archive/2.93.0.tar.gz";
     lix.inputs.nixpkgs.follows = "nixpkgs";
 
     # Darwin support
@@ -98,9 +98,6 @@
       {
         channels-config = {
           allowUnfree = true;
-          permittedInsecurePackages = [
-            "electron-27.3.11"
-          ];
         };
 
         overlays = with inputs; [
