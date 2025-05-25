@@ -20,11 +20,42 @@ in
       enable = true;
       package = cfg.package;
 
-      # font = "Atkinson Hyperlegible 14";
       location = "center";
 
       terminal = "${pkgs.ghostty}/bin/ghostty";
-      # theme = "${cfg.package}/share/rofi/themes/gruvbox-dark-soft";
+
+      # theme = let inherit (config.lib.formats.rasi) mkLiteral; in {
+      #   "#window" = {
+      #     anchor = mkLiteral "south";
+      #     location = mkLiteral "south";
+      #     width = mkLiteral "100%";
+      #     padding = mkLiteral "4px";
+      #     children = mkLiteral [ "horibox" ];
+      #   };
+
+      #   "#horibox" = {
+      #     orientation = mkLiteral "horizontal";
+      #     children = mkLiteral [ "prompt" "entry" "listview" ];
+      #   };
+
+      #   "#listview" = {
+      #     layout = mkLiteral "horizontal";
+      #     spacing = mkLiteral "5px";
+      #     lines = 100;
+      #   };
+
+      #   "#entry" = {
+      #     expand = false;
+      #     width = mkLiteral "10em";
+      #   };
+
+      #   "#element" = {
+      #     padding = mkLiteral "0px 2px";
+      #   };
+      #   "#element selected" = {
+      #     background-color = mkLiteral "SteelBlue";
+      #   };
+      # };
     };
   };
 }
