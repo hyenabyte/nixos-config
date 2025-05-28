@@ -9,12 +9,14 @@ with lib.${namespace}; let
   cfg = config.${namespace}.desktop.hyprland;
 in
 {
-  options.${namespace}.desktop.hyprland = { enable = mkEnableOption "hyprland"; };
+  options.${namespace}.desktop.hyprland = with types;{
+    enable = mkEnableOption "hyprland";
+    monitor = mkOpt (listOf str) [ ] "The monitor setup for hyprland";
+  };
   config = mkIf cfg.enable {
     hyenabyte.system.xkb.enable = true;
     hyenabyte.desktop.addons = {
-      wallpapers = enabled;
-      # gtk = enabled;
+      bemenu = enabled;
       rofi = {
         enable = true;
         package = pkgs.rofi-wayland;
@@ -24,6 +26,7 @@ in
       hyprlock = enabled;
       hyprpaper = enabled;
       nautilus = enabled;
+      swaync = enabled;
     };
 
     environment.sessionVariables.NIXOS_OZONE_WL = "1";
@@ -33,7 +36,6 @@ in
       hyprsunset
       wl-clipboard
       clipse
-      swaynotificationcenter
       grim
       slurp
       loupe
@@ -52,13 +54,15 @@ in
         wayland.windowManager.hyprland = {
           enable = true;
 
+          xwayland.enable = true;
+
           # plugins = with pkgs.hyprlandPlugins; [
           #   hy3
           # ];
 
           settings =
             let
-              terminal = "${pkgs.ghostty}/bin/ghostty";
+              terminal = "${pkgs.alacritty}/bin/alacritty";
               zellij = "${terminal} --class=com.${namespace}.zellij -e zellij -l welcome";
               fileManager = "${terminal} --class=com.${namespace}.yazi -e yazi";
               fileManager-gui = "nautilus";
@@ -68,8 +72,8 @@ in
               lock = "hyprlock";
               colorPicker = "hyprpicker -a";
               screenshot = "grim -g \"$(slurp)\"";
-
-              signal = "signal-desktop --password-store=kwallet6";
+              swaync-toggle = "swaync-client -t";
+              swaync-dnd = "swaync-client -d";
 
               mainMod = "SUPER";
 
@@ -77,10 +81,7 @@ in
             in
             {
               # Monitor setup
-              monitor = [
-                "desc:LG Electronics LG TV SSCR2 0x01010101, preferred, 0x0, 1"
-                # "desc:LG Electronics LG ULTRAGEAR 209MAQQFWE16, preferred, 0x0, 1"
-                # "desc:AOC Q27P1B GNXJCHA039883, preferred, 2560x-550, 1, transform, 1"
+              monitor = cfg.monitor ++ [
                 "WAYLAND-1, disable"
               ];
 
@@ -102,8 +103,6 @@ in
                 "hyprsunset"
                 # Udiskie - automount USB drives
                 "udiskie"
-                # Signal
-                # "${signal}" # Kwallet doesnt unlock with greetd for some reason :c
               ];
 
               general = {
@@ -113,9 +112,6 @@ in
                 gaps_out = 10;
 
                 border_size = 2;
-
-                # "col.active_border" = "rgb(ebe0bc)";
-                # "col.inactive_border" = "rgba(595959aa)";
 
                 resize_on_border = false;
                 allow_tearing = false;
@@ -181,7 +177,6 @@ in
                 disable_hyprland_logo = true;
                 font_family = "Atkinson Hyperlegible";
                 animate_manual_resizes = true;
-                # background_color = "rgb(09090a)";
 
                 # DPMS
                 mouse_move_enables_dpms = true;
@@ -190,6 +185,11 @@ in
                 # Splash
                 disable_splash_rendering = true;
                 splash_font_family = "Atkinson Hyperlegible";
+              };
+
+              ecosystem = {
+                no_update_news = true;
+                no_donation_nag = true;
               };
 
               input = {
@@ -210,11 +210,11 @@ in
 
               bind = [
                 # General bindings
-                "${mainMod} SHIFT, M, exit"
+                "${mainMod} SHIFT, Z, exit"
                 "${mainMod}, X, exec, ${lock}"
 
                 "${mainMod}, Q, killactive,"
-                # "${mainMod} SHIFT, Q, forcekillactive," # FIXME: dispather missing in current version
+                "${mainMod} SHIFT, Q, forcekillactive,"
 
                 # Apps
                 "${mainMod}, Space, exec, ${launcher}"
@@ -230,7 +230,8 @@ in
                 "${mainMod}, I, exec, ${screenshot}"
                 "${mainMod}, Print, exec, ${screenshot}"
                 "${mainMod}, O, exec, pavucontrol"
-
+                "${mainMod}, M, exec, ${swaync-toggle}"
+                "${mainMod} SHIFT, M, exec, ${swaync-dnd}"
 
                 # Misc window movement
                 "${mainMod}, F, fullscreen,"
@@ -332,8 +333,8 @@ in
                 "size 600 500, title:^(veadotube-mini)"
 
                 # Zen Extension Windows
-                "float, title:^(Extension: ), class:^(zen-beta)$"
-                "size 400 750, title:^(Extension: ), class:^(zen-beta)$"
+                "float, title:^Extension:.*, class:^(zen-beta)$"
+                "size 400 750, title:^Extension:.*, class:^(zen-beta)$"
 
               ];
 

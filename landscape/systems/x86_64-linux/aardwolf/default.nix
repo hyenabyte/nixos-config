@@ -35,7 +35,14 @@ with lib.${namespace}; {
       # plasma = enabled;
       gnome = enabled;
       dm.gdm = enabled;
-      hyprland = enabled;
+      hyprland = {
+        enable = true;
+        monitor = [
+          "desc:LG Electronics LG TV SSCR2 0x01010101, preferred, 0x0, 1"
+          # "desc:LG Electronics LG ULTRAGEAR 209MAQQFWE16, preferred, 0x0, 1"
+          # "desc:AOC Q27P1B GNXJCHA039883, preferred, 2560x-550, 1, transform, 1"
+        ];
+      };
     };
 
     apps.steam = enabled;
