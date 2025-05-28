@@ -140,8 +140,7 @@
             profiles.system = {
               user = "root";
               sshUser = "hyena";
-              interactiveSudo = true;
-              # sudo = "doas -u";
+              sudo = "doas -u";
               path = inputs.deploy-rs.lib.x86_64-linux.activate.nixos inputs.self.nixosConfigurations.possum;
             };
           };
