@@ -16,7 +16,11 @@ with lib.${namespace}; let
       name = "fzf-tab";
       src = pkgs.zsh-fzf-tab.src;
     }
-
+    {
+      name = "vi-mode";
+      src = pkgs.zsh-vi-mode;
+      file = "share/zsh-vi-mode/zsh-vi-mode.plugin.zsh";
+    }
   ];
 in
 {
