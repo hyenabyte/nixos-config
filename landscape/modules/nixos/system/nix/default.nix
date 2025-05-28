@@ -59,7 +59,7 @@ in
           {
             experimental-features = "nix-command flakes";
             http-connections = 50;
-            # warn-dirty = false;
+            warn-dirty = false;
             log-lines = 50;
             # sandbox = "relaxed";
             auto-optimise-store = true;
