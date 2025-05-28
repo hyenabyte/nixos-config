@@ -54,6 +54,10 @@ in
       ];
       files = [
         "/etc/machine-id"
+        "/etc/ssh/ssh_host_rsa_key"
+        "/etc/ssh/ssh_host_rsa_key.pub"
+        "/etc/ssh/ssh_host_ed25519_key"
+        "/etc/ssh/ssh_host_ed25519_key.pub"
         { file = "/var/keys/secret_file"; parentDirectory = { mode = "u=rwx,g=,o="; }; }
       ];
 
@@ -95,12 +99,16 @@ in
 
               # Prism Launcher
               ".local/share/PrismLauncher"
+
+              # Nix cache
+              ".cache/nix"
             ];
             files = [
               # ".screenrc"
               ".cache/zsh_history"
               ".config/mimeapps.list"
               ".config/monitors.xml"
+              ".config/clipse/clipboard_history.json"
             ];
           };
         })
@@ -110,5 +118,10 @@ in
 
     # Allow home manager impermanance to mount its directories
     programs.fuse.userAllowOther = true;
+
+    # Disable sudo lectures on each fresh boot
+    security.sudo.extraConfig = ''
+      Defaults lecture = never
+    '';
   };
 }
