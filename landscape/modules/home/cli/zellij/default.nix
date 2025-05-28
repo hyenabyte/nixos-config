@@ -6,35 +6,6 @@
 with lib;
 with lib.${namespace}; let
   cfg = config.${namespace}.cli.zellij;
-
-  everforest-dark = {
-    bg = "#2d353b";
-    fg = "#d3c6aa";
-
-    black = "#475258";
-    red = "#e67e80";
-    green = "#a7c080";
-    yellow = "#dbbc7f";
-    blue = "#7fbbb3";
-    magenta = "#d699b6";
-    cyan = "#83c092";
-    white = "#d3c6aa";
-    orange = "#e69875";
-  };
-  muteoki-dark = {
-    bg = "#09090a";
-    fg = "#ebe0bc";
-
-    black = "#09090a";
-    red = "#97484f";
-    green = "#73794f";
-    yellow = "#a17a2c";
-    blue = "#4c7288";
-    magenta = "#a16a8d";
-    cyan = "#407467";
-    white = "#bdb193";
-    orange = "#966945";
-  };
 in
 {
   options.${namespace}.cli.zellij = with types; {
@@ -47,18 +18,14 @@ in
       enableZshIntegration = cfg.enableZshIntegration;
 
       settings = {
-
         ui.pane_frames.rounded_corners = true;
 
-
-        # theme = "muteoki-dark";
-
-        themes.everforest-dark = everforest-dark;
-        themes.muteoki-dark = muteoki-dark;
+        show_startup_tips = false;
+        show_release_notes = false;
       };
     };
 
-    programs.zsh.shellAliases = {
+    programs.zsh.shellAliases = mkIf cfg.enableZshIntegration {
       zj = "zellij";
       zjl = "zellij list-sessions";
       zja = "zellij attach";

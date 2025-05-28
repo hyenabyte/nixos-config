@@ -23,21 +23,20 @@ in
           };
 
           font = {
-            normal.family = "Agave Nerd Font Mono";
-            size = 12;
+            # normal.family = "Agave Nerd Font Mono";
+            # size = 12;
           };
 
           cursor.style = {
             # "Block" | "Underline" | "Beam"
             # Default: "Block"
-            shape = "underline";
+            shape = "Underline";
 
             # "Never" | "Off" | "On" | "Always"
             # Default: "Off"
             blinking = "Off";
           };
-        }
-        // builtins.fromTOML (builtins.readFile ./themes/muteoki-dark.toml);
+        };
     };
   };
 }

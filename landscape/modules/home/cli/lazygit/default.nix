@@ -13,6 +13,8 @@ in
     programs.lazygit = {
       enable = true;
       settings = {
+        nerdFontsVersion = "3";
+
         customCommands = [
           {
             # Push to specific repository
