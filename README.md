@@ -59,14 +59,7 @@ See <https://github.com/LnL7/nix-darwin>
 
 ## TODO
 
-- Use disko to declare disk partitions
-- Impermanence
-- Add `nh`
-- Stylix
-- Manage docker/podman containers with oci-containers
-- Validation and deployment pipelines
-- Support for multiple users
-- Separate configs for web server
+[See TODO.md](/TODO.md)
 
 ## Credits
 
