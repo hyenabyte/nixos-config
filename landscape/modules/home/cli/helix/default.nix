@@ -13,22 +13,36 @@ in
     enable = mkEnableOption "Enable Helix";
     defaultEditor = mkBoolOpt false "Set Helix as default editor ($EDITOR)";
     extraPackages = mkPackageListOption [ ] "Extra packages to install with Helix";
+    evil = mkEnableOption "Enable Evil Mode (evil-helix)";
   };
   config = mkIf cfg.enable {
 
-    # Install various language servers
-    home.packages = with pkgs; [
-      # CSS, eslint, HTML, JSON, markdown
-      vscode-langservers-extracted
-      # ts, tsx
-      typescript-language-server
-      # Nix
-      nixd
-      nixpkgs-fmt
-    ] ++ cfg.extraPackages;
+    # home.packages = with pkgs; [
+    #   # CSS, eslint, HTML, JSON, markdown
+    #   vscode-langservers-extracted
+    #   # ts, tsx
+    #   typescript-language-server
+    #   # Nix
+    #   nixd
+    #   nixpkgs-fmt
+    # ] ++ cfg.extraPackages;
 
     programs.helix = {
       enable = true;
+
+      package = mkIf cfg.evil pkgs.evil-helix;
+
+      # Install various language servers
+      extraPackages = with pkgs; [
+        # CSS, eslint, HTML, JSON, markdown
+        vscode-langservers-extracted
+        # ts, tsx
+        typescript-language-server
+        # Nix
+        nixd
+        nixpkgs-fmt
+      ] ++ cfg.extraPackages;
+
       defaultEditor = cfg.defaultEditor;
 
       settings = {
@@ -80,6 +94,19 @@ in
           "C-k" = "page_cursor_half_up";
           "C-h" = "page_down";
           "C-l" = "page_up";
+
+          "½" = "switch_to_lowercase";
+          "A-½" = "switch_to_uppercase";
+          "§" = "switch_case";
+
+          # Append semicolon to end of string
+          # https://github.com/helix-editor/helix/discussions/9118#discussioncomment-10127457
+          "C-," = [
+            "goto_line_end"
+            ":append-output echo \";\""
+            "collapse_selection"
+            "keep_primary_selection"
+          ];
         };
 
         # Yazelix setup WIP
@@ -87,7 +114,7 @@ in
           # ret = "@:insert-output nu ~/.config/helix/yazi.nu start <C-r>%<ret>\"\"d:open <C-r>\"<ret>";
         };
 
-        # Lazygit integration
+        # Space space mode
         keys.normal.space.space = {
           g = ":sh zellij run -i -c -n lazygit -- lazygit";
           f = ":sh zellij run -i -c -n yazi -- yazi";
