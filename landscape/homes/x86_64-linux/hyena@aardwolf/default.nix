@@ -52,7 +52,7 @@ with lib.${namespace}; {
     # vscode
     # pulsar
     # vscodium
-    # slumber
+    slumber
     # openapi-tui
 
     # Utilities
@@ -66,6 +66,7 @@ with lib.${namespace}; {
     # podman-desktop
     # superfile
     # scope-tui
+    # ventoy
   ];
 
   hyenabyte = {
@@ -88,13 +89,13 @@ with lib.${namespace}; {
     shell.zsh = enabled;
 
     apps = {
-      # alacritty = enabled;
+      alacritty = enabled;
       aseprite = enabled;
       discord = enabled;
       # firefox = disabled;
       # librewolf = enabled;
       ghostty = enabled;
-      # logseq = enabled;
+      logseq = enabled;
       # obs-studio = enabled;
       vesktop = enabled;
       # thunderbird = enabled;
@@ -104,9 +105,12 @@ with lib.${namespace}; {
 
     cli = {
       bottom = enabled;
+      clipse = enabled;
+      gitui = enabled;
       helix = {
         enable = true;
         defaultEditor = true;
+        # evil = true;
       };
       home-manager = enabled;
       hyfetch = enabled;
