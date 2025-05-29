@@ -69,22 +69,32 @@ in
       };
 
       # Extra commands that should be added to .zshrc
-      initContent = ''
-        if [ $(uname) = "Darwin" ]; then
-          path=("$HOME/.nix-profile/bin" "/run/wrappers/bin" "/etc/profiles/per-user/$USER/bin" "/nix/var/nix/profiles/default/bin" "/run/current-system/sw/bin" "/opt/homebrew/bin" $path)
-          eval "''$(/opt/homebrew/bin/brew shellenv)"
-        fi
+      initContent =
+        let
+          earlyConf = lib.mkOrder 500 ''
+            # Fixes fzf completions not working with zsh-vi-mode
+            ZVM_INIT_MODE=sourcing
+          '';
 
-        # Keybinds
-        bindkey '^ ' autosuggest-accept
+          conf = lib.mkOrder 1000
+            ''
+              if [ $(uname) = "Darwin" ]; then
+                path=("$HOME/.nix-profile/bin" "/run/wrappers/bin" "/etc/profiles/per-user/$USER/bin" "/nix/var/nix/profiles/default/bin" "/run/current-system/sw/bin" "/opt/homebrew/bin" $path)
+                eval "''$(/opt/homebrew/bin/brew shellenv)"
+              fi
 
-        # Completion styles
-        zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
-        zstyle ':completion:*' list-colors "''${(s.:.)LS_COLORS}"
-        zstyle ':completion:*' menu no
-        zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
-        zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
-      '';
+              # Keybinds
+              bindkey '^ ' autosuggest-accept
+
+              # Completion styles
+              zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+              zstyle ':completion:*' list-colors "''${(s.:.)LS_COLORS}"
+              zstyle ':completion:*' menu no
+              zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
+              zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
+            '';
+        in
+        lib.mkMerge [ earlyConf conf ];
 
       # Set some aliases
       shellAliases = {
