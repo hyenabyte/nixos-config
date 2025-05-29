@@ -131,6 +131,7 @@
           agenix.homeManagerModules.default
           impermanence.nixosModules.home-manager.impermanence
           stylix.homeModules.stylix
+          zen-browser.homeModules.beta
         ];
 
         # Deployment nodes
