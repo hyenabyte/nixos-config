@@ -21,10 +21,10 @@ in
       enable = true;
 
       settings = {
-        right_format = "$git_branch$git_state$git_status$shell$nix_shell";
+        right_format = "$git_branch$git_state$git_status$direnv$nix_shell";
 
         # format = "$username$hostname$directory$character$cmd_duration[](red)[](yellow)[](green) ";
-        format = "$username$hostname$directory$character$cmd_duration[>](red)[>](yellow)[>](green) ";
+        format = "$username$hostname$directory$shell$character$cmd_duration[>](red)[>](yellow)[>](green) ";
 
         # $line_break\
 
@@ -62,12 +62,12 @@ in
         };
 
         shell = {
-          # disabled = false;
-          format = "[$indicator]($style) ";
+          disabled = false;
+          format = "[$indicator]($style)";
           style = "cyan";
-          zsh_indicator = "zsh";
-          fish_indicator = "󰈺";
-          powershell_indicator = ">_";
+          zsh_indicator = "";
+          fish_indicator = "󰈺 ";
+          powershell_indicator = ">_ ";
         };
 
         git_branch = {
@@ -101,6 +101,18 @@ in
         nix_shell = {
           format = "[$symbol $state]($style)";
           symbol = "";
+        };
+
+        direnv = {
+          disabled = false;
+          format = "[$loaded]($style) ";
+          symbol = "direnv ";
+          style = "bold orange";
+          allowed_msg = ""; # 󱥿
+          not_allowed_msg = ""; # 󰮞
+          denied_msg = ""; # 󰮞
+          loaded_msg = "󰉋";
+          unloaded_msg = "󱞞";
         };
       };
     };
