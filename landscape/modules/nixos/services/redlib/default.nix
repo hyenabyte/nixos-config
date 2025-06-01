@@ -21,6 +21,13 @@ in
       enable = true;
 
       port = cfg.port;
+
+      settings = {
+        THEME = "gruvboxdark";
+        FRONT_PAGE = "default";
+        LAYOUT = "card";
+        WIDE = "off";
+      };
     };
     services.caddy = mkIf cfg.enableCaddyIntegration {
       virtualHosts.${cfg.domain}.extraConfig = ''
