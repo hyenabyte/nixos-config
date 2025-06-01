@@ -117,14 +117,12 @@
           nix-minecraft.nixosModules.minecraft-servers
           disko.nixosModules.default
           impermanence.nixosModules.impermanence
-          # stylix.nixosModules.stylix
         ];
 
         systems.modules.darwin = with inputs; [
           mac-app-util.darwinModules.default
           home-manager.darwinModules.home-manager
           agenix.darwinModules.default
-          stylix.darwinModules.stylix
         ];
 
         homes.modules = with inputs; [
