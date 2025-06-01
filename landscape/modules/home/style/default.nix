@@ -15,7 +15,7 @@ in
     polarity = mkOpt str "dark" "Dark or Light mode";
     colorScheme = {
       light = mkOpt str "rose-pine-dawn" "Light mode color scheme";
-      dark = mkOpt str "rose-pine" "Dark mode color scheme";
+      dark = mkOpt str "everforest" "Dark mode color scheme";
       isTintedGalleryTheme = mkOpt bool true "Get color scheme from tinted gallery";
     };
   };
@@ -76,5 +76,8 @@ in
         enable = false;
         fontSize = 16;
       };
+
+      # The dynamically created theme is not updated yet
+      stylix.targets.helix.enable = false;
     };
 }

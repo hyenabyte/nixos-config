@@ -16,17 +16,6 @@ in
     evil = mkEnableOption "Enable Evil Mode (evil-helix)";
   };
   config = mkIf cfg.enable {
-
-    # home.packages = with pkgs; [
-    #   # CSS, eslint, HTML, JSON, markdown
-    #   vscode-langservers-extracted
-    #   # ts, tsx
-    #   typescript-language-server
-    #   # Nix
-    #   nixd
-    #   nixpkgs-fmt
-    # ] ++ cfg.extraPackages;
-
     programs.helix = {
       enable = true;
 
@@ -41,11 +30,14 @@ in
         # Nix
         nixd
         nixpkgs-fmt
+        # Nickel
+        nls
       ] ++ cfg.extraPackages;
 
       defaultEditor = cfg.defaultEditor;
 
       settings = {
+        theme = "everforest_dark";
         editor = {
           shell = [ "zsh" "-c" ];
           cursorline = true;
