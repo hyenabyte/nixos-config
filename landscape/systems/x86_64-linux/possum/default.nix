@@ -62,11 +62,70 @@ with lib.${namespace}; {
         port = 8000;
       };
 
-      # invidious = {
-      #   enable = true;
-      # };
+      invidious = {
+        enable = true;
+      };
 
       redlib = enabled;
+
+      homepage-dashboard = {
+        enable = true;
+        services = [
+          {
+            # Groups
+            "Services" = [
+              {
+                # Services
+                "Uptime Kuma" = {
+                  description = "Services uptime monitor";
+                  href = "https://uptime.hyenabyte.dev";
+                  icon = "si-uptimekuma-#5CDD8B";
+                };
+              }
+              {
+                "Jellyfin" = {
+                  description = "Media server";
+                  href = "https://jelly.hyenabyte.dev";
+                  icon = "si-jellyfin-#00A4DC";
+                };
+              }
+              {
+                "Immich" = {
+                  description = "Image server";
+                  href = "https://img.hyenabyte.dev";
+                  icon = "si-immich-#4250AF";
+                };
+
+              }
+              {
+                "Paperless NGX" = {
+                  description = "Document server";
+                  href = "https://documents.hyenabyte.dev";
+                  icon = "si-paperless-ngx-#17541F";
+                };
+              }
+              {
+                "Redlib" = {
+                  description = "Reddit";
+                  href = "http://possum:5560";
+                  icon = "sh-redlib";
+                };
+              }
+            ];
+          }
+        ];
+        settings = {
+          title = "Possum Homlab";
+          layout = {
+            "Services" = {
+              style = "row";
+              columns = 4;
+            };
+          };
+        };
+      };
+
+      # hydra = enabled;
     };
 
     containers = {
