@@ -36,6 +36,8 @@ with lib.${namespace}; {
       direnv = enabled;
       git = enabled;
     };
+
+    # style = enabled;
   };
 
   home.packages = with pkgs; [
@@ -43,7 +45,7 @@ with lib.${namespace}; {
     # slack
     # bruno
     # vlc-bin
-    imagemagick
+    # imagemagick
   ];
 
   home.sessionPath = [ "$HOME/bin" ];
