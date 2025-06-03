@@ -87,7 +87,7 @@
     helix.inputs.nixpkgs.follows = "nixpkgs";
 
     # Private secrets
-    secrets.url = "git+ssh://git@github.com/hyenabyte/nixos-secrets.git?ref=main";
+    secrets.url = "git+ssh://git@codeberg.org/hyenabyte/secrets.git?ref=main";
     secrets.flake = false;
   };
 
