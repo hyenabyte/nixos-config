@@ -11,7 +11,7 @@ in
 {
   options.${namespace}.apps.rectangle = { enable = mkEnableOption "Rectangle"; };
   config = mkIf cfg.enable {
-    environment.systemPackages= with pkgs; [
+    environment.systemPackages = with pkgs; [
       rectangle
     ];
   };
