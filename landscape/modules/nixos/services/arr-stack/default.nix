@@ -37,7 +37,7 @@ in
     };
 
     # Jellyseerr
-    services.jellyseer = {
+    services.jellyseerr = {
       enable = true;
     };
   };
