@@ -38,12 +38,13 @@ in
       clipse
       grim
       slurp
-      loupe
       pavucontrol
       feh
       hyprshot
       udiskie
       impala
+      bluetui
+      wiremix
     ];
 
     programs.hyprland.enable = true;
@@ -68,6 +69,8 @@ in
               fileManager-gui = "nautilus";
               browser = "zen-beta";
               clipse = "${terminal} --class=com.${namespace}.clipse -e clipse";
+              wiremix = "${terminal} --class=com.${namespace}.wiremix -e wiremix";
+              bluetui = "${terminal} --class=com.${namespace}.bluetui -e bluetui";
               launcher = "rofi -show drun";
               lock = "hyprlock";
               colorPicker = "hyprpicker -a";
@@ -221,7 +224,7 @@ in
                 "${mainMod}, D, exec, ${launcher}"
                 "${mainMod}, E, exec, ${fileManager}"
                 "${mainMod} SHIFT, E, exec, ${fileManager-gui}"
-                "${mainMod}, U, exec, '${colorPicker}',"
+                "${mainMod}, U, exec, ${colorPicker}"
                 "${mainMod}, T, exec, ${terminal}"
                 "${mainMod}, Return, exec, ${zellij}"
                 "${mainMod} SHIFT, Return, exec, ${terminal}"
@@ -229,7 +232,9 @@ in
                 "${mainMod}, W, exec, ${browser}"
                 "${mainMod}, I, exec, ${screenshot}"
                 "${mainMod}, Print, exec, ${screenshot}"
-                "${mainMod}, O, exec, pavucontrol"
+                "${mainMod}, O, exec, ${wiremix}"
+                "${mainMod} SHIFT, O, exec, pavucontrol"
+                "${mainMod} SHIFT, B, exec, ${bluetui}"
                 "${mainMod}, M, exec, ${swaync-toggle}"
                 "${mainMod} SHIFT, M, exec, ${swaync-dnd}"
 
@@ -319,6 +324,16 @@ in
                 "float, class:(com.${namespace}.clipse)"
                 "size 750 500, class:(com.${namespace}.clipse)"
                 "stayfocused, class:(com.${namespace}.clipse)"
+
+                # Float wiremix
+                "float, class:(com.${namespace}.wiremix)"
+                "size 750 500, class:(com.${namespace}.wiremix)"
+                "stayfocused, class:(com.${namespace}.wiremix)"
+
+                # Float bluetui
+                "float, class:(com.${namespace}.bluetui)"
+                "size 750 500, class:(com.${namespace}.bluetui)"
+                "stayfocused, class:(com.${namespace}.bluetui)"
 
                 # Float Picture-in-Picture windows
                 "float, title:^(Picture-in-Picture)$"
