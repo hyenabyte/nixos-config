@@ -81,6 +81,11 @@
     wiremix.url = "github:tsowell/wiremix";
     wiremix.inputs.nixpkgs.follows = "nixpkgs";
 
+    # Helix bleeding edge
+    # https://github.com/helix-editor/helix
+    helix.url = "github:helix-editor/helix";
+    helix.inputs.nixpkgs.follows = "nixpkgs";
+
     # Private secrets
     secrets.url = "git+ssh://git@github.com/hyenabyte/nixos-secrets.git?ref=main";
     secrets.flake = false;
@@ -114,6 +119,7 @@
           snowfall-flake.overlays.default
           nix-minecraft.overlay
           lix.overlays.default
+          helix.overlays.default
         ];
 
         systems.modules.nixos = with inputs; [

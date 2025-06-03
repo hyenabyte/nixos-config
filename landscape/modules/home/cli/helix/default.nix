@@ -36,14 +36,34 @@ in
 
       defaultEditor = cfg.defaultEditor;
 
+      themes = {
+        gruvbox-material-transparent = {
+          inherits = "gruvbox-material";
+          "ui.background" = { };
+        };
+      };
+
       settings = {
-        theme = "everforest_dark";
+        theme = "gruvbox-material-transparent";
         editor = {
           shell = [ "zsh" "-c" ];
           cursorline = true;
           color-modes = true;
           auto-format = true;
-          lsp.display-inlay-hints = true;
+
+          continue-comments = false;
+
+
+          lsp = {
+            display-inlay-hints = true;
+            display-progress-messages = true;
+          };
+
+          soft-wrap.enable = true;
+
+          # error, warning, info, hint
+          end-of-line-diagnostics = "hint";
+          inline-diagnostics.cursor-line = "warning";
 
           cursor-shape = {
             insert = "bar";
@@ -56,15 +76,9 @@ in
           whitespace.render = {
             space = "all";
             tab = "all";
+            nbsp = "all";
+            nnbsp = "all";
             newline = "none";
-          };
-
-          whitespace.characters = {
-            space = "·";
-            nbsp = "⍽";
-            tab = "→";
-            newline = "⏎";
-            tabpad = "·";
           };
         };
 
@@ -87,9 +101,9 @@ in
           "C-h" = "page_down";
           "C-l" = "page_up";
 
-          "½" = "switch_to_lowercase";
+          "½" = "switch_case";
           "A-½" = "switch_to_uppercase";
-          "§" = "switch_case";
+          "§" = "switch_to_lowercase";
 
           # Append semicolon to end of string
           # https://github.com/helix-editor/helix/discussions/9118#discussioncomment-10127457
@@ -101,15 +115,11 @@ in
           ];
         };
 
-        # Yazelix setup WIP
-        keys.normal.space = {
-          # ret = "@:insert-output nu ~/.config/helix/yazi.nu start <C-r>%<ret>\"\"d:open <C-r>\"<ret>";
-        };
-
         # Space space mode
         keys.normal.space.space = {
           g = ":sh zellij run -i -c -n lazygit -- lazygit";
           f = ":sh zellij run -i -c -n yazi -- yazi";
+          b = ":sh git log -n 5 --format='format:%%h (%%an: %%ar) %%s' --no-patch -L%{cursor_line},+1:%{buffer_name}";
         };
       };
 
