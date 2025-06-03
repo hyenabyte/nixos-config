@@ -76,6 +76,11 @@
     deploy-rs.url = "github:serokell/deploy-rs";
     deploy-rs.inputs.nixpkgs.follows = "nixpkgs";
 
+    # Wiremix
+    # https://github.com/tsowell/wiremix
+    wiremix.url = "github:tsowell/wiremix";
+    wiremix.inputs.nixpkgs.follows = "nixpkgs";
+
     # Private secrets
     secrets.url = "git+ssh://git@github.com/hyenabyte/nixos-secrets.git?ref=main";
     secrets.flake = false;
