@@ -102,6 +102,9 @@ in
 
               # Nix cache
               ".cache/nix"
+
+              # Audio
+              ".local/state/wireplumber"
             ];
             files = [
               # ".screenrc"
@@ -109,6 +112,7 @@ in
               ".config/mimeapps.list"
               ".config/monitors.xml"
               ".config/clipse/clipboard_history.json"
+              ".local/share/nix/trusted-settings.json"
             ];
           };
         })
