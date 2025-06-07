@@ -1,5 +1,6 @@
 { lib
 , config
+, pkgs
 , namespace
 , ...
 }:
@@ -14,6 +15,9 @@ in
   };
 
   config = mkIf cfg.enable {
+    home.packages = with pkgs; [
+      wl-clipboard
+    ];
     services.clipse = {
       enable = true;
     };
