@@ -54,26 +54,13 @@ with lib.${namespace}; {
       nvidia = enabled;
       wireless = {
         enable = true;
+        enableIwd = true;
       };
       audio.pipewire = enabled;
       xboxcontroller = enabled;
     };
 
-    virtualisation = {
-      # qemu = enabled;
-    };
-
-
-    # tools = {
-    #   input-remapper = enabled;
-    #   mullvad = enabled;
-    #   partitionmanager = enabled;
-    # };
-
-    services = {
-      tailscale = enabled;
-      # minecraft = enabled;
-    };
+    services.tailscale = enabled;
 
     security = {
       agenix = {
