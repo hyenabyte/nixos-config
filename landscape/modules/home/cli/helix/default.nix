@@ -82,20 +82,10 @@ in
           };
         };
 
-        # Disable movement keys in insert mode
-        keys.insert = {
-          up = "no_op";
-          down = "no_op";
-          left = "no_op";
-          right = "no_op";
-          pageup = "no_op";
-          pagedown = "no_op";
-          home = "no_op";
-          end = "no_op";
-        };
 
-        # Use Ctrl+h/j/k/l to move faster
+        # Normal mode
         keys.normal = {
+          # Use Ctrl+h/j/k/l to move faster
           "C-j" = "page_cursor_half_down";
           "C-k" = "page_cursor_half_up";
           "C-h" = "page_down";
@@ -113,10 +103,78 @@ in
             "collapse_selection"
             "keep_primary_selection"
           ];
+
+          # Move line
+          "A-j" = [
+            "ensure_selections_forward"
+            "extend_to_line_bounds"
+            "extend_char_right"
+            "extend_char_left"
+            # "select_register"
+            "delete_selection"
+            "add_newline_below"
+            "move_line_down"
+            "replace_with_yanked"
+          ];
+          "A-k" = [
+            "ensure_selections_forward"
+            "extend_to_line_bounds"
+            "extend_char_right"
+            "extend_char_left"
+            "delete_selection"
+            "move_line_up"
+            "add_newline_above"
+            "move_line_up"
+            "replace_with_yanked"
+          ];
+        };
+
+        # Insert mode
+        keys.insert = {
+          # Disable movement keys in insert mode
+          up = "no_op";
+          down = "no_op";
+          left = "no_op";
+          right = "no_op";
+          pageup = "no_op";
+          pagedown = "no_op";
+          home = "no_op";
+          end = "no_op";
+
+        };
+
+        # Select mode
+        keys.select = {
+          # Move line
+          "A-j" = [
+            "ensure_selections_forward"
+            "extend_to_line_bounds"
+            "extend_char_right"
+            "extend_char_left"
+            "delete_selection"
+            "add_newline_below"
+            "move_line_down"
+            "replace_with_yanked"
+            "select_mode"
+          ];
+          "A-k" = [
+            "ensure_selections_forward"
+            "extend_to_line_bounds"
+            "extend_char_right"
+            "extend_char_left"
+            "delete_selection"
+            "move_line_up"
+            "add_newline_above"
+            "move_line_up"
+            "replace_with_yanked"
+            "select_mode"
+          ];
         };
 
         # Space space mode
         keys.normal.space.space = {
+          r = ":config-reload";
+          w = ":lsp-workspace-command";
           g = ":sh zellij run -i -c -n lazygit -- lazygit";
           f = ":sh zellij run -i -c -n yazi -- yazi";
           b = ":sh git log -n 5 --format='format:%%h (%%an: %%ar) %%s' --no-patch -L%{cursor_line},+1:%{buffer_name}";
