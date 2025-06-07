@@ -16,7 +16,6 @@ in
   config = mkIf cfg.enable {
     hyenabyte.system.xkb.enable = true;
     hyenabyte.desktop.addons = {
-      bemenu = enabled;
       rofi = {
         enable = true;
         package = pkgs.rofi-wayland;
@@ -31,20 +30,36 @@ in
 
     environment.sessionVariables.NIXOS_OZONE_WL = "1";
     environment.defaultPackages = with pkgs; [
+      # Hyprland specific
       hyprpolkitagent
       hyprpicker
       hyprsunset
-      wl-clipboard
-      clipse
+      hyprshot
+
+      # Images
+      feh
+
+      # Clipboard
+      # wl-clipboard
+      # clipse
+
+      # Screenshot
       grim
       slurp
+
+      # Audio
       pavucontrol
-      feh
-      hyprshot
-      udiskie
-      impala
-      bluetui
       wiremix
+
+      # Wifi
+      impala
+
+      # BLuetooth
+      bluetui
+
+      # Utility
+      udiskie
+      lm_sensors
     ];
 
     programs.hyprland.enable = true;
@@ -274,8 +289,8 @@ in
 
 
                 # Scroll through workspaces
-                # "${mainMod}, mouse_down, workspace, e+1"
-                # "${mainMod}, mouse_up, workspace, e-1"
+                "${mainMod}, mouse_down, workspace, e+1"
+                "${mainMod}, mouse_up, workspace, e-1"
 
               ] ++ (
                 # workspaces
@@ -312,46 +327,49 @@ in
                 " , XF86AudioPrev, exec, playerctl previous"
               ];
 
-              windowrulev2 = [
-                "suppressevent maximize, class:.*"
-                "nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0"
+              windowrulev2 =
+                let
+                  floatingWindows = [
+                    "clipse"
+                    "wiremix"
+                    "bluetui"
+                    "impala"
+                  ];
 
-                # Float pavucontrol
-                "float, class:^(org.pulseaudio.pavucontrol)$"
-                "size 750 500, class:^(org.pulseaudio.pavucontrol)$"
+                  floatingWindowsMapped = builtins.concatLists (builtins.map
+                    (app: [
+                      "float, class:(com.${namespace}.${app})"
+                      "size 750 500, class:(com.${namespace}.${app})"
+                      "stayfocused, class:(com.${namespace}.${app})"
+                    ])
+                    floatingWindows);
 
-                # Float clipse
-                "float, class:(com.${namespace}.clipse)"
-                "size 750 500, class:(com.${namespace}.clipse)"
-                "stayfocused, class:(com.${namespace}.clipse)"
+                in
+                [
+                  "suppressevent maximize, class:.*"
+                  "nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0"
 
-                # Float wiremix
-                "float, class:(com.${namespace}.wiremix)"
-                "size 750 500, class:(com.${namespace}.wiremix)"
-                "stayfocused, class:(com.${namespace}.wiremix)"
+                  # Float pavucontrol
+                  "float, class:^(org.pulseaudio.pavucontrol)$"
+                  "size 750 500, class:^(org.pulseaudio.pavucontrol)$"
 
-                # Float bluetui
-                "float, class:(com.${namespace}.bluetui)"
-                "size 750 500, class:(com.${namespace}.bluetui)"
-                "stayfocused, class:(com.${namespace}.bluetui)"
+                  # Float Picture-in-Picture windows
+                  "float, title:^(Picture-in-Picture)$"
+                  "size 750 500, title:^(Picture-in-Picture)"
 
-                # Float Picture-in-Picture windows
-                "float, title:^(Picture-in-Picture)$"
-                "size 750 500, title:^(Picture-in-Picture)"
+                  # Steam
+                  "float, title:^(Friends List)$"
+                  "size 400 750, title:^(Friends List)"
 
-                # Steam
-                "float, title:^(Friends List)$"
-                "size 400 750, title:^(Friends List)"
+                  # Veadotube
+                  "float, title:^(veadotube-mini)$"
+                  "size 600 500, title:^(veadotube-mini)"
 
-                # Veadotube
-                "float, title:^(veadotube-mini)$"
-                "size 600 500, title:^(veadotube-mini)"
+                  # Zen Extension Windows
+                  "float, title:^Extension:.*, class:^(zen-beta)$"
+                  "size 400 750, title:^Extension:.*, class:^(zen-beta)$"
 
-                # Zen Extension Windows
-                "float, title:^Extension:.*, class:^(zen-beta)$"
-                "size 400 750, title:^Extension:.*, class:^(zen-beta)$"
-
-              ];
+                ] ++ floatingWindowsMapped;
 
               workspace = [
                 "1, monitor:desc:LG Electronics LG ULTRAGEAR 209MAQQFWE16, default:true"
