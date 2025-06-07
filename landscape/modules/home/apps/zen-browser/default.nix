@@ -67,7 +67,7 @@ in
         search = {
           force = true;
           default = "ddg";
-          order = [ "ddg" "googel" ];
+          order = [ "ddg" "google" ];
           engines = {
             "Nix Packages" = {
               urls = [
@@ -113,13 +113,13 @@ in
               definedAliases = [ "@ghu" ];
             };
             "ProtonDB" = {
-              urls = [{ template = "https://www.protondb.com/search?q=%s"; }];
+              urls = [{ template = "https://www.protondb.com/search?q={searchTerms}"; }];
               icon = "https://www.protondb.com/sites/protondb/images/favicon.ico";
               updateInterval = 24 * 60 * 60 * 1000; # every day
               definedAliases = [ "@proton" ];
             };
             "Alternativeto" = {
-              urls = [{ template = "https://alternativeto.net/browse/search?q=%s"; }];
+              urls = [{ template = "https://alternativeto.net/browse/search?q={searchTerms}"; }];
               icon = "https://alternativeto.net/static/logo.svg";
               updateInterval = 24 * 60 * 60 * 1000; # every day
               definedAliases = [ "@alternativeto" ];
