@@ -37,6 +37,8 @@ in
           nerd-fonts.agave
           nerd-fonts.fira-code
           nerd-fonts.iosevka
+
+          maple-mono.NF
         ]
         ++ cfg.fonts;
 
