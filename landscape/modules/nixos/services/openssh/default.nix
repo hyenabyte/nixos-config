@@ -15,13 +15,12 @@ in
 
       settings = {
         PermitRootLogin = "no";
-        # PasswordAuthentication = false;
+        PasswordAuthentication = false;
+        KbdInteractiveAuthentication = false;
+        AllowUsers = [ "hyena" ];
       };
 
       ports = [ 22 ];
     };
-
-    # TODO get keys
-    # ${namespace}.user.extraOptions.openssh.authorizedKeys.keys =
   };
 }
