@@ -23,6 +23,7 @@ with lib.${namespace}; {
       };
       home-manager = enabled;
       hyfetch = enabled;
+      yazi = enabled;
       zellij = enabled;
     };
 
