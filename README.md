@@ -8,6 +8,7 @@ Work in progress :)
 
 | Hostname      | OS     | System         | Description                      |
 | ------------- | ------ | -------------- | -------------------------------- |
+| culpeo        | NixOS  | x86_64-linux   | My Work Laptop                   |
 | sabertooth    | MacOS  | aarch64-darwin | My Macbook Pro                   |
 | aardwolf      | NixOS  | x86_64-linux   | My Desktop PC                    |
 | ferret        | NixOS  | x86_64-linux   | My aya neo, currently not in use |
