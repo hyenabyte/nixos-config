@@ -14,7 +14,7 @@ with lib.${namespace}; {
     # slack
 
     # Security
-    bitwarden
+    # bitwarden
     # protonvpn-gui
     # veracrypt
     # picocrypt
@@ -80,25 +80,15 @@ with lib.${namespace}; {
     };
 
     style = enabled;
-
-    # impermanence = {
-    #   enable = true;
-    #   user = "hyena";
-    # };
-
     shell.zsh = enabled;
 
     apps = {
       alacritty = enabled;
-      # aseprite = enabled;
-      # discord = enabled;
-      # firefox = disabled;
-      # librewolf = enabled;
       ghostty = enabled;
+      librewolf = enabled;
       # logseq = enabled;
-      # obs-studio = enabled;
-      # vesktop = enabled;
       # thunderbird = enabled;
+      # vesktop = enabled;
       # zed = enabled;
       zen-browser = enabled;
     };
@@ -106,23 +96,26 @@ with lib.${namespace}; {
     cli = {
       bottom = enabled;
       clipse = enabled;
+      fastfetch = enabled;
       gitui = enabled;
       helix = {
         enable = true;
         defaultEditor = true;
-        # evil = true;
       };
       home-manager = enabled;
       hyfetch = enabled;
-      fastfetch = enabled;
+      lazygit = enabled;
       yazi = enabled;
       zellij = enabled;
-      lazygit = enabled;
     };
 
     tools = {
       direnv = enabled;
-      git = enabled;
+      git = {
+        enable = true;
+        # userName = "David Koch Gregersen";
+        # userEmail = ""; # TODO work email goes here
+      };
     };
   };
 }
