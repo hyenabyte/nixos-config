@@ -12,9 +12,8 @@ with lib.${namespace}; {
 
   imports = [
     # System hardware configuration
-    # TODO: Enable hardware
-    # ./hardware-configuration.nix
-    # (import ./disks/boot.nix { device = "/dev/nvme0n1"; })
+    ./hardware-configuration.nix
+    (import ./disks/boot.nix { device = "/dev/nvme0n1"; })
   ];
 
   environment.systemPackages = [
@@ -60,10 +59,9 @@ with lib.${namespace}; {
     };
 
     system.tty = enabled;
-    system.boot.impermanence = enabled;
+    # system.boot.impermanence = enabled;
   };
 
-  # TODO: set correct version on setup
   # ! DO NOT CHANGE !
   system.stateVersion = "25.05";
 }
