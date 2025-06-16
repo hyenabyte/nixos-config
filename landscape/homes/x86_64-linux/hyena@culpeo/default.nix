@@ -6,7 +6,7 @@
 with lib.${namespace}; {
   home.packages = with pkgs; [
     # Browser
-    # vivaldi
+    vivaldi
 
     # Social
     # signal-desktop
@@ -75,8 +75,8 @@ with lib.${namespace}; {
       enable = true;
 
       name = "hyena";
-      fullName = "hyena";
-      email = "hyena@hyenabyte.dev";
+      fullName = "David Koch Gregersen";
+      email = "dakg@jobindex.dk";
     };
 
     style = enabled;
