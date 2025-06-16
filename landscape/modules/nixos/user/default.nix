@@ -96,6 +96,7 @@ in
           "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILB9h2AvSBpvHQEcHuXsQPmrHzdezyo6MvzYd1oKTI7n hyena@possum"
           "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPZV6QOMqWhyV/dXVliNRtZIZUmAr2gRTEqAnIisOw1t hyena@aardwolf"
           "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAID73x+vjeI5+mE+mqhs4qGVTSpmg9z0gEtHUPySKUhOq hyena@sabertooth"
+          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMIpnh0XOHGyu+QQ1cDXeVUzN8Fg43HcYSUAnxACKwSN dakg@jobindex.dk"
         ];
       }
       // cfg.extraOptions;
