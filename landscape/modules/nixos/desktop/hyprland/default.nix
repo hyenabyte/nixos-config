@@ -24,24 +24,21 @@ in
       hypridle = enabled;
       hyprlock = enabled;
       hyprpaper = enabled;
+      hyprsunset = enabled;
+      hyprpolkitagent = enabled;
       nautilus = enabled;
       swaync = enabled;
+      udiskie = enabled;
     };
 
     environment.sessionVariables.NIXOS_OZONE_WL = "1";
     environment.defaultPackages = with pkgs; [
       # Hyprland specific
-      hyprpolkitagent
       hyprpicker
-      hyprsunset
       hyprshot
 
       # Images
       feh
-
-      # Clipboard
-      # wl-clipboard
-      # clipse
 
       # Screenshot
       grim
@@ -58,7 +55,6 @@ in
       bluetui
 
       # Utility
-      udiskie
       lm_sensors
     ];
 
@@ -72,13 +68,9 @@ in
 
           xwayland.enable = true;
 
-          # plugins = with pkgs.hyprlandPlugins; [
-          #   hy3
-          # ];
-
           settings =
             let
-              terminal = "${pkgs.alacritty}/bin/alacritty";
+              terminal = "${pkgs.ghostty}/bin/ghostty";
               zellij = "${terminal} --class=com.${namespace}.zellij -e zellij -l welcome";
               fileManager = "${terminal} --class=com.${namespace}.yazi -e yazi";
               fileManager-gui = "nautilus";
@@ -111,16 +103,10 @@ in
               exec-once = [
                 # Focus workspace 1 on startup
                 "hyprctl dispatch workspace 1"
-                # Polkit
-                "systemctl --user start hyprpolkitagent"
                 # Waybar
                 "killall -q waybar;sleep .5 && waybar"
                 # Swaync - Notifications
                 "killall -q swaync;sleep .5 && swaync"
-                # Hyprsunset - red light filter
-                "hyprsunset"
-                # Udiskie - automount USB drives
-                "udiskie"
               ];
 
               general = {
@@ -146,7 +132,10 @@ in
                 inactive_opacity = 1.0;
 
                 shadow.enabled = true;
-                blur.enabled = false;
+                blur = {
+                  size = 10;
+                  passes = 3;
+                };
               };
 
               animations = {
@@ -241,8 +230,8 @@ in
                 "${mainMod} SHIFT, E, exec, ${fileManager-gui}"
                 "${mainMod}, U, exec, ${colorPicker}"
                 "${mainMod}, T, exec, ${terminal}"
-                "${mainMod}, Return, exec, ${zellij}"
-                "${mainMod} SHIFT, Return, exec, ${terminal}"
+                "${mainMod} SHIFT, Return, exec, ${zellij}"
+                "${mainMod}, Return, exec, ${terminal}"
                 "${mainMod}, V, exec, ${clipse}"
                 "${mainMod}, W, exec, ${browser}"
                 "${mainMod}, I, exec, ${screenshot}"
