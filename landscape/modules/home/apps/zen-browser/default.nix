@@ -1,7 +1,5 @@
 { pkgs
 , lib
-, inputs
-, system
 , config
 , namespace
 , ...
@@ -14,9 +12,7 @@ in
   options.${namespace}.apps.zen-browser = { enable = mkEnableOption "Enable Zen Browser"; };
 
   config = mkIf cfg.enable {
-    # home.packages = [
-    #   inputs.zen-browser.packages."${system}".default
-    # ];
+    home.sessionVariables.MOZ_ENABLE_WAYLAND = 1;
 
     programs.zen-browser = {
       enable = true;
@@ -53,9 +49,6 @@ in
         # ];
 
         settings = {
-          # Homepage
-          # "browser.startup.homepage" = "https://duckduckgo.com";
-
           # Search Engine
           "browser.search.defaultenginename" = "DuckDuckGo";
           "browser.search.order.1" = "DuckDuckGo";
