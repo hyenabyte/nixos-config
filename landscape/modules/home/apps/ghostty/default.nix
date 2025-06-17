@@ -23,8 +23,8 @@ in
         window-padding-y = 20;
         window-padding-balance = true;
 
-        font-family = "Agave Nerd Font Mono";
-        font-size = 12;
+        # font-family = "Agave Nerd Font Mono";
+        # font-size = 12;
       };
     };
   };
