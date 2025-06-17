@@ -8,10 +8,10 @@ with lib.${namespace}; let
   cfg = config.${namespace}.shell.fish;
 in
 {
-  options.${namespace}.shell.fish = { enable = mkEnableOption "Enable the Fish shell"; };
+  options.${namespace}.shell.fish = { enable = mkEnableOption "Fish shell"; };
   config = mkIf cfg.enable {
 
-    hyenabyte.shell.addons = {
+    ${namespace}.shell.addons = {
       # bat = enabledWithZsh;
       # fzf = enabledWithZsh;
       # lsd = enabled // {
