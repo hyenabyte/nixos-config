@@ -14,8 +14,8 @@ in
     enable = mkEnableOption "Style";
     polarity = mkOpt str "dark" "Dark or Light mode";
     colorScheme = {
-      light = mkOpt str "rose-pine-dawn" "Light mode color scheme";
-      dark = mkOpt str "everforest" "Dark mode color scheme";
+      light = mkOpt str "gruvbox-material-light-hard" "Light mode color scheme";
+      dark = mkOpt str "gruvbox-material-dark-hard" "Dark mode color scheme";
       isTintedGalleryTheme = mkOpt bool true "Get color scheme from tinted gallery";
     };
   };
@@ -40,6 +40,9 @@ in
       # https://tinted-theming.github.io/tinted-gallery/
       stylix.base16Scheme = colorScheme;
       stylix.image = "${pkgs."${namespace}".wallpapers}/share/wallpapers/ocean.jpg";
+      stylix.opacity = {
+        terminal = 0.95;
+      };
 
       stylix.fonts = {
         sansSerif = {
@@ -49,8 +52,11 @@ in
         serif = config.stylix.fonts.sansSerif;
 
         monospace = {
-          package = pkgs.nerd-fonts.agave;
-          name = "Agave Nerd Font Mono";
+          # package = pkgs.nerd-fonts.agave;
+          package = pkgs.maple-mono.NF;
+          name = "Maple Mono NF";
+          # name = "Iosevka Nerd Font Mono";
+          # name = "Agave Nerd Font Mono";
         };
 
         emoji = {
@@ -72,12 +78,12 @@ in
         light = "Colloid-Everforest-Light";
       };
 
-      stylix.targets.bemenu = {
-        enable = false;
-        fontSize = 16;
-      };
-
       # The dynamically created theme is not updated yet
       stylix.targets.helix.enable = false;
+
+      # Waybar
+      stylix.targets.waybar = {
+        addCss = false;
+      };
     };
 }
