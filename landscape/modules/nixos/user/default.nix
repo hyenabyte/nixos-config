@@ -10,7 +10,8 @@ with lib;
 with lib.${namespace}; let
   cfg = config.${namespace}.user;
 
-  fallbackPasswordHash = "$y$j9T$WTT3f4PsCXRrl7qIbjNrq0$vj7SUfe1j88Q5PbnR802j83bCBMixdjUCsut/YJBcz0";
+  # NB: this should only be used in the case that the age secrets aren't available
+  fallbackPasswordHash = "$y$j9T$2cz6tyg1Yt5yd0Yp146Gk/$aqryNvEtLZbYiWv9Je7Y0thuMs4JxH/0aavULvDi1u7";
 
   defaultIconFileName = "profile.png";
   defaultIcon = pkgs.stdenvNoCC.mkDerivation {
