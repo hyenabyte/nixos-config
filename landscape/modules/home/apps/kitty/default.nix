@@ -1,5 +1,4 @@
-{ pkgs
-, lib
+{ lib
 , config
 , namespace
 , ...
@@ -9,28 +8,20 @@ with lib.${namespace}; let
   cfg = config.${namespace}.apps.kitty;
 in
 {
-  options.${namespace}.apps.kitty = { enable = mkEnableOption "Enable Kitty"; };
+  options.${namespace}.apps.kitty = { enable = mkEnableOption "kitty"; };
   config = mkIf cfg.enable {
     programs.kitty = {
       enable = true;
 
-      themeFile = "everforest_dark_medium";
+      enableGitIntegration = true;
+
+      shellIntegration.enableZshIntegration = true;
+
       settings = {
-        # Fonts
-        font_family = "Agave Nerd Font Mono";
-        bold_font = "auto";
-        italic_font = "auto";
-        bold_italic_font = "auto";
-        font_size = "12.0";
-
-        # Bell
-        enable_audio_bell = "no";
-
-        # Window
-        window_border_width = "0.5pt";
-        window_margin_width = "0";
-        window_padding_width = "12";
+        enable_audio_bell = false;
+        window_padding_width = 20;
       };
+
     };
   };
 }
