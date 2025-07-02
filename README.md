@@ -1,5 +1,9 @@
 # Hyenas Nix Configs
 
+> [!IMPORTANT]
+> The Github version of my configs has been archived as of 2025-07-02,
+> find my up to date configs here: https://codeberg.org/hyenabyte/nixos-config
+
 These are my nix configs I use to manage my computers and servers.
 
 Work in progress :)
